@@ -1,0 +1,49 @@
+:root {
+	--primary: #192646;
+	--secondary: #65a7ee;
+	--background: white;
+	--surface: #ededed;
+	--onSurface: #1926469a;
+	--br: 100px;
+	--brdP: 1px solid var(--primary);
+	--brdS: 1px solid var(--secondary);
+	font-family: Q-Medium;
+	color: var(--primary);
+}
+
+html body {
+	min-width: 400px;
+	height: 100vh;
+	width: 100vw;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+  color: #fff;
+  background-image: linear-gradient(to bottom, #020917, #101725);
+}
+
+.content {
+  display: flex;
+  min-height: 100vh;
+  line-height: 1.1;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.content h1 {
+  /* font-size: 3.6rem; */
+  /* font-weight: 700; */
+}
+
+.content p {
+  /* font-size: 1.2rem; */
+  /* font-weight: 400; */
+  opacity: 0.5;
+}

@@ -1,0 +1,16 @@
+{
+	"compilerOptions": {
+		"removeComments": true,
+		"target": "ES6",
+		"baseUrl": ".",
+		"paths": {
+			"@src/*": ["./src/*"],
+			"@page/*": ["./src/page/*"],
+			"@cmp/*": ["./src/cmp/*"],
+			"@tool/*": ["./src/tool/*"],
+			"@store/*": ["./src/store/*"],
+			"@static/*": ["./static/*"],
+			"@font/*": ["./public/fonts/*"]
+		}
+	}
+}

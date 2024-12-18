@@ -10,7 +10,14 @@
 	font-family: Q-Medium;
 	color: var(--primary);
 }
-
+@font-face {
+	font-family: Q-Medium;
+	src: url("@font/Qanelas-Medium.ttf");
+}
+@font-face {
+	font-family: Q-SemiBold;
+	src: url("@font/Qanelas-SemiBold.ttf");
+}
 html body {
 	min-width: 400px;
 	height: 100vh;
@@ -24,26 +31,26 @@ html body {
 }
 
 body {
-  color: #fff;
-  background-image: linear-gradient(to bottom, #020917, #101725);
+	color: #fff;
+	background-image: linear-gradient(to bottom, #020917, #101725);
 }
 
-.content {
-  display: flex;
-  min-height: 100vh;
-  line-height: 1.1;
-  text-align: center;
-  flex-direction: column;
-  justify-content: center;
+.page {
+	display: flex;
+	min-height: 100vh;
+	line-height: 1.1;
+	text-align: center;
+	flex-direction: column;
+	justify-content: center;
 }
 
 .content h1 {
-  /* font-size: 3.6rem; */
-  /* font-weight: 700; */
+	/* font-size: 3.6rem; */
+	/* font-weight: 700; */
 }
 
 .content p {
-  /* font-size: 1.2rem; */
-  /* font-weight: 400; */
-  opacity: 0.5;
+	/* font-size: 1.2rem; */
+	/* font-weight: 400; */
+	opacity: 0.5;
 }

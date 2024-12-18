@@ -1,3 +1,4 @@
 export default function Nav({list}) {
-	return <nav></nav>
+	if (!list) return null
+	return <nav>1</nav>
 }

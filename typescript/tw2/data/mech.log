@@ -1,0 +1,3 @@
+{"buildingId":12,"level":"error","message":"error","owner":1,"pcId":12,"timestamp":"2024-12-20 12:12:42","value":true}
+{"buildingId":12,"level":"user","message":"user","owner":1,"pcId":12,"timestamp":"2024-12-20 12:12:42","value":true}
+{"buildingId":12,"level":"mech","message":"mech","owner":1,"pcId":12,"timestamp":"2024-12-20 12:12:42","value":true}

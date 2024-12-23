@@ -1,5 +1,6 @@
-function fn(){
-	console.log(111)
+function sum(a:number, b:number):number{
+	console.log('Произведение чисел: ', a*b)
+	return a*b
 }
 
-export default fn
+export default sum

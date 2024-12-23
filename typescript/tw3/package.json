@@ -1,16 +1,17 @@
 {
-  "name": "tw3",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
-  "devDependencies": {
-    "tsc-watch": "^6.2.1",
-    "typescript": "^5.7.2"
-  }
+	"name": "tw3",
+	"version": "1.0.0",
+	"main": "index.js",
+	"scripts": {
+		"dev": "tsc-watch --onsuccess \"node ./build/index.js\"",
+		"start": "node ./build/index.js"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"description": "",
+	"devDependencies": {
+		"tsc-watch": "^6.2.1",
+		"typescript": "^5.7.2"
+	}
 }

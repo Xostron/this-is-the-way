@@ -1,4 +1,4 @@
-import typescriptEslint from '@typescript-eslint/eslint-plugin'
+import typescriptEslint, { rules } from '@typescript-eslint/eslint-plugin'
 import tsParser from '@typescript-eslint/parser'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -34,5 +34,6 @@ export default [
 				project: 'tsconfig.json',
 			},
 		},
+		// rules: { 'prefer-const': 0 },
 	},
 ]

@@ -12,15 +12,15 @@ const router = createBrowserRouter([
 		element: <Main />,
 	},
 	{
-		path: "achv",
+		path: "a",
 		element: <Achieve />,
 	},
 	{
-		path: "secret",
+		path: "s",
 		element: <Secret />,
 	},
 	{
-		path: "boost",
+		path: "b",
 		element: <Boost />,
 	},
 	{

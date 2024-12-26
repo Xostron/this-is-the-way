@@ -1,0 +1,8 @@
+{"level":"error","message":"Ошибка","owner":1,"timestamp":"2024-12-26 11:02:04","value":true}
+{"level":"user","message":"Пользователь изменил настройки","owner":1,"timestamp":"2024-12-26 11:02:04","value":true}
+{"level":"state","message":"Двигатель запущен","owner":1,"timestamp":"2024-12-26 11:02:04","value":true}
+{"level":"work","message":"Продукт достиг температуры","owner":1,"timestamp":"2024-12-26 11:02:04","value":true}
+{"level":"error","message":"Ошибка","owner":1,"timestamp":"2024-12-26 11:02:14","value":true}
+{"level":"user","message":"Пользователь изменил настройки","owner":1,"timestamp":"2024-12-26 11:02:14","value":true}
+{"level":"state","message":"Двигатель запущен","owner":1,"timestamp":"2024-12-26 11:02:14","value":true}
+{"level":"work","message":"Продукт достиг температуры","owner":1,"timestamp":"2024-12-26 11:02:14","value":true}

@@ -1,38 +1,61 @@
-const { createLogger, format, transports } = require('winston')
+const winston = require('winston')
+require('winston-daily-rotate-file')
+const { createLogger, format, transports } = winston
+const { combine, timestamp, json } = format
 
-/* Записывает логи по приоритету от 0 - высший приоритет, 4 - минимальный
-поэтому получается:
-error 0 - содержит сообщения с уровнем error.
-user: 1 - содержит сообщения с уровнем error и user.
-mech: 2 - содержит сообщения с уровнем error, user, mech.
-sensor: 3 - содержит сообщения с уровнем error, user, mech, sensor.
-info: 4 - содержит все сообщения
-*/
-
+/* Записывает логи по приоритету от 0 - высший приоритет, 4 - минимальный*/
 // Пользовательские приоритеты
-const custom = { levels: { error: 0, user: 1, mech: 2, sensor: 3, info: 4 } }
+const custom = { levels: { error: 1, user: 2, state: 3, work: 4, all: 5 } }
+// Фильтры
+function filterLog(type) {
+	return format((info, opts) => (info.level === type ? info : false))
+}
+
+// Шаблоны файлов логов
+templates = [
+	{
+		filename: './data/error-%DATE%.log',
+		datePattern: 'YYYY-MM-DD hh-mm',
+		maxFiles: '1m',
+		level: 'error',
+		format: combine(filterLog('error')()),
+	},
+	{
+		filename: './data/user-%DATE%.log',
+		datePattern: 'YYYY-MM-DD hh-mm',
+		maxFiles: '1m',
+		level: 'user',
+		format: combine(filterLog('user')()),
+	},
+	{
+		filename: './data/state-%DATE%.log',
+		datePattern: 'YYYY-MM-DD hh-mm',
+		maxFiles: '1m',
+		level: 'state',
+		format: combine(filterLog('state')()),
+	},
+	{
+		filename: './data/work-%DATE%.log',
+		datePattern: 'YYYY-MM-DD hh-mm',
+		maxFiles: '1m',
+		level: 'work',
+		format: combine(filterLog('work')()),
+	},
+	{
+		filename: './data/all-%DATE%.log',
+		datePattern: 'YYYY-MM-DD hh-mm',
+		maxFiles: '1m',
+		level: 'all',
+	},
+]
+const filesRotateTransport = templates.map((el) => new transports.DailyRotateFile(el))
 
 // Создаем логгер
 const logger = createLogger({
 	levels: custom.levels,
-	format: format.combine(
-		format.timestamp({
-			format: 'YYYY-MM-DD HH:mm:ss',
-		}),
-		format.errors({ stack: true }),
-		format.splat(),
-		format.json()
-	),
-	defaultMeta: { pcId: 12, buildingId: 12 },
-	transports: [
-		new transports.File({ filename: './data/error.log', level: 'error' }),
-		new transports.File({ filename: './data/user.log', level: 'user' }),
-		new transports.File({ filename: './data/mech.log', level: 'mech' }),
-		new transports.File({ filename: './data/sensor.log', level: 'sensor' }),
-		new transports.File({ filename: './data/info.log', level: 'info' }),
-	],
+	level: 'info',
+	format: combine(timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }), json()),
+	transports: [...filesRotateTransport],
 })
-
-
 
 module.exports = logger

@@ -1,45 +1,32 @@
 const def = {
 	1: {
-		// timestamp: new Date(),
+		
 		owner: 1,
 		value: true,
-		message: 'Без лвл',
+		message: 'Ошибка',
+		
 	},
 	2: {
-		// timestamp: new Date(),
+		
 		owner: 1,
 		value: true,
-		message: 'info',
-		level: 'info',
+		message: 'Пользователь изменил настройки',
+		
 	},
 	3: {
-		// timestamp: new Date(),
+		
 		owner: 1,
 		value: true,
-		message: 'error',
-		level: 'error',
+		message: 'Двигатель запущен',
+		
 	},
 	4: {
-		// timestamp: new Date(),
+		
 		owner: 1,
 		value: true,
-		message: 'user',
-		level: 'user',
-	},
-	5: {
-		// timestamp: new Date(),
-		owner: 1,
-		value: true,
-		message: 'mech',
-		level: 'mech',
-	},
-	6: {
-		// timestamp: new Date(),
-		owner: 1,
-		value: true,
-		message: 'sensor',
-		level: 'sensor',
-	},
+		message: 'Продукт достиг температуры',
+		
+	}
 }
 
 module.exports = def

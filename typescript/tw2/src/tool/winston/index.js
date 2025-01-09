@@ -1,5 +1,4 @@
-const winston = require('winston')
-const { createLogger } = winston
+const { createLogger } = require('winston')
 const { custom, filesRotate, formatCombine } = require('./config')
 
 /* Записывает логи по приоритету от 0 - высший приоритет, 4 - минимальный*/
@@ -8,7 +7,6 @@ const { custom, filesRotate, formatCombine } = require('./config')
 const logger = createLogger({
 	levels: custom.levels,
 	level: 'info',
-	format: formatCombine(),
 	transports: [...filesRotate],
 })
 

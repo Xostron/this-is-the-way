@@ -24,7 +24,12 @@ export class PrdSelHelp {
 
 export class PrdSelMut {
 	// Добавить продукт
-	public static addPrd(selections: PrdSel[], prd: Prd, count: number) {}
+	public static addPrd(selections: PrdSel[], product: Prd, count: number) {
+		const idx = selections.findIndex((el) => el.product.id === product.id)
+		console.log(222, idx)
+		if (idx>-1) selections[idx].count += count
+		else selections.push({ product, count })
+	}
 	// Убрать продукт
 	public static removePrd(selections: PrdSel[], id: number) {
 		selections.forEach((el, i) => {

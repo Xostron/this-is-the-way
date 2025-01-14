@@ -1,4 +1,4 @@
-import React, { FunctionComponent, FC, useState } from 'react'
+import React, { FC, useState } from 'react'
 import { Prd } from '@tool/product'
 
 type Props = {
@@ -6,7 +6,12 @@ type Props = {
 	cb: (prd: Prd, count: number) => void
 }
 
-export const PrdItem: FC<Props> = (props) => {
+/**
+ * Элемент списка продкутов
+ * @param props
+ * @returns
+ */
+const PrdItem: FC<Props> = (props) => {
 	const { prd, cb } = props
 	const [count, setCount] = useState<number>(1)
 
@@ -28,3 +33,5 @@ export const PrdItem: FC<Props> = (props) => {
 		</article>
 	)
 }
+
+export default PrdItem

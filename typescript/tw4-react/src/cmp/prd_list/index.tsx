@@ -1,5 +1,5 @@
 import Header from '@src/cmp/header'
-import { Prd, PrdSel } from '@src/tool/product'
+import { Prd, PrdSel } from '@src/tool/entries'
 import { FC, useState } from 'react'
 import CtgList from '../ctg_list'
 import PrdItem from './item'

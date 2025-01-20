@@ -21,7 +21,7 @@ export default defineConfig({
 		  },
 	},
 	html: {
-		title: 'AngarWEB',
+		title: 'tw4 - Адам Фриман Основы ts',
 		// 	template: './static/index.html',
 		// favicon: './static/icon.png',
 		// appIcon: './src/assets/icon.png',

@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react'
-import { Prd } from '@tool/product'
+import { Prd } from '@src/tool/entries'
 
 type Props = {
 	prd: Prd

@@ -29,7 +29,8 @@
 			"@src/*": ["./src/*"],
 			"@cmp/*": ["./src/cmp/*"],
 			"@page/*": ["./src/page/*"],
-			"@tool/*": ["./src/tool/*"]
+			"@tool/*": ["./src/tool/*"],
+			"@store/*": ["./src/store/*"]
 		}
 	},
 	"include": ["src"]

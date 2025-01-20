@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { PrdSel, PrdSelHelp } from '@tool/product'
+import { PrdSel, PrdSelHelp } from '@src/tool/entries'
 
 interface Props {
 	selections: PrdSel[]

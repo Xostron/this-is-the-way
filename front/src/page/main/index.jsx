@@ -42,8 +42,8 @@ const data = {
 	// bld7, sec1, low1 совпадает
 	bld7: {
 		sec11: {
-			low1: { date: 10, id: 20, code: 30 },
-			low21: { date: 10, id: 20, code: 30 },
+			low1: { date: 0, id: 20, code: 30 },
+			low21: { date: 110, id: 20, code: 30 },
 		},
 		// sec12: { low2: { date: 10, id: 20, code: 30 } },
 		// sec12: { low3: { date: 10, id: 20, code: 30 } },
@@ -72,13 +72,12 @@ const obj = {
 	bld8: {
 		sec11: { low1: { date: 10, id: 20, code: 30 } },
 		sec12: { low2: { date: 10, id: 20, code: 30 } },
-		sec12: { low3: { date: 10, id: 20, code: 30 } },
 	},
 	// bld 5 совпадает - отсальное нет
 	bld5: {
-		sec1: { low1: { date: 10, id: 20, code: 30 } },
-		sec2: { low2: { date: 10, id: 20, code: 30 } },
-		sec3: { low3: { date: 10, id: 20, code: 30 } },
+		sec1: { low11: { date: 10, id: 20, code: 30 } },
+		sec2: { low21: { date: 10, id: 20, code: 30 } },
+		sec3: { low31: { date: 10, id: 20, code: 30 } },
 	},
 	// bld6, sec1 совпадает, остальное нет
 	bld6: {
@@ -97,7 +96,7 @@ const obj = {
 	},
 }
 const Main = () => {
-	all(data, obj)
+	all(obj, data)
 	console.log(222, obj)
 	// const r = getKeys(o)
 	// console.log(111, "result", r)
@@ -133,9 +132,17 @@ function getKeys(o) {
 	return r.length ? r : null
 }
 
-// obj целевой объект - пересечение с data
-// (нетронутые ключи неизменны, совпадаемы ключи с data копируются в obj)
-function all(data, obj, prev, key) {
+/**
+ * obj - актуальные аварии, data - сохраненые аварии
+ * Поиск пересечения между двумя объектами, результат мутированный obj,
+ * в котором пересечения копируются из data
+ * @param {*} data данные из файла (слудующая вложенность)
+ * @param {*} obj данные из итерации (следующая вложенность)
+ * @param {*} prev данные из итерации (предыдущая вложенность)
+ * @param {*} key предыдущий ключ
+ * @returns
+ */
+function all(obj, data, prev, key) {
 	const keys = Object.keys(obj)
 	// console.log(111, key, obj, keys)
 	for (const k of keys) {
@@ -147,7 +154,7 @@ function all(data, obj, prev, key) {
 				return
 			}
 			// console.log(444, k, obj)
-			all(data[k], obj[k], obj, k)
+			all(obj[k], data[k], obj, k)
 		}
 	}
 }

@@ -13,7 +13,10 @@ const data = {
 	bld2: {
 		// sec21: { low4: { date: 10, id: 20, code: 30 } },
 		// sec22: { low5: { date: 10, id: 20, code: 30 } },
-		sec23: { low6: { date: 1, id: 2, code: 3 },low7: { date: 1, id: 2, code: 3 } },
+		sec23: {
+			low6: { date: 1, id: 2, code: 3 },
+			low7: { date: 1, id: 2, code: 3 },
+		},
 	},
 	// ключи совпадают - значение нет
 	bld3: {
@@ -54,13 +57,19 @@ const obj = {
 	bld1: {
 		sec11: { low1: { date: 10, id: 20, code: 30 } },
 		sec12: { low2: { date: 10, id: 20, code: 30 } },
-		sec13: { low3: { date: 10, id: 20, code: 30 },low4: { date: 10, id: 20, code: 30 } },
+		sec13: {
+			low3: { date: 10, id: 20, code: 30 },
+			low4: { date: 10, id: 20, code: 30 },
+		},
 	},
 	// частичное
 	bld2: {
 		sec21: { low4: { date: 10, id: 20, code: 30 } },
 		sec22: { low5: { date: 10, id: 20, code: 30 } },
-		sec23: { low6: { date: 10, id: 20, code: 30 },low3: { date: 10, id: 20, code: 30 } },
+		sec23: {
+			low6: { date: 10, id: 20, code: 30 },
+			low3: { date: 10, id: 20, code: 30 },
+		},
 	},
 	// ключи совпадают - значение нет
 	bld3: {
@@ -96,11 +105,17 @@ const obj = {
 	},
 }
 const Main = () => {
+	console.time('all')
 	all(obj, data)
-	console.log(222, obj)
-	// const r = getKeys(o)
-	// console.log(111, "result", r)
+	console.timeEnd('all')
 
+	console.log(111, obj)
+	
+	console.time('get')
+	const r = getKeys(obj)
+	console.timeEnd('get')
+	
+	console.log(222, r)
 	// console.log("main")
 	return (
 		<main className='page'>
@@ -122,12 +137,11 @@ function getKeys(o) {
 	const keys = Object.keys(o)
 	const r = []
 	keys.forEach((k) => {
-		if (typeof o[k] !== "object") {
-			return
-		}
-
-		r.push(k)
-		r.push(getKeys(o[k]))
+		if (typeof o[k] !== "object") return
+		const rr = getKeys(o[k])?.filter((el) => el)
+		const t = { key: k }
+		rr ? (t.nest = rr) : null
+		r.push(t)
 	})
 	return r.length ? r : null
 }

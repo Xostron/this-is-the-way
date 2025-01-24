@@ -7,7 +7,7 @@ const data = {
 	bld1: {
 		sec11: { low1: { date: 11, id: 21, code: 31 } },
 		sec12: { low2: { date: 12, id: 22, code: 32 } },
-		sec13: { low3: { date: 13, id: 23, code: 33 } },
+		sec13: { low3: {on:{ date: 13, id: 23, code: 33 }} },
 	},
 	// частичное
 	bld2: {
@@ -58,7 +58,7 @@ const obj = {
 		sec11: { low1: { date: 10, id: 20, code: 30 } },
 		sec12: { low2: { date: 10, id: 20, code: 30 } },
 		sec13: {
-			low3: { date: 10, id: 20, code: 30 },
+			low3:{on:{ date: 1, id: 2, code: 3 }},
 			low4: { date: 10, id: 20, code: 30 },
 		},
 	},

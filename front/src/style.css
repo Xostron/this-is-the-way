@@ -12,11 +12,11 @@
 }
 @font-face {
 	font-family: Q-Medium;
-	src: url("@font/Qanelas-Medium.ttf");
+	src: url('@font/Qanelas-Medium.ttf');
 }
 @font-face {
 	font-family: Q-SemiBold;
-	src: url("@font/Qanelas-SemiBold.ttf");
+	src: url('@font/Qanelas-SemiBold.ttf');
 }
 html body {
 	min-width: 400px;
@@ -33,17 +33,20 @@ html body {
 body {
 	color: #fff;
 	background-image: linear-gradient(to bottom, #020917, #101725);
+	/* overflow: overlay; */
 }
 
-
-
-/* .content h1 {
-	font-size: 3.6rem;
-	font-weight: 700;
+/* ===== Scrollbar CSS ===== */
+*::-webkit-scrollbar {
+	display: block;
+	width: 5px;
+}
+*::-webkit-scrollbar-track {
+	background: transparent;
 }
 
-.content p {
-	font-size: 1.2rem;
-	font-weight: 400;
-	opacity: 0.5;
-} */
+*::-webkit-scrollbar-thumb {
+	background: #9a9a9a;
+	border-radius: 5px;
+	border: 1px solid #bababa;
+}

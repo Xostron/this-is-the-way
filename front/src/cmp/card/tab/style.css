@@ -1,0 +1,65 @@
+.cmp-card-tab-wrap {
+	display: flex;
+	position: relative;
+	height: min(calc(100vw * 46 / 1194), 46px);
+	/* background-color: aqua; */
+}
+/* задний фон для вкладок*/
+.cmp-card-tab-back {
+	width: 100%;
+	height: min(calc(100vw * 80 / 1194), 80px);
+	position: absolute;
+	background-color: rgba(156, 155, 155, 0.5);
+	border-radius: 8px;
+}
+/* задний фон если нет вкладок */
+.cmp-card-tab-back.active {
+	background-color: rgba(156, 155, 155, 0.5);
+}
+
+/* Вкладка */
+.cmp-card-tab-main {
+	position: relative;
+	right: 0;
+	width: 100%;
+	font-weight: 600;
+	font-size: 24px;
+	border-radius: 8px 8px 0 0;
+	border: none;
+	cursor: pointer;
+	background-color: transparent;
+}
+/* вкладка в фокусе */
+.cmp-card-tab-main.active {
+	background-color: #a16ff8;
+}
+/* скругление справа */
+.cmp-card-tab-main.active::before {
+	content: '';
+	position: absolute;
+	bottom: 0px;
+	left: 100%;
+	width: 1em;
+	height: 1em;
+	background-color: #a16ff8;
+	mask-image: linear-gradient(to top, green, green), radial-gradient(circle 0px at center, #000 80%, transparent 81%);
+	mask-size:100% 100%, 100%;
+	mask-position: bottom left, center;
+	mask-repeat: no-repeat, repeat;
+	mask-composite: subtract;
+}
+/* скругление слева */
+.cmp-card-tab-main.active::after {
+	content: '';
+	position: absolute;
+	bottom: min(calc(100vw * 26 / 1194), 26px);
+	right: 95.5%;
+	width: min(calc(100vw * 56 / 1194), 56px);
+	height: min(calc(100vw * 56 / 1194), 56px);
+	background-color: #d9d9d9;
+	mask-image: linear-gradient(to top, green, green), radial-gradient(circle min(calc(100vw * 29 / 1194), 29px) at center, #000 80%, transparent 81%);
+	mask-size: min(calc(100vw * 23 / 1194), 23px) min(calc(100vw * 23 / 1194), 23px), 100%;
+	mask-position: bottom right, center;
+	mask-repeat: no-repeat, repeat;
+	mask-composite: subtract;
+}

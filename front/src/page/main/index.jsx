@@ -2,6 +2,7 @@ import Nav from '@cmp/nav'
 import Footer from '@cmp/footer'
 import List from './list'
 import './style.css'
+import Card from '@cmp/card'
 
 const Main = () => {
 	console.time('all')
@@ -29,6 +30,28 @@ const Main = () => {
 							<p className='card-text'>asdas asdasd</p>
 							<button className='card-btn'>Кнопка</button>
 						</article>
+					))}
+				</section>
+				<section className='cmp-card-list'>
+					{[
+						{
+							title: 'Warhammer',
+							text: 'Сайфер',
+							tab: [
+								{ id: 1, name: '12' },
+								{ id: 2, name: '42' },{ id: 2, name: '42' },
+							],
+						},
+						{
+							title: 1,
+							text: 2,
+							tab: [
+								{ id: 1, name: '12' },
+								// { id: 2, name: '42' },
+							],
+						},
+					].map((el, i) => (
+						<Card card={el} key={i} />
 					))}
 				</section>
 			</section>

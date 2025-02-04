@@ -1,0 +1,29 @@
+.cmp-card-list{
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+
+.cmp-card-wrapper{
+	width: calc(100% / 2 - 8px);
+}
+
+.cmp-card {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	/* width: calc(100% / 2 - 8px); */
+	width: 100%;
+	min-height: 200px;
+	padding: 16px;
+	border: 1px solid white;
+	border-radius: 16px;
+	background-color: #0a1128;
+	transition-duration: .4s;
+	transition-timing-function: ease;
+	transition-property: background-color;
+	
+	&:hover {
+		background-color: #0e1736;
+	}
+}

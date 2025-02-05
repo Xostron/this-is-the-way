@@ -39,7 +39,8 @@ const Main = () => {
 							text: 'Сайфер',
 							tab: [
 								{ id: 1, name: '12' },
-								{ id: 2, name: '42' },{ id: 2, name: '42' },
+								{ id: 2, name: '42' },
+								{ id: 2, name: '42' },
 							],
 						},
 						{
@@ -54,6 +55,7 @@ const Main = () => {
 						<Card card={el} key={i} />
 					))}
 				</section>
+
 			</section>
 			<section className='asidel'>3</section>
 			<section className='asider'>4</section>

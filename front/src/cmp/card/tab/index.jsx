@@ -15,15 +15,7 @@ const Tab = ({ tabs = [], num, set }) => {
 			<div className={back}></div>
 			{tabs.length > 1 &&
 				tabs.map(({ id, name }, idx) => (
-					<button
-						key={id}
-						className={['cmp-card-tab-main', idx === num ? 'active' : ''].join(' ')}
-						onClick={() => {
-							console.log(1111, idx)
-							// set((prev) => (prev = idx))
-							set(idx)
-						}}
-					>
+					<button key={id} className={['cmp-card-tab-main', idx === num ? 'active' : ''].join(' ')} onClick={() => set(idx)}>
 						{name}
 					</button>
 				))}

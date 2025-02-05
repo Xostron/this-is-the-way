@@ -37,13 +37,13 @@
 .cmp-card-tab-main.active::before {
 	content: '';
 	position: absolute;
-	bottom: 0px;
+	bottom: 0;
 	left: 100%;
 	width: 1em;
 	height: 1em;
 	background-color: #a16ff8;
-	mask-image: linear-gradient(to top, green, green), radial-gradient(circle 0px at center, #000 80%, transparent 81%);
-	mask-size:100% 100%, 100%;
+	mask-image: linear-gradient(to top, green, green), radial-gradient(circle .6em at center, #000 80%, transparent 81%);
+	mask-size:.5em .5em, 100%;
 	mask-position: bottom left, center;
 	mask-repeat: no-repeat, repeat;
 	mask-composite: subtract;
@@ -52,13 +52,13 @@
 .cmp-card-tab-main.active::after {
 	content: '';
 	position: absolute;
-	bottom: min(calc(100vw * 26 / 1194), 26px);
-	right: 95.5%;
-	width: min(calc(100vw * 56 / 1194), 56px);
-	height: min(calc(100vw * 56 / 1194), 56px);
-	background-color: #d9d9d9;
-	mask-image: linear-gradient(to top, green, green), radial-gradient(circle min(calc(100vw * 29 / 1194), 29px) at center, #000 80%, transparent 81%);
-	mask-size: min(calc(100vw * 23 / 1194), 23px) min(calc(100vw * 23 / 1194), 23px), 100%;
+	bottom: 0;
+	right: 100%;
+	width: 1em;
+	height: 1em;
+	background-color: #a16ff8;
+	mask-image: linear-gradient(to top, green, green), radial-gradient(circle .6em at center, #000 80%, transparent 81%);
+	mask-size: .5em .5em, 100%;
 	mask-position: bottom right, center;
 	mask-repeat: no-repeat, repeat;
 	mask-composite: subtract;

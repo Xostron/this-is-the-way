@@ -1,41 +1,82 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+var path = require("path")
+const cors = require("cors")
+var logger = require("morgan")
+var createError = require("http-errors")
+var express = require("express")
+var cookieParser = require("cookie-parser")
+var cookieParser = require("cookie-parser")
+const fileUpload = require("express-fileupload")
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var indexRouter = require("./routes/index")
+const api = require("@api/index")
+// const errorMiddleW = require('@middlew/error')
+// const authMiddleW = require('@middlew/auth')
 
-var app = express();
+// Максимальный размер тела запроса
+const limit = process.env?.REQ_LIMIT ?? "100mb"
+//Подписывание кук
+const cookie_secret = process.env?.COOKIE_SECRET ?? "*65nwyTuLuIY"
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'pug');
+function App(db) {
+	const app = express()
+	app.use(express.json({ limit, inflate: true }))
+	// Временная папка
+	const tempFileDir = path.join(__dirname, "temp")
+	// Настрока загрузки файлов
+	app.use(
+		fileUpload({
+			createParentPath: true,
+			useTempFiles: true,
+			tempFileDir,
+			// safeFileNames: true,
+			// debug: true,
+		})
+	)
+	// Отключение CORS
+	app.use(
+		cors({
+			credentials: true,
+			origin: (origin, callback) => callback(null, true),
+		})
+	)
 
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+	// view engine setup
+	app.set("views", path.join(__dirname, "views"))
+	app.set("view engine", "pug")
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+	app.use(logger("dev"))
+	// app.use(express.json())
+	app.use(express.urlencoded({ extended: false }))
+	app.use(cookieParser(cookie_secret))
+	app.use(express.static(path.join(__dirname, "public")))
 
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
-});
+  // Html page
+	app.use("/", indexRouter)
 
-// error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+  // Проверка и сбор информации о клиенте
+	// app.use(authMiddleW)
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
-});
+  if (db) {
+		// Дополнение данными из БД
+		// app.use(infoMiddleW(db))
 
-module.exports = app;
+		// Наше API
+		// app.use('/api', api(db))
+	}
+  // app.use(errorMiddleW)
+	// catch 404 and forward to error handler
+	app.use((req, res, next) => next(createError(404)))
+
+	// error handler
+	app.use((err, req, res, next) => {
+		// set locals, only providing error in development
+		res.locals.message = err.message
+		res.locals.error = req.app.get("env") === "development" ? err : {}
+		// render the error page
+		res.status(err.status || 500)
+		res.render("error")
+	})
+	return app
+}
+
+module.exports = App

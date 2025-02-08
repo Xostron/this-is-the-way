@@ -3,16 +3,24 @@
 /**
  * Module dependencies.
  */
-
-var app = require('../app');
+var path = require('path');
+require('module-alias/register');
+require('dotenv').config({ path: path.join(__dirname, '..', '..', '.env') });
+const mongojs = require('mongojs');
+var App = require('../app');
 var debug = require('debug')('back-n1:server');
 var http = require('http');
 
 /**
  * Get port from environment and store in Express.
  */
-
 var port = normalizePort(process.env.PORT || '4101');
+// Подключение к mongo
+const db = mongojs(process.env.BD_URI);
+db.on('error', (err) => console.log('Отсутствует связь с MongoDB'));
+db.on('connect', () => console.log('Связь с MongoDB установлена'));
+
+const app = App(db);
 app.set('port', port);
 
 /**
@@ -88,3 +96,12 @@ function onListening() {
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
+
+/**
+ * Graceful Shutdown
+ */
+process.on('SIGINT', function () {
+	db.close();
+	//exit with a 'success' code 0
+	process.exit(0);
+});

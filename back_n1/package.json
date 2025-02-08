@@ -1,0 +1,27 @@
+{
+  "name": "back-n1",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nodemon ./src/bin/www",
+    "start": "node ./src/bin/www"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "debug": "^4.4.0",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-fileupload": "^1.5.1",
+    "http-errors": "^2.0.0",
+    "module-alias": "^2.2.3",
+    "mongojs": "^3.1.0",
+    "morgan": "^1.10.0",
+    "pug": "3.0.3",
+    "uuid": "^11.0.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}

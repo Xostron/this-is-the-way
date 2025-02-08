@@ -1,9 +1,16 @@
-var express = require("express")
-var router = express.Router()
+const express = require("express")
+const router = express.Router()
+const auth = require('./auth')
+const file = require('./file')
+const user = require('./user')
 
-/* GET users listing. */
-router.get("/", function (req, res, next) {
-	res.json({ qwe: 123 })
-})
 
-module.exports = router
+function api(db){
+	auth(router, db)
+	file(router, db)
+	user(router, db)
+	return router
+}
+
+
+module.exports = api

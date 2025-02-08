@@ -6,7 +6,6 @@ var express = require("express")
 var cookieParser = require("cookie-parser")
 var cookieParser = require("cookie-parser")
 const fileUpload = require("express-fileupload")
-
 var indexRouter = require("./routes/index")
 const api = require("@api/index")
 // const errorMiddleW = require('@middlew/error')
@@ -33,37 +32,31 @@ function App(db) {
 		})
 	)
 	// Отключение CORS
-	app.use(
-		cors({
-			credentials: true,
-			origin: (origin, callback) => callback(null, true),
-		})
-	)
+	app.use(cors({ credentials: true, origin: (origin, cb) => cb(null, true) }))
 
 	// view engine setup
 	app.set("views", path.join(__dirname, "views"))
 	app.set("view engine", "pug")
 
 	app.use(logger("dev"))
-	// app.use(express.json())
 	app.use(express.urlencoded({ extended: false }))
 	app.use(cookieParser(cookie_secret))
 	app.use(express.static(path.join(__dirname, "public")))
 
-  // Html page
+	// Html page
 	app.use("/", indexRouter)
 
-  // Проверка и сбор информации о клиенте
+	// Проверка и сбор информации о клиенте
 	// app.use(authMiddleW)
 
-  if (db) {
+	if (db) {
 		// Дополнение данными из БД
 		// app.use(infoMiddleW(db))
 
-		// Наше API
-		// app.use('/api', api(db))
+		// API
+		app.use("/api", api(db))
 	}
-  // app.use(errorMiddleW)
+	// app.use(errorMiddleW)
 	// catch 404 and forward to error handler
 	app.use((req, res, next) => next(createError(404)))
 

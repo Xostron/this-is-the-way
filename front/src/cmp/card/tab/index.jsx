@@ -8,17 +8,33 @@ import './style.css'
  * @returns
  */
 const Tab = ({ tabs = [], num, set }) => {
-	// задний фон вкладок карточки
-	const back = tabs.length > 1 ? 'cmp-card-tab-back' : `cmp-card-tab-back active`
+	if (!tabs.length)
+		return (
+			<div className='cmp-card-tab-wrap'>
+				<div className={'cmp-card-tab-back'}></div>
+			</div>
+		)
+
 	return (
 		<div className='cmp-card-tab-wrap'>
-			<div className={back}></div>
-			{tabs.length > 1 &&
-				tabs.map(({ id, name }, idx) => (
-					<button key={id} className={['cmp-card-tab-main', idx === num ? 'active' : ''].join(' ')} onClick={() => set(idx)}>
-						{name}
-					</button>
-				))}
+			{tabs.length > 0 &&
+				tabs.map(({ id, name }, idx) => {
+					// Вкладка
+					let clTab = ['cmp-card-tab-btn', idx === num ? 'active' : '']
+					clTab = clTab.join(' ')
+					// Подложка
+					let clBack = ['cmp-card-tab-back', idx === num ? 'active' : '']
+					clBack = clBack.join(' ')
+
+					return (
+						<>
+							<button key={id} className={clTab} onClick={() => set(idx)}>
+								{name}
+								<div className={clBack}></div>
+							</button>
+						</>
+					)
+				})}
 		</div>
 	)
 }

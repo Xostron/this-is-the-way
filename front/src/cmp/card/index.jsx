@@ -3,7 +3,7 @@ import './style.css'
 import Tab from './tab'
 
 export default function Card({ card }) {
-	const [ num, setNum ] = useState(1)
+	const [ num, setNum ] = useState(0)
 	return (
 		<article className='cmp-card-wrapper'>
 			<Tab tabs={card.tab} num={num} set={setNum} />

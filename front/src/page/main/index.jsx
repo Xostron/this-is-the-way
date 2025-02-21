@@ -38,24 +38,36 @@ const Main = () => {
 							title: 'Warhammer',
 							text: 'Сайфер',
 							tab: [
-								{ id: 1, name: '12' },
-								{ id: 2, name: '42' },
-								{ id: 2, name: '42' },
+								{ id: 1, name: 1 },
+								{ id: 2, name: 2 },
+								{ id: 3, name: 3 },
+								{ id: 4, name: 4 },
+								{ id: 5, name: 5 },
 							],
 						},
 						{
-							title: 1,
-							text: 2,
+							title: 'Warhammer',
+							text: 'Сайфер',
 							tab: [
-								{ id: 1, name: '12' },
-								// { id: 2, name: '42' },
+								{ id: 1, name: 1 },
+								{ id: 2, name: 2 },
+								{ id: 3, name: 3 },
 							],
+						},
+						{
+							title: 'Warhammer',
+							text: 'Сайфер',
+							tab: [{ id: 1, name: 1 }],
+						},
+						{
+							title: 'Warhammer',
+							text: 'Сайфер',
+							tab: [],
 						},
 					].map((el, i) => (
 						<Card card={el} key={i} />
 					))}
 				</section>
-
 			</section>
 			<section className='asidel'>3</section>
 			<section className='asider'>4</section>

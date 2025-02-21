@@ -1,24 +1,28 @@
+/* Обертка */
 .cmp-card-tab-wrap {
 	display: flex;
 	position: relative;
 	height: min(calc(100vw * 46 / 1194), 46px);
-	/* background-color: aqua; */
+	background-color: rgba(156, 155, 155, 0.5);
+	border-radius: 8px 8px 0 0;
 }
+
 /* задний фон для вкладок*/
 .cmp-card-tab-back {
-	width: 100%;
-	height: min(calc(100vw * 80 / 1194), 80px);
 	position: absolute;
+	bottom: -50px;
+	width: 100%;
+	height: 50px;
 	background-color: rgba(156, 155, 155, 0.5);
-	border-radius: 8px;
+	/* background-color: red; */
 }
-/* задний фон если нет вкладок */
+/* задний фон активной вкладок */
 .cmp-card-tab-back.active {
-	background-color: rgba(156, 155, 155, 0.5);
+	background-color: #a16ff8;
 }
 
 /* Вкладка */
-.cmp-card-tab-main {
+.cmp-card-tab-btn {
 	position: relative;
 	right: 0;
 	width: 100%;
@@ -28,28 +32,15 @@
 	border: none;
 	cursor: pointer;
 	background-color: transparent;
+	z-index: 10;
 }
-/* вкладка в фокусе */
-.cmp-card-tab-main.active {
+/* Активная вкладка */
+.cmp-card-tab-btn.active {
 	background-color: #a16ff8;
 }
-/* скругление справа */
-.cmp-card-tab-main.active::before {
-	content: '';
-	position: absolute;
-	bottom: 0;
-	left: 100%;
-	width: 1em;
-	height: 1em;
-	background-color: #a16ff8;
-	mask-image: linear-gradient(to top, green, green), radial-gradient(circle .6em at center, #000 80%, transparent 81%);
-	mask-size:.5em .5em, 100%;
-	mask-position: bottom left, center;
-	mask-repeat: no-repeat, repeat;
-	mask-composite: subtract;
-}
-/* скругление слева */
-.cmp-card-tab-main.active::after {
+
+/* Вкладка: скругление слева */
+.cmp-card-tab-btn.active::after {
 	content: '';
 	position: absolute;
 	bottom: 0;
@@ -57,9 +48,34 @@
 	width: 1em;
 	height: 1em;
 	background-color: #a16ff8;
-	mask-image: linear-gradient(to top, green, green), radial-gradient(circle .6em at center, #000 80%, transparent 81%);
-	mask-size: .5em .5em, 100%;
+	mask-image: linear-gradient(to top, green, green), radial-gradient(circle 0.6em at center, #000 80%, transparent 81%);
+	mask-size: 0.5em 0.5em, 100%;
 	mask-position: bottom right, center;
 	mask-repeat: no-repeat, repeat;
 	mask-composite: subtract;
+}
+
+/* Вкладка: скругление справа */
+.cmp-card-tab-btn.active::before {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 100%;
+	width: 1em;
+	height: 1em;
+	background-color: #a16ff8;
+	mask-image: linear-gradient(to top, green, green), radial-gradient(circle 0.6em at center, #000 80%, transparent 81%);
+	mask-size: 0.5em 0.5em, 100%;
+	mask-position: bottom left, center;
+	mask-repeat: no-repeat, repeat;
+	mask-composite: subtract;
+}
+
+/* Первая вкладка */
+.cmp-card-tab-btn.active:nth-child(1)::after {
+	display: none;
+}
+/* последняя вкладка */
+.cmp-card-tab-btn.active:nth-last-child(1)::before {
+	display: none;
 }

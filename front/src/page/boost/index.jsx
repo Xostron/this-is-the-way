@@ -10,8 +10,8 @@ const Boost = () => {
 		<main className='page'>
 			<section className='content'>
 				{/* <World /> */}
-				{/* <Bar/> */}
-				<Line />
+				<Bar/>
+				{/* <Line /> */}
 			</section>
 		</main>
 	)

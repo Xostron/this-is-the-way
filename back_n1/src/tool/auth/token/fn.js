@@ -1,7 +1,11 @@
 const jwt = require('jsonwebtoken')
 const { findAndModify } = require('@tool/db')
 
-// Генерируем новый токен
+/**
+ * Генерация токена
+ * @param {*} payload данные о пользователе (основа токена)
+ * @returns 
+ */
 function generate(payload) {
 	const accessToken = jwt.sign(payload, process.env.JWT_ACCESS_SECRET, {
 		expiresIn: process.env.ACCESSS_EXPIRE,
@@ -16,7 +20,7 @@ function generate(payload) {
 }
 
 /**
- * Сохраняем токен сотрудника/клиента в БД
+ * Сохраняем токен в БД
  * @param {Object} db БД
  * @param {ObjectId} ownerId Ссылка на владельца
  * @param {String} refresh Новый рефреш токен
@@ -38,4 +42,19 @@ async function save(db, ownerId, refresh, old) {
 	}
 }
 
-module.exports = { generate, save }
+/**
+ * Валидация рефреш токена
+ * Дешифровка
+ * @param {string} token 
+ * @returns {object} данные о пользователе
+ */
+function validateRefresh(token){
+	try {
+		const data = jwt.verify(token, process.env.JWT_REFRESH_SECRET)
+		return data
+	} catch (error) {
+		return null
+	}
+}
+
+module.exports = { generate, save, validateRefresh }

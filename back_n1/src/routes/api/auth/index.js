@@ -1,7 +1,7 @@
 const signup = require("./signup")
 const signin = require("./signin")
 const refresh = require("./refresh")
-// const logout = require("./logout")
+const logout = require("./logout")
 
 function auth(router, db) {
     // Регистрация
@@ -11,7 +11,7 @@ function auth(router, db) {
     // Refresh
 	router.get("/auth/refresh", refresh(db))
     // Выход
-	// router.get("/auth/logout", logout(db))
+	router.post("/auth/logout", logout(db))
 }
 
 module.exports = auth

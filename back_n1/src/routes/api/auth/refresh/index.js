@@ -12,15 +12,15 @@ module.exports = function refresh(db) {
 			if (!refresh) return next(ApiError.Unauthorized(9))
 
 			// Данные о пользователе (дешифрация токена)
-			const o = validateRefresh(refresh)
-			if (!o) return next(ApiError.Unauthorized(10))
+			const doc = validateRefresh(refresh)
+			if (!doc) return next(ApiError.Unauthorized(10))
 
 			// Поиск пользователя
-			const doc = await findOne(db, 'user', { _id: ObjectID(o.id) })
-			if (!doc) return next(ApiError.Unauthorized(11))
+			const user = await findOne(db, 'user', { _id: ObjectID(doc._id) })
+			if (!user) return next(ApiError.Unauthorized(11))
 
 			// Создание токенов
-			const tokens = await refreshAndSave(db, doc, res)
+			const tokens = await refreshAndSave(db, user, res)
 
 			res.json({ result: 'ok', accessToken: tokens.accessToken, user: tokens.user })
 		} catch (error) {

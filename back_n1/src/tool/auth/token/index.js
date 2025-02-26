@@ -7,7 +7,7 @@ const { generate, save } = require('@tool/auth/token/fn')
  * @param {*} res
  */
 async function refreshAndSave(db, user, res) {
-	const doc = { login: user.login, id: user._id, on: user.on }
+	const doc = { login: user.login, _id: user._id, on: user.on }
 	// Новый токен
 	const tokens = generate(doc)
 	// Сохранение рефреш токена

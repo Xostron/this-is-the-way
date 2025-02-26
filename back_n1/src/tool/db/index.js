@@ -166,7 +166,7 @@ function cursor(db, name, q = {}, cb, s, l) {
  * @param {Object} upsert (поумолчанию false). Если true, создает новыйдокумент если не найдено согласно выбоки query
  * @param {Boolean} n (поумолчанию true). Если true, возвращается измененный документ, а не исходный. По умолчанию — ложь.
  * @param {Object} sort Необязательный. Определяет, какой документ модифицируется операцией, если запрос выбирает несколько документов.
- * @param {Boolean} remove Удаление документа согласно выбоки query (поумолчанию false)
+ * @param {Boolean} remove Удаление документа согласно выборки query (поумолчанию false)
  * @returns {Object||Array}
  */
 function findAndModify(db, code, query, upd = {}, upsert = false, n = true, sort = {}, remove = false) {

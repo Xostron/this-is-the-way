@@ -2,6 +2,7 @@ const { user, psw } = require('@tool/auth/signup')
 const ApiError = require('@tool/exceptions')
 const { insert } = require('@tool/db')
 const mes = require('@dict/message')
+
 module.exports = function signin(db) {
 	return async function (req, res, next) {
 		try {

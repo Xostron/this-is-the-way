@@ -17,7 +17,7 @@ module.exports = function signin(db) {
 			if (!ok) throw mes[6]
 
 			// Создание токенов
-			const tokens = await refreshAndSave(db, doc, res)
+			const tokens = await refreshAndSave(db, doc, req, res)
 
 			res.json({ result: 'ok', accessToken: tokens.accessToken })
 		} catch (error) {

@@ -20,7 +20,7 @@ module.exports = function refresh(db) {
 			if (!user) return next(ApiError.Unauthorized(11))
 
 			// Создание токенов
-			const tokens = await refreshAndSave(db, user, res)
+			const tokens = await refreshAndSave(db, user, req, res)
 
 			res.json({ result: 'ok', accessToken: tokens.accessToken, user: tokens.user })
 		} catch (error) {

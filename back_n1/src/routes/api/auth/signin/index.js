@@ -7,7 +7,8 @@ const refreshAndSave = require('@tool/auth/token')
 module.exports = function signin(db) {
 	return async function (req, res, next) {
 		try {
-			const { login, password, token } = req.body
+			const { login, password } = req.body
+            // Поиск пользователя в БД 
 			const doc = await user(db, login)
 			if (!doc) throw mes[6]
 			if (!doc?.on) throw mes[5]

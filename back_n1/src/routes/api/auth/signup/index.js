@@ -3,7 +3,7 @@ const ApiError = require('@tool/exceptions')
 const { insert } = require('@tool/db')
 const mes = require('@dict/message')
 
-module.exports = function signin(db) {
+module.exports = function signup(db) {
 	return async function (req, res, next) {
 		try {
 			const { password1, password2, login } = req.body
@@ -15,7 +15,7 @@ module.exports = function signin(db) {
 			if (await user(db, login)) throw mes[3]
 			// Хеш пароля
 			const hash = await psw(password1)
-			// Регистрация
+			// Сохранение пользователя в БД
 			const r = { login, password: hash, on: true, update: now, date: now }
 			await insert(db, 'user', r)
 			res.json({ result: 'ok' })

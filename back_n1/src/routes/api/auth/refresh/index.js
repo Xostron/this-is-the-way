@@ -15,14 +15,11 @@ module.exports = function refresh(db) {
 			const doc = validateRefresh(refresh)
 			if (!doc) return next(ApiError.Unauthorized(10))
 
-			// Поиск пользователя
-			const user = await findOne(db, 'user', { _id: ObjectID(doc._id) })
-			if (!user) return next(ApiError.Unauthorized(11))
-
-			// Создание токенов
+			// Генерация новой пары токенов на основе doc
+            // ротация токенов - продление жизни refresh token
 			const tokens = await refreshAndSave(db, user, req, res)
 
-			res.json({ result: 'ok', accessToken: tokens.accessToken, user: tokens.user })
+			res.json({ accessToken: tokens.accessToken })
 		} catch (error) {
 			next(ApiError.BadRequest(error.toString()))
 		}

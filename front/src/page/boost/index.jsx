@@ -24,17 +24,16 @@ const Boost = () => {
 
 export default Boost
 
-
 /**
  * Точка росы
  * https://poliol.ru/cont/articles/3-sposoba-rascheta-tochki-rosy-pri-uteplenii-pomeshcheniya/
- * @returns 
+ * @param {number} [h=50] Температура, С
+ * @param {number} [t=25] Влажность,%
+ * @returns
  */
-function dewpoint() {
+function dewpoint(t = 25, h = 50) {
 	const q = 17.27
 	const b = 237.7
-	const t = 25
-	const w = 50
-	const ln = (q * t) / (b + t) + Math.log(w / 100)
-	return (b * ln) / (q - ln)
+	const f = (q * t) / (b + t) + Math.log(h / 100)
+	return (b * f) / (q - f)
 }

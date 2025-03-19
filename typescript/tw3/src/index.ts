@@ -5,9 +5,12 @@ interface B {
 }
 
 const AA = ({ a, b }: A): number => {
-	return a + b
+	return (a + b)*2
 }
 
 const BB = ({ x, y }: B): number => {
 	return x + y
 }
+
+console.log('enter...')
+console.log(AA({ a: 1, b: 2 }))

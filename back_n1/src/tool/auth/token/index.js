@@ -12,6 +12,7 @@ const { v4: uuidv4 } = require('uuid');
 async function refreshAndSave(db, user, req, res) {
     // Id устройства привязан к рефреш токену
     const deviceId = uuidv4()
+	// Полезная нагрузка токена
 	const doc = { login: user.login, _id: user._id, on: user.on, deviceId }
 	// Генерация новой пары токенов на основе doc
 	const tokens = generate(doc)

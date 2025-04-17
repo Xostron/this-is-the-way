@@ -4,6 +4,11 @@
 	--background: white;
 	--surface: #ededed;
 	--onSurface: #1926469a;
+	--primary1: silver;
+	--primary2: rgb(160, 160, 160);
+	--primary3: rgb(140, 140, 140);
+	--primary4: rgb(120, 120, 120);
+	--primary5: rgb(100, 100, 100);
 	--br: 100px;
 	--brdP: 1px solid var(--primary);
 	--brdS: 1px solid var(--secondary);

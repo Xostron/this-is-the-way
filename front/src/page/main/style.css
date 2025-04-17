@@ -1,31 +1,32 @@
 .header {
 	width: 100%;
 	grid-area: 1/1/1/4;
-	background-color: #245e67;
+	background-color: var(--primary1);
 }
 .content {
 	display: flex;
 	flex-direction: column;
 	width: 100%;
 	grid-area: 2 / 2 / 2 / 2;
-	background-color: #0a1148;
+	background-color: var(--primary4);
 	height: 80vh;
 }
 .asidel {
 	width: 100%;
 	grid-area: 2 / 1 / 2 / 1;
-	background-color: #0a1128;
+	background-color: var(--primary2);
 }
 .asider {
 	width: 100%;
 	grid-area: 2 / 3 / 2 / 3;
-	background-color: #0a1168;
+	background-color: var(--primary3);
 }
 .footer {
 	width: 100%;
 	grid-area: 3 / 1 / 3 / 4;
-	background-color: #5a53c3;
+	background-color: var(--primary5);
 }
+
 
 .list-card {
 	display: flex;
@@ -37,6 +38,7 @@
 	padding: 16px;
 	margin: 16px 0;
 }
+
 .card {
 	display: flex;
 	flex-direction: column;
@@ -50,10 +52,13 @@
 	transition-timing-function: ease;
 	transition-property: background-color;
 }
+
 .card:hover{
 	background-color: #5a53c3;
 }
+
 .card-text {
 }
+
 .card-btn {
 }

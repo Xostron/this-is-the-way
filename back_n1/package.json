@@ -12,7 +12,7 @@
 		]
 	},
 	"_moduleAliases": {
-		"@root": "src/",
+		"@root": "src",
 		"@tool": "src/tool",
 		"@api": "src/routes/api",
 		"@dict": "src/dict",
@@ -33,6 +33,7 @@
 		"mongojs": "^3.1.0",
 		"morgan": "^1.10.0",
 		"pug": "3.0.3",
+		"socket.io": "^4.8.1",
 		"uuid": "^11.0.5"
 	},
 	"devDependencies": {

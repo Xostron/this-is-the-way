@@ -41,8 +41,8 @@ const Achieve = () => {
 
 
 				{/* Ломаная линия */}
-				<svg width='110px' height='110px'>
-					<polyline fill='none' stroke='white' stroke-width='2' points='0,100 20,10 40,80 60,50' />
+				<svg width='100%' height='110px' style={{border:"1px solid red"}}>
+					<polyline fill='green' stroke='white' stroke-width='2' points='0,0, 100,0, 50%,100' />
 					<circle cx='0px' cy='100px' r='3' fill='white'></circle>
 					<circle cx='20px' cy='10px' r='3' fill='white'></circle>
 					<circle cx='40px' cy='80px' r='3' fill='white'></circle>

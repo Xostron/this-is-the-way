@@ -22,8 +22,8 @@ async function refreshAndSave(db, user, req, res) {
 	res.cookie('refreshToken', tokens.refreshToken, {
 		maxAge: 1 * 60 * 1000, //30 мин
 		httpOnly: true,
-		secure:true,
-		sameSite:'strict'
+		// secure:true,
+		// sameSite:'strict'
 	})
 	return { ...tokens, user: doc }
 }

@@ -30,8 +30,11 @@ function App(db) {
 			// debug: true,
 		})
 	)
-	// Отключение CORS
-	app.use(cors({ credentials: true, origin: (origin, cb) => cb(null, true) }))
+	// Включение Cors для любых маршрутов
+	// app.use(cors())
+	// Включение Cors для определенных маршрутов
+	app.use(cors({ credentials: true, origin: ['http://localhost:4001'] }))
+	// app.use(cors({ credentials: true, origin: (origin, cb) => cb(null, true) }))
 
 	// view engine pug
 	app.set('views', path.join(__dirname, 'views'))
@@ -44,7 +47,6 @@ function App(db) {
 
 	// Html page
 	app.use('/', indexRouter)
-
 
 	// Проверка и сбор информации о клиенте
 	// app.use(authMiddleW)

@@ -3,7 +3,7 @@ import Achieve from "@page/achieve"
 import Secret from "@page/secret"
 import Boost from "@page/boost"
 import NotFound from "@page/not_found"
-
+import Login from "@page/login"
 import { createBrowserRouter } from "react-router-dom"
 
 const router = createBrowserRouter([
@@ -22,6 +22,10 @@ const router = createBrowserRouter([
 	{
 		path: "b",
 		element: <Boost />,
+	},
+    {
+		path: "l",
+		element: <Login />,
 	},
 	{
 		path: "*",

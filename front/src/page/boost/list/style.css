@@ -1,0 +1,22 @@
+.list{
+	display: flex;
+	width:100%;
+	row-gap:20px;
+	flex-direction: column;
+}
+.list > div{
+	display: flex;
+	gap: 30px;
+}
+
+.row{
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	gap: 10px;
+}
+
+.cell{
+	border: 2px rgb(227, 232, 76) solid;
+	width: 100%;
+}

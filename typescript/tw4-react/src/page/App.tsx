@@ -1,26 +1,26 @@
 import { FC, useState } from 'react'
 import { Prd, PrdSel, PrdSelMut } from '@src/tool/entries'
 import PrdList from '@cmp/prd_list'
-import { useAppDispatch, useAppSelector, reducers } from '@src/store'
+import { useStoreDispatch, useStore, reducers } from '@src/store'
 import '@src/style.css'
 
-const data: Prd[] = [1, 2, 3, 4, 5].map((el) => ({
-	id: el,
-	name: `Орден${el}`,
-	category: `Legion${el}`,
-	desc: `Часть ${el}`,
-	price: el * 100,
-}))
+console.log(Array(5).fill(0))
+
+const data: Prd[] = Array(5)
+	.fill(0)
+	.map((el, i) => ({
+		id: el,
+		name: `Орден${i}`,
+		category: `Legion${i}`,
+		desc: `Часть ${i}`,
+		price: i * 100,
+	}))
 
 const App: FC = () => {
-	const selections = useAppSelector((state) => {
-		console.log(222)
-		return state.selections
-	})
-	console.log(1111,selections)
-	const dispatch = useAppDispatch()
+	const [selections] = useStore((state) => [state.selections])
 
-	// const [sels, setSels] = useState(Array<PrdSel>())
+	console.log(1111, selections)
+	const dispatch = useStoreDispatch()
 
 	const ctg = [...new Set(data.map((el) => el.category))]
 
@@ -33,14 +33,6 @@ const App: FC = () => {
 	function add(p: Prd, q: number) {
 		dispatch(reducers.add([p, q]))
 	}
-
-	// function add(prd: Prd, count: number) {
-	// 	setSels((prev) => {
-	// 		PrdSelMut.addPrd(prev, prd, count)
-	// 		console.log(111, prev, prd, count)
-	// 		return [...prev]
-	// 	})
-	// }
 }
 
 export default App

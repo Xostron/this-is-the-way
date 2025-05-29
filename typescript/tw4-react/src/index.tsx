@@ -1,18 +1,20 @@
 import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './page/App'
+import { RouterProvider } from 'react-router-dom'
+import { createRoot } from 'react-dom/client'
 import { Provider } from 'react-redux'
 import { dataStore } from '@store/index'
+import App from './page/App'
 
-const rootEl = document.getElementById('root')
-if (rootEl) {
-	const root = ReactDOM.createRoot(rootEl)
-	root.render(
-		<Provider store={dataStore}>
-			<React.StrictMode>
-				<App />
-			</React.StrictMode>
-			,
-		</Provider>
-	)
-}
+const domNode = document.getElementById('root')
+if (!domNode) throw new Error('Не найден корневой узел')
+const root = createRoot(domNode)
+
+root.render(
+	<Provider store={dataStore}>
+		<React.StrictMode>
+			{/* <RouterProvider router={router} /> */}
+			<App/>
+		</React.StrictMode>
+		,
+	</Provider>
+)

@@ -10,9 +10,27 @@ const prdSelSlice = createSlice({
 			PrdSelMut.addPrd(selections, action.payload[0], action.payload[1])
 		},
 	},
-})
+}
+)
 
 // Редьюсер
-export const reducer = prdSelSlice.reducer
+export const selections = prdSelSlice.reducer
 // Экшен
 export const { add } = prdSelSlice.actions
+
+
+// const rdxHeap = createSlice({
+// 	name: 'heap',
+// 	initialState: Array<PrdSel>(),
+// 	reducers: {
+// 		add(o:object) {
+// 			PrdSelMut.addPrd(selections, action.payload[0], action.payload[1])
+// 		},
+// 	},
+// }
+// )
+
+// // Редьюсер
+// export const heap = rdxHeap.reducer
+// // Экшен
+// export const { add } = rdxHeap.actions

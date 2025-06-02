@@ -1,13 +1,19 @@
 import { createBrowserRouter } from 'react-router-dom'
-// import 
+import Main, { rootLoader } from '@src/page/main'
+import PC, { pcLoader } from '@src/page/pc'
+import Login from '@page/login'
 
 const router = createBrowserRouter([
+	{
+		path: '/login',
+		element: <Login />,
+	},
 	// Список всех PC
 	{
 		path: '/',
 		element: <Main />,
 		loader: rootLoader,
-		children: [{ path: 'pc', element: <PC />, loader: pcLoader }],
+		// children: [{ path: 'pc/:pcId', element: <PC />, loader: pcLoader }],
 	},
 	// Отдельные PC
 	// {
@@ -15,7 +21,6 @@ const router = createBrowserRouter([
 	// 	element: <PC />,
 	// 	children: [],
 	// },
-
 ])
 
 export default router

@@ -16,6 +16,10 @@ const data: Prd[] = Array(5)
 		price: i * 100,
 	}))
 
+const Main: FC = () => {
+	return(<></>)
+}
+
 const App: FC = () => {
 	const [selections] = useStore((state) => [state.selections])
 

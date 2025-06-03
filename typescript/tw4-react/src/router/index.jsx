@@ -1,4 +1,4 @@
-import { createBrowserRouter } from 'react-router'
+import { createBrowserRouter, Navigate } from 'react-router'
 import Login from '@page/login'
 import Main from '@src/page/main'
 import PC from '@src/page/pc'
@@ -14,6 +14,10 @@ const router = createBrowserRouter([
 	{
 		path: '/',
 		element: <Main />,
+		loader: ({ context, params, request }) => {
+			console.log(222, { context, params, request })
+			
+		},
 	},
 	// PC
 	{
@@ -24,6 +28,10 @@ const router = createBrowserRouter([
 	// 404
 	{
 		path: '*',
+		element: <Navigate to='/notfound' replace={true} />,
+	},
+	{
+		path: '/notfound',
 		element: <NotFound />,
 	},
 ])

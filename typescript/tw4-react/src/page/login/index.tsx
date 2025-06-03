@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import { apiLogin } from '@src/tool/api'
-import { useNavigate  } from 'react-router-dom'
+import { useNavigate  } from 'react-router'
 
 const Login: FC = () => {
 	const navigate = useNavigate()

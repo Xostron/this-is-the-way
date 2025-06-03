@@ -12,7 +12,6 @@ const router = createBrowserRouter([
 	{
 		path: '/',
 		element: <Main />,
-		loader: rootLoader,
 		// children: [{ path: 'pc/:pcId', element: <PC />, loader: pcLoader }],
 	},
 	// Отдельные PC

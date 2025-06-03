@@ -11,8 +11,6 @@ const root = createRoot(domNode)
 
 root.render(
 	<Provider store={dataStore}>
-		<React.StrictMode>
-			<RouterProvider router={router} />
-		</React.StrictMode>
+		<RouterProvider router={router} />
 	</Provider>
 )

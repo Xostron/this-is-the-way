@@ -1,25 +1,31 @@
-import { createBrowserRouter } from 'react-router-dom'
-import Main, { rootLoader } from '@src/page/main'
-import PC, { pcLoader } from '@src/page/pc'
+import { createBrowserRouter } from 'react-router'
 import Login from '@page/login'
+import Main from '@src/page/main'
+import PC from '@src/page/pc'
+import NotFound from '@page/not_found'
 
 const router = createBrowserRouter([
+	// Логин
 	{
 		path: '/login',
 		element: <Login />,
 	},
-	// Список всех PC
+	// Список PC
 	{
 		path: '/',
 		element: <Main />,
-		// children: [{ path: 'pc/:pcId', element: <PC />, loader: pcLoader }],
 	},
-	// Отдельные PC
-	// {
-	// 	path: 'pc/:id',
-	// 	element: <PC />,
-	// 	children: [],
-	// },
+	// PC
+	{
+		path: 'pc/:id',
+		element: <PC />,
+		children: [],
+	},
+	// 404
+	{
+		path: '*',
+		element: <NotFound />,
+	},
 ])
 
 export default router

@@ -1,13 +1,11 @@
 import axios from 'axios'
 import { redirect } from 'react-router-dom'
-interface ResLogin {
+interface IResLogin {
 	accessToken?: string
-	login: string
-	password: string
 }
 
-export async function apiLogin(data: ResLogin) {
-	console.log(111, process.env.PUBLIC_URI_SERVER)
+export async function apiLogin(data: object) {
+	// console.log(111, process.env.PUBLIC_URI_SERVER)
 	try {
 		const config = {
 			method: 'POST',
@@ -17,7 +15,7 @@ export async function apiLogin(data: ResLogin) {
 			},
 			data,
 		}
-		const response = await axios.request(config)
+		const response = await axios.request<IResLogin>(config)
 
 		if (response.data.accessToken) localStorage.setItem('accessToken', response.data.accessToken)
 		else throw new Error('Не удалось получить токен')
@@ -29,9 +27,16 @@ export async function apiLogin(data: ResLogin) {
 	}
 }
 
+
+interface IPc{
+	name:string
+}
+interface IResPC{
+	pc:IPc
+}
 export async function apiPC() {
 	const accessToken = localStorage.getItem('accessToken')
-	console.log(222, accessToken)
+	// console.log(222, accessToken)
 	if (!accessToken) redirect('/login')
 	const config = {
 		method: 'GET',
@@ -41,6 +46,6 @@ export async function apiPC() {
 			Authorization: `Bearer ${accessToken}`,
 		},
 	}
-	const response = await axios.request(config)
+	const response = await axios.request<IResPC[]>(config)
 	return response.data
 }

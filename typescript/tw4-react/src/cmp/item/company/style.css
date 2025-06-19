@@ -1,0 +1,19 @@
+.cmp-item-company{
+	display: flex;
+	flex-direction: column;
+	font-size:smaller;
+	color:rgba(11, 25, 107, 0.8);
+	align-items: center;
+	gap: 8px;
+}
+
+.cmp-item-company-content{
+	display: flex;
+	flex-direction: column;
+	width: calc(120px - 2*8px);
+	height: calc(120px - 2*8px);
+	border-radius: 8px;
+	background-color: rgba(11, 25, 107, 0.55);
+	color:white;
+	padding: 8px;
+}

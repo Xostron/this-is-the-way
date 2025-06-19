@@ -4,7 +4,7 @@ interface IResLogin {
 	accessToken?: string
 }
 
-export async function apiLogin(data: object) {
+async function fetchLogin(data: object) {
 	// console.log(111, process.env.PUBLIC_URI_SERVER)
 	try {
 		const config = {
@@ -27,14 +27,35 @@ export async function apiLogin(data: object) {
 	}
 }
 
-
-interface IPc{
-	name:string
+interface IBld {
+	code:string
+	on:boolean
+	sectionCount:1
+	_id:string
 }
-interface IResPC{
-	pc:IPc
+interface IPc {
+	addr: string
+	ip: string
+	state: string | null
+	_id: string
 }
-export async function apiPC() {
+// Pos терминал
+interface IListPc {
+	order: number
+	data: IBld
+	header: IPc
+}
+// Компания
+interface ICmp {
+	_id: string
+	name: string
+	code: string
+	pc: IListPc[]
+}
+interface IFetchCmp {
+	result:ICmp[]
+}
+async function fetchCompanies() {
 	const accessToken = localStorage.getItem('accessToken')
 	// console.log(222, accessToken)
 	if (!accessToken) redirect('/login')
@@ -46,6 +67,9 @@ export async function apiPC() {
 			Authorization: `Bearer ${accessToken}`,
 		},
 	}
-	const response = await axios.request<IResPC[]>(config)
-	return response.data
+	const response = await axios.request<IFetchCmp>(config)
+	return response.data.result
 }
+
+export { fetchCompanies, fetchLogin }
+export type { IFetchCmp, ICmp }

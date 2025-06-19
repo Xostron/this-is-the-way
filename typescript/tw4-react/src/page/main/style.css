@@ -1,0 +1,11 @@
+.page-main {
+	display: flex;
+	flex-direction: column;
+}
+.page-main-list {
+	display: flex;
+	margin: auto;
+	flex-wrap: wrap;
+	width: calc(5 * 120px + 4 * 16px);
+	gap: 16px;
+}

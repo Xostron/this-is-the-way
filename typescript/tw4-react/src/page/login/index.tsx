@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { apiLogin } from '@src/tool/api'
+import { fetchLogin } from '@src/tool/api'
 import { useNavigate  } from 'react-router'
 
 const Login: FC = () => {
@@ -19,11 +19,10 @@ const Login: FC = () => {
 				login: e.currentTarget.login.value,
 				password: e.currentTarget.password.value,
 			}
-			const r = await apiLogin(form)
+			const r = await fetchLogin(form)
 			if (r) navigate('/')
 		} catch (error) {
 			console.log('\\page\\login\\index.tsx', error)
-			// throw error
 		}
 	}
 }

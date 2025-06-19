@@ -72,4 +72,4 @@ async function fetchCompanies() {
 }
 
 export { fetchCompanies, fetchLogin }
-export type { IFetchCmp, ICmp }
+export type { IFetchCmp, ICmp,IListPc,IPc,IBld }

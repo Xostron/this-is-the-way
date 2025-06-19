@@ -1,8 +1,7 @@
 import { ICmp } from '@src/tool/api'
+import ItemPC from './pc'
 import './style.css'
-// export default function Item({ data }: { data: IFetchCmp }) {
-// 	const { _id, name, code, pc } = data
-// }
+
 
 interface IProps {
 	data: ICmp
@@ -14,7 +13,9 @@ export default function Item(props: IProps) {
 		<article className='cmp-item-company'>
 			{name}
 			<div className='cmp-item-company-content'>
-				asdas
+				{pc.map((el) => (
+					<ItemPC key={el.header._id} data={el}  />
+				))}
 			</div>
 		</article>
 	)

@@ -6,6 +6,6 @@
 	display: flex;
 	margin: auto;
 	flex-wrap: wrap;
-	width: calc(5 * 120px + 4 * 16px);
+	width: calc(5 * 300px + 4 * 16px);
 	gap: 16px;
 }

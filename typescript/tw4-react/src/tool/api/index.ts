@@ -32,6 +32,7 @@ interface IBld {
 	on:boolean
 	sectionCount:1
 	_id:string
+	type:string
 }
 interface IPc {
 	addr: string
@@ -42,7 +43,7 @@ interface IPc {
 // Pos терминал
 interface IListPc {
 	order: number
-	data: IBld
+	data: IBld[]
 	header: IPc
 }
 // Компания

@@ -28,7 +28,7 @@
 	height: calc((300px - 1 * 8px) / 2 - 1 * 8px);
 	background-color: rgba(0, 0, 0, 0.55);
 	border-radius: 8px;
-	span {
+	& span {
 		/* position: absolute; */
 		
 	}

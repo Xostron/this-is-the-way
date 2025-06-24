@@ -42,9 +42,20 @@
 .cmp-item-company-bld {
 	display: flex;
 	flex-direction: column;
+	/* width: calc((300px - 1 * 8px) / 4 - 3 * 8px); */
+	/* height: calc((300px - 1 * 8px) / 4 - 3 * 8px); */
+	/* background-color: rgb(148, 124, 26); */
+	border-radius: 8px;
+	font-size: 12px;
+	align-items: center;
+}
+
+.cmp-item-company-bld-content {
+	display: flex;
+	flex-direction: column;
 	width: calc((300px - 1 * 8px) / 4 - 3 * 8px);
 	height: calc((300px - 1 * 8px) / 4 - 3 * 8px);
-	background-color: rgb(148, 124, 26);
+	background-color: rgb(193, 49, 49);
 	border-radius: 8px;
-
+	font-size: 12px;
 }

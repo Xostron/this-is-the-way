@@ -27,16 +27,15 @@ body {
 
 .back-img-type-bld {
 	background-repeat: no-repeat;
-	background-size: 20px;
-	padding-right: 5px;
-	background-position: right center;
+	background-size: 40px;
+	background-position: center;
 }
-article[data-img='normal'] {
+.back-img-type-bld[data-img='normal'] {
 	background-image: url('/public/img/type/normal.svg');
 }
-article[data-img='cold'] {
+.back-img-type-bld[data-img='cold'] {
 	background-image: url('/public/img/type/cold.svg');
 }
-article[data-img='combi'] {
+.back-img-type-bld[data-img='combi'] {
 	background-image: url('/public/img/type/combi.svg');
 }

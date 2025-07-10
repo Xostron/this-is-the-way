@@ -18,7 +18,7 @@
 	padding: 4px 8px;
 	gap: 8px;
 	color: var(--primary1);
-	background-color:var(--primary5);
+	background-color: var(--primary5);
 }
 
 .cmp-item-company-pc {
@@ -48,6 +48,16 @@
 	flex-direction: column;
 	width: calc((var(--www) - 1 * 8px) / 4 - 3 * 8px);
 	height: calc((var(--hhh) - 1 * 8px) / 4 - 3 * 8px);
-	background-color: rgb(226, 70, 70);
 	border-radius: 8px;
+}
+
+.cmp-item-company-bld-content[data-alarm='1'] {
+	background-color: rgb(226, 70, 70);
+}
+.cmp-item-company-bld-content[data-alarm='2'] {
+	background-color: rgb(36, 170, 49);
+}
+.cmp-item-company-bld-content[data-alarm='3'] {
+	background-color: rgba(0, 0, 0, 0.168);
+	opacity: 0.5;
 }

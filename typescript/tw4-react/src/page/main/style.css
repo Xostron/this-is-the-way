@@ -10,7 +10,7 @@
 .page-main-header {
 	width: 100%;
 	grid-area: 1/1/1/4;
-	background-color: var(--primary1);
+	background-color: var(--primary5);
 }
 .page-main-content {
 	display: flex;
@@ -23,12 +23,12 @@
 .page-main-asidel {
 	width: 100%;
 	grid-area: 2 / 1 / 2 / 1;
-	background-color: var(--primary2);
+	background-color: var(--primary4);
 }
 .page-main-asider {
 	width: 100%;
 	grid-area: 2 / 3 / 2 / 3;
-	background-color: var(--primary3);
+	background-color: var(--primary4);
 }
 .page-main-footer {
 	width: 100%;

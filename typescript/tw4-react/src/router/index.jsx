@@ -16,7 +16,6 @@ const router = createBrowserRouter([
 		element: <Main />,
 		loader: ({ context, params, request }) => {
 			console.log(222, { context, params, request })
-			
 		},
 	},
 	// PC

@@ -1,0 +1,12 @@
+.cmp-navh {
+	display: flex;
+	gap: 10px;
+}
+
+.navlink {
+	text-decoration: none;
+	color: var(--primary5);
+}
+.navlink.active {
+	color: red;
+}

@@ -1,28 +1,44 @@
-body {
+:root {
+	--primary: #192646;
+	--secondary: #65a7ee;
+	--background: white;
+	--surface: #ededed;
+	--onSurface: #1926469a;
+	--primary1: silver;
+	--primary2: rgb(160, 160, 160);
+	--primary3: rgb(140, 140, 140);
+	--primary4: rgb(120, 120, 120);
+	--primary5: rgb(100, 100, 100,0.5);
+	--br: 100px;
+	--brdP: 1px solid var(--primary);
+	--brdS: 1px solid var(--secondary);
+	--fsz16: clamp(0.75rem, 0.5rem + 0.8vw, 1rem);
+	--fsz24: clamp(1.125rem, 0.75rem + 1.2vw, 1.5rem);
+	font-family: Q-Medium;
+	color: var(--primary);
+}
+@font-face {
+	font-family: Q-Medium;
+	src: url('@font/Qanelas-Medium.ttf');
+}
+@font-face {
+	font-family: Q-SemiBold;
+	src: url('@font/Qanelas-SemiBold.ttf');
+}
+html body {
+	min-width: 400px;
+	height: 100vh;
+	width: 100vw;
+}
+* {
 	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body {
 	color: #989898;
-	font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-	/* background-image: linear-gradient(to bottom, #020917, #101725); */
-}
-
-.content {
-	display: flex;
-	min-height: 100vh;
-	line-height: 1.1;
-	text-align: center;
-	flex-direction: column;
-	justify-content: center;
-}
-
-.content h1 {
-	font-size: 3.6rem;
-	font-weight: 700;
-}
-
-.content p {
-	font-size: 1.2rem;
-	font-weight: 400;
-	opacity: 0.5;
+	font-size: var(--fsz16);
+	background-image: linear-gradient(to bottom, #020917, #101725);
 }
 
 .back-img-type-bld {
@@ -32,10 +48,27 @@ body {
 }
 .back-img-type-bld[data-img='normal'] {
 	background-image: url('/public/img/type/normal.svg');
+	/* filter: brightness(0) invert(1); */
 }
 .back-img-type-bld[data-img='cold'] {
 	background-image: url('/public/img/type/cold.svg');
+	/* filter:  brightness(0) invert(1); */
 }
 .back-img-type-bld[data-img='combi'] {
 	background-image: url('/public/img/type/combi.svg');
+}
+
+/* ===== Scrollbar CSS ===== */
+*::-webkit-scrollbar {
+	display: block;
+	width: 5px;
+}
+*::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+	background: #9a9a9a;
+	border-radius: 5px;
+	border: 1px solid #bababa;
 }

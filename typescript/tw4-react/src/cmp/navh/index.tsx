@@ -1,0 +1,31 @@
+import { NavLink } from 'react-router-dom'
+import './style.css'
+
+function Navh() {
+	return (
+		<article className='cmp-navh'>
+			{link.map((el) => (
+				<NavLink
+					className={({ isActive }) => (isActive ? 'navlink active' : 'navlink')}
+					to={el.path}
+				>
+					{el.name}
+				</NavLink>
+			))}
+		</article>
+	)
+}
+
+export default Navh
+
+const link = [
+	{
+		path: '/login',
+		name: 'Войти',
+	},
+	// Список PC
+	{
+		path: '/',
+		name: 'PC',
+	},
+]

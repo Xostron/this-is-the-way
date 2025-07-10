@@ -30,7 +30,8 @@
 			"@cmp/*": ["./src/cmp/*"],
 			"@page/*": ["./src/page/*"],
 			"@tool/*": ["./src/tool/*"],
-			"@store/*": ["./src/store/*"]
+			"@store/*": ["./src/store/*"],
+			"@font/*": ["./public/fonts/*"]
 		}
 	},
 	"include": ["src"]

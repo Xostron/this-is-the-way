@@ -1,4 +1,4 @@
-import { ICmp } from '@src/tool/api'
+import { ICmp } from '@api/company/type'
 import Item from '@src/cmp/item/company'
 import './style.css'
 

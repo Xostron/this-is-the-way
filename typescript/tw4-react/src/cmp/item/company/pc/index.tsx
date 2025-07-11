@@ -1,4 +1,4 @@
-import { IListPc } from '@src/tool/api'
+import { IListPc } from '@api/company/type'
 import ItemBld from '../bld'
 interface IProps {
 	data: IListPc

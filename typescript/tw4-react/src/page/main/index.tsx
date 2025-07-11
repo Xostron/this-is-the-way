@@ -1,6 +1,6 @@
 import { FC, useEffect, useState } from 'react'
-import { fetchCompanies } from '@src/tool/api'
-import { ICmp } from '@src/tool/api'
+import fetchCompanies from '@api/company'
+import { ICmp } from '@api/company/type'
 import ListCompany from '@src/cmp/list/company'
 import Navh from '@src/cmp/navh'
 import './style.css'

@@ -1,4 +1,4 @@
-import { IBld } from '@src/tool/api'
+import { IBld } from '@api/company/type'
 
 interface IProps {
 	data: IBld

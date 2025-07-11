@@ -1,6 +1,6 @@
 import { FC } from 'react'
-import { fetchLogin } from '@src/tool/api'
-import { useNavigate  } from 'react-router'
+import fetchLogin from '@src/tool/api/login'
+import { useNavigate } from 'react-router'
 
 const Login: FC = () => {
 	const navigate = useNavigate()

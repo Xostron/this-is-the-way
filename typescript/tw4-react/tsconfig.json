@@ -31,7 +31,8 @@
 			"@page/*": ["./src/page/*"],
 			"@tool/*": ["./src/tool/*"],
 			"@store/*": ["./src/store/*"],
-			"@font/*": ["./public/fonts/*"]
+			"@font/*": ["./public/fonts/*"],
+			"@api/*": ["./src/tool/api/*"]
 		}
 	},
 	"include": ["src"]

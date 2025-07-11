@@ -7,7 +7,7 @@ const LazyList: FC = () => {
 	const list = useLoaderData()
 	console.log(333, list)
 	return (
-		<Suspense fallback={<Loader type='red'/>}>
+		<Suspense fallback={<Loader type='red' />}>
 			<Await resolve={list.list} errorElement={<div>Could not load reviews 😬</div>}>
 				{(props) => <ListCompany list={props} />}
 			</Await>

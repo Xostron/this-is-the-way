@@ -1,6 +1,7 @@
 import { FC } from 'react'
 import fetchLogin from '@src/tool/api/login'
 import { useNavigate } from 'react-router'
+import Loader from '@src/cmp/loader'
 
 const Login: FC = () => {
 	const navigate = useNavigate()
@@ -9,6 +10,7 @@ const Login: FC = () => {
 			<input placeholder='Логин' type='text' name='login' />
 			<input placeholder='Пароль' type='text' name='password' />
 			<button type='submit'>Войти</button>
+			<Loader type='vertical' />
 		</form>
 	)
 

@@ -8,7 +8,7 @@
 	--primary2: rgb(160, 160, 160);
 	--primary3: rgb(140, 140, 140);
 	--primary4: rgb(120, 120, 120);
-	--primary5: rgb(100, 100, 100,0.5);
+	--primary5: rgb(100, 100, 100, 0.5);
 	--br: 100px;
 	--brdP: 1px solid var(--primary);
 	--brdS: 1px solid var(--secondary);
@@ -29,6 +29,7 @@ html body {
 	min-width: 400px;
 	height: 100vh;
 	width: 100vw;
+	position: relative;
 }
 * {
 	margin: 0;

@@ -25,10 +25,10 @@ const router = createBrowserRouter([
 				return r
 			} catch (error) {
 				console.log(1111, error)
-				return redirect('/login')	
+				return redirect('/login')
 			}
 		},
-		hydrateFallbackElement:<Loader />
+		hydrateFallbackElement: <Loader type='vertical' />,
 	},
 	// PC
 	{
@@ -48,6 +48,3 @@ const router = createBrowserRouter([
 ])
 
 export default router
-
-
-

@@ -1,0 +1,29 @@
+.cmp-loader {
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	border: dashed 25px var(--primary1);
+	animation: loader-anim 4s ease-in infinite;
+}
+.cmp-loader-hor-center {
+	margin: auto;
+}
+.cmp-loader-vert-center {
+	position: fixed;
+	right: calc(50% - 100px / 2);
+	top: calc(50% - 100px/2);
+}
+@keyframes loader-anim {
+	from {
+		transform: rotate3d(0, 0, 1, 0deg);
+		border-color: #ffffff;
+	}
+	50% {
+		transform: rotate3d(0, 0, 1, 360deg);
+		border-color: #ffffff7c;
+	}
+	to {
+		transform: rotate3d(0, 0, 1, 0deg);
+		border-color: #ffffff;
+	}
+}

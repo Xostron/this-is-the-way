@@ -19,7 +19,7 @@ const router = createBrowserRouter([
 		element: <Main />,
 		loader: async ({ context, params, request }) => {
 			try {
-				await delay(5000)
+				await delay(1000)
 				const r = await fetchCompanies()
 				console.log('loader path:/', r)
 				return r
@@ -28,7 +28,7 @@ const router = createBrowserRouter([
 				return redirect('/login')
 			}
 		},
-		// hydrateFallbackElement: <Loader type='vertical' />,
+		hydrateFallbackElement: <Loader type='vertical' />,
 	},
 	// PC
 	{

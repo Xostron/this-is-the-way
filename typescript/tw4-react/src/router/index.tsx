@@ -4,9 +4,9 @@ import Main from '@src/page/main'
 import PC from '@src/page/pc'
 import NotFound from '@page/not_found'
 import fetchCompanies from '@api/company'
-import { ICmp } from '@api/company/type'
 import delay from '@util/delay'
 import Loader from '@cmp/loader'
+
 const router = createBrowserRouter([
 	// Логин
 	{
@@ -28,7 +28,7 @@ const router = createBrowserRouter([
 				return redirect('/login')
 			}
 		},
-		hydrateFallbackElement: <Loader type='vertical' />,
+		// hydrateFallbackElement: <Loader type='vertical' />,
 	},
 	// PC
 	{

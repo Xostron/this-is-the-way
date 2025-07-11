@@ -1,15 +1,13 @@
-import { FC } from 'react'
+import { FC, lazy } from 'react'
 import { useLoaderData } from 'react-router'
 import ListCompany from '@src/cmp/list/company'
 import Navh from '@src/cmp/navh'
-import delay from '@util/delay'
 import './style.css'
 
 
 const Main: FC = () => {
 	const r = useLoaderData()
 	console.log(222, r)
-	// delay(5000)
 	return (
 		<main className='page-main'>
 			<section className='page-main-header'>

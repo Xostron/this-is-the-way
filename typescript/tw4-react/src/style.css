@@ -14,7 +14,7 @@
 	--brdS: 1px solid var(--secondary);
 	--fsz16: clamp(0.75rem, 0.5rem + 0.8vw, 1rem);
 	--fsz24: clamp(1.125rem, 0.75rem + 1.2vw, 1.5rem);
-	font-family: Q-Medium;
+	--font: Q-Medium;
 	color: var(--primary);
 }
 @font-face {
@@ -40,6 +40,11 @@ body {
 	color: #989898;
 	font-size: var(--fsz16);
 	background-image: linear-gradient(to bottom, #020917, #101725);
+	font-family: var(--font);
+}
+
+button{
+	font-family: var(--font);
 }
 
 .back-img-type-bld {

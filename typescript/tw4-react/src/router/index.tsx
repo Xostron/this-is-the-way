@@ -6,6 +6,9 @@ import NotFound from '@page/not_found'
 import fetchCompanies from '@api/company'
 import delay from '@util/delay'
 import Loader from '@cmp/loader'
+import ListCompany from '@src/cmp/list/company'
+import LazyList from '@src/page/lazy_list'
+import BaseLayout from '@src/cmp/base_layout'
 
 const router = createBrowserRouter([
 	// Логин
@@ -17,18 +20,38 @@ const router = createBrowserRouter([
 	{
 		path: '/',
 		element: <Main />,
-		loader: async ({ context, params, request }) => {
-			try {
-				await delay(1000)
-				const r = await fetchCompanies()
-				console.log('loader path:/', r)
-				return r
-			} catch (error) {
-				console.log(1111, error)
-				return redirect('/login')
-			}
-		},
-		hydrateFallbackElement: <Loader type='vertical' />,
+		children: [
+			{
+				index: true,
+				element: <Navigate to={'company'} />,
+			},
+			{
+				path: 'company',
+				element: <BaseLayout />,
+				children: [
+					{
+						index: true,
+						element: <Navigate to={'a'} />,
+					},
+					{
+						path: 'a',
+						element: <LazyList />,
+						loader: async ({ context, params, request }) => {
+							try {
+								const list = delay(3000)
+								// const r = await fetchCompanies()
+								console.log('loader path:/', list)
+								return {list}
+							} catch (error) {
+								console.log(1111, error)
+								return redirect('/login')
+							}
+						},
+						// hydrateFallbackElement: <Loader type='green' />,
+					},
+				],
+			},
+		],
 	},
 	// PC
 	{

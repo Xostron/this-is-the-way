@@ -1,5 +1,5 @@
-import React from 'react'
-import { RouterProvider } from 'react-router-dom'
+import { StrictMode } from 'react'
+import { RouterProvider } from 'react-router'
 import { createRoot } from 'react-dom/client'
 import { Provider } from 'react-redux'
 import { dataStore } from '@store/index'
@@ -11,7 +11,9 @@ if (!domNode) throw new Error('Не найден корневой узел')
 const root = createRoot(domNode)
 
 root.render(
-	<Provider store={dataStore}>
-		<RouterProvider router={router} />
-	</Provider>
+	// <StrictMode>
+		<Provider store={dataStore}>
+			<RouterProvider router={router} />
+		</Provider>
+	// </StrictMode>
 )

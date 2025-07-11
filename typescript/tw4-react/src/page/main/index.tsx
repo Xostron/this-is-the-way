@@ -1,13 +1,10 @@
-import { FC, lazy } from 'react'
-import { useLoaderData } from 'react-router'
-import ListCompany from '@src/cmp/list/company'
+import { FC } from 'react'
+import { Outlet } from 'react-router'
 import Navh from '@src/cmp/navh'
 import './style.css'
-
+import Loader from '@src/cmp/loader'
 
 const Main: FC = () => {
-	const r = useLoaderData()
-	console.log(222, r)
 	return (
 		<main className='page-main'>
 			<section className='page-main-header'>
@@ -15,8 +12,7 @@ const Main: FC = () => {
 				<Navh />
 			</section>
 			<section className='page-main-content'>
-				<h1>Список клиентов</h1>
-				<ListCompany list={r} />
+				<Outlet />
 			</section>
 			<section className='page-main-asidel'>asidel</section>
 			<section className='page-main-asider'>asider</section>

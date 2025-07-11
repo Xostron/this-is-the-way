@@ -9,7 +9,8 @@ function Loader(props: IProps) {
 	if (props.type == 'horizont') cl.push('cmp-loader-hor-center')
 	if (props.type == 'vertical') cl.push('cmp-loader-vert-center')
 	cl = cl.join(' ')
-	return <div className={cl}></div>
+	return <div style={{ color: props.type }}>...Данные загружаются</div>
+	// return <div className={cl}></div>
 }
 
 export default Loader

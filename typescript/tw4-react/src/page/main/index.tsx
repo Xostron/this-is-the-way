@@ -1,20 +1,15 @@
-import { FC, useEffect, useState } from 'react'
-import fetchCompanies from '@api/company'
-import { ICmp } from '@api/company/type'
+import { FC } from 'react'
+import { useLoaderData } from 'react-router'
 import ListCompany from '@src/cmp/list/company'
 import Navh from '@src/cmp/navh'
+import delay from '@util/delay'
 import './style.css'
 
+
 const Main: FC = () => {
-	const [list, setList] = useState<ICmp[]>()
-	useEffect(() => {
-		const data = async () => {
-			const r = await fetchCompanies()
-			if (r) setList(r)
-		}
-		data()
-	}, [])
-	console.log(111, list)
+	const r = useLoaderData()
+	console.log(222, r)
+	// delay(5000)
 	return (
 		<main className='page-main'>
 			<section className='page-main-header'>
@@ -23,7 +18,7 @@ const Main: FC = () => {
 			</section>
 			<section className='page-main-content'>
 				<h1>Список клиентов</h1>
-				<ListCompany list={list} />
+				<ListCompany list={r} />
 			</section>
 			<section className='page-main-asidel'>asidel</section>
 			<section className='page-main-asider'>asider</section>

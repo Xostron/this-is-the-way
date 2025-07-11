@@ -1,9 +1,12 @@
-import { createBrowserRouter, Navigate } from 'react-router'
+import { createBrowserRouter, Navigate, redirect } from 'react-router'
 import Login from '@page/login'
 import Main from '@src/page/main'
 import PC from '@src/page/pc'
 import NotFound from '@page/not_found'
-
+import fetchCompanies from '@api/company'
+import { ICmp } from '@api/company/type'
+import delay from '@util/delay'
+import Loader from '@cmp/loader'
 const router = createBrowserRouter([
 	// Логин
 	{
@@ -14,9 +17,18 @@ const router = createBrowserRouter([
 	{
 		path: '/',
 		element: <Main />,
-		loader: ({ context, params, request }) => {
-			console.log(222, { context, params, request })
+		loader: async ({ context, params, request }) => {
+			try {
+				await delay(5000)
+				const r = await fetchCompanies()
+				console.log('loader path:/', r)
+				return r
+			} catch (error) {
+				console.log(1111, error)
+				return redirect('/login')	
+			}
 		},
+		hydrateFallbackElement:<Loader />
 	},
 	// PC
 	{
@@ -36,3 +48,6 @@ const router = createBrowserRouter([
 ])
 
 export default router
+
+
+

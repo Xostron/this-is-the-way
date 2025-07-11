@@ -4,8 +4,9 @@ import './style.css'
 function Navh() {
 	return (
 		<article className='cmp-navh'>
-			{link.map((el) => (
+			{link.map((el, i) => (
 				<NavLink
+					key={el.path}
 					className={({ isActive }) => (isActive ? 'navlink active' : 'navlink')}
 					to={el.path}
 				>

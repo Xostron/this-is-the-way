@@ -32,7 +32,8 @@
 			"@tool/*": ["./src/tool/*"],
 			"@store/*": ["./src/store/*"],
 			"@font/*": ["./public/fonts/*"],
-			"@api/*": ["./src/tool/api/*"]
+			"@api/*": ["./src/tool/api/*"],
+			"@util/*": ["./src/util/*"]
 		}
 	},
 	"include": ["src"]

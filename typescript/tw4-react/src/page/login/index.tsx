@@ -27,8 +27,8 @@ const Login: FC = () => {
 				login: e.currentTarget.login.value,
 				password: e.currentTarget.password.value,
 			}
-			// const r = await fetchLogin(form)
-			const r = true
+			const r = await fetchLogin(form)
+			// const r = true
 			if (r) navigate('/',{ replace: true })
 		} catch (error) {
 			console.log('\\page\\login\\index.tsx', error)

@@ -1,16 +1,13 @@
 import './style.css'
 
 interface IProps {
-	type?: string
+	type?: string | number
 }
 
 function Loader(props: IProps) {
-	const {type='horizont'} = props
-	let cl: string[] | string = ['cmp-loader']
-	if (type == 'horizont') cl.push('cmp-loader-hor-center')
-	if (type == 'vertical') cl.push('cmp-loader-vert-center')
-	cl = cl.join(' ')
+	const { type = 4 } = props
+	const cl : string= `cmp-loader${type}`
 	return <div className={cl}></div>
 }
 
-export default Loader
+export { Loader }

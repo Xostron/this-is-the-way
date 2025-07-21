@@ -5,12 +5,12 @@ interface IProps {
 }
 
 function Loader(props: IProps) {
+	const {type='horizont'} = props
 	let cl: string[] | string = ['cmp-loader']
-	if (props.type == 'horizont') cl.push('cmp-loader-hor-center')
-	if (props.type == 'vertical') cl.push('cmp-loader-vert-center')
+	if (type == 'horizont') cl.push('cmp-loader-hor-center')
+	if (type == 'vertical') cl.push('cmp-loader-vert-center')
 	cl = cl.join(' ')
-	return <div style={{ color: props.type }}>...Данные загружаются</div>
-	// return <div className={cl}></div>
+	return <div className={cl}></div>
 }
 
 export default Loader

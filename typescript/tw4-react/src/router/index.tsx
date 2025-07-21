@@ -4,7 +4,7 @@ import Main from '@src/page/main'
 import PC from '@src/page/pc'
 import NotFound from '@page/not_found'
 import fetchCompanies from '@api/company'
-import LazyList from '@src/page/lazy_list'
+import LazyList from '@src/page/main/lazy_list'
 
 const router = createBrowserRouter([
 	// Логин
@@ -17,11 +17,6 @@ const router = createBrowserRouter([
 		path: '/',
 		element: <Main />,
 		children: [
-			// При загрузке делает редирект
-			// {
-			// 	index: true,
-			// 	element: <Navigate to={'company'} />,
-			// },
 			{
 				path: '',
 				element: <LazyList />,

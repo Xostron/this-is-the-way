@@ -6,10 +6,9 @@ import ErrorElement from '@src/cmp/error'
 
 const LazyList: FC = () => {
 	const list = useLoaderData()
-	console.log(333, list.list)
 	return (
-		<Suspense fallback={<Loader type='red' />}>
-			<Await resolve={list.list} errorElement={<ErrorElement/>}>
+		<Suspense fallback={<Loader />}>
+			<Await resolve={list.list} errorElement={<ErrorElement />}>
 				{(props) => <ListCompany list={props} />}
 			</Await>
 		</Suspense>

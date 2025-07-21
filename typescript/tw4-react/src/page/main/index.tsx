@@ -2,7 +2,7 @@ import { FC } from 'react'
 import { Outlet } from 'react-router'
 import Navh from '@src/cmp/navh'
 import './style.css'
-import Loader from '@src/cmp/loader'
+
 
 const Main: FC = () => {
 	return (

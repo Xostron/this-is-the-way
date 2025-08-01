@@ -20,7 +20,7 @@ async function fetchCompanies() {
 		return response.data.result
 	} catch (error: any) {
 		console.log(1110, error)
-		if (error.code == 'ERR_BAD_REQUEST') throw Error('Пользователь не авторизован')
+		if (error.response.status == 401) throw Error('Пользователь не авторизован')
 		throw error
 	}
 }

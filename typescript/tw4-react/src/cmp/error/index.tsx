@@ -1,14 +1,10 @@
 import { useAsyncError } from 'react-router'
 
 function ErrorElement() {
-	const error: any = useAsyncError()
+	const error = useAsyncError() as Error
 	return (
 		<article>
-			<div>Ooops😬. Об ошибке: {error.message}</div>
-			<div>
-				Подробнее:
-				{error.stack}
-			</div>
+			<div title={error.stack}>Ooops😬. {error.message}</div>
 		</article>
 	)
 }

@@ -1,39 +1,17 @@
 import { createBrowserRouter, Navigate, redirect } from 'react-router'
-import Login from '@page/login'
 import Main from '@src/page/main'
-import PC from '@src/page/pc'
 import NotFound from '@page/not_found'
-import fetchCompanies from '@api/company'
-import LazyList from '@src/page/main/lazy_list'
+import childMain from './child_main'
 
 const router = createBrowserRouter([
-	// Логин
-	{
-		path: '/login',
-		element: <Login />,
-	},
-	// Список PC
+	
+	// Main - Список PC
 	{
 		path: '/',
 		element: <Main />,
-		children: [
-			{
-				path: '',
-				element: <LazyList />,
-				loader: ({ context, params, request }) => {
-					const list = fetchCompanies()
-					console.log('loader path:/', list)
-					return { list }
-				},
-			},
-		],
+		children: childMain,
 	},
-	// PC
-	{
-		path: 'pc/:id',
-		element: <PC />,
-		children: [],
-	},
+	
 	// 404
 	{
 		path: '*',

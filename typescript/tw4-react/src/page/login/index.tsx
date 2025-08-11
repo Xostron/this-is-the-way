@@ -8,7 +8,7 @@ const Login: FC = () => {
 	const navigate = useNavigate()
 	return (
 		<>
-			<Navh />
+			{/* <Navh /> */}
 			<form className='page-login' method='post' onSubmit={fnLogin}>
 				<img className='page-login-logo' src='img/logo.svg' />
 				<input className='page-login-input' placeholder='Логин' type='text' name='login' />

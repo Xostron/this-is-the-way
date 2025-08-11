@@ -8,7 +8,6 @@ const Main: FC = () => {
 	return (
 		<main className='page-main'>
 			<section className='page-main-header'>
-				header
 				<Navh />
 			</section>
 			<section className='page-main-content'>

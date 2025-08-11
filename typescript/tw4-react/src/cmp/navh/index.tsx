@@ -29,4 +29,5 @@ const link = [
 		path: '/',
 		name: 'PC',
 	},
+	{path:'/dom',name:'DOM'}
 ]

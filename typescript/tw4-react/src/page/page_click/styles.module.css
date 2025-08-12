@@ -1,0 +1,23 @@
+.page_click_main{
+	display: flex;
+	flex-direction: column;
+	padding: 1em;
+}
+
+.page_click_section{
+	display: flex;
+	justify-content: center;
+	gap: 1em;
+}
+
+.page_click_btn{
+	display: flex;
+	width: 100px;
+	height: 100px;
+	border-radius: 1em;
+	font-size: 25px;
+	justify-content: center;
+	align-items: center;
+	border: none;
+	background-color: var(--primary1);
+}

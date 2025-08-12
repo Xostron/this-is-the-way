@@ -3,6 +3,7 @@ import Login from '@page/login'
 import PC from '@src/page/pc'
 import Dom from '@src/page/dom'
 import loaderMain from '../utils/loader_main'
+import PageClick from '@src/page/page_click'
 
 const children = [
 	// Логин
@@ -24,8 +25,13 @@ const children = [
 	},
 	// DOM
 	{
-		path: 'dom',
+		path: 'pg1',
 		element: <Dom />,
+	},
+	// Event Click
+	{
+		path: 'pg2',
+		element: <PageClick />,
 	},
 ]
 

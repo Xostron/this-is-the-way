@@ -30,5 +30,6 @@ const link = [
 		name: 'PC',
 	},
 	{ path: '/pg1', name: 'DOM' },
-	{ path: '/pg2', name: 'EventClick' },
+	{ path: '/pg2', name: 'BtnClick' },
+	{ path: '/pg3', name: 'GEO' },
 ]

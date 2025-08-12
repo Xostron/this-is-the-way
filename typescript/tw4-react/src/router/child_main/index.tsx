@@ -4,6 +4,7 @@ import PC from '@src/page/pc'
 import Dom from '@src/page/dom'
 import loaderMain from '../utils/loader_main'
 import PageClick from '@src/page/page_click'
+import GeoMap from '@src/page/geo_map'
 
 const children = [
 	// Логин
@@ -32,6 +33,11 @@ const children = [
 	{
 		path: 'pg2',
 		element: <PageClick />,
+	},
+	// Geo Map
+	{
+		path: 'pg3',
+		element: <GeoMap />,
 	},
 ]
 

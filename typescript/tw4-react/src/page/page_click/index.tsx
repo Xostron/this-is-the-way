@@ -36,6 +36,7 @@ export default function PageClick() {
 			id1?.removeEventListener('click', cbClick)
 			id2?.removeEventListener('click', cbClick)
 			id3?.removeEventListener('click', cbClick)
+			console.log('clean up btnClick')
 		}
 	}, [])
 

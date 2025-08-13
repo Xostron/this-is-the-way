@@ -1,3 +1,4 @@
+import { Navigate } from 'react-router'
 import LazyList from '@src/page/main/lazy_list'
 import Login from '@page/login'
 import PC from '@src/page/pc'
@@ -7,16 +8,22 @@ import PageClick from '@src/page/page_click'
 import GeoMap from '@src/page/geo_map'
 
 const children = [
+	// Редирект на стартовую страницу
+	{
+		path: '',
+		element: <Navigate to='/pg2' replace={true} />,
+		loader: loaderMain,
+	},
+	// Список PC
+	{
+		path: '/main',
+		element: <LazyList />,
+		loader: loaderMain,
+	},
 	// Логин
 	{
 		path: '/login',
 		element: <Login />,
-	},
-	// Список PC
-	{
-		path: '',
-		element: <LazyList />,
-		loader: loaderMain,
 	},
 	// PC
 	{

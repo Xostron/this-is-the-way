@@ -1,8 +1,7 @@
 import { FC, useEffect } from 'react'
 
 const NotFound: FC = () => {
-	return <div>Страница не найдена 404</div>
+	return <main>Страница не найдена 404</main>
 }
-
 
 export default NotFound

@@ -26,7 +26,7 @@ const link = [
 	},
 	// Список PC
 	{
-		path: '/',
+		path: '/main',
 		name: 'PC',
 	},
 	{ path: '/pg1', name: 'DOM' },

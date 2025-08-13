@@ -14,7 +14,7 @@ L.Icon.Default.mergeOptions({
 // Карта leaflet (бесплатная)
 export default function GeoMap() {
 	// Широта, долгота
-	const position: [number, number] = [48.768, 44.8228]
+	const position: [number, number] = [48.76805, 44.8228]
 	const address = 'Волгоградская область, г. Волжский, ул. Пушкина 103В'
 	// Координаты полигона (массив точек [широта, долгота])
 	const polygonCoords: [number, number][] = [

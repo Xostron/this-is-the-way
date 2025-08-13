@@ -32,4 +32,5 @@ const link = [
 	{ path: '/pg1', name: 'DOM' },
 	{ path: '/pg2', name: 'BtnClick' },
 	{ path: '/pg3', name: 'GEO' },
+	{ path: '/pg4', name: 'OOP' },
 ]

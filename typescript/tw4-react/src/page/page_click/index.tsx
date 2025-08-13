@@ -2,27 +2,6 @@ import { useEffect, useRef, type MouseEventHandler } from 'react'
 import styles from './styles.module.css'
 
 export default function PageClick() {
-	// Событие перехватывается на всплытии (обработчик onClick)
-	// Function declaration с явным указанием типа
-	function btnsClick(event: React.MouseEvent<HTMLButtonElement>): void {
-		console.log('Кнопка нажата', event.target, event.currentTarget)
-	}
-	// Function declaration с типизированной переменной
-	const mainClick: React.MouseEventHandler<HTMLDivElement> = function (event) {
-		console.log('Main нажата', event.target, event.currentTarget)
-	}
-	// Стрелочная функция с явным указанием типа
-	const sectClick: React.MouseEventHandler<HTMLButtonElement> = (event) =>
-		console.log('sect2 нажата', event.target, event.currentTarget)
-	// Или стрелочная функция с типизацией параметра
-	const btnClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-		console.log('btn нажата', event.target, event.currentTarget)
-	}
-
-	// Перехват: событие перехватывается сверху вних
-	function cbClick(event: MouseEvent): void {
-		console.log('Нажата', event.target, event.currentTarget)
-	}
 	const id1Ref = useRef<HTMLDivElement | null>(null)
 	useEffect(() => {
 		const id1 = id1Ref.current
@@ -59,4 +38,26 @@ export default function PageClick() {
 			</section>
 		</main>
 	)
+}
+
+// Событие перехватывается на всплытии (обработчик onClick)
+// Function declaration с явным указанием типа
+function btnsClick(event: React.MouseEvent<HTMLButtonElement>): void {
+	console.log('Кнопка нажата', event.target, event.currentTarget)
+}
+// Function declaration с типизированной переменной
+const mainClick: React.MouseEventHandler<HTMLDivElement> = function (event) {
+	console.log('Main нажата', event.target, event.currentTarget)
+}
+// Стрелочная функция с явным указанием типа
+const sectClick: React.MouseEventHandler<HTMLButtonElement> = (event) =>
+	console.log('sect2 нажата', event.target, event.currentTarget)
+// Или стрелочная функция с типизацией параметра
+const btnClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+	console.log('btn нажата', event.target, event.currentTarget)
+}
+
+// Перехват: событие перехватывается сверху вних
+function cbClick(event: MouseEvent): void {
+	console.log('Нажата', event.target, event.currentTarget)
 }

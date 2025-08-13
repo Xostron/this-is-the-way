@@ -1,16 +1,11 @@
 import { useEffect } from 'react'
 
 function Dom() {
+	// Создать элемент и добавить его к родителю
 	useEffect(() => {
 		// Прочитать
 		const el1: HTMLSpanElement | null = document.querySelector('#id-test')
-
-		const el3: HTMLSpanElement | null = document.querySelector('#id-dom-span')
-
 		console.log('el1', el1?.title)
-
-		console.log('el3', el3)
-
 		// Создать элемент
 		const span = document.createElement('span')
 		if (el1) {

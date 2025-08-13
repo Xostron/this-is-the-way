@@ -6,6 +6,7 @@ import Dom from '@src/page/dom'
 import loaderMain from '../utils/loader_main'
 import PageClick from '@src/page/page_click'
 import GeoMap from '@src/page/geo_map'
+import OOP from '@src/page/oop'
 
 const children = [
 	// Редирект на стартовую страницу
@@ -45,6 +46,11 @@ const children = [
 	{
 		path: 'pg3',
 		element: <GeoMap />,
+	},
+	// ООП Прототипы
+	{
+		path: 'pg4',
+		element: <OOP />,
 	},
 ]
 

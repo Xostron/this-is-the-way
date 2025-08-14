@@ -33,7 +33,14 @@ function App(db) {
 	// Включение Cors для любых маршрутов
 	// app.use(cors())
 	// Включение Cors для определенных маршрутов
-	app.use(cors({ credentials: true, origin: ['http://localhost:4001'] }))
+	app.use(
+		cors({
+			allowedHeaders: ['content-type', 'set-cookie', 'authorization', 'user-agent'],
+			credentials: true,
+			// origin: ['http://localhost:4001', 'http://localhost:5010'],
+			origin: (err, cb) => cb(null, true),
+		})
+	)
 	// app.use(cors({ credentials: true, origin: (origin, cb) => cb(null, true) }))
 
 	// view engine pug

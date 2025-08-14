@@ -33,4 +33,5 @@ const link = [
 	{ path: '/pg2', name: 'BtnClick' },
 	{ path: '/pg3', name: 'GEO' },
 	{ path: '/pg4', name: 'OOP' },
+	{ path: '/pg5', name: 'Cookie' },
 ]

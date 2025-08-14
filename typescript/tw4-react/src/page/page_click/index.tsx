@@ -19,6 +19,15 @@ export default function PageClick() {
 		}
 	}, [])
 
+	// Сохранение данных
+	sessionStorage.setItem('sessionId', 'abc123')
+	sessionStorage.setItem('currentPage', 'dashboard')
+
+	// Получение данных
+	const sessionId = sessionStorage.getItem('sessionId') // 'abc123'
+	const currentPage = sessionStorage.getItem('currentPage') // 'dashboard'
+	console.log('pg2 sessionStorage', sessionId, currentPage)
+
 	return (
 		<main className={styles.page_click_main} onClick={mainClick}>
 			<section className={styles.page_click_section} onClick={btnsClick}>

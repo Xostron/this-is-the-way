@@ -9,6 +9,10 @@ export default function OOP() {
 	obj1.saveStorage({ owner: 'obj1' })
 	obj2.saveStorage({ owner: 'obj2' })
 	useEffect(() => {}, [])
+	// Получение данных
+	const sessionId = sessionStorage.getItem('sessionId') // 'abc123'
+	const currentPage = sessionStorage.getItem('currentPage') // 'dashboard'
+	console.log('pg2 sessionStorage', sessionId, currentPage)
 	return (
 		<main>
 			Прототипы: {obj1.name} {obj2.name}

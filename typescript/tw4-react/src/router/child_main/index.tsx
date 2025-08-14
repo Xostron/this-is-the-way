@@ -7,13 +7,13 @@ import loaderMain from '../utils/loader_main'
 import PageClick from '@src/page/page_click'
 import GeoMap from '@src/page/geo_map'
 import OOP from '@src/page/oop'
+import Cookie from '@src/page/cookie'
 
 const children = [
 	// Редирект на стартовую страницу
 	{
 		path: '',
 		element: <Navigate to='/pg2' replace={true} />,
-		loader: loaderMain,
 	},
 	// Список PC
 	{
@@ -51,6 +51,11 @@ const children = [
 	{
 		path: 'pg4',
 		element: <OOP />,
+	},
+	// Cookie
+	{
+		path: 'pg5',
+		element: <Cookie />,
 	},
 ]
 

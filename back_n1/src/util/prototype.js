@@ -70,7 +70,7 @@ Vehicle.prototype.stop = function () {
 
 // Дочерний "класс"
 function Car(brand, model) {
-	Vehicle.call(this, brand) // Вызов родительского конструктора
+	Vehicle.call(this, brand) // Вызов родительского конструктора (тоже самое в классе super(...arg))
 	this.model = model
 }
 

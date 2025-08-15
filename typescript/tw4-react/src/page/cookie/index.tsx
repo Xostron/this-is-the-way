@@ -23,8 +23,8 @@ export default function Cookie() {
 
 	return (
 		<main style={{ display: 'flex', gap: '1em', alignItems: 'center' }}>
-			<Btn label='Получить cookie' onClick={onClick} />
-			{value ? <span>Запрос ОК</span> : <span>Ошибка запроса</span>}
+			<Btn label='Получить cookie' onClick={onClick} gradient nav />
+			{value ? <span>Запрос ОК</span> : <></>}
 		</main>
 	)
 

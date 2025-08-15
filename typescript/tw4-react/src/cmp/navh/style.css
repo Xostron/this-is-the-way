@@ -1,12 +1,22 @@
 .cmp-navh {
+	padding: .5em;
 	display: flex;
-	gap: 10px;
+	gap: 1em;
 }
 
 .navlink {
 	text-decoration: none;
-	color: var(--primary5);
+	color: var(--primary1);
+	padding: 0.5em;
+	border-radius: .5em;
 }
 .navlink.active {
-	color: red;
+	color: rgb(0, 132, 255);
+	background-color: rgb(255, 255, 255);
+}
+.navlink:hover {
+	color: rgb(0, 132, 255);
+}
+.navlink:active {
+	filter: brightness(0.8);
 }

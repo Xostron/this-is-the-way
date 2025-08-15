@@ -43,8 +43,18 @@ body {
 	font-family: var(--font);
 }
 
-button{
+button {
 	font-family: var(--font);
+	cursor: pointer;
+}
+/* Кнопка неактивна */
+button:disabled {
+	background-color: #ccc;
+	cursor: not-allowed;
+}
+/* Эффект нажатия кнопки */
+button:active {
+  filter: brightness(0.8);
 }
 
 .back-img-type-bld {

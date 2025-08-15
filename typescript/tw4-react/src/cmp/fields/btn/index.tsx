@@ -7,11 +7,25 @@ interface IBtnProps {
 	type?: 'button' | 'submit' | 'reset' // Тип кнопки
 	children?: React.ReactNode // Поддержка дочерних элементов
 	onClick?: (e: React.MouseEvent<HTMLButtonElement>) => Promise<void> | void
+	gradient?: boolean
+	nav?: boolean
 }
 
-export default function Btn({ label, onClick, disabled = false, cls = '', children }: IBtnProps) {
+export default function Btn({
+	label,
+	onClick,
+	disabled = false,
+	cls = '',
+	children,
+	gradient,
+	nav,
+}: IBtnProps) {
+	let className = `${style.cmp_fields_btn} ${cls}`
+	if (gradient) className += ' ' + style.cmp_fields_btn_gradient
+	if (nav) className += ' ' + style.cmp_fields_btn_nav
+
 	return (
-		<button onClick={onClick} disabled={disabled} className={`${style.cmp_fields_btn} ${cls}`}>
+		<button onClick={onClick} disabled={disabled} className={className}>
 			{label}
 			{children}
 		</button>

@@ -2,22 +2,27 @@
 	padding: 1em;
 	border: none;
 	border-radius: 0.5rem;
-	color: white;
 	font-size: 1em;
-	background: -webkit-linear-gradient(
-		120deg,
-		#4e22b4,
-		#007bbd,
-		#38b3ff
-	); /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(
-		120deg,
-		#4e22b4,
-		#007bbd,
-		#38b3ff
-	); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-button {
-	cursor: pointer;
+.cmp_fields_btn_gradient {
+	color: white;
+	/* Chrome 10-25, Safari 5.1-6 */
+	background: -webkit-linear-gradient(120deg, #4e22b4, #007bbd);
+	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background: linear-gradient(120deg, #4e22b4, #007bbd);
+	/* background: linear-gradient(to right, #ff7e5f, #feb47b); */
+	transition: all 0.3s ease;
+}
+
+.cmp_fields_btn_gradient:hover {
+	background: -webkit-linear-gradient(120deg, #007bbd, #4e22b4);
+	background: linear-gradient(120deg, #007bbd, #4e22b4);
+}
+
+.cmp_fields_btn_nav {
+	/* border-radius: 0px; */
+}
+.cmp_fields_btn_nav:hover {
+	/* border-radius: 0px; */
 }

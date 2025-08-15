@@ -1,21 +1,30 @@
+import Btn from '@src/cmp/fields/btn'
 import axios from 'axios'
 import { useEffect, useState, type MouseEventHandler } from 'react'
+interface ICookie {
+	name: string
+	value: string
+	days: number
+}
+interface IFetchCookie {
+	result: string
+}
 
 export default function Cookie() {
-	const [value, setValue] = useState<string | null>(null)
-	
+	const [value, setValue] = useState<string | boolean | null>(null)
+
 	useEffect(() => {
 		// Создать куки
 		setCookie({ name: 'web', value: 'xostron', days: 1 })
 	}, [])
-	// Куки присланные от сервера  {server=Exodus2} сохраняются в куки storage, но они не читаются js, 
+	// Куки присланные от сервера  {server=Exodus2} сохраняются в куки storage, но они не читаются js,
 	// т.к. на сервере куки сгенерированы с ключом httpOnly
 	console.log('document.cookie@', document.cookie)
-	
+
 	return (
-		<main>
-			{value}
-			<button onClick={onClick}>Get cookie</button>
+		<main style={{ display: 'flex', gap: '1em', alignItems: 'center' }}>
+			<Btn label='Получить cookie' onClick={onClick} />
+			{value ? <span>Запрос ОК</span> : <span>Ошибка запроса</span>}
 		</main>
 	)
 
@@ -36,6 +45,7 @@ export default function Cookie() {
 			console.log('Кнопка нажата', response, document.cookie)
 		} catch (error) {
 			console.error(error)
+			setValue(false)
 		}
 	}
 }
@@ -44,13 +54,4 @@ function setCookie({ name, value, days }: ICookie): void {
 	const expires = new Date()
 	expires.setTime(expires.getTime() + days * 24 * 60 * 60 * 1000)
 	document.cookie = `${name}=${value};expires=${expires.toUTCString()}`
-}
-
-interface ICookie {
-	name: string
-	value: string
-	days: number
-}
-interface IFetchCookie {
-	result: string
 }

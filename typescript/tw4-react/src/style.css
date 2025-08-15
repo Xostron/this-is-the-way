@@ -8,7 +8,8 @@
 	--primary2: rgb(160, 160, 160);
 	--primary3: rgb(140, 140, 140);
 	--primary4: rgb(120, 120, 120);
-	--primary5: rgb(100, 100, 100, 0.5);
+	--primary5: rgb(100, 100, 100);
+	--primary6: rgba(61, 61, 61);
 	--br: 100px;
 	--brdP: 1px solid var(--primary);
 	--brdS: 1px solid var(--secondary);
@@ -39,7 +40,7 @@ html body {
 body {
 	color: var(color);
 	font-size: var(--fsz16);
-	background-image: linear-gradient(to bottom, #020917, #101725);
+	background-color: var(--primary4);
 	font-family: var(--font);
 }
 

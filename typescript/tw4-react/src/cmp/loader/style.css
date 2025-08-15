@@ -119,7 +119,7 @@
 	animation: 1s spin linear infinite;
 }
 .cmp-loader4:after {
-	color: #ff3d00;
+	color: rgb(0, 132, 255);
 	transform: rotateY(70deg);
 	animation-delay: 0.4s;
 }

@@ -26,14 +26,12 @@
 	grid-area: 2 / 1 / 2 / 1;
 	background-color: var(--primary3);
 	padding: 0.5em;
-	/* border-radius: 0 1em 1em 0; */
 }
 .page-main-asider {
 	width: 100%;
 	grid-area: 2 / 3 / 2 / 3;
 	background-color: var(--primary3);
 	padding: 0.5em;
-	/* border-radius: 1em 0 0 1em; */
 }
 .page-main-footer {
 	width: 100%;

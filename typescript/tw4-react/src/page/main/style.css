@@ -1,16 +1,17 @@
 /* Содержимое страницы */
 
-
 /* Разметка страницы */
 .page-main {
 	display: grid;
 	grid-template-columns: 20vh auto 20vh;
 	grid-template-rows: 10vh auto 10vh;
+	/* background-color: var(--primary4); */
 }
 .page-main-header {
 	width: 100%;
 	grid-area: 1/1/1/4;
 	background-color: var(--primary5);
+	padding: .5em;
 }
 .page-main-content {
 	display: flex;
@@ -19,16 +20,21 @@
 	grid-area: 2 / 2 / 2 / 2;
 	background-color: var(--primary4);
 	min-height: 80vh;
+	padding: .5em;
 }
 .page-main-asidel {
 	width: 100%;
 	grid-area: 2 / 1 / 2 / 1;
-	background-color: var(--primary4);
+	background-color: var(--primary3);
+	border-radius: 1em;
+	padding: .5em;
 }
 .page-main-asider {
 	width: 100%;
 	grid-area: 2 / 3 / 2 / 3;
-	background-color: var(--primary4);
+	background-color: var(--primary3);
+	border-radius: 1em;
+	padding: .5em;
 }
 .page-main-footer {
 	width: 100%;

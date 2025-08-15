@@ -1,4 +1,5 @@
 import style from './styles.module.css'
+import { JSX } from 'react'
 
 interface IBtnProps {
 	label?: string | number | undefined | null
@@ -19,7 +20,7 @@ export default function Btn({
 	children,
 	gradient,
 	nav,
-}: IBtnProps) {
+}: IBtnProps): JSX.Element {
 	let className = `${style.cmp_fields_btn} ${cls}`
 	if (gradient) className += ' ' + style.cmp_fields_btn_gradient
 	if (nav) className += ' ' + style.cmp_fields_btn_nav

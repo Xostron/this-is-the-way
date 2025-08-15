@@ -1,5 +1,4 @@
 .cmp-navh {
-	padding: .5em;
 	display: flex;
 	gap: 1em;
 }
@@ -8,11 +7,17 @@
 	text-decoration: none;
 	color: var(--primary1);
 	padding: 0.5em;
-	border-radius: .5em;
+	border-radius: 0.5em;
+	user-select: none;
 }
+.navlink_border {
+	border: 1px solid  rgb(0, 132, 255);
+}
+/* Текущая страница */
 .navlink.active {
 	color: rgb(0, 132, 255);
 	background-color: rgb(255, 255, 255);
+	border: none;
 }
 .navlink:hover {
 	color: rgb(0, 132, 255);

@@ -1,18 +1,21 @@
 import { NavLink } from 'react-router'
 import './style.css'
+import { JSX } from 'react'
 
-function Navh() {
+function Navh(): JSX.Element {
 	return (
 		<article className='cmp-navh'>
-			{link.map((el, i) => (
-				<NavLink
-					key={el.path}
-					className={({ isActive }) => (isActive ? 'navlink active' : 'navlink')}
-					to={el.path}
-				>
-					{el.name}
-				</NavLink>
-			))}
+			{link.map((el, i) => {
+				let className = 'navlink'
+				if (el.border) className += ' navlink_border'
+				const fnClassname = ({ isActive }: { isActive: boolean }) =>
+					isActive ? `${className} active` : className
+				return (
+					<NavLink key={el.path} className={fnClassname} to={el.path}>
+						{el.name}
+					</NavLink>
+				)
+			})}
 		</article>
 	)
 }
@@ -23,6 +26,7 @@ const link = [
 	{
 		path: '/login',
 		name: 'Войти',
+		border: true,
 	},
 	// Список PC
 	{

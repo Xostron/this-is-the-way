@@ -1,33 +1,25 @@
-import { NavLink } from 'react-router'
-import './style.css'
 import { JSX } from 'react'
+import List from './list'
+import './style.css'
 
-function Navh(): JSX.Element {
+export default function Navh(): JSX.Element {
 	return (
-		<article className='cmp-navh'>
-			{link.map((el, i) => {
-				let className = 'navlink'
-				if (el.border) className += ' navlink_border'
-				const fnClassname = ({ isActive }: { isActive: boolean }) =>
-					isActive ? `${className} active` : className
-				return (
-					<NavLink key={el.path} className={fnClassname} to={el.path}>
-						{el.name}
-					</NavLink>
-				)
-			})}
+		<article className='cmp-navh-content'>
+			{/* Основные ссылки */}
+			<List list={link} />
+			{/* Вспомагательные ссылки */}
+			<List list={linkAux} />
 		</article>
 	)
 }
 
-export default Navh
-
-const link = [
-	{
-		path: '/login',
-		name: 'Войти',
-		border: true,
-	},
+export type TLink = {
+	name: string
+	path: string
+	border?: boolean
+}
+// Основные ссылки
+const link: TLink[] = [
 	// Список PC
 	{
 		path: '/main',
@@ -38,4 +30,12 @@ const link = [
 	{ path: '/pg3', name: 'GEO' },
 	{ path: '/pg4', name: 'OOP' },
 	{ path: '/pg5', name: 'Cookie' },
+]
+// Вспомагательные ссылки
+const linkAux: TLink[] = [
+	{
+		path: '/login',
+		name: 'Войти',
+		border: true,
+	},
 ]

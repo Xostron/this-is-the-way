@@ -1,8 +1,12 @@
-.cmp-navh {
+.cmp-navh-content {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.cmp-navh-section {
 	display: flex;
 	gap: 1em;
 }
-
 .navlink {
 	text-decoration: none;
 	color: var(--primary1);

@@ -12,11 +12,13 @@
 		]
 	},
 	"_moduleAliases": {
-		"@root": "src",
-		"@tool": "src/tool",
-		"@api": "src/routes/api",
-		"@dict": "src/dict",
+		"@root": "src/",
+		"@routes": "src/routes",
+		"@socket": "src/socket",
 		"@middlew": "src/middlew",
+		"@dict": "src/dict",
+		"@tool": "src/tool",
+		"@util": "src/util",
 		"@store": "src/store"
 	},
 	"dependencies": {

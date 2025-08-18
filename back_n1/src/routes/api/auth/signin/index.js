@@ -7,7 +7,6 @@ const refreshAndSave = require('@tool/auth/token')
 module.exports = function signin(db) {
 	return async function (req, res, next) {
 		try {
-            console.log(111, req.cookies?.refreshToken)
 			const { login, password } = req.body
             // Поиск пользователя в БД 
 			const doc = await user(db, login)

@@ -49,8 +49,15 @@ function flt(arr) {
 console.log(666, flt([1, 2, 3, 4, 5, 5, 5, 4]))
 // 7. Напишите функцию, которая сортирует массив чисел по возрастанию.
 function toSort(arr) {
-	// sort - мутируемый метод, поэтому создаем новый массив при помощи spread 
+	// sort - мутируемый метод, поэтому создаем новый массив при помощи spread
 	return [...arr].sort((a, b) => a - b)
 }
-const arr = [20,1,10,9,8,7]
+const arr = [20, 1, 10, 9, 8, 7]
 console.log(777, toSort(arr), arr)
+
+const obj = { 123: { y: 12 } }
+const obj1 = {}
+const jobs = [{ name: '123', id: 123 }]
+jobs.forEach((job) => (obj[job.name].job = job))
+jobs.forEach((job) => (obj1[job.name] = { job }))
+console.log(888, obj, obj1)

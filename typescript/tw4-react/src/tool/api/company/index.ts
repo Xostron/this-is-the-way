@@ -15,7 +15,7 @@ async function fetchCompanies() {
 				Authorization: `Bearer ${accessToken}`,
 			},
 		}
-		await delay(5000)
+		// await delay(5000)
 		const response = await axios.request<IFetchCmp>(config)
 		return response.data.result
 	} catch (error: any) {

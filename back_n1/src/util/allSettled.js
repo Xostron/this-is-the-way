@@ -9,16 +9,15 @@ Promise.allSettled(p)
 		return Promise.all(r)
 	})
 	.then((r) => {
-		r.forEach
-		// console.log(r)
+		console.log(111, 'RESULT', r)
 	})
 	.catch((error) => console.log('Ошибка', error))
 
 fetch('https://jsonplaceholder.typicode.com/todos/1')
 	.then((r) => r.json())
 	.then((r) => {
-		console.log(r)
-        if (r.id===1) throw new Error('fucked up')
+		console.log(222, r)
+		// if (r.id===1) throw new Error('fucked up')
 		// throw new Error('Синхронная ошибка') // Не будет поймана
 	})
 	.catch((error) => {

@@ -5,7 +5,7 @@ import { JSX } from 'react'
 export default function List({ list }: { list: TLink[] }): JSX.Element {
 	if (!list) return <></>
 	return (
-		<section className=''>
+		<section className='cmp-navh-section'>
 			{list.map((el, i) => {
 				let className = 'navlink'
 				if (el.border) className += ' navlink_border'

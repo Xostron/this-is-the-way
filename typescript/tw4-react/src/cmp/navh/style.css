@@ -1,11 +1,11 @@
 .cmp-navh-content {
 	display: flex;
-	flex-direction: row;
 	justify-content: space-between;
 }
 .cmp-navh-section {
 	display: flex;
-	gap: 1em;
+	gap: 1.5em;
+	height: calc(100% + 2px);
 }
 .navlink {
 	text-decoration: none;
@@ -15,17 +15,16 @@
 	user-select: none;
 }
 .navlink_border {
-	border: 1px solid  rgb(0, 132, 255);
+	border: 1px solid rgb(0, 132, 255);
 }
-/* Текущая страница */
-.navlink.active {
-	color: rgb(0, 132, 255);
-	background-color: rgb(255, 255, 255);
-	border: none;
-}
+/* Текущая ссылка активна + наведение на ссылку */
+.navlink.active,
 .navlink:hover {
 	color: rgb(0, 132, 255);
+	background-color: white;
+	border: none;
 }
+/* Нажатие на ссылку */
 .navlink:active {
 	filter: brightness(0.8);
 }

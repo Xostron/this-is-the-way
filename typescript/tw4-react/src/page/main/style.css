@@ -10,7 +10,7 @@
 	width: 100%;
 	grid-area: 1/1/1/4;
 	background-color: var(--primary5);
-	padding: 1em 0.5em;
+	padding: 0.5em;
 }
 .page-main-content {
 	display: flex;

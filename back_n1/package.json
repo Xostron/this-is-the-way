@@ -15,6 +15,7 @@
 		"@root": "src/",
 		"@routes": "src/routes",
 		"@socket": "src/socket",
+		"@service": "src/service",
 		"@middlew": "src/middlew",
 		"@dict": "src/dict",
 		"@tool": "src/tool",

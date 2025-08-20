@@ -5,9 +5,12 @@
  * @param {Object} q Параметры Фильтрация
  * @returns
  */
-function find(db, code, q, sort) {
+function find(db, code, q, sort, projection = {}) {
 	return new Promise((resolve, reject) => {
-		if (sort) return db[code].find(q).sort(sort, (err, docs) => (err ? reject(err) : resolve(docs)))
+		if (sort)
+			return db[code]
+				.find(q, projection)
+				.sort(sort, (err, docs) => (err ? reject(err) : resolve(docs)))
 
 		db[code].find(q, (err, docs) => (err ? reject(err) : resolve(docs)))
 	})
@@ -34,12 +37,16 @@ function count(db, code, q) {
  * @param {Object} s Параметры Сортировки
  * @returns
  */
-function findOne(db, name, q, s) {
+function findOne(db, code, q, s) {
 	return new Promise((resolve, reject) => {
-		if (!s) return db[name].findOne(q, (err, doc) => (err ? reject(err) : resolve(doc)))
+		if (!code) return reject('Не определена коллекция')
+		if (!s)
+			return db[code].findOne(q, (err, doc) => {
+				err ? reject(err) : resolve(doc)
+			})
 
-		return db[name]
-			.findOne(q)
+		db[code]
+			.find(q)
 			.sort(s)
 			.limit(1, (err, doc) => (err ? reject(err) : resolve(doc.at(0))))
 	})
@@ -166,10 +173,19 @@ function cursor(db, name, q = {}, cb, s, l) {
  * @param {Object} upsert (поумолчанию false). Если true, создает новыйдокумент если не найдено согласно выбоки query
  * @param {Boolean} n (поумолчанию true). Если true, возвращается измененный документ, а не исходный. По умолчанию — ложь.
  * @param {Object} sort Необязательный. Определяет, какой документ модифицируется операцией, если запрос выбирает несколько документов.
- * @param {Boolean} remove Удаление документа согласно выборки query (поумолчанию false)
+ * @param {Boolean} remove Удаление документа согласно выбоки query (поумолчанию false)
  * @returns {Object||Array}
  */
-function findAndModify(db, code, query, upd = {}, upsert = false, n = true, sort = {}, remove = false) {
+function findAndModify(
+	db,
+	code,
+	query,
+	upd = {},
+	upsert = false,
+	n = true,
+	sort = {},
+	remove = false
+) {
 	return new Promise((resolve, reject) => {
 		db[code].findAndModify(
 			{

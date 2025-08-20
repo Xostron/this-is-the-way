@@ -6,12 +6,13 @@
 		"module": "commonjs",
 		"paths": {
 			"@root/*": ["src/*"],
-			"@routes": ["src/routes/*"],
-			"@socket": ["src/socket/*"],
-			"@middlew": ["src/middlew/*"],
+			"@routes/*": ["src/routes/*"],
+			"@socket/*": ["src/socket/*"],
+			"@service/*": ["src/service/*"],
+			"@middlew/*": ["src/middlew/*"],
 			"@dict/*": ["src/dict/*"],
 			"@tool/*": ["src/tool/*"],
-			"@util": ["src/util/*"],
+			"@util/*": ["src/util/*"],
 			"@store/*": ["src/store/*"]
 		}
 	}

@@ -1,12 +1,14 @@
 const { save, get, del } = require('./fn')
 
 function taskV1(router, db) {
-	// Статус задачи
-	router.get('/task/v1', get(db))
-	// Создать/Редактировать задачу
-	router.post('/task/v1', save(db))
-	// Удалить задачу
-	router.delete('/task/v1', del(db))
+	router
+		.route('/task/v1')
+		// Статус одной/более задач
+		.get(get(db))
+		// Создать новую/Редактировать существующую задачу
+		.post(save(db))
+		// Удалить задачу
+		.delete(del(db))
 }
 
 module.exports = taskV1

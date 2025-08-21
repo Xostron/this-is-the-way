@@ -1,14 +1,16 @@
 // Создание задачи
-function save() {
+function save(db) {
 	return function (req, res) {
 		const id = req.query.id
+		const data = req.body
 		const code = id ? 'create' : 'modify'
+		
 		res.status(200).json({ id, code })
 	}
 }
 
 // Статус задачи
-function get() {
+function get(db) {
 	return function (req, res) {
 		const id = req.query.id
 		const code = 'get'
@@ -16,7 +18,7 @@ function get() {
 	}
 }
 // Удаление задачи
-function del() {
+function del(db) {
 	return function (req, res) {
 		const id = req.query.id
 		const code = 'del'

@@ -2,12 +2,13 @@ import { JSX } from 'react'
 import List from './list'
 import './style.css'
 
+// Горизонтальный вид
 export default function Navh(): JSX.Element {
 	return (
 		<article className='cmp-navh-content'>
-			{/* Основные ссылки */}
+			{/* Левая  */}
 			<List list={link} />
-			{/* Вспомагательные ссылки */}
+			{/* Правая */}
 			<List list={linkAux} />
 		</article>
 	)

@@ -1,10 +1,11 @@
-const http = require('http')
+const http = require('https')
 const fs = require('fs')
 const path = require('path')
 
 // Сайт для скачивания
 // const url = 'http://localhost:4010'
-const url = 'http://localhost:4010/img/logoico.svg'
+// const url = 'http://localhost:4010/img/logoico.svg'
+const url = 'https://nodejsdev.ru/api/http/#connect'
 // Путь сохранения сайта
 const dir = path.resolve(__dirname, 'front')
 const ph = path.resolve(__dirname, 'front', 'index.html')
@@ -13,7 +14,7 @@ let result = ''
 // Запрос к сайту
 const req = http.request(url, (res) => {
 	// Получаем чанки
-	// res.setEncoding('utf8')
+	res.setEncoding('utf8')
 	res.on('data', (chunk) => {
 		console.log(111, 'Получили чанк', typeof chunk, chunk)
 		result += chunk

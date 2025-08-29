@@ -8,8 +8,14 @@ import { useShallow } from 'zustand/react/shallow'
 import { checkS } from '@tool/sensor'
 
 export default function Weather({}) {
-	const [build, getType, weather] = useEquipStore(useShallow(({ build, getType, weather }) => [build(), getType, weather]))
-	const [humAbs, getTotal, getTotalBy] = useInputStore(({ input, getTotal, getTotalBy }) => [input?.humAbs, getTotal, getTotalBy])
+	const [build, getType, weather] = useEquipStore(
+		useShallow(({ build, getType, weather }) => [build(), getType, weather])
+	)
+	const [humAbs, getTotal, getTotalBy] = useInputStore(({ input, getTotal, getTotalBy }) => [
+		input?.humAbs,
+		getTotal,
+		getTotalBy,
+	])
 
 	if (!build) return null
 	// Тип склада
@@ -26,10 +32,19 @@ export default function Weather({}) {
 	sens[2].state = checkS(sens?.[0]?.state, sens?.[1]?.state)
 
 	return (
-		<section className='weather' style={{ backgroundImage: 'url(/img/w.jpg)' }}>
-			<Owner data={{ company: build.company, code: build.code, address: build?.pc?.address?.value }} cls='weather-owner' />
-			<Sensor data={sens} cls='weather-sens' type={type} />
-			<Forecast address={build?.pc?.address?.value ?? ''} weather={weather} type={type} />
+		<section className='weather'>
+			<Owner
+				data={{
+					company: build.company,
+					code: build.code,
+					address: build?.pc?.address?.value,
+				}}
+				cls='weather-owner'
+			/>
+			<section className='weather-middle'>
+				<Sensor data={sens} cls='weather-sens' type={type} />
+				<Forecast address={build?.pc?.address?.value ?? ''} weather={weather} type={type} />
+			</section>
 		</section>
 	)
 }

@@ -1,0 +1,10 @@
+.cold .page-section-cold-pressure {
+	min-width: 185px;
+}
+.combi .page-section-cold-pressure {
+	min-width: 120px;
+}
+
+.combi .page-section-cold-pressure img {
+	max-width:28px;
+}

@@ -1,0 +1,43 @@
+.section-info-other {
+	display: flex;
+	align-items: center;
+	font-size: var(--fsz26);
+	justify-content: center;
+	gap: 16px;
+}
+
+.sio-btn {
+	background-color: transparent;
+	padding: 0!important;
+}
+/* Valve */
+.sio-btn > img {
+	height: var(--fsz80) !important;
+	border: 1px solid var(--primary);
+	border-radius: 50%;
+	padding: var(--fsz16);
+	overflow-clip-margin: var(--fsz10);
+	clip-path: circle();
+}
+
+.sio-valve {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	gap:8px;
+	& > span {
+		width: 50px;
+	}
+}
+
+.sio-valve-map {
+	display: flex;
+	flex-direction: column;
+	gap: var(--fsz10);
+}
+
+/* Heater */
+.section-info-other > img {
+	height: var(--fsz80);
+}

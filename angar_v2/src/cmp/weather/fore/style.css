@@ -1,0 +1,53 @@
+.weather-fore {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	padding: 8px 8px;
+	justify-content: space-between;
+}
+.forecast-cold {
+	width: 100%;
+}
+.weather-fore .adr {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+	font-size: var(--fsz20);
+	color: var(--background);
+}
+
+.wthr-update {
+	display: flex;
+	justify-content: space-between;
+	width: calc(100% - 16px);
+	color: var(--background);
+	font-size: 16px;
+}
+
+.wthr {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: var(--fsz28);
+	color: var(--background);
+	cursor: pointer;
+}
+
+.wthr > div:first-child {
+	display: flex;
+	flex-direction: column;
+}
+
+.wthr > div:first-child > span {
+	text-align: right;
+}
+.wthr .temp {
+	font-size: var(--fsz55);
+}
+.wthr .status {
+	font-size: var(--fsz20);
+}
+.wthr img {
+	width: 100px;
+	height: 100px;
+}

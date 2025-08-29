@@ -1,0 +1,21 @@
+.cmp-sec-cooler-item {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-self: center;
+	gap: 5px;
+}
+.cmp-sec-cooler-item img {
+	width: 130px;
+	height: 75px;
+}
+
+.cmp-sec-cooler-item span {
+	text-align: center;
+	min-height: 19px;
+}
+
+.combi .cmp-sec-cooler-item{
+	height: 50px;
+	align-self: auto;
+}

@@ -1,0 +1,81 @@
+@keyframes rotate {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+/* Списо агрегатов */
+.cmp-sec-aggregate {
+	display: flex;
+	gap: 1.25rem;
+}
+
+.cmp-sec-aggregate:nth-child(1) {
+	border-right: 1px solid var(--onSurface);
+	padding-right: 1.25rem;
+}
+.cmp-sec-aggregate:last-child {
+	border: none;
+}
+
+/* Для склада холодильник */
+.page-section-cold-aggregate img.run {
+	animation: rotate 2s linear infinite; /* вращение каждые 2 секунды */
+}
+
+.page-section-cold-aggregate {
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center center;
+	position: relative;
+	border-radius: 20px;
+	min-width: 123px;
+	height: 75px;
+	/* width: 100%; */
+}
+
+.page-section-cold-aggregate img {
+	position: absolute;
+	width: 33px;
+	height: 33px;
+	top: 14px;
+	left: 31px;
+}
+
+.page-section-cold-aggregate img.someAlr {
+	width: 25px;
+	height: 25px;
+	position: absolute;
+	top: 32px;
+	right: 23px;
+	left: unset;
+	background-color: white;
+	border-radius: 50%;
+	border: 1.5px solid red;
+}
+
+
+
+/* Для комбинированного склада*/
+.combi .page-section-cold-aggregate {
+	min-width: 110px;
+	height: 50px;
+	border-radius: 10px;
+}
+
+.combi .page-section-cold-aggregate img {
+	width: 20px;
+	height: 20px;
+	top: 11px;
+	left: 36px;
+}
+
+.combi .page-section-cold-aggregate img.someAlr {
+	width: 19px;
+	height: 19px;
+	top: 20px;
+	left: 66px;
+}

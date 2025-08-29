@@ -1,0 +1,36 @@
+menu {
+	display: flex;
+	flex-grow: 1;
+	align-items: center;
+	margin-right: 20px;
+	gap: 8px;
+	&.mb {
+		flex-direction: column;
+		margin: calc(50px + 1em) 0px;
+		align-items: flex-start;
+		height: 70vh;
+	}
+}
+
+.menu-button {
+	font-size: var(--fsz24);
+	padding: 0 24px;
+}
+
+.menu-button.mb {
+	background-color: transparent;
+	color: var(--primary);
+	padding-left: 1em;
+	gap: 1em;
+	width: 100%;
+	& > img {
+		filter: brightness(0) saturate(100%) invert(14%) sepia(11%) saturate(3362%) hue-rotate(185deg) brightness(92%) contrast(95%);
+	}
+}
+.menu-button.mb.active,
+.menu-button.mb:hover {
+	color: white;
+	& > img {
+		filter: none;
+	}
+}

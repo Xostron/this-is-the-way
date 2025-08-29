@@ -1,0 +1,7 @@
+.logo {
+	height: 100%;
+	width: 200px;
+	&.mb {
+		width: 149px;
+	}
+}

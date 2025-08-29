@@ -1,0 +1,99 @@
+.cold {
+	height: calc(100% - 30px);
+	align-items: center;
+	/* padding: 10px; */
+	/* row-gap: 20px; */
+	box-sizing: border-box;
+	display: flex;
+}
+
+.row1 {
+	display: flex;
+	flex-direction: row;
+	align-items: stretch;
+	gap: 1.25rem;
+	width: 100%;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.row2 {
+	padding: 0.625rem;
+	border-radius: 20px;
+	border: solid 1px var(--primary);
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+}
+
+.row2 .top {
+	display: flex;
+	flex-direction: row;
+	gap: 10px;
+	flex-wrap: wrap;
+	align-items: center;
+}
+
+.row2 .brd img {
+	height: 45px;
+	width: 45px;
+}
+
+.row1 .brd {
+	width: 186px;
+}
+
+.row2 .top .brd,
+.row2 .bottom .brd {
+	width: 134px;
+	max-width: 134px;
+}
+.row2 .bottom {
+	display: flex;
+	flex-direction: row;
+	gap: 10px;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+.combi .brd,
+.row1 .brd,
+.row2 .brd,
+.page-section-cold-condens .brd {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	width: 100%;
+	border-radius: 20px;
+	border: solid 1px var(--primary);
+	box-sizing: border-box;
+}
+
+.row1 .brd {
+	height: 75px;
+	font-size: 1.8125rem; /* 29px */
+	/* font-size: 40px; */
+}
+
+.row2 .brd {
+	height: 60px;
+	font-size: 1.5625rem; /* 25px */
+}
+.cold .row-cooler {
+	display: flex;
+	align-items: center;
+}
+
+/* Для комбинированного */
+/* Испаритель */
+
+/* Border */
+.combi .brd {
+	border-radius: 10px;
+	height: 50px;
+	width: 110px;
+	font-size: var(--fsz22);
+}

@@ -8,7 +8,6 @@
 .gr-sens > div {
 	display: flex;
 	align-items: center;
-	gap: 7%;
 }
 .gr-sens > div:not(:first-child) {
 	margin-top: 0;
@@ -24,7 +23,6 @@
 }
 .gr-sens-fan-img {
 	height: var(--fsz60) !important;
-	/* clip-path: circle(); */
 	padding: 6px;
 } 
 

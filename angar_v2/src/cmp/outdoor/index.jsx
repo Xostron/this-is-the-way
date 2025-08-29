@@ -2,8 +2,6 @@ import Sensor from '@cmp/sensor'
 import Weather from '@cmp/weather'
 import useEquipStore from '@store/equipment'
 import useInputStore from '@store/input'
-import { useShallow } from 'zustand/react/shallow'
-import { checkS } from '@tool/sensor'
 
 //Параметры улицы(погода, датчики)
 export default function Outdoor() {

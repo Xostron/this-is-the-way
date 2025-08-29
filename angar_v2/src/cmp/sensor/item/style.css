@@ -3,15 +3,16 @@
 	align-items: center;
 	line-height: clamp(3.125rem, 1.0417rem + 2.7778vw, 4.375rem);
 	white-space: nowrap;
+	color: var(--surface);
 	font-size: var(--fsz28);
-	background-color: var(--surface);
 	border-radius: 10px;
-	padding-left: 4%;
-	width: 100%;
-	gap: 3%;
+	padding-left: .5em;
+	gap: .5em;
+	& > span {
+		width: 3.5em;
+	}
 }
-.sens-item > span {
-}
+
 .sens-item-center {
 	justify-content: center;
 }

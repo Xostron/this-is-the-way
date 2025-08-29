@@ -14,10 +14,10 @@ export default function Header({ menu = false }) {
 	return (
 		<header className={cls}>
 			<Logo />
-			{bmb && <Burger />}
-			{!bmb && menu && <Menu />}
+			{/* {bmb && <Burger />} */}
+			{/* {!bmb && menu && <Menu />} */}
 			{/* {!bmb && <MainNav/>} */}
-			{!bmb && <Time />}
+			{/* {!bmb && <Time />} */}
 		</header>
 	)
 }

@@ -1,0 +1,54 @@
+.cmp-outdoor-forecast{
+    grid-area: 2/1/4/4;
+    border-radius: 1em;
+    background-color: var(--backdrop1);
+}
+.cmp-outdoor-forecast {
+	display: flex;
+	position: relative;
+	flex-direction: column;
+	justify-content: space-between;
+	padding: .5em;
+}
+
+.cmp-outdoor-forecast .adr {
+	display: flex;
+	align-items: center;
+	font-size: var(--fsz20);
+	color: var(--background);
+	gap: 20px;
+}
+
+.cmp-outdoor-forecast .upd {
+    text-align: right;
+	color: var(--background);
+	font-size: 1em;
+}
+
+.cmp-outdoor-forecast .today {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: var(--fsz28);
+	color: var(--background);
+	cursor: pointer;
+}
+
+.today > div:first-child {
+	display: flex;
+	flex-direction: column;
+}
+
+.today > div:first-child > span {
+	text-align: right;
+}
+.today .temp {
+	font-size: var(--fsz55);
+}
+.today .status {
+	font-size: var(--fsz20);
+}
+.today img {
+	width: 100px;
+	height: 100px;
+}

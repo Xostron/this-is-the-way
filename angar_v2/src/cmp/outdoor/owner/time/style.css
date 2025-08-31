@@ -1,0 +1,14 @@
+.time {
+    display: flex;
+    width: 40%;
+	flex-direction: column;
+	font-size: var(--fsz50);
+	color: var(--background);
+	font-family: Q-Medium;
+	user-select: none;
+	cursor: pointer;
+    /* text-align: end; */
+}
+.time .yy{
+    font-size: var(--fsz16);
+}

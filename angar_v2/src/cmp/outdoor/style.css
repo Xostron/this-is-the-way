@@ -1,0 +1,25 @@
+/* 4x4 */
+.cmp-outdoor {
+	display: grid;
+    width: 50%;
+	position: relative;
+	grid-template-columns: repeat(5, 1fr);
+	grid-template-rows: repeat(5, 1fr);
+	gap: .5em .5em;
+	overflow: hidden;
+    padding: .5em;
+	/* background-color: var(--backdrop1); */
+	/* backdrop-filter: blur(var(--blur)); */
+	border-radius: 1em;
+}
+
+.cmp-outdoor-sens {
+	width: calc(23% - var(--fsz30) / 2);
+	/* aspect-ratio: 1/1; */
+	/* border: 1px solid var(--primary); */
+	border-radius: 1em;
+	/* box-sizing: border-box; */
+	/* padding: 1%; */
+	/* background-color: var(--backdrop1); */
+	/* backdrop-filter: blur(var(--blur)); */
+}

@@ -11,10 +11,11 @@ export default function BuildOrSect({}) {
 
 	return (
 		<main className='build'>
-			<section className='build-backdrop'></section>
 			<SubHeader />
-			<Outdoor />
-			<Outlet />
+			<section className='build-backdrop'>
+				<Outdoor />
+				<Outlet />
+			</section>
 			<Banner type={type} />
 		</main>
 	)

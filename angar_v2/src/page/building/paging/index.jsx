@@ -26,11 +26,11 @@ export default function Paging({ bId, sects }) {
 	return (
 		<section className='sect'>
 			<div className='paging'>
-				{limit >= 1 && <Btn icon='\img\arrow-left.svg' cls='paging-arrow' onClick={prev} />}
+				{limit >= 0 && <Btn icon='\img\arrow-left.svg' cls='paging-arrow' onClick={prev} />}
 				<article className={cl}>
 					{arr?.length && arr.map((el, i) => <Item key={el._id} cls={arr?.length} sec={el} bId={bId} iSect={i} />)}
 				</article>
-				{limit >= 1 && <Btn icon='\img\arrow-right.svg' cls='paging-arrow' onClick={next} />}
+				{limit >= 0 && <Btn icon='\img\arrow-right.svg' cls='paging-arrow' onClick={next} />}
 			</div>
 		</section>
 	)

@@ -3,7 +3,7 @@
 	display: grid;
     width: 50%;
 	position: relative;
-	grid-template-columns: repeat(5, 1fr);
+	grid-template-columns: repeat(4, 1fr);
 	grid-template-rows: repeat(5, 1fr);
 	gap: .5em .5em;
 	overflow: hidden;
@@ -15,11 +15,7 @@
 
 .cmp-outdoor-sens {
 	width: calc(23% - var(--fsz30) / 2);
-	/* aspect-ratio: 1/1; */
-	/* border: 1px solid var(--primary); */
 	border-radius: 1em;
-	/* box-sizing: border-box; */
-	/* padding: 1%; */
 	/* background-color: var(--backdrop1); */
 	/* backdrop-filter: blur(var(--blur)); */
 }

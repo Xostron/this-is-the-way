@@ -1,0 +1,11 @@
+.cmp-outdoor-value {
+	display: flex;
+	flex-direction: column;
+    background-color: var(--backdrop1);
+    border-radius: 1em;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    font-size: var(--fsz20);
+    color: var(--background);
+}

@@ -4,6 +4,7 @@ import useEquipStore from '@store/equipment'
 import useInputStore from '@store/input'
 import Owner from '../outdoor/owner'
 import Forecast from './forecast'
+import Item from './value'
 import './style.css'
 
 //Параметры улицы(погода, датчики)
@@ -37,15 +38,24 @@ export default function Outdoor() {
 			<Owner />
 			{/* Погода интернет */}
 			<Forecast />
+
 			{/* Датчики улицы:темп */}
+			<Item type='tout' stl={{ gridArea: '4/1/4/1' }} />
+
 			{/* Датчики улицы: влажность отн и абс */}
+			<Item type='tout' stl={{ gridArea: '4/2/4/2' }} />
+
 			{/* Датчик склада: Темп потолка */}
+			<Item type='tout' stl={{ gridArea: '4/3/4/3' }} />
+
 			{/* Датчик склада: Темп продукта мин */}
+			<Item type='tout' stl={{ gridArea: '4/4/4/4' }} />
+
 			{/* Датчик склада: Влажность продукта макс отн и абс */}
+			<Item type='tout' stl={{ gridArea: '5/1/5/1' }} />
+
 			{/* Точка росы */}
-			{/* Адрес склада */}
-			{/* <Weather /> */}
-			{/* <Sensor data={sens} cls={'cmp-outdoor-sens'} withImg={true} /> */}
+			<Item type='tout' stl={{ gridArea: '5/2/5/2' }} />
 		</section>
 	)
 }

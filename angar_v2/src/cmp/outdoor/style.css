@@ -1,7 +1,7 @@
 /* 4x4 */
 .cmp-outdoor {
 	display: grid;
-	width: 50%;
+	width: 40%;
 	position: relative;
 	grid-template-columns: repeat(4, 1fr);
 	grid-template-rows: repeat(5, 1fr);

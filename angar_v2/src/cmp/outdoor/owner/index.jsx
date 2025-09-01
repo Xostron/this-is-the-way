@@ -1,6 +1,6 @@
 import useEquipStore from '@store/equipment'
-import './style.css'
 import Time from './time'
+import './style.css'
 
 export default function Owner({ stl }) {
 	const build = useEquipStore((s) => s.build())

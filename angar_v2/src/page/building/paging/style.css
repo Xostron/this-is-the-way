@@ -10,7 +10,7 @@
 	/* padding: 20px; */
 	flex-direction: column;
 	gap: 25px;
-    width: 50%;
+    width: 60%;
 }
 .paging {
 	display: flex;

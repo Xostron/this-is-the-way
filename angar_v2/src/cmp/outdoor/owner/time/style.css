@@ -1,12 +1,13 @@
 .time {
-    display: flex;
-    width: 40%;
+	display: flex;
+	width: 40%;
 	flex-direction: column;
 	font-size: var(--fsz50);
 	font-family: Q-Medium;
 	user-select: none;
 	cursor: pointer;
 }
-.time .yy{
-    font-size: var(--fsz16);
+.time .yy {
+	font-size: var(--fsz16);
+	color: var(--text1);
 }

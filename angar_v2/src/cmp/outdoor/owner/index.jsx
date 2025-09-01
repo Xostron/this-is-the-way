@@ -2,12 +2,10 @@ import useEquipStore from '@store/equipment'
 import './style.css'
 import Time from './time'
 
-export default function Owner({ cls }) {
+export default function Owner({ stl }) {
 	const build = useEquipStore((s) => s.build())
-	let cl = ['cmp-outdoor-owner', cls]
-	cl = cl.join(' ')
 	return (
-		<article className={cl}>
+		<article style={stl} className='cmp-outdoor-owner'>
 			<Time />
 			<div className='cmp-outdoor-owner-left'>
 				<span className='cmp-outdoor-owner-client'>{build?.company?.name}</span>

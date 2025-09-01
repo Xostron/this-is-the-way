@@ -1,21 +1,23 @@
 /* 4x4 */
 .cmp-outdoor {
 	display: grid;
-    width: 50%;
+	width: 50%;
 	position: relative;
 	grid-template-columns: repeat(4, 1fr);
 	grid-template-rows: repeat(5, 1fr);
-	gap: .5em .5em;
+	gap: 0.5em 0.5em;
 	overflow: hidden;
-    padding: .5em;
-	/* background-color: var(--backdrop1); */
+	padding: 0.5em;
+	/* background-color: var(--backdrop2); */
 	/* backdrop-filter: blur(var(--blur)); */
 	border-radius: 1em;
+	color: var(--text);
+	/* color: red; */
 }
 
-.cmp-outdoor-sens {
-	width: calc(23% - var(--fsz30) / 2);
+.cmp-outdoor-out,
+.cmp-outdoor-in {
+	display: flex;
+	justify-content: space-around;
 	border-radius: 1em;
-	/* background-color: var(--backdrop1); */
-	/* backdrop-filter: blur(var(--blur)); */
 }

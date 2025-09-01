@@ -22,12 +22,14 @@ body > div {
 	--primary: #192646;
 	--secondary: #65a7ee;
 	--background: white;
+	--text:#d8d8d8;
+	--text1:#bababa;
 	--surface: #ededed;
 	--onSurface: #1926469a;
-	--backdrop: rgba(103, 103, 103, 0.5);
-	--backdrop1: rgba(54, 54, 54, 0.5);
-    --backdrop2: rgba(84, 84, 84, 0.5);
-	--backdrop3: rgba(192, 192, 192, 0.5);
+	--backdrop: rgba(70, 70, 70, 0.5);
+	--backdrop1: rgba(32, 32, 32, 0.6);
+    --backdrop2: rgba(62, 62, 62, 0.6);
+	--backdrop3: rgba(92, 92, 92, 0.6);
 	--blur: 10px;
 	--br: 100px;
 	--fsz10: clamp(0.3125rem, -0.2083rem + 0.6944vw, 0.625rem);

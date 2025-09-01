@@ -4,24 +4,17 @@
 	--w-owner-gap: clamp(0.625rem, -0.4167rem + 1.3889vw, 1.25rem);
 }
 .cmp-outdoor-owner {
-	grid-area: 1/1/1/4;
-	border-radius: 1em;
-
-    display: flex;
+	display: flex;
     width: 100%;
     align-items: center;
     padding: .5em;
-    color: var(--background);
-    
-    /* background-color: var(--backdrop1); */
-
+	border-radius: 1em;
 }
 
 .cmp-outdoor-owner-left {
 	display: flex;
     width: 60%;
 	flex-direction: column;
-    /* text-align: end; */
 }
 
 .cmp-outdoor-owner-code {

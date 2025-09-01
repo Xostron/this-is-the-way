@@ -10,28 +10,6 @@ import './style.css'
 
 //Параметры улицы(погода, датчики)
 export default function Outdoor() {
-	const build = useEquipStore((s) => s.build())
-	const section = useEquipStore((s) => s.section())
-	const type = useEquipStore((s) => s.curType())
-
-	const getTotalBy = useInputStore((s) => s.getTotalBy)
-	const getFan = useInputStore((s) => s.getFan)
-	const humAbs = useInputStore((s) => s.input?.humAbs)
-
-	if (!build) return null
-
-	// Внутри склада
-	const sens = [
-		// Температура потолка (мин) и Разгонный вентилятор
-		{ type: 'tin', ...getTotalBy('tin', 'min', build?._id), fan: getFan(build?.fan?.[0]) },
-		// Влажность продукта (макс)
-		{ type: 'hin', ...getTotalBy('hin', 'max', build?._id) },
-	]
-	// Холодильник. датчик со2
-	if (type === 'cold') sens.push({ type: 'co2', ...getTotalBy('co2', 'min', section?._id) })
-	// Абс влажность продукта
-	else sens.push({ type: 'calcMois', value: humAbs?.in?.[build?._id] })
-
 	return (
 		<section className='cmp-outdoor'>
 			{/* Код склада и компания */}

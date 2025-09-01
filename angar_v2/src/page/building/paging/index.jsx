@@ -20,16 +20,16 @@ export default function Paging({ bId, sects }) {
 	if (!sects || sects?.length < 2) return null
 	const limit = Math.ceil(sects?.length / max) - 1
 
-	let cl = ['paging-children', `pcx${arr?.length}`]
+	let cl = ['page-building-paging-item', `pcx${arr?.length}`]
 	cl = cl.join(' ')
 
 	return (
-		<section className='sect'>
-			<div className='paging'>
+		<section className='page-building-paging'>
+			<article className={cl}>
+				{arr?.length && arr.map((el, i) => <Item key={i} cls={arr?.length} sec={el} bId={bId} iSect={i} />)}
+			</article>
+			<div className='page-building-paging-arrow'>
 				{limit >= 0 && <Btn icon='\img\arrow-left.svg' cls='paging-arrow' onClick={prev} />}
-				<article className={cl}>
-					{arr?.length && arr.map((el, i) => <Item key={el._id} cls={arr?.length} sec={el} bId={bId} iSect={i} />)}
-				</article>
 				{limit >= 0 && <Btn icon='\img\arrow-right.svg' cls='paging-arrow' onClick={next} />}
 			</div>
 		</section>

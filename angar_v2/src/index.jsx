@@ -30,7 +30,7 @@ root.render(
 		<NotificationContainer />
 		{/* Размер экрана */}
 		<View />
-		<img className='wallpaper' src='/img/v2/angar1.jpg' />
+		<img className='wallpaper' src='/img/v2/angar5.jpg' />
 		<RouterProvider router={router} />
 	</ErrorBoundary>
 )

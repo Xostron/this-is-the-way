@@ -14,7 +14,8 @@
 
 .cmp-outdoor-out,
 .cmp-outdoor-in {
-	display: flex;
-	justify-content: space-around;
+	display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1em;
 	border-radius: 1em;
 }

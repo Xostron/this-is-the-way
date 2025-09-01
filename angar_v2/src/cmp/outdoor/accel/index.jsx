@@ -13,7 +13,7 @@ export default function AccelFan({ stl = {}, label = '' }) {
 	return (
 		<article style={stl} className='cmp-outdoor-value'>
 			<img className={cl} src={img} />
-			<span className='cmp-outdoor-value-label'>{label}</span>
+			<span className='cmp-outdoor-value-label cmp-outdoor-value-label-accel'>{label}</span>
 		</article>
 	)
 }

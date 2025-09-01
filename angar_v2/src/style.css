@@ -27,9 +27,9 @@ body > div {
 	--surface: #ededed;
 	--onSurface: #1926469a;
 	--backdrop: rgba(70, 70, 70, 0.5);
-	--backdrop1: rgba(32, 32, 32, 0.6);
-    --backdrop2: rgba(62, 62, 62, 0.6);
-	--backdrop3: rgba(92, 92, 92, 0.6);
+	--backdrop1: rgba(32, 32, 32, 0.7);
+    --backdrop2: rgba(62, 62, 62, 0.7);
+	--backdrop3: rgba(92, 92, 92, 0.7);
 	--blur: 10px;
 	--br: 100px;
 	--fsz10: clamp(0.3125rem, -0.2083rem + 0.6944vw, 0.625rem);

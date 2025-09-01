@@ -8,11 +8,8 @@
 	gap: 0.5em 0.5em;
 	overflow: hidden;
 	padding: 0.5em;
-	/* background-color: var(--backdrop2); */
-	/* backdrop-filter: blur(var(--blur)); */
 	border-radius: 1em;
 	color: var(--text);
-	/* color: red; */
 }
 
 .cmp-outdoor-out,

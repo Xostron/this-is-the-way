@@ -2,16 +2,17 @@ import Message from '@cmp/message'
 import Person from '@cmp/person'
 import Prod from '@cmp/prod'
 import Turn from '@cmp/turn'
+import './style.css'
 
 //Позаголовок в странице склада
 export default function SubHeader({}) {
 	return (
 		<>
 			{/* <Turn style={{ gridArea: '1 / 1 / 1 / 1' }} /> */}
-			<div style={{ gridArea: '1 / 2 / 2 / 3', display: 'flex', justifyContent: 'space-between' }}>
+			<section className='cmp-subheader-wrapper'>
 				<Prod />
 				<Message />
-			</div>
+			</section>
 			{/* <Person style={{ gridArea: '1 / 3 / 1 / 3', justifySelf:'end' }} /> */}
 		</>
 	)

@@ -4,14 +4,14 @@
 }
 .build {
 	display: grid;
-	height: calc(100% - 100px);
+	height: calc(100vh - 70px);
 	grid-template-columns: 1fr 70% 1fr;
-	grid-template-rows: 1fr 70% 1fr;
-	gap: 10px 40px;
+	grid-template-rows: 50px 70% 1fr;
+	gap: 1em;
 	overflow: hidden;
 	position: relative;
     margin: auto;
-    /* background-color: var(--backdrop); */
+    background-color: var(--backdrop);
 	/* backdrop-filter: blur(var(--blur)); */
 }
 

@@ -24,7 +24,7 @@ export default function Message() {
 		[hid]
 	)
 	let arr = achieve?.[build]
-	if (!arr?.length) return null
+	if (!arr?.length) return <></>
 
 	const act = arr.find((el) => el?.order === 1)
 	if (act) cl.push('act')

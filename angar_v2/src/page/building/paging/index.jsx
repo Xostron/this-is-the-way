@@ -54,7 +54,6 @@ export default function Paging({ bId }) {
 // Кнопки пролистывания
 function Leaf({ sects, page, setPage }) {
 	const limit = Math.ceil(sects?.length / max) -1
-    console.log(111, limit)
 	if (!limit) return
 	return (
 		<div className='page-building-paging-arrow'>

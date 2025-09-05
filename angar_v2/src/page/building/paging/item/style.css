@@ -4,9 +4,9 @@
 	flex-direction: column;
 	justify-content: space-around;
 	border-radius: 1em;
-	border: var(--brdS);
 	padding: 0.5em;
 	cursor: pointer;
+	border: var(--brdS);
 	background-color: #577e9e2f;
 	color: var(--text);
 }

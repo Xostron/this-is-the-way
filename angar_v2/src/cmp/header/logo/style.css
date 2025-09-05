@@ -1,7 +1,7 @@
 .logo {
 	height: 100%;
 	width: 200px;
-	filter:  brightness(0) saturate(100%) invert(72%) sepia(4%) saturate(0%) hue-rotate(217deg) brightness(94%) contrast(101%);
+	filter:  brightness(0) saturate(100%) invert(72%) sepia(4%) saturate(0%) hue-rotate(100deg) brightness(70%) contrast(101%);
 	&.mb {
 		width: 149px;
 	}

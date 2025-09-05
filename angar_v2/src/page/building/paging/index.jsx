@@ -14,7 +14,9 @@ export default function Paging({ bId, sects }) {
 	useEffect(() => {
 		const start = page * max
 		const end = start + max
-		setArr(sects?.slice(start, end))
+		const a = [...sects?.slice(0, max),...sects?.slice(0, max)]
+		setArr(a)
+		// setArr(sects?.slice(start, end))
 	}, [page, sects])
 
 	if (!sects || sects?.length < 2) return null
@@ -26,11 +28,16 @@ export default function Paging({ bId, sects }) {
 	return (
 		<section className='page-building-paging'>
 			<article className={cl}>
-				{arr?.length && arr.map((el, i) => <Item key={i} cls={arr?.length} sec={el} bId={bId} iSect={i} />)}
+				{arr?.length &&
+					arr.map((el, i) => (
+						<Item key={i} cls={arr?.length} sec={el} bId={bId} iSect={i} />
+					))}
 			</article>
 			<div className='page-building-paging-arrow'>
 				{limit >= 0 && <Btn icon='\img\arrow-left.svg' cls='paging-arrow' onClick={prev} />}
-				{limit >= 0 && <Btn icon='\img\arrow-right.svg' cls='paging-arrow' onClick={next} />}
+				{limit >= 0 && (
+					<Btn icon='\img\arrow-right.svg' cls='paging-arrow' onClick={next} />
+				)}
 			</div>
 		</section>
 	)

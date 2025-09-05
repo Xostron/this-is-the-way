@@ -26,6 +26,7 @@ body > div {
 	--text1:#bababa;
 	--surface: #ededed;
 	--onSurface: #1926469a;
+	--err: rgb(248, 63, 63);
 	--backdrop: rgba(70, 70, 70, 0.7);
 	--backdrop1: rgba(32, 32, 32, 0.6);
     --backdrop2: rgba(62, 62, 62, 0.7);
@@ -95,8 +96,6 @@ img {
 	/* background-repeat: no-repeat; */
 	/* background-size: cover; */
 }
-
-
 
 /* Секция */
 .nav::-webkit-scrollbar {
@@ -207,8 +206,8 @@ a {
 	border: 2px solid var(--secondary);
 }
 .off {
-	color: rgb(186, 186, 186) !important;
-	border: solid 2px rgb(186, 186, 186);
+	color:var(--text1) !important;
+	border: dashed 2px var(--text1);
 }
 .off img {
 	filter: invert(70%);
@@ -216,7 +215,7 @@ a {
 
 .error,
 .alarm {
-	border: solid 2px rgb(255, 0, 0) !important;
+	border: solid 2px var(--err) !important;
 }
 .error > img,
 .alarm > img {

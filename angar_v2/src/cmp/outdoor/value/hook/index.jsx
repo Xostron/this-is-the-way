@@ -10,7 +10,7 @@ export default function useValue(key = 'tout', subkey = 'min') {
 	const point = useInputStore((s) => s.input?.total?.[build]?.point)
 	// Ед. измерения датчика
 	let t
-	if (['tout', 'tin', 'point'].includes(key)) {
+	if (['tout', 'tin', 'point', 'tprd', 'tcnl'].includes(key)) {
 		t = 'temp'
 	} else if (['hin', 'hout'].includes(key)) {
 		t = 'mois'

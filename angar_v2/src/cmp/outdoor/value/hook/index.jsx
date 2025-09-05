@@ -4,11 +4,35 @@ import defUn from '@src/tool/unit'
 
 export default function useValue(key = 'tout', subkey = 'min') {
 	const { build } = useParams()
-	const { state, value } = useInputStore((s) => s.getTotalBy(key, subkey, build))
-	const humAbs = useInputStore((s) => s.input?.humAbs?.[subkey]?.[build])
-	const hout = useInputStore((s) => s.getTotal('hout', 'max'))
-	const point = useInputStore((s) => s.input?.total?.[build]?.point)
+	// Показание датчика и состояние (состояние - опц)
+	let sens = {}
+	switch (key) {
+		case 'hout':
+			sens = useInputStore((s) => s.getTotal('hout', 'max'))
+			break
+		case 'humAbs':
+			sens.value = useInputStore((s) => s.input?.humAbs?.[subkey]?.[build])
+			break
+		case 'point':
+			sens.value = useInputStore((s) => s.input?.total?.[build]?.point)
+			break
+		default:
+			sens = useInputStore((s) => s.getTotalBy(key, subkey, build))
+	}
 	// Ед. измерения датчика
+	const unit = fnUnit(key)
+
+	// Ошибка датчика || (key == 'hout' && hout.state === 'alarm')
+	let cls = ['cmp-outdoor-value']
+	if (sens?.state === 'alarm') cls.push('error')
+	if (sens?.state === 'off') cls.push('off')
+	cls = cls.join(' ')
+
+	return { value: sens?.value ?? '--', unit, cls }
+}
+
+// Ед. измерения датчика
+function fnUnit(key) {
 	let t
 	if (['tout', 'tin', 'point', 'tprd', 'tcnl'].includes(key)) {
 		t = 'temp'
@@ -17,21 +41,5 @@ export default function useValue(key = 'tout', subkey = 'min') {
 	} else if ('co2' === key) {
 		t = key
 	} else t = 'calcMois'
-	const unit = defUn?.[t]
-
-	// Ошибка датчика
-	let cls = ['cmp-outdoor-value']
-	if (state === 'alarm') cls.push('error')
-	if (state === 'off') cls.push('off')
-	cls = cls.join(' ')
-	switch (key) {
-		case 'calcMois':
-			return { value: humAbs ?? '--', unit, cls }
-		case 'hout':
-			return { value: hout.value ?? '--', unit, cls }
-		case 'point':
-			return { value: point ?? '--', unit, cls }
-		default:
-			return { value: value ?? '--', unit, cls }
-	}
+	return defUn?.[t]
 }

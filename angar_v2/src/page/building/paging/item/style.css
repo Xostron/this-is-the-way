@@ -7,7 +7,8 @@
 	padding: 0.5em;
 	cursor: pointer;
 	border: var(--brdS);
-	background-color: #577e9e2f;
+    border-color: var(--clickBorder);
+	background-color: var(--click);
 	color: var(--text);
 }
 
@@ -40,7 +41,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background-color: #577e9e2e;
+	background-color:var(--backdrop);
 	padding: 0.5em;
 	width: 50%;
 	border-radius: 0.5em;

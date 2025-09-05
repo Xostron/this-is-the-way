@@ -27,6 +27,8 @@ body > div {
 	--surface: #ededed;
 	--onSurface: #1926469a;
 	--err: rgb(248, 63, 63);
+    --click:#577e9e2f;
+    --clickBorder:#65a7ee64;
 	--backdrop: rgba(70, 70, 70, 0.7);
 	--backdrop1: rgba(32, 32, 32, 0.6);
     --backdrop2: rgba(62, 62, 62, 0.7);

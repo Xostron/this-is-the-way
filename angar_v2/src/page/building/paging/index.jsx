@@ -1,4 +1,7 @@
+import { useParams, useNavigate, useLocation } from 'react-router-dom'
 import { useEffect, useState } from 'react'
+import { useShallow } from 'zustand/react/shallow'
+import useEquipStore from '@store/equipment'
 import Btn from '@cmp/fields/btn'
 import Item from './item'
 import './style.css'
@@ -6,46 +9,58 @@ import './style.css'
 const max = 4
 
 // Пейджинг секций
-export default function Paging({ bId, sects }) {
-	const [page, setPage] = useState(0)
+export default function Paging({ bId }) {
+	let { build } = useParams()
+	const navigate = useNavigate()
+	const location = useLocation()
+	const bld = useEquipStore((s) => s.getCurB(build))
+	const setCurB = useEquipStore((s) => s.setCurB)
+	const sects = useEquipStore((s) => s.sections()) ?? []
 	const [arr, setArr] = useState(sects?.slice(0, max))
+	const [page, setPage] = useState(0)
 
-	// Смена страниц
+	// Обновление страницы - для подтягивания секций текущего склада
+	useEffect(() => {
+		setCurB(bld)
+	}, [bld])
+
+	// Листание страниц
 	useEffect(() => {
 		const start = page * max
 		const end = start + max
-		// const a = [...sects?.slice(0, max),...sects?.slice(0, max)]
-		const a = [sects[0], sects[1], sects[0], sects[0],sects[0]]
-		setArr(a?.slice(start,end))
-		// setArr(sects?.slice(start, end))
+		setArr(sects?.slice(start, end))
 	}, [page, sects])
 
-	if (!sects || sects?.length < 2) return null
-	const limit = Math.ceil((arr.length+1) / max) - 1
-	// const limit = Math.ceil(sects?.length / max)-1
-	console.log(111, limit)
+	// Редирект на секцию (Нет секций или секций = 1)
+	useEffect(() => {
+		if (sects?.length > 1 || sects?.length === 0 || sects?.[0]?.buildingId != build) return
+		const path = `${location.pathname}/section/${sects?.[0]?._id}`.replace('//', '/')
+		navigate(path)
+	}, [sects])
+
+	// Нет секций или секций
+	if (!sects || sects?.length < 2) return
+
 	let cl = ['page-building-paging-item', `pcx${arr.length}`]
 	cl = cl.join(' ')
-
 	return (
 		<section className='page-building-paging'>
-			<article className={cl}>
-				{arr?.length &&
-					arr.map((el, i) => (
-						<Item key={i} cls={arr?.length} sec={el} bId={bId} iSect={i} />
-					))}
-			</article>
-			{!!limit && (
-				<div className='page-building-paging-arrow'>
-					{limit >= 1 && (
-						<Btn icon='\img\arrow-left.svg' cls='paging-arrow' onClick={prev} />
-					)}
-					{limit >= 1 && (
-						<Btn icon='\img\arrow-right.svg' cls='paging-arrow' onClick={next} />
-					)}
-				</div>
-			)}
+			<article className={cl}>{arr?.length && arr.map((el, i) => <Item key={i} cls={arr?.length} sec={el} bId={bId} iSect={i} />)}</article>
+			<Leaf sects={sects} page={page} setPage={setPage} />
 		</section>
+	)
+}
+
+// Кнопки пролистывания
+function Leaf({ sects, page, setPage }) {
+	const limit = Math.ceil(sects?.length / max) -1
+    console.log(111, limit)
+	if (!limit) return
+	return (
+		<div className='page-building-paging-arrow'>
+			{limit >= 1 && <Btn icon='\img\arrow-left.svg' cls='paging-arrow' onClick={prev} />}
+			{limit >= 1 && <Btn icon='\img\arrow-right.svg' cls='paging-arrow' onClick={next} />}
+		</div>
 	)
 	// Следующая страница
 	function next() {

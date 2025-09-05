@@ -23,7 +23,7 @@ export default function Outdoor() {
 				{/* Датчики улицы: влажность отн */}
 				<Item type='hout' subkey='max' stl={stl.hout} />
 				{/* Датчики улицы: влажность абс */}
-				<Item type='calcMois' subkey='out' stl={stl.calcMoisOut} />
+				<Item type='humAbs' subkey='out' stl={stl.humAbsOut} />
 			</article>
 			<article style={stl.in} className='cmp-outdoor-in'>
 				{/* Датчик склада: Темп продукта мин */}
@@ -31,7 +31,7 @@ export default function Outdoor() {
 				{/* Датчик склада: Влажность продукта макс отн  */}
 				<Item type='hin' subkey='max' stl={stl.hin} />
 				{/* Датчик склада: Влажность продукта макс абс */}
-				<Item type='calcMois' subkey='in' stl={stl.calcMoisIn} />
+				<Item type='humAbs' subkey='in' stl={stl.humAbsIn} />
 			</article>
 
 			{/* Разгонный вентилятор */}
@@ -53,10 +53,10 @@ const stl = {
 
 	tout: {}, //{ gridArea: '4/1/4/1' },
 	hout: {}, //{ gridArea: '4/2/4/2' },
-	calcMoisIn: {}, //{ gridArea: '4/3/4/3' },
+	humAbsIn: {}, //{ gridArea: '4/3/4/3' },
 	tprd: {}, //{ gridArea: '5/1/5/1' },
 	hin: {}, //{ gridArea: '5/2/5/2' },
-	calcMoisOut: {}, //{ gridArea: '5/3/5/3' },
+	humAbsOut: {}, //{ gridArea: '5/3/5/3' },
 
 	tin: { gridArea: '2/4/2/4', backgroundColor: 'var(--backdrop3)' },
 	point: { gridArea: '3/4/3/4', backgroundColor: 'var(--backdrop3)' },

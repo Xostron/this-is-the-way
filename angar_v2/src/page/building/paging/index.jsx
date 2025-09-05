@@ -15,14 +15,15 @@ export default function Paging({ bId, sects }) {
 		const start = page * max
 		const end = start + max
 		// const a = [...sects?.slice(0, max),...sects?.slice(0, max)]
-		const a = [sects[0], sects[0], sects[0], sects[0],sects[0]]
+		const a = [sects[0], sects[1], sects[0], sects[0],sects[0]]
 		setArr(a?.slice(start,end))
 		// setArr(sects?.slice(start, end))
 	}, [page, sects])
 
 	if (!sects || sects?.length < 2) return null
-	const limit = Math.ceil(arr.length / max) 
-console.log(111, limit)
+	const limit = Math.ceil((arr.length+1) / max) - 1
+	// const limit = Math.ceil(sects?.length / max)-1
+	console.log(111, limit)
 	let cl = ['page-building-paging-item', `pcx${arr.length}`]
 	cl = cl.join(' ')
 

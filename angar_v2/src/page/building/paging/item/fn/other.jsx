@@ -1,10 +1,9 @@
 import useInputStore from '@store/input'
 import defImg from '@src/tool/icon'
-import defUn from '@src/tool/unit'
 
 export default function Other({ data = {}, buildId, sect, cls }) {
 	const { valve, fan, heating } = data
-	const [input] = useInputStore(({ input }) => [input])
+	const input = useInputStore((s) => s.input)
 	if (!valve) return
 	const idxVin = valve.findIndex((v) => v.type === 'in')
 	const idxVout = valve.findIndex((v) => v.type === 'out')

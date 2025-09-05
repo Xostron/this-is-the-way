@@ -1,15 +1,36 @@
 import useInputStore from '@store/input'
-import Sens from './sens'
+import defUn from '@src/tool/unit'
 
-// Мин, макс температура продукта по секции
+/**
+ * Мин, макс температура продукта по секции
+ * @param {string} sId ID секции
+ * @returns
+ */
 export default function Tprd({ sId }) {
 	const d = [
-		{ name: 'min', type: 'temp' },
-		{ name: 'max', type: 'temp' },
+		{ label: 'min', subkey: 'min', type: 'tprd', sId },
+		{ label: 'max', subkey: 'max', type: 'tprd', sId },
 	]
-	const [getTotalBy] = useInputStore(({ getTotalBy }) => [getTotalBy])
-	d[0] = { ...d[0], ...getTotalBy('tprd', 'min', sId) }
-	d[1] = { ...d[1], ...getTotalBy('tprd', 'max', sId) }
 
-	return <div className='section-sens'>{!!d?.length && d.map((el, i) => <Sens key={i} data={el} />)}</div>
+	return (
+		<div className='section-sens'>
+			{!!d?.length && d.map((el, i) => <Item key={i} data={el} />)}
+		</div>
+	)
+}
+
+function Item({ data = {} }) {
+	const { label, type, subkey, sId } = data
+	const { state, value } = useInputStore((s) => s.getTotalBy(type, subkey, sId))
+	const unit = defUn?.[type]
+	let cls = ['sensor-item']
+	// ошибка датчика
+	if (state === 'alarm') cls.push('error')
+	if (state === 'off') cls.push('off')
+	cls = cls.join(' ')
+	return (
+		<div className={cls}>
+			{label} {value ?? '--'} {unit}
+		</div>
+	)
 }

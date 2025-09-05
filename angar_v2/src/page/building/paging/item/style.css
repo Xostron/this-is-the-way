@@ -1,34 +1,21 @@
-/* ************************************* */
+/* Карточка секции ************************************* */
 .section {
 	display: flex;
 	flex-direction: column;
-	border: var(--brdS);
-	border-radius: 10px;
-	font-family: 'Q-Medium';
-	font-size: var(--fsz24);
-	padding: var(--sect-padV) var(--sect-padH);
-	gap: 15px;
+	justify-content: space-around;
+	border-radius: 1em;
+	padding: 0.5em;
 	cursor: pointer;
-	background-color: transparent;
-	color: var(--primary);
+	background-color: #577e9e79;
+	color: var(--text);
 }
 
 .sx1,
-.sx2 {
-	font-size: var(--fsz30);
-}
+.sx2,
 .sx3,
 .sx4 {
-	font-size: var(--fsz26);
-}
-.ssx1,
-.ssx2 {
-	font-size: var(--fsz30);
-}
-
-.ssx3,
-.ssx4 {
-	font-size: var(--fsz26);
+	height: calc(100% / 2 - .25em);
+	width: calc(100% / 2 - .25em);
 }
 
 .section-name {
@@ -36,44 +23,48 @@
 	align-items: baseline;
 	justify-content: space-between;
 	font-family: 'Q-SemiBold';
-	font-size: var(--fsz28);
+	font-size: 2em;
 }
 .section-mode {
 	font-family: 'Q-Medium';
-	font-size: var(--fsz24);
+	font-size: 0.7em !important;
+	color: var(--text1);
 }
-/* ************************************* */
+/* min, max tprd************************************* */
 .section-sens {
 	display: flex;
-	gap: 10px;
+	gap: 0.5em;
 }
 .sensor-item {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background-color: var(--surface);
-	padding: var(--item-padV) 0;
+	background-color: #577e9e79;
+	padding: 0.5em;
 	width: 50%;
-	border-radius: 8px;
+	border-radius: 0.5em;
 	white-space: nowrap;
+	font-size: 1.5em;
 }
-/* ************************************* */
+/* Outher************************************* */
 .section-vf {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	height: 5.5em !important;
+	& > span {
+		font-size: 1.2em;
+		color: var(--text1);
+	}
 }
 .vf-evenly {
 	justify-content: space-evenly;
 }
-
+/* Размер иконок клапанов и ВНО */
 .vfx1,
-.vfx2 {
-	height: var(--fsz70);
-}
+.vfx2,
 .vfx3,
 .vfx4 {
-	height: var(--fsz45);
+	height: 3.5em!important;
 }
 /* ************************************* */
-

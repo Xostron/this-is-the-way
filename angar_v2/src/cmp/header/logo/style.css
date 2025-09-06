@@ -2,6 +2,7 @@
 	height: 100%;
 	width: 200px;
 	filter:  brightness(0) saturate(100%) invert(72%) sepia(4%) saturate(0%) hue-rotate(100deg) brightness(70%) contrast(101%);
+	/* filter: brightness(0) saturate(100%) invert(45%) sepia(14%) saturate(1513%) hue-rotate(163deg) brightness(103%) contrast(89%); */
 	&.mb {
 		width: 149px;
 	}

@@ -6,9 +6,8 @@
 	border-radius: 1em;
 	padding: 0.5em;
 	cursor: pointer;
-	border: var(--brdS);
-    border-color: var(--clickBorder);
-	background-color: var(--click);
+	/* border: var(--brdS); */
+    background-color: var(--clickBg);
 	color: var(--text);
 }
 

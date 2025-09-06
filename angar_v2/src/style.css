@@ -22,16 +22,17 @@ body > div {
 	--primary: #192646;
 	--secondary: #65a7ee;
 	--background: white;
-	--text:#d8d8d8;
-	--text1:#bababa;
+	--text: #d8d8d8;
+	--text1: #bababa;
 	--surface: #ededed;
 	--onSurface: #1926469a;
 	--err: rgb(248, 63, 63);
-    --click:#577e9e2f;
-    --clickBorder:#65a7ee64;
+	--click: rgb(71, 121, 159);
+	--clickBorder: rgb(71, 121, 159);
+    --clickBg:rgba(71, 121, 159, 0.779);
 	--backdrop: rgba(70, 70, 70, 0.7);
 	--backdrop1: rgba(32, 32, 32, 0.6);
-    --backdrop2: rgba(62, 62, 62, 0.7);
+	--backdrop2: rgba(62, 62, 62, 0.7);
 	--backdrop3: rgba(92, 92, 92, 0.7);
 	--blur: blur(10px);
 	--br: 100px;
@@ -67,8 +68,6 @@ body > div {
 	font-family: Q-Medium;
 	color: var(--primary);
 }
-
-
 
 img {
 	height: var(--fsz40);
@@ -194,7 +193,7 @@ a {
 	border: 2px solid var(--secondary);
 }
 .off {
-	color:var(--text1) !important;
+	color: var(--text1) !important;
 	border: dashed 2px var(--text1);
 }
 .off img {
@@ -246,8 +245,7 @@ a {
 	width: 100%;
 	height: 100%;
 	z-index: -1;
-	/* filter: blur(10px); */
-transform: scaleX(-1);
+	transform: scaleX(-1);
 }
 
 /* .wallpaper {

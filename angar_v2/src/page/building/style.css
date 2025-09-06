@@ -5,9 +5,9 @@
 .build {
 	display: grid;
 	height: calc(100vh - 70px); /*70px высота header*/
-	grid-template-columns: 1fr 70% 1fr;
-	grid-template-rows: 50px 70% 1fr;
-	gap: 0.5em;
+	grid-template-columns: 1fr 75% 1fr;
+	grid-template-rows: 50px 70% 100px;
+	gap: 1em;
 	overflow: hidden;
 	position: relative;
 	margin: auto;

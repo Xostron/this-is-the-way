@@ -65,5 +65,5 @@
 	border-radius: 6px !important;
 	background-color: var(--click);
 	border: var(--brdS);
-	border-color: var(--clickBorder);
+	background-color: var(--clickBg);
 }

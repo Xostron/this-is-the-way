@@ -33,8 +33,8 @@ root.render(
 		<View />
 		{/* Автоматический logout */}
 		<AutoLogout />
-		{/* Обои */}
-		<img className='wallpaper' src='/img/v2/angar5.jpg' />
+		{/* Обои 2 4*/}
+		<img className='wallpaper' src='/img/v2/angar4.jpg' />
 		<RouterProvider router={router} />
 	</ErrorBoundary>
 )

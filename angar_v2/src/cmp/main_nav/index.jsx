@@ -2,9 +2,9 @@ import List from './list'
 import './style.css'
 
 // Горизонтальный вид
-export default function MainNav() {
+export default function MenuNav() {
 	return (
-		<nav className='cmp-mainnav-content'>
+		<nav className='cmp-menunav-wrapper'>
 			<List list={list} />
 		</nav>
 	)
@@ -22,7 +22,7 @@ const list = [
 	{
 		id:2,
 		title: 'Склад',
-		path: 'building',
+		path: '',
 		icon: '/img/menu/building.svg',
 		active: [null, 'section']
 		

@@ -1,12 +1,10 @@
 import { useHref, useNavigate } from 'react-router-dom'
 import useWarn from '@store/warn'
-import useAuthStore from '@store/auth'
 import useViewStore from '@store/view'
 import Btn from '@cmp/fields/btn'
 
 //Элемент меню
 export default function Item({ data }) {
-	const { name } = useAuthStore()
 	const navigate = useNavigate()
 	const href = useHref()
 	const { link, setLink } = useWarn()

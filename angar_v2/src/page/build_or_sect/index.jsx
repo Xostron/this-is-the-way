@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import SubHeader from '@cmp/sub_header'
 import Outdoor from '@cmp/outdoor'
 import Banner from '@cmp/banner'
+import MenuNav from '@src/cmp/main_nav'
 
 //Секции склада / Секция
 export default function BuildOrSect({}) {
@@ -16,7 +17,8 @@ export default function BuildOrSect({}) {
 				<Outdoor />
 				<Outlet />
 			</section>
-			<Banner type={type} />
+            <MenuNav/>
+			{/* <Banner type={type} /> */}
 		</main>
 	)
 }

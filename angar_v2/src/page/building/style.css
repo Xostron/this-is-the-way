@@ -4,15 +4,14 @@
 }
 .build {
 	display: grid;
-	height: calc(100vh - 70px);
+	height: calc(100vh - 70px); /*70px высота header*/
 	grid-template-columns: 1fr 70% 1fr;
 	grid-template-rows: 50px 70% 1fr;
-	gap: .5em;
+	gap: 0.5em;
 	overflow: hidden;
 	position: relative;
 	margin: auto;
-	background-color: var(--backdrop);
-	/* backdrop-filter: var(--blur); */
+	/* background-color: var(--backdrop); */
 }
 
 .build-backdrop {

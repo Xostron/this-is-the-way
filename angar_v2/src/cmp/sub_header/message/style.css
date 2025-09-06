@@ -1,4 +1,12 @@
-.mes {
+.cmp-subheader-mes-wrapper {
+    position: relative;
+	align-items: center;
+    display: flex;
+    min-width: 40%;
+    /* background-color: red; */
+}
+
+.cmp-subheader-mes {
 	border: 1px solid var(--text);
 	color: var(--text);
 	font-size: var(--fsz24);
@@ -30,12 +38,7 @@
     cursor: pointer;
 }
 
-.mes-container {
-    position: relative;
-	align-items: center;
-    display: flex;
-    min-width: 40%;
-}
+
 
 .all {
     position: absolute;

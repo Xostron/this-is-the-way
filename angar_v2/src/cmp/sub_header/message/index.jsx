@@ -7,11 +7,8 @@ import './style.css'
 export default function Message() {
 	const { build } = useParams()
 	const [hid, setHid] = useState(true)
-	const [achieve] = useInputStore(({ alarm }) => [alarm.achieve])
+	const achieve = useInputStore((s) => s.alarm.achieve)
 
-
-	// Подсветка "синим" - продукт достиг задания
-	let cl = ['mes']
 	useEffect(
 		(_) => {
 			const onClick = (e) => {
@@ -26,13 +23,14 @@ export default function Message() {
 	let arr = achieve?.[build]
 	if (!arr?.length) return <></>
 
+	// Подсветка "синим" - продукт достиг задания
 	const act = arr.find((el) => el?.order === 1)
+	let cl = ['cmp-subheader-mes']
 	if (act) cl.push('act')
 	cl = cl.join(' ')
 
-
 	return (
-		<div className='mes-container'>
+		<div className='cmp-subheader-mes-wrapper'>
 			<div className='all' hidden={hid}>
 				{arr.map((el, i) => (
 					<p key={i}>{el.msg}</p>

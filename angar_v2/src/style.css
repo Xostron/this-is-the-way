@@ -99,7 +99,6 @@ img {
 /*  */
 
 a {
-	background-color: var(--secondary);
 	cursor: pointer;
 	text-decoration: none;
 }
@@ -247,7 +246,8 @@ a {
 	width: 100%;
 	height: 100%;
 	z-index: -1;
-	/* filter: blur(3px); */
+	/* filter: blur(10px); */
+transform: scaleX(-1);
 }
 
 /* .wallpaper {

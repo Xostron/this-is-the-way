@@ -2,11 +2,15 @@ import { NavLink } from 'react-router-dom'
 
 export default function List({ list }) {
 	if (!list) return <></>
-	const className = 'navlink'
+	const cls = 'cmp-menunav-navlink'
 	return (
-		<section className='cmp-mainnav-section'>
+		<section className='cmp-menunav-section'>
 			{list.map((el, i) => {
-				const fnClassname = ({ isActive }) => (isActive ? `${className} active` : className)
+				const fnClassname = (n) => {
+					const { isActive } = n
+					console.log(111, n)
+					return isActive ? cls + ` cmp-menunav-active` : cls
+				}
 				return (
 					<NavLink key={el.id} className={fnClassname} to={el.path}>
 						{el.icon && <img src={el.icon} />}

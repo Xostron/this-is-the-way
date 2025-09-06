@@ -33,7 +33,7 @@ body > div {
 	--backdrop1: rgba(32, 32, 32, 0.6);
     --backdrop2: rgba(62, 62, 62, 0.7);
 	--backdrop3: rgba(92, 92, 92, 0.7);
-	--blur: 10px;
+	--blur: blur(10px);
 	--br: 100px;
 	--fsz10: clamp(0.3125rem, -0.2083rem + 0.6944vw, 0.625rem);
 	--fsz12: clamp(0.375rem, -0.25rem + 0.8333vw, 0.75rem);
@@ -68,20 +68,7 @@ body > div {
 	color: var(--primary);
 }
 
-.subhead {
-	display: flex;
-	justify-content: space-between;
-	gap: 20px;
-}
 
-.prod {
-	display: flex;
-	align-items: center;
-	font-family: 'Q-SemiBold';
-	font-size: var(--fsz28);
-	color: var(--primary);
-	gap: 20px;
-}
 
 img {
 	height: var(--fsz40);

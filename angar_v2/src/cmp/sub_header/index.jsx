@@ -1,6 +1,6 @@
-import Message from '@cmp/message'
+import Message from '@src/cmp/sub_header/message'
 import Person from '@cmp/person'
-import Prod from '@cmp/prod'
+import Prod from '@src/cmp/sub_header/prod'
 import Turn from '@cmp/turn'
 import './style.css'
 

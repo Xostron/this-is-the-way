@@ -2,12 +2,12 @@
 	border-radius: 1em;
 	overflow: hidden;
 	background-color: var(--backdrop1);
-	backdrop-filter: blur(var(--blur));
+	backdrop-filter: var(--blur);
 }
 
 .weather-owner {
 	/* background-color: var(--backdrop1); */
-	/* backdrop-filter: blur(var(--blur)); */
+	/* backdrop-filter: var(--blur); */
 	width: 30%;
 }
 /* ************************** */
@@ -20,5 +20,5 @@
 .weather-middle {
 	display: flex;
 	/* background-color: var(--backdrop1); */
-	/* backdrop-filter: blur(var(--blur)); */
+	/* backdrop-filter: var(--blur); */
 }

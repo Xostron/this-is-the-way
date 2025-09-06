@@ -7,19 +7,18 @@
 	height: calc(100vh - 70px);
 	grid-template-columns: 1fr 70% 1fr;
 	grid-template-rows: 50px 70% 1fr;
-	gap: 1em;
+	gap: .5em;
 	overflow: hidden;
 	position: relative;
-    margin: auto;
-    background-color: var(--backdrop);
-	/* backdrop-filter: blur(var(--blur)); */
+	margin: auto;
+	background-color: var(--backdrop);
+	/* backdrop-filter: var(--blur); */
 }
 
 .build-backdrop {
-    display:flex;
-    grid-area: 2/2/2/2;
+	display: flex;
+	grid-area: 2/2/2/2;
 	background-color: var(--backdrop);
-	backdrop-filter: blur(var(--blur));
+	backdrop-filter: var(--blur);
 	border-radius: 1em;
-
 }

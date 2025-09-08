@@ -2,14 +2,14 @@
 	grid-area: 3/2/3/2;
 	display: flex;
 	position: relative;
-	justify-self: center;
-	width: 100%;
 }
 
 .cmp-menunav-section {
 	display: flex;
 	gap: 1em;
 	height: 100%;
+	/* width: 100%; */
+	/* justify-content: space-between; */
 	border-radius: 16px;
 	background-color: var(--clickBg);
 	position: absolute;

@@ -10,23 +10,29 @@ export default function Turn({ style, cls }) {
 	const { build } = useParams()
 	const warn = useWarn((s) => s.warn)
 	const isAuth = useAuthStore((s) => s.isAuth)
-	const [start] = useInputStore(useShallow(({ input }) => [input?.retain?.[build]?.start]))
+	const start = useInputStore(useShallow((s) => s.input?.retain?.[build]?.start))
 
-	const img = isAuth ? '/img/turn.svg' : '/img/turn_b.svg'
+	const icon = isAuth ? '/img/turn.svg' : '/img/turn_b.svg'
 	const st = isAuth ? style : { ...style, color: 'var(--primary)' }
 	let cl = ['control', cls]
 	cl = cl.join(' ')
 
 	return (
-		<>
-			<Btn
-				cls={cl}
-				style={st}
-				icon={img}
-				title={start ? 'Вкл.' : 'Выкл.'}
-				onClick={onClick}
-			/>
-		</>
+		<div className='cmp-person-wrapper turnon' onClick={onClick}>
+			<div className='cmp-person'>
+				{icon && <img src={icon} />}
+				<span>{start ? 'Вкл.' : 'Выкл.'}</span>
+			</div>
+		</div>
+		// <>
+		// 	<Btn
+		// 		cls={cl}
+		// 		style={st}
+		// 		icon={img}
+		// 		title={start ? 'Вкл.' : 'Выкл.'}
+		// 		onClick={onClick}
+		// 	/>
+		// </>
 	)
 	function onClick() {
 		// Если не авторизован -> предупреждение

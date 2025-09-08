@@ -1,0 +1,14 @@
+.cmp-menucontrol-wrapper {
+	/* grid-area: 1/1/3/1; */
+	grid-area: 3/3/3/3;
+	height: 100px;
+	width: 150px;
+	background-color: var(--backdrop);
+	/* backdrop-filter: var(--blur); */
+	border-radius: 16px;
+	justify-self: flex-end;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	/* justify-content: flex-end; */
+}

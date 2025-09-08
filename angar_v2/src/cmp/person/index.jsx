@@ -15,7 +15,7 @@ export default function Person({ style, cls }) {
 	const icon = '/img/person.svg'
 
 	return (
-		<div className='cmp-person-wrapper' onClick={onClick}>
+		<div className='cmp-person-wrapper person' onClick={onClick}>
 			<div className='cmp-person'>
 				{icon && <img src={icon} />}
 				{title && <span>{title}</span>}

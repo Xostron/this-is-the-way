@@ -3,9 +3,8 @@
 	--h-section: calc(100vh - var(--h-weather) - 140px);
 }
 .build {
-	/* padding-top: 10px; */
 	display: grid;
-	height: calc(100vh - 100px); /*70px высота header*/
+	height: calc(100vh - 100px); /*100px высота header*/
 	grid-template-columns: 1fr 75% 1fr;
 	grid-template-rows: 50px calc(100vh - 100px - 50px - 116px - 2 * 1em) 100px;
 	gap: .5em;
@@ -20,5 +19,5 @@
 	grid-area: 2/2/2/2;
 	background-color: var(--backdrop);
 	backdrop-filter: var(--blur);
-	border-radius: 1em;
+	border-radius: 16px;
 }

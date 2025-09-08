@@ -5,7 +5,9 @@ import Outdoor from '@cmp/outdoor'
 import Banner from '@cmp/banner'
 import MenuNav from '@src/cmp/menu_nav'
 import Person from '@src/cmp/person'
+import MenuControl from '@src/cmp/menu-control'
 import './style.css'
+import Turn from '@src/cmp/turn'
 
 //Секции склада / Секция
 export default function BuildOrSect({}) {
@@ -22,6 +24,7 @@ export default function BuildOrSect({}) {
 			<MenuNav />
 			{/* <Banner type={type} /> */}
 			{/* <MenuControl/> */}
+			<Turn/>
 			<Person />
 		</main>
 	)

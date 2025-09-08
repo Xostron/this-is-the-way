@@ -8,7 +8,7 @@ export default function useEntry(show, setShow) {
 	useEffect(() => {
 		const onClick = e => {
 			if (e.target.closest('.entry')) return
-			if (e.target.closest('.control')) return
+			if (e.target.closest('.cmp-person-wrapper')) return
 			if (show) setShow(false)
 		}
 		document.addEventListener('click', onClick)

@@ -1,4 +1,4 @@
-import MainNav from '@cmp/main_nav'
+import MainNav from '@src/cmp/menu_nav'
 import Menu from '@src/cmp/menu'
 import useWarnStore from '@src/store/warn'
 import './style.css'

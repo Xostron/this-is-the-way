@@ -3,7 +3,7 @@
 	position: relative;
 	flex-direction: column;
 	justify-content: space-between;
-	padding: .5em;
+	padding: 0.5em;
 	border-radius: 1em;
 }
 
@@ -12,21 +12,20 @@
 	align-items: center;
 	font-size: 1em;
 	gap: 1em;
-	color: var(--text1);
+	color: var(--text);
 }
 
 .cmp-outdoor-forecast .upd {
-    text-align: right;
+	text-align: right;
 	font-size: 1em;
-	color: var(--text1);
+	color: var(--text2);
 }
 
 .cmp-outdoor-forecast .today {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	font-size: var(--fsz28);
-	font-size: 1.7em;
+	font-size: 1.5em;
 	cursor: pointer;
 }
 
@@ -39,10 +38,10 @@
 	text-align: right;
 }
 .today .temp {
-	font-size: var(--fsz55);
+	font-size: 2em;
 }
 .today .status {
-	font-size: var(--fsz20);
+	font-size: 1em;
 }
 .today img {
 	width: 100px;

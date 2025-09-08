@@ -3,7 +3,7 @@ import Time from './time'
 import useViewStore from '@store/view'
 import Menu from '../menu'
 import Burger from './burger'
-import MainNav from '../main_nav'
+import MainNav from '../menu_nav'
 import './style.css'
 
 //Оглавление страницы

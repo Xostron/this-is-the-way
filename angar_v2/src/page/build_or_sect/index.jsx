@@ -3,7 +3,9 @@ import { useParams } from 'react-router-dom'
 import SubHeader from '@cmp/sub_header'
 import Outdoor from '@cmp/outdoor'
 import Banner from '@cmp/banner'
-import MenuNav from '@src/cmp/main_nav'
+import MenuNav from '@src/cmp/menu_nav'
+import Person from '@src/cmp/person'
+import './style.css'
 
 //Секции склада / Секция
 export default function BuildOrSect({}) {
@@ -17,8 +19,10 @@ export default function BuildOrSect({}) {
 				<Outdoor />
 				<Outlet />
 			</section>
-            <MenuNav/>
+			<MenuNav />
 			{/* <Banner type={type} /> */}
+			{/* <MenuControl/> */}
+			<Person />
 		</main>
 	)
 }

@@ -29,7 +29,7 @@
 .section-mode {
 	font-family: 'Q-Medium';
 	font-size: 0.7em !important;
-	color: var(--text1);
+	color: var(--text2);
 }
 /* min, max tprd************************************* */
 .section-sens {
@@ -55,7 +55,7 @@
 	height: 5.5em !important;
 	& > span {
 		font-size: 1.2em;
-		color: var(--text1);
+		color: var(--text2);
 	}
 }
 .vf-evenly {

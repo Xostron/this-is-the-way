@@ -263,7 +263,7 @@ button,
 	transition-timing-function: ease-out;
 	transition-delay: 0s;
 	transition-property: all;
-    user-select: none;
+	user-select: none;
 }
 /* Текущая ссылка */
 .btn.active,
@@ -277,13 +277,16 @@ button,
 /* Наведение */
 .btn:hover,
 .navlink:hover,
-.cmp-burger-wrapper:hover {
-	background-color: var(--primary);
+.cmp-burger-wrapper:hover,
+.cmp-person:hover,
+.cmp-menunav-navlink:hover {
+	background-color: var(--backdrop2);
 }
 /* Нажатие */
 .btn:active,
 .navlink:active,
-.cmp-burger-wrapper:active {
+.cmp-burger-wrapper:active,
+.cmp-person-wrapper:active {
 	transform: scale(0.9); /* Slightly shrink the button */
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Reduce the shadow to simulate depth */
 }

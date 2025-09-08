@@ -1,0 +1,29 @@
+.cmp-person-wrapper{
+	grid-area: 3/1/3/1;
+	background-color: var(--clickBg);
+	width: 150px;
+	height: 100%;
+	border-radius: 16px;
+	justify-self:flex-end;
+	cursor: pointer;
+	position: absolute;
+    top: 1.5em;
+}
+.cmp-person {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	height: 100%;
+	border-radius: 16px;
+	background-color: transparent;
+	color: var(--text);
+	font-size: 1.5em;
+	gap: .5em;
+	padding: .5em;
+}
+
+.cmp-person > img {
+	height: var(--fsz40);
+	aspect-ratio: 1/1;
+}

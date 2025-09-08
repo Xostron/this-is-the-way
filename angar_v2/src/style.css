@@ -22,18 +22,16 @@ body > div {
 	--primary: #192646;
 	--secondary: #65a7ee;
 	--background: white;
-	--text: #d8d8d8;
-	--text1: #bababa;
+	--text: #ffffff;
+	--text2: #c8c8c8;
 	--surface: #ededed;
 	--onSurface: #1926469a;
 	--err: rgb(248, 63, 63);
 	--click: rgb(71, 121, 159);
 	--clickBorder: rgb(71, 121, 159);
-    --clickBg:rgba(71, 121, 159, 0.779);
-	--backdrop: rgba(70, 70, 70, 0.7);
-	--backdrop1: rgba(32, 32, 32, 0.6);
-	--backdrop2: rgba(62, 62, 62, 0.7);
-	--backdrop3: rgba(92, 92, 92, 0.7);
+    --clickBg:rgba(81, 136, 177, 0.868);
+	--backdrop: rgba(118, 118, 118, 0.678);
+	--backdrop2: rgba(0, 0, 0, 0.266);
 	--blur: blur(10px);
 	--br: 100px;
 	--fsz10: clamp(0.3125rem, -0.2083rem + 0.6944vw, 0.625rem);
@@ -193,8 +191,8 @@ a {
 	border: 2px solid var(--secondary);
 }
 .off {
-	color: var(--text1) !important;
-	border: dashed 2px var(--text1);
+	color: var(--text2) !important;
+	border: dashed 2px var(--text2);
 }
 .off img {
 	filter: invert(70%);

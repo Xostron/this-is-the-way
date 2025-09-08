@@ -1,0 +1,36 @@
+.cmp-menunav-wrapper {
+	grid-area: 3/2/3/2;
+	display: flex;
+	position: relative;
+	justify-self: center;
+	width: 100%;
+}
+
+.cmp-menunav-section {
+	display: flex;
+	gap: 1em;
+	height: 100%;
+	border-radius: 16px;
+	background-color: var(--clickBg);
+	position: absolute;
+	top: 1.5em;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+/* navlink */
+.cmp-menunav-navlink {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	gap: 0.5em;
+	/* padding-inline: 1.5em; */
+	border-radius: 16px;
+	color: var(--text);
+	font-size: 1.5em;
+	width: 150px;
+}
+.cmp-menunav-active {
+	background-color: var(--backdrop2);
+}

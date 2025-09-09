@@ -1,0 +1,110 @@
+const puppeteer = require('puppeteer')
+const fs = require('fs')
+const path = require('path')
+
+const config = {
+	// Сайт для скачивания (скачивает только HTML)
+	url: 'https://habr.com/ru/companies/clevertec/articles/877682/',
+	url: 'https://muzofond.fm/',
+	// Путь сохранения сайта
+	dir: path.resolve(__dirname, 'front3'),
+	public: path.resolve(__dirname, 'front3', 'public'),
+	ph: (filename, dir) =>
+		dir
+			? path.resolve(__dirname, 'front3', dir, filename)
+			: path.resolve(__dirname, 'front3', filename),
+}
+
+downloadWebsite(config)
+
+async function downloadWebsite(config) {
+	const browser = await puppeteer.launch({ headless: true })
+	if (!fs.existsSync(config.dir)) {
+		console.log(2221, 'Создаем папку для сайта front', config.dir)
+		fs.mkdirSync(config.dir)
+	}
+	if (!fs.existsSync(config.public)) {
+		console.log(2221, 'Создаем папку для сайта front', config.public)
+		fs.mkdirSync(config.public)
+	}
+	try {
+		const page = await browser.newPage()
+
+		// Переход на страницу
+		await page.goto(config.url, {
+			waitUntil: 'networkidle2',
+			timeout: 30000,
+		})
+
+		// Получение всех ресурсов
+		const resources = await page.evaluate(() => {
+			const resources = []
+			// Собираем все ссылки на CSS
+			document.querySelectorAll('link[rel="stylesheet"][href]').forEach((link) => {
+				resources.push({
+					url: new URL(link.href, window.location.href).href,
+					type: 'css',
+				})
+			})
+			// Собираем все скрипты
+			document.querySelectorAll('script[src]').forEach((script) => {
+				resources.push({
+					url: new URL(script.src, window.location.href).href,
+					type: 'js',
+				})
+			})
+			// Собираем все изображения
+			document.querySelectorAll('img[src]').forEach((img) => {
+				resources.push({
+					url: new URL(img.src, window.location.href).href,
+					type: 'image',
+				})
+			})
+			// Собираем шрифты
+			document
+				.querySelectorAll('link[rel="preload"][as="font"], link[rel="stylesheet"]')
+				.forEach((link) => {
+					if (link.href) {
+						resources.push({
+							url: new URL(link.href, window.location.href).href,
+							type: 'font',
+						})
+					}
+				})
+			return resources
+		})
+
+		// Скачивание HTML
+		const html = await page.content()
+		// await fs.writeFile(path.join(downloadDir, 'index.html'), htmlContent);
+		save(html, config.ph('index.html'))
+		console.log('✅ HTML сохранен')
+		save(JSON.stringify(resources, null, ' '), config.ph('resource.json'))
+		// Скачивание всех ресурсов
+		for (const resource of resources) {
+			try {
+				const response = await page.goto(resource.url, {
+					waitUntil: 'domcontentloaded',
+				})
+				if (response && response.ok()) {
+					const buffer = await response.buffer()
+					const fileName = path.basename(new URL(resource.url).pathname)
+					const filePath = path.join(config.dir, 'public', fileName)
+
+					save(buffer, filePath)
+					console.log(`✅ Скачан: ${fileName}`)
+				}
+			} catch (error) {
+				console.error(`❌ Ошибка скачивания ${resource.url}:`, error.message)
+			}
+		}
+
+		console.log('✅ Сайт полностью скачан')
+	} finally {
+		await browser.close()
+	}
+}
+
+function save(data, filename) {
+	fs.writeFileSync(filename, data)
+}

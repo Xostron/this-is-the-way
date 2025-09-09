@@ -7,5 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "@Xostron",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.1.2",
+    "puppeteer": "^24.19.0",
+    "unirest": "^0.6.0"
+  }
 }

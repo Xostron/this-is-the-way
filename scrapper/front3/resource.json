@@ -1,0 +1,82 @@
+[
+ {
+  "url": "https://muzofond.fm/instreamatic-track/instreamatic.min.css",
+  "type": "css"
+ },
+ {
+  "url": "https://top-fwz1.mail.ru/js/code.js",
+  "type": "js"
+ },
+ {
+  "url": "https://mc.yandex.ru/metrika/tag.js",
+  "type": "js"
+ },
+ {
+  "url": "https://yandex.ru/ads/system/context.js",
+  "type": "js"
+ },
+ {
+  "url": "https://code.jquery.com/jquery-2.1.4.min.js",
+  "type": "js"
+ },
+ {
+  "url": "https://yastatic.net/safeframe-bundles/0.83/host.js",
+  "type": "js"
+ },
+ {
+  "url": "https://muzofond.fm/instreamatic-track/instreamatic.min.js",
+  "type": "js"
+ },
+ {
+  "url": "https://muzofond.fm/build/bundle-c351d7f26c1d0a9ffcf3.js",
+  "type": "js"
+ },
+ {
+  "url": "https://yastatic.net/share2/share.js",
+  "type": "js"
+ },
+ {
+  "url": "https://ad.mail.ru/static/sync-loader.js",
+  "type": "js"
+ },
+ {
+  "url": "https://privacy-cs.mail.ru/static/sync-loader.js",
+  "type": "js"
+ },
+ {
+  "url": "https://top-fwz1.mail.ru/js/dyn-goal-config.js?ids=2847031",
+  "type": "js"
+ },
+ {
+  "url": "https://unisound.cdnvideo.ru/static/js/xman.min.js",
+  "type": "js"
+ },
+ {
+  "url": "https://muzofond.fm/images/svg/logo.svg",
+  "type": "image"
+ },
+ {
+  "url": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjgiIGhlaWdodD0iMjgiIHZpZXdCb3g9IjAgMCAyOCAyOCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTQiIGN5PSIxNCIgcj0iMTQiIGZpbGw9IiMyMzIzMjMiLz4KPHBhdGggZD0iTTE0IDkuOTMwNjZDMTIuNTk3NCA5LjkzMDY2IDExLjQ1NDYgMTEuMDczNSAxMS40NTQ2IDEyLjQ3NjFDMTEuNDU0NiAxMy44Nzg3IDEyLjU5NzQgMTUuMDIxNiAxNCAxNS4wMjE2QzE1LjQwMjYgMTUuMDIxNiAxNi41NDU1IDEzLjg3ODcgMTYuNTQ1NSAxMi40NzYxQzE2LjU0NTUgMTEuMDczNSAxNS40MiA5LjkzMDY2IDE0IDkuOTMwNjZaIiBmaWxsPSIjNzhDMDA3Ii8+CjxwYXRoIGQ9Ik0xNC4wMTczIDZDOS41ODQ0MiA2IDYgOS41ODQ0MiA2IDE0QzYgMTguNDE1NiA5LjU4NDQyIDIyIDE0IDIyQzE4LjQxNTYgMjIgMjIgMTguNDE1NiAyMiAxNEMyMi4wMTczIDkuNTg0NDIgMTguNDE1NiA2IDE0LjAxNzMgNlpNMTkuMTI1NSAxNy43MjI5TDE4Ljg2NTggMTguMDg2NkwxOC42NTggMTcuNjg4M0MxOC4yNDI0IDE2Ljg3NDUgMTcuNTE1MiAxNi4zNzIzIDE2LjcxODYgMTYuMzcyM0gxMS4yODE0QzEwLjQ4NDggMTYuMzcyMyA5Ljc1NzU4IDE2Ljg1NzEgOS4zNDE5OSAxNy42ODgzTDkuMTM0MiAxOC4wODY2TDguODc0NDYgMTcuNzIyOUM4LjA3NzkyIDE2LjYzMiA3LjY2MjM0IDE1LjMzMzMgNy42NjIzNCAxNEM3LjY2MjM0IDEwLjUwMjIgMTAuNTAyMiA3LjY2MjM0IDE0LjAxNzMgNy42NjIzNEMxNy41MTUyIDcuNjYyMzQgMjAuMzU1IDEwLjUwMjIgMjAuMzU1IDE0QzIwLjM1NSAxNS4zNTA2IDE5LjkzOTQgMTYuNjMyIDE5LjEyNTUgMTcuNzIyOVoiIGZpbGw9IiM3OEMwMDciLz4KPC9zdmc+Cg==",
+  "type": "image"
+ },
+ {
+  "url": "https://muzofond.fm/images/promo/banner_auth.png",
+  "type": "image"
+ },
+ {
+  "url": "https://top-fwz1.mail.ru/counter?id=2847031;js=na",
+  "type": "image"
+ },
+ {
+  "url": "https://www.tns-counter.ru/V13a****unisound_net/ru/UTF-8/tmsec=unisound_total/92845309",
+  "type": "image"
+ },
+ {
+  "url": "https://yastatic.net/s3/home/fonts/ys/3/text-variable-full.woff2",
+  "type": "font"
+ },
+ {
+  "url": "https://muzofond.fm/instreamatic-track/instreamatic.min.css",
+  "type": "font"
+ }
+]

@@ -3,10 +3,12 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	background-color: var(--backdrop);
+	background-color: var(--backdrop3);
 	backdrop-filter: var(--blur);
 	border-radius: 1em;
     padding: .5em;
+	width: 60%;
+	justify-self: center;
 }
 
 .cmp-subheader-prod {

@@ -10,6 +10,7 @@
 	padding: 0.5em;
 	border-radius: 1em;
 	color: var(--text);
+	background-color: var(--backdrop2);
 }
 
 .cmp-outdoor-sens {

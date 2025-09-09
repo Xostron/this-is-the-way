@@ -23,9 +23,9 @@ export default function BuildOrSect({}) {
 			</section>
 			<MenuNav />
 			{/* <Banner type={type} /> */}
-			{/* <MenuControl/> */}
-			<Turn/>
-			<Person />
+			<MenuControl/>
+			{/* <Turn/> */}
+			{/* <Person /> */}
 		</main>
 	)
 }

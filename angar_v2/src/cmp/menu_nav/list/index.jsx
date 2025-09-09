@@ -14,7 +14,7 @@ export default function List({ list }) {
 				return (
 					<NavLink key={el.id} className={fnClassname} to={el.path}>
 						{el.icon && <img src={el.icon} />}
-						{el.title && <span>{el.title}</span>}
+						{/* {el.title && <span>{el.title}</span>} */}
 					</NavLink>
 				)
 			})}

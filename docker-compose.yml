@@ -1,0 +1,15 @@
+version: '1'
+services:
+  server:
+    build: ./back_n1
+    ports:
+      - "5100:5100"
+    environment:
+      - NODE_ENV=development
+
+  client:
+    build: ./typescript/tw4-react
+    ports:
+      - "5000:80"
+    depends_on:
+      - server

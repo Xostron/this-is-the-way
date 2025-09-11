@@ -4,11 +4,11 @@
   "type": "css"
  },
  {
-  "url": "https://top-fwz1.mail.ru/js/code.js",
+  "url": "https://mc.yandex.ru/metrika/tag.js",
   "type": "js"
  },
  {
-  "url": "https://mc.yandex.ru/metrika/tag.js",
+  "url": "https://top-fwz1.mail.ru/js/code.js",
   "type": "js"
  },
  {
@@ -28,11 +28,23 @@
   "type": "js"
  },
  {
+  "url": "https://yastatic.net/partner-code-bundles/1301860/vas-bundles/bundles-es2017/loader.bundle.js",
+  "type": "js"
+ },
+ {
+  "url": "https://yastatic.net/pcode-static/measurers/126/media/adserving.js",
+  "type": "js"
+ },
+ {
   "url": "https://muzofond.fm/build/bundle-c351d7f26c1d0a9ffcf3.js",
   "type": "js"
  },
  {
   "url": "https://yastatic.net/share2/share.js",
+  "type": "js"
+ },
+ {
+  "url": "https://yastatic.net/pcode-static/measurers/126/adserving/adserving-display-uv.js?slot=jorlrjxlaoh&host=verify.yandex.ru%2Fverify_adserving&session=72057611232072302%2C702100940%2C5313045502579709143&uniq=2094318029767816072&user=2094318029767816072&siteid=72057611232072302%2C702100940%2C5313045502579709143&ad=17194144366&campaign=1088355214",
   "type": "js"
  },
  {
@@ -68,7 +80,7 @@
   "type": "image"
  },
  {
-  "url": "https://www.tns-counter.ru/V13a****unisound_net/ru/UTF-8/tmsec=unisound_total/92845309",
+  "url": "https://www.tns-counter.ru/V13a****unisound_net/ru/UTF-8/tmsec=unisound_total/710647097",
   "type": "image"
  },
  {

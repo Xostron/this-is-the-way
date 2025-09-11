@@ -4,15 +4,11 @@ const path = require('path')
 
 const config = {
 	// Сайт для скачивания (скачивает только HTML)
-	url: 'https://habr.com/ru/companies/clevertec/articles/877682/',
+	// url: 'https://habr.com/ru/companies/clevertec/articles/877682/',
 	url: 'https://muzofond.fm/',
 	// Путь сохранения сайта
-	dir: path.resolve(__dirname, 'front3'),
-	public: path.resolve(__dirname, 'front3', 'public'),
-	ph: (filename, dir) =>
-		dir
-			? path.resolve(__dirname, 'front3', dir, filename)
-			: path.resolve(__dirname, 'front3', filename),
+	dir: path.resolve(__dirname, 'front_temp'),
+	ph: (filename) => path.resolve(__dirname,'front_temp', filename),
 }
 
 downloadWebsite(config)
@@ -22,10 +18,6 @@ async function downloadWebsite(config) {
 	if (!fs.existsSync(config.dir)) {
 		console.log(2221, 'Создаем папку для сайта front', config.dir)
 		fs.mkdirSync(config.dir)
-	}
-	if (!fs.existsSync(config.public)) {
-		console.log(2221, 'Создаем папку для сайта front', config.public)
-		fs.mkdirSync(config.public)
 	}
 	try {
 		const page = await browser.newPage()
@@ -76,7 +68,6 @@ async function downloadWebsite(config) {
 
 		// Скачивание HTML
 		const html = await page.content()
-		// await fs.writeFile(path.join(downloadDir, 'index.html'), htmlContent);
 		save(html, config.ph('index.html'))
 		console.log('✅ HTML сохранен')
 		save(JSON.stringify(resources, null, ' '), config.ph('resource.json'))
@@ -89,7 +80,7 @@ async function downloadWebsite(config) {
 				if (response && response.ok()) {
 					const buffer = await response.buffer()
 					const fileName = path.basename(new URL(resource.url).pathname)
-					const filePath = path.join(config.dir, 'public', fileName)
+					const filePath = path.join(config.dir, fileName)
 
 					save(buffer, filePath)
 					console.log(`✅ Скачан: ${fileName}`)

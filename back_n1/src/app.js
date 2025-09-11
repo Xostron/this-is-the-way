@@ -37,7 +37,7 @@ function App(db) {
 		cors({
 			allowedHeaders: ['content-type', 'set-cookie', 'authorization', 'user-agent'],
 			credentials: true,
-			origin: ['http://localhost:4001', 'http://localhost:5010'], // тоже самое origin: (err, cb) => cb(null, true),
+			origin: ['http://localhost:5000'], // тоже самое origin: (err, cb) => cb(null, true),
 		})
 	)
 	// app.use(cors({ credentials: true, origin: (origin, cb) => cb(null, true) }))

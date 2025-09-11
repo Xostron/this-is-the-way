@@ -4,7 +4,7 @@ import { pluginReact } from '@rsbuild/plugin-react'
 export default defineConfig({
 	plugins: [pluginReact()],
 	server: {
-		port: 5010,
+		port: 5000,
 	},
 	output: {
 		distPath: {

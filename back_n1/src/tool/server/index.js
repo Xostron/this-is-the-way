@@ -12,7 +12,7 @@ db.on('error', (err) => console.log('Отсутствует связь с MongoD
 db.on('connect', () => console.log('Связь с MongoDB установлена'))
 
 // Порт
-var port = normalizePort(process.env.PORT || '4101')
+var port = normalizePort(process.env.PORT || '5100')
 const app = App(db)
 app.set('port', port)
 

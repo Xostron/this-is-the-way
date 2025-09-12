@@ -8,13 +8,21 @@ const config = {
 	url: 'https://muzofond.fm/',
 	// Путь сохранения сайта
 	dir: path.resolve(__dirname, 'front_temp'),
-	ph: (filename) => path.resolve(__dirname,'front_temp', filename),
+	ph: (filename) => path.resolve(__dirname, 'front_temp', filename),
 }
 
 downloadWebsite(config)
 
 async function downloadWebsite(config) {
-	const browser = await puppeteer.launch({ headless: true })
+	const browser = await puppeteer.launch({
+		headless: true,
+		args: [
+			'--no-sandbox',
+			'--disable-setuid-sandbox',
+			'--disable-dev-shm-usage',
+			'--single-process', // опционально, для легковесных сред
+		],
+	})
 	if (!fs.existsSync(config.dir)) {
 		console.log(2221, 'Создаем папку для сайта front', config.dir)
 		fs.mkdirSync(config.dir)

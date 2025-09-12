@@ -50,7 +50,7 @@ RUN npm install
 # Копируем в контейнер файл scraper.js
 COPY scraper.js ./
 # Запускаем скрипт
-RUN node ./scraper.js
+RUN node ./scraper.js --url https://www.npmjs.com/package/zigbee-clusters --keyword pinUp 
 
 # Этап 2: запуск через Nginx
 FROM nginx:alpine

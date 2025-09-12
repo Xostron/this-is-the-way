@@ -5,17 +5,15 @@ const path = require('path')
 
 const config = {
 	// Сайт для скачивания (скачивает только HTML)
-	// url: 'https://habr.com/ru/companies/clevertec/articles/877682/',
-	// url: 'https://muzofond.fm/',
-	// url: 'http://localhost:4010/building/6800b88d56c6a01c90ecbc5e',
-	url: process.argv[3],
-	keyword: process.argv[5] ?? '',
+	url: 'https://muzofond.fm/',
+	// url: process.argv[3],
+	keyword: process.argv[5] ?? 'XOSTRON',
 	// Путь сохранения сайта
 	dir: path.resolve(__dirname, 'front_temp'),
 	ph: (filename) => path.resolve(__dirname, 'front_temp', filename),
 }
-console.log(112, config.url)
-console.log(113, config.keyword)
+console.log(1, config.url)
+console.log(2, config.keyword)
 downloadWebsite(config)
 
 async function downloadWebsite(config) {
@@ -28,25 +26,27 @@ async function downloadWebsite(config) {
 			'--single-process', // опционально, для легковесных сред
 		],
 	})
+    const userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36';
 	try {
 		if (!config.url) throw new Error('Не передан url', config.url)
 		if (!fs.existsSync(config.dir)) {
-			console.log(2221, 'Создаем папку для сайта front', config.dir)
+			console.log(3, 'Создаем папку для сайта front', config.dir)
 			fs.mkdirSync(config.dir)
 		}
 		const page = await browser.newPage()
 
-		// Переход на страницу
+		// Переход на страницу html
+        await page.setUserAgent(userAgent);
 		await page.goto(config.url, { waitUntil: 'networkidle2', timeout: 30000 })
+		// Скачивание HTML
+		let html = await page.content()
+		html = autoreplace(html, config.keyword)
+		await save(html, config.ph('index.html'))
+		console.log('✅ HTML сохранен')
 
 		// Сбор и сохранение ресурсов (статика)
 		await collect(page)
 
-		// Скачивание HTML
-		const html = await page.content()
-        autoreplace(html, keyword)
-		await save(html, config.ph('index.html'))
-		console.log('✅ HTML сохранен')
 		console.log('✅ Сайт полностью скачан')
 	} catch (err) {
 		console.log(err)
@@ -117,8 +117,8 @@ async function save(data, filename) {
 //Добавляем в теги keyword
 function autoreplace(html, keyword) {
 	if (!keyword) return html
-	const all = ['<title', '<h1']
-	const partly = ['<p', '<span', '<li', `alt='`, `alt="`]
+	const all = ['<title ', '<h1 ']
+	const partly = ['<p ', '<span ', '<li ', `alt='`, `alt="`]
 	let result = html
 	// Строгое добавление
 	all.forEach((el) => (result = paste(result, el, keyword)))
@@ -130,6 +130,7 @@ function autoreplace(html, keyword) {
 function paste(html, tag, keyword, rdm = false) {
 	let cursor = html
 	let result = ''
+
 	while (true) {
 		// Первое вхождение
 		const idxStart = cursor.indexOf(tag)

@@ -26,10 +26,9 @@ function autoreplace(html, keyword) {
 	return result
 }
 
-function paste(html, tag, keyword, random = false) {
+function paste(html, tag, keyword, rdm = false) {
 	let cursor = html
 	let result = ''
-	console.log(555, keyword)
 	while (true) {
 		// Первое вхождение
 		const idxStart = cursor.indexOf(tag)
@@ -37,28 +36,34 @@ function paste(html, tag, keyword, random = false) {
 
 		result += cursor.slice(0, idxStart)
 		cursor = cursor.slice(idxStart, cursor.length)
-		console.log(1, result)
-		console.log(2, cursor)
+		// console.log(1, result)
+		// console.log(2, cursor)
 		// Завершающее вхождение
-		const idxEnd =
-			tag !== `alt='` || tag !== `alt="`
-				? cursor.indexOf('>')
-				: tag === `alt="`
-				? cursor.indexOf(`"`)
-				: cursor.indexOf(`'`)
+		const idxEnd = tag !== `alt='` && tag !== `alt="` ? cursor.indexOf('>') : tag === `alt="` ? cursor.indexOf(`"`) : cursor.indexOf(`'`)
 		if (idxEnd === -1) {
 			result += cursor
 			continue
 		}
 		const sub = cursor.slice(0, idxEnd + 1)
-		console.log(3, sub)
+		// console.log(3, sub)
 		cursor = cursor.slice(idxEnd + 1, cursor.length)
-		console.log(4, cursor)
-		result += sub + keyword
-		console.log(5, result)
+		if (rdm) {
+			if (random()) result += sub + keyword
+			else result += sub
+		} else result += sub + keyword
 
 		if (!cursor.length) return result + cursor
 	}
 }
 
-console.log(111, autoreplace(html, keyword))
+
+/**
+ *результат орел (>=50) или решка (<50%)
+ * @returns boolean | number
+ */
+function random() {
+	const min = 0,
+		max = 10
+	const r = Math.trunc(Math.random() * (max - min) + min)
+	return r >= max / 2 ? true : false
+}

@@ -12,8 +12,8 @@ const config = {
 	dir: path.resolve(__dirname, 'front_temp'),
 	ph: (filename) => path.resolve(__dirname, 'front_temp', filename),
 }
-console.log(1, config.url)
-console.log(2, config.keyword)
+console.log('URL =', config.url)
+console.log('KEYWORD =', config.keyword)
 downloadWebsite(config)
 
 async function downloadWebsite(config) {
@@ -26,7 +26,7 @@ async function downloadWebsite(config) {
 			'--single-process', // опционально, для легковесных сред
 		],
 	})
-    const userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36';
+	const userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36'
 	try {
 		if (!config.url) throw new Error('Не передан url', config.url)
 		if (!fs.existsSync(config.dir)) {
@@ -36,16 +36,16 @@ async function downloadWebsite(config) {
 		const page = await browser.newPage()
 
 		// Переход на страницу html
-        await page.setUserAgent(userAgent);
+		await page.setUserAgent(userAgent)
 		await page.goto(config.url, { waitUntil: 'networkidle2', timeout: 30000 })
 		// Скачивание HTML
 		let html = await page.content()
 		html = autoreplace(html, config.keyword)
-		await save(html, config.ph('index.html'))
-		console.log('✅ HTML сохранен')
+		// await save(html, config.ph('index.html'))
+		// console.log('✅ HTML сохранен')
 
 		// Сбор и сохранение ресурсов (статика)
-		await collect(page)
+		await collect(html, page, config.url)
 
 		console.log('✅ Сайт полностью скачан')
 	} catch (err) {
@@ -57,44 +57,51 @@ async function downloadWebsite(config) {
 }
 
 // Сбор и сохранение ресурсов (статика)
-async function collect(page) {
-	const result = await page.evaluate(() => {
-		const resources = []
+async function collect(html, page, url) {
+	const resources = await page.evaluate(() => {
+		const r = []
 		// Собираем все ссылки на CSS
-		document.querySelectorAll('link[rel="stylesheet"][href]').forEach((link) => {
-			resources.push({
+		document.querySelectorAll('link[rel="stylesheet"][href], link[rel="stylesheet preload"]').forEach((link) => {
+			r.push({
 				url: new URL(link.href, window.location.href).href,
 				type: 'css',
+				href: link.href,
 			})
 		})
 		// Собираем все скрипты
 		document.querySelectorAll('script[src]').forEach((script) => {
-			resources.push({
+			r.push({
 				url: new URL(script.src, window.location.href).href,
 				type: 'js',
+				href: script.src,
 			})
 		})
 		// Собираем все изображения
 		document.querySelectorAll('img[src]').forEach((img) => {
-			resources.push({
+			r.push({
 				url: new URL(img.src, window.location.href).href,
 				type: 'image',
+				href: img.src,
 			})
 		})
 		// Собираем шрифты
-		document.querySelectorAll('link[rel="preload"][as="font"], link[rel="stylesheet"]').forEach((link) => {
+		document.querySelectorAll('link[rel="preload"][as="font"]').forEach((link) => {
 			if (link.href) {
-				resources.push({
+				r.push({
 					url: new URL(link.href, window.location.href).href,
 					type: 'font',
+					href: link.href,
 				})
 			}
 		})
-		return resources
+		return r
 	})
-	await save(JSON.stringify(result, null, ' '), config.ph('resource.json'))
+	html = replaceHref(html, resources, url)
+	await save(html, config.ph('index.html'))
+	console.log('✅ HTML после автозамены путей и вставик keyword сохранен')
+	await save(JSON.stringify(resources, null, ' '), config.ph('resource.json'))
 	// Скачивание и сохранение всех ресурсов
-	for (const resource of result) {
+	for (const resource of resources) {
 		try {
 			const response = await page.goto(resource.url, { waitUntil: 'domcontentloaded' })
 			if (response && response.ok()) {
@@ -102,13 +109,28 @@ async function collect(page) {
 				const fileName = path.basename(new URL(resource.url).pathname)
 				const filePath = path.join(config.dir, fileName)
 				await save(buffer, filePath)
-				console.log(`✅ Скачан: ${fileName}`)
+				// console.log(`✅ Скачан: ${fileName}`)
 			}
 		} catch (error) {
-			console.error(`❌ Ошибка скачивания ${resource.url}:`, error.message)
+			// console.error(`❌ Ошибка скачивания ${resource.url}:`, error.message)
 		}
 	}
 }
+
+// Заменить путь на статику ('/' - вся статика из корневой папки)
+function replaceHref(html, resources, url) {
+	let result = html
+	resources.forEach((el) => {
+		const href = el.href.split('/').pop()
+		el.href = el.href.replace(url, '/')
+		console.log(11, el.type, el.href, href)
+		if (el.href.startsWith('data:image/')) return //result = result.replace(el.href, href)
+		// TODO replaceValue = '/' или './'
+		else result = result.replace(el.href, '/' + href)
+	})
+	return result
+}
+
 // сохранение файла
 async function save(data, filename) {
 	await fsp.writeFile(filename, data)

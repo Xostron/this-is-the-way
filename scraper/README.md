@@ -10,4 +10,5 @@ RUN node ./scraper.js --url https://www.npmjs.com/package/zigbee-clusters --keyw
 ## 2. Запуск контейнера
 ```bash```
 - docker run -d -p 8008:80 --name container-scraper image-scraper
-
+## 3. Зайти на сайт
+http://localhost:8008

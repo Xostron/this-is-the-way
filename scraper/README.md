@@ -1,7 +1,7 @@
 # Описание: Scrapper - скачивание сайта
 Сайт указывается в Dockerfile в строке 53
 RUN node ./scraper.js --url https://www.npmjs.com/package/zigbee-clusters --keyword pinUp
-🛠 Стек: Node, puppeteer
+🛠 Стек: Node.js, puppeteer
 
 # Порядок запуска через docker
 ## 1. Сборка образа
@@ -12,3 +12,7 @@ RUN node ./scraper.js --url https://www.npmjs.com/package/zigbee-clusters --keyw
 - docker run -d -p 8008:80 --name container-scraper image-scraper
 ## 3. Зайти на сайт
 http://localhost:8008
+
+
+# Запуск из консоли
+node ./scraper/index.js --url https://www.npmjs.com/package/zigbee-clusters --keyword pinUp

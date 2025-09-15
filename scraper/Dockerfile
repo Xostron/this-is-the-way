@@ -2,8 +2,10 @@
 FROM node:22 as scraper
 # Создаем директорию
 WORKDIR /scraper
-# Копируем сюда package
+# Копируем package
 COPY package*.json ./
+# Копируем скрипт scraper
+COPY scraper/index.js ./
 # Установка системных зависимостей для Chrome + установка npm-пакетов
 RUN apt-get update && \
 	apt-get install -yq \
@@ -47,13 +49,12 @@ RUN apt-get update && \
 	&& rm -rf /var/lib/apt/lists/*
 # Устанавливаем зависимости
 RUN npm install
-# Копируем в контейнер файл scraper.js
-COPY scraper.js ./
 # Запускаем скрипт
-RUN node ./scraper.js --url https://www.npmjs.com/package/zigbee-clusters --keyword pinUp 
+RUN node ./index.js --url https://www.npmjs.com/package/zigbee-clusters --keyword pinUp 
 
 # Этап 2: запуск через Nginx
 FROM nginx:alpine
 COPY --from=scraper /scraper/front_temp /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]

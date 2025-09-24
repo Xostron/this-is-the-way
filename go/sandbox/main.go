@@ -38,14 +38,17 @@ func main() {
 	var k int
 	var n, m int = 1, 2
 	q := 3
+	q++
 	aa, bb, cc := true, false, "no!"
 	fmt.Println("Переменные var", i, j, k, c, python, java, n, m, q, aa, bb, cc)
 	fmt.Printf("Type: %T Value: %v\n", ToBe, ToBe)
 	fmt.Printf("Type: %T Value: %v\n", MaxInt, MaxInt)
 	fmt.Printf("Type: %T Value: %v\n", z, z)
-	var ii int
+	var ii int = 1
+	ii = 1 + 1
+	const r = 10
 	var ff float64
 	var gg bool
 	var hh string
-	fmt.Printf("%v %v %v %q\n", ii, ff, gg, hh)
+	fmt.Printf("%v %v %v %v %q\n", r, ii, ff, gg, hh)
 }

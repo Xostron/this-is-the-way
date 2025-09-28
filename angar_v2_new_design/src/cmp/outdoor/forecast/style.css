@@ -25,11 +25,13 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	font-size: 1.5em;
+	font-size: 1em;
+    font-size: var(--fsz26);
 	cursor: pointer;
+    gap: 1em;
 }
 
-.today > div:first-child {
+.today > div {
 	display: flex;
 	flex-direction: column;
 }
@@ -41,9 +43,9 @@
 	font-size: 2em;
 }
 .today .status {
-	font-size: 1em;
+	/* font-size: .9em; */
 }
 .today img {
-	width: 100px;
-	height: 100px;
+	width: 60px;
+	height: 60px;
 }

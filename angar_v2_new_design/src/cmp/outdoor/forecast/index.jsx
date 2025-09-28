@@ -3,7 +3,7 @@ import useEquipStore from '@store/equipment'
 import Today from './today'
 import './style.css'
 
-export default function Forecast({stl}) {
+export default function Forecast({ stl }) {
 	const { build } = useParams()
 	const address = useEquipStore((s) => s.build()?.pc?.address?.value)
 	const type = useEquipStore((s) => s.getType(build))
@@ -12,15 +12,15 @@ export default function Forecast({stl}) {
 		dateStyle: 'short',
 		timeStyle: 'short',
 	})
-
+	const addr = address ? (
+		<div className='adr'>
+			<img src='/img/geo.svg' />
+			<span>{address ?? '--'}</span>
+		</div>
+	) : null
 	return (
 		<article style={stl} className='cmp-outdoor-forecast'>
-			{address ? (
-				<div className='adr'>
-					<img src='/img/geo.svg' />
-					<span>{address ?? '--'}</span>
-				</div>
-			) : null}
+			{addr}
 			<Today weather={weather} type={type} />
 			<span className='upd'>{updateTime}</span>
 		</article>

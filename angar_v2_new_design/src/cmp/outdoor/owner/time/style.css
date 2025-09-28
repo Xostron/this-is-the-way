@@ -2,12 +2,12 @@
 	display: flex;
 	width: 40%;
 	flex-direction: column;
-	font-size: var(--fsz50);
+	font-size: 2em;
 	font-family: Q-Medium;
 	user-select: none;
 	cursor: pointer;
 }
 .time .yy {
-	font-size: var(--fsz16);
+	font-size: .5em !important;
 	color: var(--text2);
 }

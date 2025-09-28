@@ -2,7 +2,7 @@
 	grid-area: 2/1/2/1;
 	height: 50%;
 	width: 50px;
-	background-color: var(--backdrop3);
+	background-color: var(--backdrop1);
 	backdrop-filter: var(--blur);
 	border-radius: 50px;
 	justify-self: flex-end;

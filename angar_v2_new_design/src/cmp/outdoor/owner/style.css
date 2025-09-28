@@ -19,11 +19,11 @@
 }
 
 .cmp-outdoor-owner-code {
-	font-size: var(--fsz50);
+	font-size: 2em;
 	width: 100%;
 }
 
 .cmp-outdoor-owner-client {
-	font-size: var(--fsz16);
+	font-size: 1em;
 	color: var(--text2);
 }

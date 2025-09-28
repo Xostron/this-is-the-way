@@ -29,11 +29,11 @@ body > div {
 	--err: rgb(248, 63, 63);
 	--click: rgb(71, 121, 159);
 	--clickBorder: rgb(71, 121, 159);
-    /* --clickBg:rgba(81, 136, 177, 0.868); */
-	--clickBg:rgba(64, 124, 173, 0.852);
-	--backdrop: rgba(118, 118, 118, 0.678);
-	--backdrop2: rgba(0, 0, 0, 0.266);
-	--backdrop3: rgba(0, 0, 0, 0.604);
+	/* --clickBg:rgba(81, 136, 177, 0.868); */
+	--clickBg: rgba(64, 124, 173, 0.852);
+	--backdrop1: rgba(0, 0, 0, 0.665);
+	--backdrop2: rgba(81, 81, 81, 0.6);
+	--backdrop3: rgba(0, 0, 0, 0.3);
 	--blur: blur(10px);
 	--br: 100px;
 	--fsz10: clamp(0.3125rem, -0.2083rem + 0.6944vw, 0.625rem);

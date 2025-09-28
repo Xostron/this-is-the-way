@@ -11,7 +11,7 @@
 	padding: 5px;
 	justify-content: space-between;
 	border-radius: 50px;
-	background-color: var(--backdrop3);
+	background-color: var(--backdrop1);
 	backdrop-filter: var(--blur);
 	position: absolute;
 	/* top: 1.5em; */

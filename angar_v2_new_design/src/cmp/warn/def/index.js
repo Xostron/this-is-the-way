@@ -7,6 +7,7 @@ import valve from './valve'
 import burger from './burger'
 import ethernet from './ethernet'
 import wifi from './wifi'
+import forecast_analytic from './forecast_analytic'
 
 export default {
 	person,
@@ -18,7 +19,6 @@ export default {
 	burger,
 	ethernet,
 	wifi,
-	notfound: ({ data, entryCode }) => (
-		<div className='entry'>Модального окна {entryCode} не существует</div>
-	),
+	forecast_analytic,
+	notfound: ({ data, entryCode }) => <div className='entry'>Модального окна {entryCode} не существует</div>,
 }

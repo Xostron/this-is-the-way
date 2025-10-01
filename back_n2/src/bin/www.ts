@@ -6,7 +6,7 @@
 require('module-alias/register')
 var path = require('path')
 require('dotenv').config({ path: path.join(__dirname, '..', '..', '.env') })
-var app = require('../app')
+var app = require('@root/app')
 const debug = require('debug')('back-n2:server')
 const http = require('http')
 
@@ -14,7 +14,7 @@ const http = require('http')
  * Get port from environment and store in Express.
  */
 
-const port = normalizePort(process.env.PORT)
+const port = normalizePort(process.env.PORT ?? '5101')
 app.set('port', port)
 console.log(`Сервер запущен http://localhost:${process.env.PORT}/`)
 /**
@@ -35,7 +35,7 @@ server.on('listening', onListening)
  * Normalize a port into a number, string, or false.
  */
 
-function normalizePort(val) {
+function normalizePort(val: string) {
 	const port = parseInt(val, 10)
 
 	if (isNaN(port)) {
@@ -55,7 +55,7 @@ function normalizePort(val) {
  * Event listener for HTTP server "error" event.
  */
 
-function onError(error) {
+function onError(error: any) {
 	if (error.syscall !== 'listen') {
 		throw error
 	}

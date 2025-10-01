@@ -4,13 +4,16 @@
 		"module": "commonjs",
 		"outDir": "./build",
 		"rootDir": "./src",
-		// "strict": true,
+		"baseUrl": "./src",
+		"strict": true,
 		"esModuleInterop": true,
 		"skipLibCheck": true,
 		"forceConsistentCasingInFileNames": true,
 		"resolveJsonModule": true,
 		"declaration": true,
-		"sourceMap": true
+		"sourceMap": true,
+		"allowSyntheticDefaultImports": true,
+		"moduleResolution": "node"
 	},
 	"include": ["src/**/*"],
 	"exclude": ["node_modules"]

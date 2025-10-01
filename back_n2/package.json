@@ -5,10 +5,7 @@
 	"_moduleAliases": {
 		"@root": "src/",
 		"@routes": "src/routes",
-		"@socket": "src/socket",
-		"@service": "src/service",
 		"@middlew": "src/middlew",
-		"@dict": "src/dict",
 		"@tool": "src/tool",
 		"@util": "src/util",
 		"@store": "src/store"
@@ -22,13 +19,13 @@
 		"cookie-parser": "~1.4.4",
 		"debug": "~2.6.9",
 		"dotenv": "^17.2.3",
-		"express": "~4.16.1",
+		"express": "^4.21.2",
 		"http-errors": "~1.6.3",
-		"jade": "^1.11.0",
+		"jade": "^1.9.2",
 		"jsonwebtoken": "^9.0.2",
 		"module-alias": "^2.2.3",
 		"mongoose": "^8.18.3",
-		"morgan": "~1.9.1",
+		"morgan": "^1.10.1",
 		"uuid": "^13.0.0"
 	},
 	"description": "node, express, mongoose, typescript",

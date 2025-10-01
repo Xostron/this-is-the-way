@@ -1,0 +1,45 @@
+{
+	"name": "back-n2",
+	"version": "0.0.1",
+	"private": true,
+	"_moduleAliases": {
+		"@root": "src/",
+		"@routes": "src/routes",
+		"@socket": "src/socket",
+		"@service": "src/service",
+		"@middlew": "src/middlew",
+		"@dict": "src/dict",
+		"@tool": "src/tool",
+		"@util": "src/util",
+		"@store": "src/store"
+	},
+	"scripts": {
+		"dev": "nodemon --exec ts-node ./src/bin/www.ts",
+		"start": "node ./build/bin/www.js",
+		"build": "tsc"
+	},
+	"dependencies": {
+		"cookie-parser": "~1.4.4",
+		"debug": "~2.6.9",
+		"dotenv": "^17.2.3",
+		"express": "~4.16.1",
+		"http-errors": "~1.6.3",
+		"jade": "^1.11.0",
+		"jsonwebtoken": "^9.0.2",
+		"module-alias": "^2.2.3",
+		"mongoose": "^8.18.3",
+		"morgan": "~1.9.1",
+		"uuid": "^13.0.0"
+	},
+	"description": "node, express, mongoose, typescript",
+	"main": "bin/www",
+	"author": "@Xostron",
+	"license": "ISC",
+	"devDependencies": {
+		"@types/express": "^5.0.3",
+		"@types/node": "^24.6.1",
+		"nodemon": "^3.1.10",
+		"ts-node": "^10.9.2",
+		"typescript": "^5.9.3"
+	}
+}

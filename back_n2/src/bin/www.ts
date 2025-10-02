@@ -4,11 +4,11 @@
  * Module dependencies.
  */
 require('module-alias/register')
-var path = require('path')
+import path from 'path'
 require('dotenv').config({ path: path.join(__dirname, '..', '..', '.env') })
-var app = require('@root/app')
 const debug = require('debug')('back-n2:server')
-const http = require('http')
+import app from '../app'
+import http from 'http'
 
 /**
  * Get port from environment and store in Express.
@@ -83,6 +83,6 @@ function onError(error: any) {
 
 function onListening() {
 	const addr = server.address()
-	const bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port
+	const bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr?.port
 	debug('Listening on ' + bind)
 }

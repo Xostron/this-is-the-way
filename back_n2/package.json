@@ -33,7 +33,9 @@
 	"author": "@Xostron",
 	"license": "ISC",
 	"devDependencies": {
+		"@types/cookie-parser": "^1.4.9",
 		"@types/express": "^5.0.3",
+		"@types/morgan": "^1.9.10",
 		"@types/node": "^24.6.1",
 		"nodemon": "^3.1.10",
 		"ts-node": "^10.9.2",

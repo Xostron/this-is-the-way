@@ -5,10 +5,7 @@
 	"_moduleAliases": {
 		"@root": "src/",
 		"@routes": "src/routes",
-		"@middlew": "src/middlew",
-		"@tool": "src/tool",
-		"@util": "src/util",
-		"@store": "src/store"
+		"@middlew": "src/middlew"
 	},
 	"scripts": {
 		"dev": "nodemon --exec ts-node ./src/bin/www.ts",

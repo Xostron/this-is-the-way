@@ -34,6 +34,6 @@ Back_n1 5100
 PORT 5000
 Запуск: docker run -d -p 5000:80 --name front-tw4 image-front-tw4
 
-# 4. compose back-n1 + tw4-react^
+# 4. back_front/compose back-n1 + tw4-react^
 
 docker-compose up --build

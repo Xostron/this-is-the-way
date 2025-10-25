@@ -36,8 +36,8 @@ function App(db) {
 	app.use(
 		cors({
 			allowedHeaders: ['content-type', 'set-cookie', 'authorization', 'user-agent'],
-			credentials: true,
-			origin: ['http://localhost:5000'], // тоже самое origin: (err, cb) => cb(null, true),
+			credentials: true, // Разрешить отправку куки
+			origin: 'http://localhost:5000',
 		})
 	)
 	// app.use(cors({ credentials: true, origin: (origin, cb) => cb(null, true) }))

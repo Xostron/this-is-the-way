@@ -1,4 +1,4 @@
-# angar_v2_new_design - Склад овощехранения
+# 1. angar_v2_new_design - Склад овощехранения
 
 ## Посмотреть визуал можно в папке `angar_v2_new_design/screenshots`
 
@@ -24,16 +24,16 @@
 -   Протоколы взаимодействия с оборудованием: Modbus TCP/RTU
 -   Web клиент на React
 
-# Back_n1 - песочница
+# 2. Back_n1 - песочница
 
 Back_n1 5100
 Запуск: docker run -p 5100:5100 --name back-n1 image-back-n1
 
-# typescript - tw4_react
+# 3. typescript - tw4_react
 
 PORT 5000
 Запуск: docker run -d -p 5000:80 --name front-tw4 image-front-tw4
 
-# compose back-n1 + tw4-react^
+# 4. compose back-n1 + tw4-react^
 
 docker-compose up --build

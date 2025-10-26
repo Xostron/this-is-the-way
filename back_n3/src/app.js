@@ -6,14 +6,14 @@ var cookieParser = require('cookie-parser')
 const fileUpload = require('express-fileupload')
 var indexRouter = require('./routes/index')
 const api = require('@routes/api')
-
+const { db } = require('@tool/db/config')
 // Максимальный размер тела запроса
 const limit = process.env?.REQ_LIMIT ?? '100mb'
 // Временная папка
 const tempFileDir = path.join(__dirname, 'temp')
 
 var app = express()
-
+// cors
 app.use(
 	cors({
 		allowedHeaders: ['content-type', 'set-cookie', 'authorization', 'user-agent'],
@@ -35,6 +35,13 @@ app.use(
 		// safeFileNames: true,
 	})
 )
+// Подключение к БД
+// try {
+// 	db.authenticate()
+// 	console.log('Связь с PostgreSQL установлена')
+// } catch (error) {
+// 	console.error('Отсутствует связь с PostgreSQL', error)
+// }
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'jade')
@@ -45,7 +52,6 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 // Html page
 app.use('/', indexRouter)
-
 // API
 app.use('/api', api())
 

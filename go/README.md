@@ -2,7 +2,7 @@
 
 -   Скачать go
 -   Настройка GOPATH в переменных и среды или через командную строку
-    go env -w GOPATH=путь*к*папке
+    go env -w GOPATH=C:\users\USER\go
 -   Настройка GOBIN
     go env -w GOBIN=путь_GOPATH\bin
 

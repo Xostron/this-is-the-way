@@ -30,6 +30,7 @@ ipch
 [Rr]elease
 x64
 x86
+enc_temp_folder
 # Файлы кэша Visual C++
 *.vsidx
 *.aps

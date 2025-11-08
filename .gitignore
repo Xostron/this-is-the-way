@@ -25,9 +25,13 @@ yarn-error.log*
 
 # Си
 .vs
+ipch
+[Dd]ebug
+[Rr]elease
+x64
+x86
 # Файлы кэша Visual C++
 *.vsidx
-ipch
 *.aps
 *.ncb
 *.opendb

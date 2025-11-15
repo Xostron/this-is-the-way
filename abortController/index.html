@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Тест</title>
+
+		<!--
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+-->
+		<style></style>
+		<script>
+			/*
+$(_ => {
+})
+
+document.addEventListener('DOMContentLoaded', _ => {
+})
+*/
+			//
+		</script>
+	</head>
+	<body>
+		<style></style>
+
+		<button id="stp">Stop</button>
+
+		<script>
+			const data = {
+				controller: new AbortController(),
+				// Сигнал для нативных функции, которые работают с флагом (setTimeout, fetch etc )
+				get signal() {
+					return this.controller.signal
+				},
+				// Сигнал на прерывание
+				abort() {
+					this.controller.abort()
+				},
+				// Проверка: произошло прерывание
+				check() {
+					return this.controller.signal.aborted
+				},
+				// Обновление контроллера после срабатывания
+				refresh() {
+					if (this.check) this.controller = new AbortController()
+				},
+			}
+			stp.addEventListener('click', (_) => {
+				console.log('stop')
+				data.abort()
+			})
+			loop()
+			//
+			async function loop() {
+				while (1) {
+					console.log('loop begin', data.check())
+					if (data.check()) {
+						console.log(12)
+						data.refresh()
+						continue
+					}
+					await act(2000)
+					console.log(1, hms())
+					await act(2000)
+					console.log(2, hms())
+					await act(2000)
+					console.log(3, hms())
+				}
+			}
+			//
+			async function act(t) {
+				if (data.check()) return
+				await pause(t)
+			}
+			//
+			function pause(t = 0) {
+				return new Promise((r) => {
+					setTimeout(r, t, { signal: data.signal })
+				})
+			}
+			function hms() {
+				return new Date().toLocaleString('ru', { hour: 'numeric', minute: 'numeric', second: 'numeric' })
+			}
+		</script>
+	</body>
+</html>

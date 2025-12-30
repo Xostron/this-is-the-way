@@ -1,12 +1,12 @@
-.cmp-fields-input-text {
+.cmp-fields-input-wrapper {
 	display: flex;
 	flex-direction: column;
 	row-gap: 8px;
 	font-size: 16px;
 	color: silver;
-	border: dashed silver 1px;
-	width: fit-content;
+	width: 100%;
 	height: fit-content;
+	border: dashed silver 1px;
 	/* border-radius: 16px; */
 }
 
@@ -14,18 +14,20 @@
 .cmp-fields-input {
 	color: rgb(28, 28, 28);
 	padding: 8px;
-	width: fit-content;
+	width: 100%;
 	height: fit-content;
 	outline: none;
 	font-size: 16px;
-	font-family: Q-medium;
+	font-family: Q-Medium;
+	border-radius: 16px;
+	border: none;
 }
 
 .cmp-fields-input::placeholder {
 	color: silver;
 }
 
-.cmp-fields-input:disabled{
+.cmp-fields-input:disabled {
 	background-color: rgba(138, 10, 10, 0.422);
 }
 
@@ -38,4 +40,5 @@
 .text {
 	border-radius: 16px;
 	border: none;
+	width: 10%;
 }

@@ -19,17 +19,17 @@ export default function Input({
 		}
 	}, [value, val])
 
-	let cl = ['cmp-fields-input', cls]
+	let cl = ['cmp-fields-input-wrapper', cls]
 	cl = cl.join(' ')
 
 	return (
-		<div className='cmp-fields-input-text' onClick={onClick}>
-			<label for='input-text' className='cmp-fields-input-label'>
+		<div className={cl} onClick={onClick}>
+			<label htmlFor='input-text' className='cmp-fields-input-label'>
 				{title}
 			</label>
 			<input
 				id='input-text'
-				className={cl}
+				className='cmp-fields-input'
 				style={sti}
 				type={type === 'number' ? 'text' : type}
 				placeholder={placeholder}

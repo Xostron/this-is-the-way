@@ -1,0 +1,39 @@
+.cmp-fields-textarea-wrapper {
+	display: flex;
+	flex-direction: column;
+	width: fit-content;
+	text-indent: 8px;
+	font-size: 16px;
+	gap: 8px;
+	/* border: dashed 1px red; */
+}
+
+.cmp-fields-textarea {
+	border-radius: 16px;
+	padding: 8px;
+	font-family: Q-Medium;
+	font-size: 16px;
+	outline: none;
+	border: none;
+	color: rgb(28, 28, 28);
+}
+
+.cmp-fields-textarea[data-resize='none'] {
+	resize: none;
+}
+
+.cmp-fields-textarea[data-resize='vertical'] {
+	resize: vertical;
+}
+
+.cmp-fields-textarea[data-resize='horizontal'] {
+	resize: horizontal;
+}
+
+.cmp-fields-textarea[data-resize='both'] {
+	resize: both;
+}
+
+.cmp-fields-textarea::placeholder {
+	color: silver;
+}

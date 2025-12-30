@@ -1,0 +1,41 @@
+.cmp-fields-input-text {
+	display: flex;
+	flex-direction: column;
+	row-gap: 8px;
+	font-size: 16px;
+	color: silver;
+	border: dashed silver 1px;
+	width: fit-content;
+	height: fit-content;
+	/* border-radius: 16px; */
+}
+
+/* input */
+.cmp-fields-input {
+	color: rgb(28, 28, 28);
+	padding: 8px;
+	width: fit-content;
+	height: fit-content;
+	outline: none;
+	font-size: 16px;
+	font-family: Q-medium;
+}
+
+.cmp-fields-input::placeholder {
+	color: silver;
+}
+
+.cmp-fields-input:disabled{
+	background-color: rgba(138, 10, 10, 0.422);
+}
+
+/* label */
+.cmp-fields-input-label {
+	text-indent: 8px;
+}
+
+/* custom input */
+.text {
+	border-radius: 16px;
+	border: none;
+}

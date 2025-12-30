@@ -1,8 +1,12 @@
 {
 	"compilerOptions": {
 		"removeComments": true,
-		"target": "ES6",
+		"target": "esnext",
 		"baseUrl": ".",
+		"allowJs": true,
+		"noEmit": true,
+		"moduleResolution": "node",
+		"resolveJsonModule": true,
 		"paths": {
 			"@src/*": ["./src/*"],
 			"@socket/*": ["./src/socket/*"],
@@ -13,5 +17,6 @@
 			"@static/*": ["./static/*"],
 			"@font/*": ["./public/fonts/*"]
 		}
-	}
+	},
+	"include": ["src/**/*"]
 }

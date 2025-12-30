@@ -1,4 +1,5 @@
 import './style.css'
+
 function TextArea({
 	placeholder,
 	rows = 5,

@@ -1,0 +1,17 @@
+/* wrapper */
+.cmp-fields-rt-wrapper {
+	display: flex;
+	flex-direction: column;
+	width: fit-content;
+	text-indent: 8px;
+	font-size: 16px;
+	gap: 8px;
+	border: dashed 1px red;
+}
+
+
+/* header */
+.cmp-fields-rt-header {
+	display: flex;
+	gap: 8px;
+}

@@ -12,7 +12,8 @@ export default function Socket({}) {
 	// const { initE } = useEquipStore()
 	// const { initIn, initAlr } = useInputStore()
 	// Инициализация и Базовые обработчики
-	useSocket()
+	// /////useSocket()
+
 	// Пользовательские обработчики
 	// Склады и оборудование - для отрисовки складов
 	// cEquip(initE)

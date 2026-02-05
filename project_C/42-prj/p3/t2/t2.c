@@ -3,15 +3,15 @@
 #include <stdlib.h>
 #include <string.h>
 
-// Функция принимает строку и печатает её HEX-коды
+//       HEX-
 void FnCode(const char* text) {
   for (int i = 0; i < strlen(text) - 1; i++) {
-    // Выводим каждый символ как 2-значный HEX
+    //     2- HEX
     printf("%02X ", (unsigned char)text[i]);
   }
 }
 
-// Функция принимает строку и печатает её HEX-коды
+//       HEX-
 void FnDecode(const char* hexText) {
   unsigned int byte;
   //   unsigned int byte_c;
@@ -23,7 +23,7 @@ void FnDecode(const char* hexText) {
     return;
   }
   while (sscanf(hexText + offset, "%x%n", &byte, &read) == 1) {
-    // Защита от hex без пробелов
+    //   hex  
     if (read > 3) {
       printf("n/a");
       return;
@@ -35,37 +35,37 @@ void FnDecode(const char* hexText) {
 
 int main(int argc, char* s[]) {
   setlocale(LC_ALL, "Rus");
-  // Кол-во аргументов = 1
+  // -  = 1
   int length = 1;
   char word[100];
-  // Проверка что введено 2 аргумента
+  //    2 
   if (argc != length + 1) {
     printf("n/a");
     return 0;
   }
 
-  // Превращаем строку в число
+  //    
   int mode = atoi(s[1]);
-  // Проверка режима 0 - кодирование, 1 - декодирование
+  //   0 - , 1 - 
   if (mode != 0 && mode != 1) {
     printf("n/a");
     return 0;
   }
 
-  printf("Введите слово: ");
-  // Считываем ввод слова
+  printf(" : ");
+  //   
   if (!fgets(word, sizeof(word), stdin)) {
     printf("n/a");
     return 0;
   }
 
-  // Кодирование
+  // 
   if (mode == 0) {
     FnCode(word);
     return 0;
   }
   // printf("222 %s", word);
-  // Декодирование
+  // 
   FnDecode(word);
 
   return 0;

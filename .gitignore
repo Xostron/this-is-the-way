@@ -7,6 +7,7 @@
 node_modules
 build
 /typescript/tw2/data
+.vscode
 # testing
 /coverage
 
@@ -31,6 +32,11 @@ ipch
 x64
 x86
 enc_temp_folder
+*.pdb
+*.exe
+*.ilk
+*.obj
+
 # Файлы кэша Visual C++
 *.vsidx
 *.aps

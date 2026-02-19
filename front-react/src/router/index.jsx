@@ -4,6 +4,7 @@ import Secret from "@page/secret"
 import Boost from "@page/boost"
 import NotFound from "@page/not_found"
 import Login from "@page/login"
+import List from "@page/list"
 import { createBrowserRouter } from "react-router-dom"
 
 const router = createBrowserRouter([
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
     {
 		path: "d",
 		element: <Login />,
+	},
+	{
+		path: "e",
+		element: <List />,
 	},
 	{
 		path: "*",

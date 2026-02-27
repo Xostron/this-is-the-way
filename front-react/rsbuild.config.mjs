@@ -30,6 +30,7 @@ export default defineConfig({
 			charset: {
 				charset: "UTF-8",
 			},
+			viewport: 'width=device-width, initial-scale=1',
 		},
 	},
 	tools: {

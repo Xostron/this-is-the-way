@@ -4,7 +4,7 @@ import Secret from "@page/secret"
 import Boost from "@page/boost"
 import NotFound from "@page/not_found"
 import Login from "@page/login"
-import List from "@page/list"
+import Table from "@src/page/table"
 import { createBrowserRouter } from "react-router-dom"
 
 const router = createBrowserRouter([
@@ -30,7 +30,7 @@ const router = createBrowserRouter([
 	},
 	{
 		path: "e",
-		element: <List />,
+		element: <Table />,
 	},
 	{
 		path: "*",

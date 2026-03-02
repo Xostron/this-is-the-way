@@ -1,23 +1,16 @@
 import Table from 'react-bootstrap/Table'
-import Cell from '../children/cell'
+import Row from '../children/row'
 import exampleData from './example_data'
+import Rows from '../children/rows'
 
 function Example() {
 	return (
 		<Table responsive>
 			<thead className='bg-dark'>
-				<tr>
-					{exampleData.thead.map((el) => (
-						<Cell data={el} />
-					))}
-				</tr>
+				<Rows rows={exampleData.thead} />
 			</thead>
 			<tbody className=''>
-				<tr>
-					{exampleData.tbody.map((el) => (
-						<Cell data={el} />
-					))}
-				</tr>
+				<Rows rows={exampleData.tbody} />
 			</tbody>
 		</Table>
 	)

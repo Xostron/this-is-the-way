@@ -1,12 +1,13 @@
-const configCell = {
+const config = {
+	order: ['value'],
 	info: ['value', 'count', 'price'],
 	payment: ['value', 'dtCoupon'],
 }
 
-function getValue(row) {
-	if (!row || !row?.type) return null
+function getValue(row, idx, type) {
+	if (!row || !type) return null
 	const r = {}
-	configCell[row.type].forEach((fld) => (r[fld] = row[fld]))
+	config[type].forEach((fld) => (r[fld] = row[fld]))
 	return r
 }
 
@@ -15,7 +16,7 @@ function getOrder(_, idx) {
 	return { value: +idx + 1 }
 }
 
-const columns = [
+const cfgCells = [
 	{
 		id: 'order0',
 		type: 'order',
@@ -39,4 +40,4 @@ const columns = [
 	),
 ]
 
-export default columns
+export default cfgCells

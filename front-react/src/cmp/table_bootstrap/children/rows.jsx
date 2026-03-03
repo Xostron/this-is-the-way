@@ -1,12 +1,11 @@
 import Row from './row'
 
 function Rows({ rows = [] }) {
-	console.log(rows)
 	return (
 		<>
-			{rows.map((el, i) => (
-				<Row key={i} cells={el.parent} />
-			))}
+			{rows.map((el, i) => {
+				return <Row key={i} row={el} idx={i} />
+			})}
 		</>
 	)
 }

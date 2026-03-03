@@ -1,10 +1,11 @@
 import Row from './row'
 
+// Рендер строк
 function Rows({ rows = [] }) {
 	return (
 		<>
 			{rows.map((el, i) => {
-				return <Row key={i} row={el} idx={i} />
+				return <Row key={i} row={el} orderRow={i} />
 			})}
 		</>
 	)

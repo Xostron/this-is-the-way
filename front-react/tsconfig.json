@@ -15,7 +15,8 @@
 			"@tool/*": ["./src/tool/*"],
 			"@store/*": ["./src/store/*"],
 			"@static/*": ["./static/*"],
-			"@font/*": ["./public/fonts/*"]
+			"@font/*": ["./public/fonts/*"],
+            "@dict/*":["./src/tool/dict/*"]
 		}
 	},
 	"include": ["src/**/*"]

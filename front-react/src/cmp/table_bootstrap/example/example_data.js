@@ -12,16 +12,13 @@ const data = [
 		duration: '', // Срок
 		from: '', // Начало
 		to: '', // Конец
-
-		other: [
+		payment: [
 			// Следующие ячейки
 			{ order: 0, value: 1, dtCoup: '17.01.2025' },
 			{ order: 3, value: 10, dtCoup: '17.04.2025' },
 			{ order: 6, value: 100, dtCoup: '17.07.2025' },
 			{ order: 9, value: 1000, dtCoup: '17.10.2025' },
 		],
-		// Вложенные строки
-		children: [],
 	},
 	{
 		// Вторая строка - ВДО
@@ -37,7 +34,7 @@ const data = [
 		from: '', // Начало
 		to: '', // Конец
 
-		other: [
+		payment: [
 			{ order: 0, value: 1, dtCoup: '08.01.2025' },
 			{ order: 1, value: 1, dtCoup: '08.02.2025' },
 			{ order: 2, value: 1, dtCoup: '08.03.2025' },
@@ -57,11 +54,10 @@ const data = [
 		// Третья строка - ФОНДЫ
 		id: '',
 		order: 3,
-
 		value: 'TGOLD', // Имя
 		price: 15, // Текущая цена
 		count: 30, // Количество
-		other: [],
+		payment: [],
 		// Вложенные строки
 		children: [
 			{

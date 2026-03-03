@@ -7,7 +7,7 @@ function Example() {
 	return (
 		<Table responsive>
 			<thead className='bg-dark'>
-				<Rows rows={exampleData.thead} />
+				<Row cells={exampleData.thead} />
 			</thead>
 			<tbody className=''>
 				<Rows rows={exampleData.tbody} />

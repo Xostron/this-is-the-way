@@ -2,11 +2,11 @@ import Cell from './cell'
 
 function Row({ cells = [] }) {
 	return (
-		<>
+		<tr>
 			{cells.map((el) => (
-				<Cell o={el} />
+				<Cell obj={el} />
 			))}
-		</>
+		</tr>
 	)
 }
 

@@ -1,6 +1,6 @@
-function Cell({ o = {} }) {
-	if (!o || !Object.keys(o)?.length) return <td></td>
-	return <td>{o.name}</td>
+function Cell({ obj = {} }) {
+	if (!obj || !Object.keys(obj)?.length) return <td></td>
+	return <td>{obj.value}</td>
 }
 
 export default Cell

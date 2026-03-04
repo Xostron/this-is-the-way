@@ -7,6 +7,7 @@ import '@page/style.css'
 import './style.css'
 // Importing the Bootstrap CSS
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(

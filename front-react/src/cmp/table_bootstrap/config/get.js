@@ -9,7 +9,6 @@
  */
 
 const config = {
-	order: ['value'],
 	info: ['value', 'count', 'price'],
 	payment: ['value', 'dtCoupon'],
 }
@@ -33,14 +32,13 @@ function getOrder(_, __, orderRow) {
 }
 
 function getSum(row) {
-	console.log(2, row)
 	if (!row?.payment || !Object.keys(row?.payment ?? {}).length) return null
-	const sum = Object.values(row.payment).reduce((acc, el, i) => {
+	const value = Object.values(row.payment).reduce((acc, el, i) => {
 		if (isNaN(el?.value)) return acc
 		acc += Number(el?.value)
 		return acc
 	}, 0)
-	return { value: sum }
+	return { value }
 }
 
 export { getInfo, getOrder, getSum }

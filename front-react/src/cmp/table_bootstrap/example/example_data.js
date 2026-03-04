@@ -48,7 +48,7 @@ const data = [
 			10: { value: 1, dtCoup: '08.11.2025' },
 			11: { value: 1, dtCoup: '08.12.2025' },
 		},
-		children: [],
+		children: [{ value: 'qwe' }],
 	},
 	{
 		// Третья строка - ФОНДЫ

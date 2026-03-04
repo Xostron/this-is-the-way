@@ -12,13 +12,13 @@ const data = [
 		duration: '', // Срок
 		from: '', // Начало
 		to: '', // Конец
-		payment: [
+		payment: {
 			// Следующие ячейки
-			{ order: 0, value: 1, dtCoup: '17.01.2025' },
-			{ order: 3, value: 10, dtCoup: '17.04.2025' },
-			{ order: 6, value: 100, dtCoup: '17.07.2025' },
-			{ order: 9, value: 1000, dtCoup: '17.10.2025' },
-		],
+			0: { value: 1, dtCoup: '17.01.2025' },
+			3: { value: 10, dtCoup: '17.04.2025' },
+			6: { value: 100, dtCoup: '17.07.2025' },
+			9: { value: 1000, dtCoup: '17.10.2025' },
+		},
 	},
 	{
 		// Вторая строка - ВДО
@@ -34,20 +34,20 @@ const data = [
 		from: '', // Начало
 		to: '', // Конец
 
-		payment: [
-			{ order: 0, value: 1, dtCoup: '08.01.2025' },
-			{ order: 1, value: 1, dtCoup: '08.02.2025' },
-			{ order: 2, value: 1, dtCoup: '08.03.2025' },
-			{ order: 3, value: 1, dtCoup: '08.04.2025' },
-			{ order: 4, value: 1, dtCoup: '08.05.2025' },
-			{ order: 5, value: 1, dtCoup: '08.06.2025' },
-			{ order: 6, value: 1, dtCoup: '08.07.2025' },
-			{ order: 7, value: 1, dtCoup: '08.08.2025' },
-			{ order: 8, value: 1, dtCoup: '08.09.2025' },
-			{ order: 9, value: 1, dtCoup: '08.10.2025' },
-			{ order: 10, value: 1, dtCoup: '08.11.2025' },
-			{ order: 11, value: 1, dtCoup: '08.12.2025' },
-		],
+		payment: {
+			0: { value: 1, dtCoup: '08.01.2025' },
+			1: { value: 1, dtCoup: '08.02.2025' },
+			2: { value: 1, dtCoup: '08.03.2025' },
+			3: { value: 1, dtCoup: '08.04.2025' },
+			4: { value: 1, dtCoup: '08.05.2025' },
+			5: { value: 1, dtCoup: '08.06.2025' },
+			6: { value: 1, dtCoup: '08.07.2025' },
+			7: { value: 1, dtCoup: '08.08.2025' },
+			8: { value: 1, dtCoup: '08.09.2025' },
+			9: { value: 1, dtCoup: '08.10.2025' },
+			10: { value: 1, dtCoup: '08.11.2025' },
+			11: { value: 1, dtCoup: '08.12.2025' },
+		},
 		children: [],
 	},
 	{
@@ -57,7 +57,7 @@ const data = [
 		value: 'TGOLD', // Имя
 		price: 15, // Текущая цена
 		count: 30, // Количество
-		payment: [],
+		payment: {},
 		// Вложенные строки
 		children: [
 			{

@@ -1,6 +1,6 @@
 import defCells from '../def'
 import cfgCells from '../config'
-import Cell from '../def/cell'
+const DefaultCell = defCells.order
 
 /**
  * Строка
@@ -14,9 +14,10 @@ function Row({ row, orderRow }) {
 			{/* Рама строки, перебор рамы ячеек el*/}
 			{cfgCells.map((el) => {
 				// Фабричный компонент ячейки
-				const FCell = defCells?.[el.type] ?? <Cell key={el.id} obj={{ value: 'Неопределен тип ячейки' }} />
+				const FCell = defCells?.[el.type] ?? DefaultCell
 				// Мясо ячейки
-				const obj = el.type == 'payment' ? row.payment.find((t) => t.order === el.monthId) : row
+				const obj = el.type == 'payment' ? row?.payment?.[el.monthId] : row
+				if (el.type == 'calcSum') console.log(1, el, obj)
 				return <FCell key={el.id} obj={el.getValue(obj, el, orderRow)} />
 			})}
 		</tr>

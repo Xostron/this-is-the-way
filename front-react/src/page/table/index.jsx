@@ -7,7 +7,7 @@ function PTable() {
 		<main className='pageTable '>
 			<section className='header'>Таблица</section>
 			<section className='content p-3 pt-0'>
-				Table
+				<h1>Лисма</h1>
 				<TableBootstrap data={exampleData} />
 			</section>
 			{/* <section className='asidel'>3</section> */}

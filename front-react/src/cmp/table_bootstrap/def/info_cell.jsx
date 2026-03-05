@@ -14,7 +14,7 @@ function Cell({ obj = {}, show, onShow }) {
 				))}
 			</div>
 			{onShow && (
-				<button type='button' className='btn btn-secondary' onClick={onShow}>
+				<button type='button' className='btn ' onClick={onShow}>
 					{show ? <i class='bi bi-chevron-up'></i> : <i class='bi bi-chevron-down'></i>}
 				</button>
 			)}

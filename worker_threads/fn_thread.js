@@ -2,6 +2,7 @@ const { parentPort, workerData, Worker, isMainThread } = require('worker_threads
 const os = require('os')
 const arrData = require('./read/data')
 const readTCP = require('./read/read_tcp')
+const partition = require('./partition')
 
 // Если Node.js зашел в этот файл как в Воркер, вызываем функцию принудительно
 if (!isMainThread) {
@@ -25,45 +26,54 @@ function manager() {
 		const total = os.cpus().length
 		const num = Math.max(1, total - 2)
 		console.log(1, `Главный поток, запускаем ${num} воркеров`)
-		createChunck(arrData, 3)
-		const results = {}
+
+		// Распределение модулей по потокам
+		const arrPart = partition(arrData, num)
+
 		// Запуск воркеров
+		const results = {}
 		for (let i = 0; i < num; i++) {
-			const mdl = arrData[i]
+			const part = arrPart[i]
 			const worker = new Worker(__filename, {
-				workerData: { id: i, mdl },
+				workerData: { id: i, arr: part },
 			})
 			// Слушаем ответ от потока
-			worker.on('message', (result) => {
+			worker.on('message', (r) => {
 				// console.log(`Получен ответ от Worker ${i}`, result)
-				results[mdl.ip + '_' + mdl.name] = result
+				results = { ...results, ...r }
 				if (check(results, num)) resolve(results)
 			})
 			// При ошибке выполнения
 			worker.on('error', (reason) => {
-				results[mdl.ip + '_' + mdl.name] = `Worker ${i}. Error ${reason}`
+				part.forEach((mdl, i) => {
+					results[mdl.ip + '_' + mdl.name] = `Worker ${i}. Error ${reason}`
+				})
 				if (check(results, num)) resolve(results)
 			})
 			// Остановка воркера по причине ОС
 			worker.on('exit', (code) => {
-				if (results[mdl.ip + '_' + mdl.name] === undefined)
-					results[i] = `Worker ${i}. Exit ${code}`
+				part.forEach((mdl, i) => {
+					if (results[mdl.ip + '_' + mdl.name] === undefined) results[mdl.ip + '_' + mdl.name] = `Worker ${i}. Exit ${code}`
+				})
 				if (check(results, num)) resolve(results)
 			})
 		}
 	})
 }
 
-// Обработчик потока
+// Обработчик потока - читаем модули
 async function threadAction() {
 	// 2. Мы внутри воркера (Сотрудник).
 	// Читаем данные из "чемоданчика" (workerData)
-	const { id, mdl } = workerData
-	let v = await readTCP(mdl.ip, mdl.port, mdl)
-	// Пауза перед опросом следующего модуля (без этой паузы модули читаются не стабильно)
-	await delay(100)
+	const { id, arr } = workerData
+	const r = {}
+	for (const mdl of arr) {
+		r[mdl.ip + '_' + mdl.name] = await readTCP(mdl.ip, mdl.port, mdl)
+		// Пауза перед опросом следующего модуля (без этой паузы модули читаются не стабильно)
+		await delay(100)
+	}
 	// console.log(`Воркер ${data.id} в работе`, result)
-	parentPort.postMessage(v)
+	parentPort.postMessage(r)
 }
 
 function delay(time = 0) {
@@ -74,25 +84,4 @@ function delay(time = 0) {
 
 function check(results, num) {
 	if (Object.keys(results).length === num) return results
-}
-
-/**
- *
- * @param {*} arr массив модулей на чтение
- * @param {*} num Кол-во потоков
- * @returns {object[][]}
- */
-function createChunck(arr, num) {
-	const dataThread = new Array(num).fill([])
-	console.log(1234, dataThread)
-	let i = 0
-	while (i < arr.length) {
-		dataThread.forEach((chunk, j) => {
-			chunk.push(arr[i])
-			i += 1
-			console.log(999, i, dataThread)
-		})
-	}
-	// console.log(55, dataThread)
-	return dataThread
 }

@@ -19,7 +19,7 @@ function partition(arr, num) {
 			// Создание подмассива
 			if (!(dataThread[j] instanceof Array)) dataThread[j] = []
 			// Добавляем модуль в подмассив
-			arr[i] ? dataThread[j].push(arr[i].ip) : null
+			arr[i] ? dataThread[j].push(arr[i]) : null
 			// следующий модуль
 			i++
 		})

@@ -1,17 +1,17 @@
 const { parentPort, workerData, Worker, isMainThread } = require('worker_threads')
 const os = require('os')
-const arrData = require('./read/data')
-const readTCP = require('./read/read_tcp')
-const partition = require('./partition')
+const arrData = require('./data')
+const readTCP = require('../read/read_tcp')
+const { partition, delay } = require('./fn')
 
 // Если Node.js зашел в этот файл как в Воркер, вызываем функцию принудительно
 if (!isMainThread) {
 	fnThread()
 }
 
-async function fnThread() {
+async function fnThread(max) {
 	if (isMainThread) {
-		return manager()
+		return manager(max)
 	} else {
 		await threadAction()
 	}
@@ -20,18 +20,20 @@ async function fnThread() {
 module.exports = fnThread
 
 // Менеджер запуска воркеров и сбора результата
-function manager() {
+function manager(max) {
 	return new Promise((resolve, reject) => {
 		// Основной поток. создание воркеров
 		const total = os.cpus().length
-		const num = Math.max(1, total - 2)
-		console.log(1, `Главный поток, запускаем ${num} воркеров`)
+		// Выбор кол-ва поток. кол-во ядер-1 или настройка max
+		let num = Math.max(1, total - 1)
+		num = max && num > max ? max : num
+		// console.log(1, `Главный поток, запускаем потоки = `, num)
 
 		// Распределение модулей по потокам
 		const arrPart = partition(arrData, num)
-
+		// console.log(2, 'Модули распределены по потокам', num)
 		// Запуск воркеров
-		const results = {}
+		let results = {}
 		for (let i = 0; i < num; i++) {
 			const part = arrPart[i]
 			const worker = new Worker(__filename, {
@@ -41,21 +43,22 @@ function manager() {
 			worker.on('message', (r) => {
 				// console.log(`Получен ответ от Worker ${i}`, result)
 				results = { ...results, ...r }
-				if (check(results, num)) resolve(results)
+				if (check(results, arrData.length)) resolve(results)
 			})
 			// При ошибке выполнения
 			worker.on('error', (reason) => {
 				part.forEach((mdl, i) => {
 					results[mdl.ip + '_' + mdl.name] = `Worker ${i}. Error ${reason}`
 				})
-				if (check(results, num)) resolve(results)
+				if (check(results, arrData.length)) resolve(results)
 			})
 			// Остановка воркера по причине ОС
 			worker.on('exit', (code) => {
 				part.forEach((mdl, i) => {
-					if (results[mdl.ip + '_' + mdl.name] === undefined) results[mdl.ip + '_' + mdl.name] = `Worker ${i}. Exit ${code}`
+					if (results[mdl.ip + '_' + mdl.name] === undefined)
+						results[mdl.ip + '_' + mdl.name] = `Worker ${i}. Exit ${code}`
 				})
-				if (check(results, num)) resolve(results)
+				if (check(results, arrData.length)) resolve(results)
 			})
 		}
 	})
@@ -70,18 +73,13 @@ async function threadAction() {
 	for (const mdl of arr) {
 		r[mdl.ip + '_' + mdl.name] = await readTCP(mdl.ip, mdl.port, mdl)
 		// Пауза перед опросом следующего модуля (без этой паузы модули читаются не стабильно)
-		await delay(100)
+		await delay(50)
 	}
-	// console.log(`Воркер ${data.id} в работе`, result)
+	// console.log(`Воркер ${id} в работе`)
 	parentPort.postMessage(r)
 }
 
-function delay(time = 0) {
-	return new Promise((resolve, reject) => {
-		setTimeout(resolve, time, !time ? false : true)
-	})
-}
-
-function check(results, num) {
-	if (Object.keys(results).length === num) return results
+// Проверка кол-во модулей в results >= кол-во модулей arrData.length
+function check(results, total = 0) {
+	if (Object.keys(results).length >= total) return results
 }

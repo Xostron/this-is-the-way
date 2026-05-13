@@ -1,12 +1,13 @@
-const arrData = require('./read/data')
+const arrData = require('./data')
 
 // partition(arrData, 4)
 
 /**
- * Готовим модули на чтение для num потоков
+ * Распределение модулей по потокам
  * @param {*} arr массив модулей на чтение
  * @param {*} num Кол-во потоков
- * @returns {object[][]} Возвращаем результат массив с подмассивами, кол-во подмассивов равно кол-ву потоков
+ * @returns {object[][]} Возвращаем подмассивы с модулями, 
+ * для каждого потока свой набор модулей
  */
 function partition(arr, num) {
 	// Массив массивов
@@ -25,8 +26,14 @@ function partition(arr, num) {
 		})
 	}
 	// Возвращаем результат массив с подмассивами, кол-во подмассивов равно кол-ву потоков
-	console.log(55, dataThread, arr.length)
+	// console.log(55, dataThread, arr.length)
 	return dataThread
 }
 
-module.exports = partition
+function delay(time = 0) {
+	return new Promise((resolve, reject) => {
+		setTimeout(resolve, time, !time ? false : true)
+	})
+}
+
+module.exports = {partition, delay}

@@ -9,6 +9,7 @@ if (!isMainThread) {
 	fnThread()
 }
 
+// Одноразовый поток, далее в каждом цикле заново создается поток для чтения модулей
 async function fnThread(max) {
 	if (isMainThread) {
 		return manager(max)

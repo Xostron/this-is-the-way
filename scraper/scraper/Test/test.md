@@ -1,0 +1,18 @@
+# Компрессор
+
+node ./index.js --url "https://market.yandex.ru/card/avtomobilnyy-kompressor-swat-swt-106-60-lmin/103327445390?do-waremd5=xL1DWr_SXk2NRgPWDM35-Q&businessId=1229804&cpc=6RrwyR8Y2muMeJRkrWGH6xyQeL4rHmdBqjF6d81u_PIrOACXwe4gffp7zsZcEzt3yvlp7sz0SdrEzJOqsSJB3dWMScjnvnYV1WRYdCgveY7DH0w6Rx4pTCtefevNWPrsZFtl4NjaOrEs7gisNSxAq2AQEKoy0gEO-GFREw7_QbBW-PfuM78rjMWXB7dtBptt_wyAldm1ZYO9KNUL9jgGybR11JhTugIlm407nm2Ty5qhOycK7Wo6ka_s8o2ys24EYVBcOCEJM0IBGrYQx0bvGPlBAjHeL8EYFhALw0yVU0GEpcOAhM6VOacA38WaUZZJtU3StypGbDWVW1kxXYGiCI7blNayKHjK4BsumpM0llGDcmDKRuY-aeENnbIi0Vo1jT84Wsedn-tlnSMYe6-JkCA2vlEIRgJ-7Hs-OuVwjvbgGI1TI-O3hLnDr1HUyYwQ&nid=18055128&ogV=-12"
+
+## Готовая ссылка
+https://market.yandex.ru/search?shopPromoId=1229804_MPC_1778680089&promo-type-name=promo-code&businessId=1229804&promoKey=tdU6CSKOFDB4i0WIda6fSg
+
+-   Структура:
+
+1. https://market.yandex.ru/search?
+2. shopPromoId=1229804_MPC_1778680089&
+3. promo-type-name=promo-code&
+4. businessId=1229804&
+5. promoKey=tdU6CSKOFDB4i0WIda6fSg
+
+
+# 10
+node ./index.js --url "https://market.yandex.ru/card/kompleks-morskoy-kollagen-peptidnyy-s-gialuronovoy-kislotoy-i-vitaminom-c-dlya-zhenshchin-bad--vitaminy-dlya-kozhi-volos-i-sustavov-90-kapsul/103262851022?do-waremd5=HVka3XBk3m8YoSptyyDw8g&sponsored=1&cpc=MWhh2ZIhtqHS259dyvhUw-751zgDrE1q3CuynaY4qz6qW5BvTyNyybYRB8_qs9kv8IROwG7oEmNkBDtmqYngxoFogbzHJDBMcfmX_nlCDT6ycyVtE7oUSHOa30a2QErdE7F8l4ga9-80nEm8Tt0ysN4Lh0LXBIRoK5FzvYqtwFZKUy88G4F8HJLBzZe10RiM6IqcHrr_XR7BvPNoKkBKI6iLiQsi8ulndk9dhFS1QsnYTt4itcm6UQ4tuG-DnpUbsf1_h8OlC8j8ADSMr9RBA5iuwBHvOKvx9e9L88AFwU7hExOfPh1oxnB04A1pC_a-w11oXFTxU1_b44uGcHOa732EBhHTNa5f5Xb0jtM1CcjEqJd6---uMF6v-d71D7FUXnXqNYVquk-6py1weVrZ_Yj29F0mEvmL9bb7mStTHQ-1Y0NPimALBR_JsCztIfXLjMc_p0yOyX6cczB-s0Xxnd9L4TjBuxyMpy6Kc6HwoCDGT-DEf8f17qDzqINFHlgc7MF2nExpnE40lXz8t2NADWJJTUhYh2ORWV8tJdDi9xIlDchpZzNthMd2Ff6fk8JVV8tSzT7jhixqRr0VH6UjpzIqbQZylBOuNILipx6XCAU%2C&cc=CiBmYWViYmUxNzE5MGM1ZDZlMTMzMDI2MDhjZjkzNGViMBCAAoB95u0G&resale_goods=resale_new&hid=74780433&nid=74788578&show-uid=17795421524681500201406004&showUid=17795421524681500201406004&from-show-uid=17795421524681500201406004&cpa=1&cpm-adv=1&from=premiumOffers" --dir 9

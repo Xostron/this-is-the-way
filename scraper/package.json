@@ -9,6 +9,6 @@
 	"author": "@Xostron",
 	"license": "ISC",
 	"dependencies": {
-		"puppeteer": "^24.19.0"
+		"puppeteer": "^25.0.4"
 	}
 }

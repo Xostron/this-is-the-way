@@ -6,13 +6,13 @@ const path = require('path')
 const config = {
 	// url: 'https://muzofond.fm/',
 	url: process.argv[3] ?? 'https://muzofond.fm/',
-	keyword: process.argv[5] ?? 'XOSTRON',
+	// keyword: process.argv[5] ?? 'XOSTRON',
 	// Путь сохранения сайта
 	dir: path.resolve(__dirname, 'front_temp'),
 	ph: (filename) => path.resolve(__dirname, 'front_temp', filename),
 }
-console.log('URL =', config.url)
-console.log('KEYWORD =', config.keyword)
+// console.log('URL =', config.url)
+// console.log('KEYWORD =', config.keyword)
 downloadWebsite(config)
 
 /**************************************************************************************** */
@@ -24,11 +24,10 @@ async function downloadWebsite(config) {
 	const browser = await puppeteer.launch({
 		headless: true,
 		args: [
-			'--no-sandbox',
-			'--disable-setuid-sandbox',
-			'--disable-dev-shm-usage',
-			'--single-process', // опционально, для легковесных сред
-		],
+            '--no-sandbox',
+            '--disable-setuid-sandbox',
+            '--disable-dev-shm-usage',
+        ],
 	})
 	const userAgent =
 		'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36'
@@ -45,9 +44,9 @@ async function downloadWebsite(config) {
 		// Скачивание HTML
 		let html = await page.content()
 		// Добавляем в тэги keyword
-		html = autoreplace(html, config.keyword)
+		// html = autoreplace(html, config.keyword)
 		// Сбор и сохранение ресурсов (статика) + преписываем пути статики в html
-		await collect(html, page, config.url)
+		await collect(html, page, config)
 		console.log('✅Сайт полностью скачан')
 	} catch (err) {
 		console.log(err)
@@ -63,19 +62,19 @@ async function downloadWebsite(config) {
  * @param {Object} page Страница
  * @param {string} url Ссылка на сайт
  */
-async function collect(html, page, url) {
+async function collect(html, page, config) {
 	const resources = await page.evaluate(() => {
 		const r = []
 		// Собираем все ссылки на CSS
-		document
-			.querySelectorAll('link[rel="stylesheet"][href], link[rel="stylesheet preload"]')
-			.forEach((link) => {
-				r.push({
-					url: new URL(link.href, window.location.href).href,
-					type: 'css',
-					href: link.href,
-				})
-			})
+		// document
+		// 	.querySelectorAll('link[rel="stylesheet"][href], link[rel="stylesheet preload"]')
+		// 	.forEach((link) => {
+		// 		r.push({
+		// 			url: new URL(link.href, window.location.href).href,
+		// 			type: 'css',
+		// 			href: link.href,
+		// 		})
+		// 	})
 		// Собираем все скрипты
 		document.querySelectorAll('script[src]').forEach((script) => {
 			r.push({
@@ -85,32 +84,32 @@ async function collect(html, page, url) {
 			})
 		})
 		// Собираем все изображения
-		document.querySelectorAll('img[src]').forEach((img) => {
-			r.push({
-				url: new URL(img.src, window.location.href).href,
-				type: 'image',
-				href: img.src,
-			})
-		})
+		// document.querySelectorAll('img[src]').forEach((img) => {
+		// 	r.push({
+		// 		url: new URL(img.src, window.location.href).href,
+		// 		type: 'image',
+		// 		href: img.src,
+		// 	})
+		// })
 		// Собираем шрифты
-		document.querySelectorAll('link[rel="preload"][as="font"]').forEach((link) => {
-			if (link.href) {
-				r.push({
-					url: new URL(link.href, window.location.href).href,
-					type: 'font',
-					href: link.href,
-				})
-			}
-		})
+		// document.querySelectorAll('link[rel="preload"][as="font"]').forEach((link) => {
+		// 	if (link.href) {
+		// 		r.push({
+		// 			url: new URL(link.href, window.location.href).href,
+		// 			type: 'font',
+		// 			href: link.href,
+		// 		})
+		// 	}
+		// })
 		return r
 	})
 	// Переписываем пути статики в html
-	html = replaceHref(html, resources, url)
+	// html = replaceHref(html, resources, url)
 	// Сохраняем html
 	await save(html, config.ph('index.html'))
 	console.log('✅HTML после автозамены путей и вставик keyword сохранен')
 	// Сохраняем ресурсы (для проверки)
-	// await save(JSON.stringify(resources, null, ' '), config.ph('resource.json'))
+	await save(JSON.stringify(resources, null, ' '), config.ph('resource.json'))
 	// Скачивание и сохранение всех ресурсов
 	for (const resource of resources) {
 		try {

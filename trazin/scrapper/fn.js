@@ -6,7 +6,7 @@ const fsp = require('fs').promises
  * @param {Object} page Страница
  * @param {Object} config Конфигурация
  */
-async function collect(html, page, config) {
+async function collect(html, page, config, mode = false) {
 	// const resources = await page.evaluate(() => {
 	// 	const r = []
 	// 	document.querySelectorAll('script[src]').forEach((script) => {
@@ -18,9 +18,9 @@ async function collect(html, page, config) {
 	// 	})
 	// 	return r
 	// })
-	// const cards = await fnCards(page)
+	const cards = mode ? await fnCards(page) : null
 	await save(html, config.ph('index.html'))
-	// await save(JSON.stringify(cards, null, ' '), config.ph('cards.json'))
+	mode ? await save(JSON.stringify(cards, null, ' '), config.ph('cards.json')) : null
 	// await save(JSON.stringify(resources, null, ' '), config.ph('resource.json'))
 
 	// Оптимизировано: скачиваем через fetch вместо тяжелого page.goto()
@@ -71,3 +71,24 @@ async function fnCards(page) {
 }
 
 module.exports = { collect, save }
+
+
+async function autoScroll(page) {
+    await page.evaluate(async () => {
+      await new Promise((resolve) => {
+        const distance = 300; // Увеличили шаг, чтобы скроллить быстрее
+        const duration = 2 * 60 * 1000; // 2 минуты в миллисекундах
+        const startTime = Date.now();
+  
+        const timer = setInterval(() => {
+          window.scrollBy(0, distance);
+  
+          // Проверяем, прошло ли 2 минуты
+          if (Date.now() - startTime >= duration) {
+            clearInterval(timer);
+            resolve();
+          }
+        }, 150); // Интервал между скроллами
+      });
+    });
+  }

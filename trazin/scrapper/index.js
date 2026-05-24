@@ -8,7 +8,7 @@ const { collect } = require('./fn')
  * Скачать и сохранить сайт
  * @param {*} config Данные для скачивания и сохранения сайта
  */
-async function downloadWebsite(config) {
+async function downloadWebsite(config, mode = false) {
 	const browser = await puppeteer.launch({
 		headless: true,
 		args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage'],
@@ -30,7 +30,7 @@ async function downloadWebsite(config) {
 		const html = await page.content()
 
 		// Сборка ресурсов и сохранение html
-		await collect(html, page, config)
+		await collect(html, page, config, mode)
 
 		console.log(2, '✅ Сайт полностью скачан')
 	} catch (err) {

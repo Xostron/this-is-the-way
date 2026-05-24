@@ -1,6 +1,3 @@
-const puppeteer = require('puppeteer')
-const fs = require('fs')
-const fsp = require('fs').promises
 const path = require('path')
 
 /**
@@ -13,7 +10,7 @@ function fnConfig(data = []) {
 	// Массив urls, индекс массива = название папки, куда будет сохранен результат скраппинга
 	const r = data.map((url, i) => {
 		// Создать папку с именем = i
-		const dir = path.resolve(_dirname, '..', i)
+		const dir = path.resolve(__dirname, '..', String(i))
 		return {
 			url,
 			dir,

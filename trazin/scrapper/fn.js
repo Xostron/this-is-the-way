@@ -1,7 +1,4 @@
-const puppeteer = require('puppeteer')
-const fs = require('fs')
 const fsp = require('fs').promises
-const path = require('path')
 
 /**
  * Сбор и сохранение ресурсов (статика) и html
@@ -21,10 +18,10 @@ async function collect(html, page, config) {
 	// 	})
 	// 	return r
 	// })
-
+	// const cards = await fnCards(page)
 	await save(html, config.ph('index.html'))
-
-    // await save(JSON.stringify(resources, null, ' '), config.ph('resource.json'))
+	// await save(JSON.stringify(cards, null, ' '), config.ph('cards.json'))
+	// await save(JSON.stringify(resources, null, ' '), config.ph('resource.json'))
 
 	// Оптимизировано: скачиваем через fetch вместо тяжелого page.goto()
 	// 	for (const resource of resources) {
@@ -59,6 +56,18 @@ async function collect(html, page, config) {
 // сохранение файла
 async function save(data, filename) {
 	await fsp.writeFile(filename, data)
+}
+
+async function fnCards(page) {
+	const cards = await page.evaluate(() => {
+		// Находим все ссылки, у которых href начинается с '/card/'
+		const anchors = document.querySelectorAll('a[href^="/card/"]')
+
+		return Array.from(anchors)
+			.map((anchor) => anchor.href) // Автоматически превратит относительный URL в полный
+			.filter((url, index, self) => self.indexOf(url) === index) // Удалит дубликаты
+	})
+	return cards
 }
 
 module.exports = { collect, save }

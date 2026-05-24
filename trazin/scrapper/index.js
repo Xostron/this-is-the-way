@@ -21,7 +21,7 @@ async function downloadWebsite(config) {
 		}
 		// Открытие страницы
 		const page = await browser.newPage()
-		await page.setUserAgent(userAgent)
+		await page.setUserAgent(config.userAgent)
 
 		// Оптимизировано: ждем domcontentloaded, чтобы не зависать на рекламе и счетчиках
 		await page.goto(config.url, { waitUntil: 'domcontentloaded', timeout: 60000 })

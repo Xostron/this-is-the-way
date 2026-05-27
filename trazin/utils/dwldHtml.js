@@ -1,6 +1,7 @@
 // const data = require('./data')
 const downloadWebsite = require('../scrapper')
 const fnConfig = require('../scrapper/config')
+const save = require('../scrapper/save')
 const data = require('../temp_cards/cards.json')
 const { delay } = require('../tool/index')
 // ссылки на товары
@@ -9,21 +10,33 @@ main()
 
 // Выполнение скачивание html
 async function main() {
-	let arr = fnConfig(data)
+	// Ссылки карточки товаров
+	let arrCfg = fnConfig(data)
+
 	// Разбиение на чанки
-	arr = collect(arr)
+	arrCfg = fnChunk(arrCfg)
+
 	let i = 0
+	const result = []
+
 	// Обработка чанков
-	for (const chunk of arr) {
+	for (const chunk of arrCfg) {
 		// анализ html извлечение ссылок промокодов
-		await Promise.all(chunk.map((el) => downloadWebsite(el)))
-		console.log('Порция', ++i, 'из', arr.length)
-		delay(300)
+		const r = await Promise.all(chunk.map((el) => downloadWebsite(el)))
+
+		//Только уникальные ссылки
+		result.push(...new Set(r.flat()))
+		console.log('Порция', ++i, 'из', arrCfg.length)
+		// Задержка чтобы не забивать процессор
+		await delay(300)
 	}
+
+	// Сохраняем все собранные ссылки в один файл
+	await save(JSON.stringify({ ...result }, null, ' '), arrCfg[0][0].ph(`index.json`))
 }
 
 // Массив -> массив с подмассивами чанков из 10 элементов
-function collect(arr) {
+function fnChunk(arr) {
 	const r = []
 	const rr = []
 	arr.forEach((el, i) => {

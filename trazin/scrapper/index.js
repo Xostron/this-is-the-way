@@ -32,11 +32,11 @@ async function downloadWebsite(config, mode = false) {
 		// Ожидание загрузки страницы
 		await page.goto(config.url, { waitUntil: 'domcontentloaded', timeout: 60000 })
 
-		await dsHtml(config, page, mode)
+		const r = await dsHtml(config, page, mode)
 		// Поиск и сохранение статических ресурсов
 		await collect(page, config, mode)
-
-		console.log(2, '✅ Сайт полностью скачан')
+		console.log('✅ Сайт скачан')
+		return !mode ? r : null
 	} catch (err) {
 		console.error('Ошибка в основном процессе:', err.message)
 	} finally {

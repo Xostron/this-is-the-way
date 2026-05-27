@@ -1,4 +1,4 @@
-const save = require('./save')
+// const save = require('./save')
 
 /**
  * Получение и Сохранение html
@@ -8,16 +8,17 @@ const save = require('./save')
  * @returns
  */
 async function dsHtml(config, page, mode) {
-	if (mode) return
+	if (mode) return []
 
 	const html = await page.content()
 	// Извлечь из html_text ссылки с промо
 	const arr = extractYandexLinks(html)
 	// Если пусто, то не сохраняем
-	if (!arr.length) return
+	// if (!arr.length) return []
+	return arr
 	//  html
 	// await save(html, config.ph(`index${config.id}.html`))
-	await save(JSON.stringify({ ...arr }, null, ''), config.ph(`index${config.id}.json`))
+	// await save(JSON.stringify({ ...arr }, null, ''), config.ph(`index${config.id}.json`))
 }
 
 module.exports = dsHtml

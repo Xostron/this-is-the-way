@@ -6,7 +6,7 @@ const save = require('./save')
  */
 async function fnCards(page, config) {
 	// 1. скроллинг
-	console.log('Запуск скроллинга каталога (1 минута)...')
+	console.log('Запуск скроллинга каталога...')
 	await autoScroll(page)
 	// 2. поиск карточек товара
 	console.log('Скроллинг завершен. Сбор ссылок...')
@@ -27,7 +27,7 @@ async function autoScroll(page) {
 	await page.evaluate(async () => {
 		await new Promise((resolve) => {
 			const distance = 300 // Увеличили шаг, чтобы скроллить быстрее
-			const duration = 1 * 60 * 1000 // 1 минута в миллисекундах
+			const duration = 2.5 * 60 * 1000 // 1 минута в миллисекундах
 			const startTime = Date.now()
 
 			const timer = setInterval(() => {
@@ -38,7 +38,7 @@ async function autoScroll(page) {
 					clearInterval(timer)
 					resolve()
 				}
-			}, 500) // Интервал между скроллами
+			}, 1000) // Интервал между скроллами
 		})
 	})
 }

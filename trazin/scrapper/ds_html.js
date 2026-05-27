@@ -1,27 +1,20 @@
 // const save = require('./save')
 
 /**
- * Получение и Сохранение html
+ * Извлечение из html ссылки промокодов
  * @param {*} config
  * @param {*} page
- * @param {*} mode
- * @returns
+ * @returns {String[]} Массив ссылок
  */
-async function dsHtml(config, page, mode) {
-	if (mode) return []
-
+async function dsHtmlPromo(config, page, mode) {
+	// Получение html товара
 	const html = await page.content()
 	// Извлечь из html_text ссылки с промо
 	const arr = extractYandexLinks(html)
-	// Если пусто, то не сохраняем
-	// if (!arr.length) return []
 	return arr
-	//  html
-	// await save(html, config.ph(`index${config.id}.html`))
-	// await save(JSON.stringify({ ...arr }, null, ''), config.ph(`index${config.id}.json`))
 }
 
-module.exports = dsHtml
+module.exports = dsHtmlPromo
 
 function extractYandexLinks(text) {
 	// Регулярное выражение ищет подстроку и захватывает всё до кавычки

@@ -1,3 +1,4 @@
+const { delay } = require('../tool')
 const save = require('./save')
 
 /**
@@ -7,7 +8,7 @@ const save = require('./save')
 async function fnCards(page, config) {
 	// 1. скроллинг
 	console.log('Запуск скроллинга каталога...')
-	await autoScroll(page)
+	await autoScroll2(page)
 	// 2. поиск карточек товара
 	console.log('Скроллинг завершен. Сбор ссылок...')
 	const cards = await page.evaluate(() => {
@@ -23,24 +24,60 @@ async function fnCards(page, config) {
 	await save(JSON.stringify(cards, null, ' '), config.ph('cards.json'))
 }
 
-async function autoScroll(page) {
-	await page.evaluate(async () => {
-		await new Promise((resolve) => {
-			const distance = 300 // Увеличили шаг, чтобы скроллить быстрее
-			const duration = 2.5 * 60 * 1000 // 1 минута в миллисекундах
-			const startTime = Date.now()
 
-			const timer = setInterval(() => {
-				window.scrollBy(0, distance)
-				const t = Date.now() - startTime
-				// Проверяем, прошло ли 2 минуты
-				if (t >= duration) {
-					clearInterval(timer)
-					resolve()
-				}
-			}, 1000) // Интервал между скроллами
-		})
-	})
+
+async function autoScroll2(page) {
+	const duration = 5 * 60 * 1000 // 5 минут
+	const startTime = Date.now()
+	const distance = 300
+	const interval = 500 // 0.5 секунды
+
+	while (Date.now() - startTime < duration) {
+		// Выполняем быстрый скролл в браузере
+		await page.evaluate(async (dist) => {
+			window.scrollBy(0, dist)
+
+		}, distance)
+		
+		// Ждем в основном потоке Node.js, не блокируя протокол
+		await delay(500)
+	}
+}
+
+// автоскрол с проверкой окончания ленты товаров
+async function autoScroll3(page) {
+    const maxDuration = 5 * 60 * 1000; // Максимум 5 минут
+    const startTime = Date.now();
+    const distance = 400; // Чуть увеличили шаг для уверенного триггера загрузки
+    const interval = 600; // Даем сайту 0.6 секунды на подгрузку карточек
+
+    let lastHeight = await page.evaluate(() => document.body.scrollHeight);
+
+    while (Date.now() - startTime < maxDuration) {
+        // 1. Скроллим вниз
+        await page.evaluate((dist) => {
+            window.scrollBy(0, dist);
+        }, distance);
+
+        // 2. Ждем подгрузки новых товаров (Lazy Loading / Infinite Scroll)
+        await new Promise(resolve => setTimeout(resolve, interval));
+
+        // 3. Проверяем, изменилась ли высота страницы
+        const newHeight = await page.evaluate(() => document.body.scrollHeight);
+        
+        // 4. На всякий случай проверяем, дошли ли до самого низа окна
+        const isBottom = await page.evaluate(() => {
+            return (window.innerHeight + window.scrollY) >= document.body.offsetHeight;
+        });
+
+        // Если высота не изменилась и мы в самом низу — товары закончились, выходим
+        if (newHeight === lastHeight && isBottom) {
+            console.log('Лента полностью загружена. Товары закончились.');
+            break;
+        }
+
+        lastHeight = newHeight;
+    }
 }
 
 module.exports = fnCards

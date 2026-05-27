@@ -1,9 +1,9 @@
 // const data = require('./data')
-const downloadWebsite = require('../scrapper')
 const fnConfig = require('../scrapper/config')
 const save = require('../scrapper/save')
 const data = require('../temp_cards/cards.json')
 const { delay } = require('../tool/index')
+const { fnPromo } = require('../scrapper')
 // ссылки на товары
 
 main()
@@ -22,7 +22,7 @@ async function main() {
 	// Обработка чанков
 	for (const chunk of arrCfg) {
 		// анализ html извлечение ссылок промокодов
-		const r = await Promise.all(chunk.map((el) => downloadWebsite(el)))
+		const r = await Promise.all(chunk.map((el) => fnPromo(el)))
 
 		//Только уникальные ссылки
 		result.push(...new Set(r.flat()))
@@ -32,7 +32,7 @@ async function main() {
 	}
 
 	// Сохраняем все собранные ссылки в один файл
-	await save(JSON.stringify({ ...result }, null, ' '), arrCfg[0][0].ph(`index.json`))
+	await save(JSON.stringify({...[...new Set(result)]}, null, ' '), arrCfg[0][0].ph(`index.json`))
 }
 
 // Массив -> массив с подмассивами чанков из 10 элементов

@@ -1,9 +1,9 @@
 // const data = require('./data')
 const fnConfig = require('../scrapper/config')
 const save = require('../scrapper/save')
-const data = require('../temp_cards/cards.json')
 const { delay } = require('../tool/index')
 const { fnPromo } = require('../scrapper')
+const data = require('../temp_cards/tools2.json')
 // ссылки на товары
 
 main()
@@ -13,7 +13,7 @@ async function main() {
 	// Ссылки карточки товаров
 	let arrCfg = fnConfig(data)
 
-	// Разбиение на чанки
+	// Разбиение на ча...............нки
 	arrCfg = fnChunk(arrCfg)
 
 	let i = 0
@@ -26,9 +26,9 @@ async function main() {
 
 		//Только уникальные ссылки
 		result.push(...new Set(r.flat()))
-		console.log('Порция', ++i, 'из', arrCfg.length)
+		console.log('Порция', ++i, 'из', arrCfg.length, 'завершена')
 		// Задержка чтобы не забивать процессор
-		await delay(300)
+		await delay(150)
 	}
 
 	// Сохраняем все собранные ссылки в один файл
@@ -42,7 +42,7 @@ function fnChunk(arr) {
 	arr.forEach((el, i) => {
 		// Порция из 10 или последний э=т массива
 		rr.push(el)
-		if (rr.length >= 10 || i >= arr.length - 1) {
+		if (rr.length >= 5 || i >= arr.length - 1) {
 			r.push([...rr])
 			rr.length = 0
 		}

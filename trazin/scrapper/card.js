@@ -27,10 +27,10 @@ async function fnCards(page, config) {
 
 
 async function autoScroll2(page) {
-	const duration = 5 * 60 * 1000 // 5 минут
+	const duration = 10 * 60 * 1000 // 5 минут
 	const startTime = Date.now()
 	const distance = 300
-	const interval = 500 // 0.5 секунды
+	const interval = 900 // 0.5 секунды
 
 	while (Date.now() - startTime < duration) {
 		// Выполняем быстрый скролл в браузере
@@ -40,7 +40,7 @@ async function autoScroll2(page) {
 		}, distance)
 		
 		// Ждем в основном потоке Node.js, не блокируя протокол
-		await delay(500)
+		await delay(interval)
 	}
 }
 

@@ -3,7 +3,7 @@ const fnConfig = require('../scrapper/config')
 const save = require('../scrapper/save')
 const { delay } = require('../tool/index')
 const { fnPromo } = require('../scrapper')
-const data = require('../temp_cards/ears.json')
+const data = require('../temp_cards/ears_2.json')
 // ссылки на товары
 
 main()
@@ -21,14 +21,18 @@ async function main() {
 
 	// Обработка чанков
 	for (const chunk of arrCfg) {
-		// анализ html извлечение ссылок промокодов
-		const r = await Promise.all(chunk.map((el) => fnPromo(el)))
-
-		//Только уникальные ссылки
-		result.push(...new Set(r.flat()))
-		console.log('Порция', ++i, 'из', arrCfg.length, 'завершена')
-		// Задержка чтобы не забивать процессор
-		await delay(150)
+		try {
+			// анализ html извлечение ссылок промокодов
+			const r = await Promise.all(chunk.map((el) => fnPromo(el)))
+			
+			//Только уникальные ссылки
+			result.push(...new Set(r.flat()))
+			console.log('Порция', ++i, 'из', arrCfg.length, 'завершена')
+			// Задержка чтобы не забивать процессор
+			await delay(150)
+		} catch (error) {
+			console.log(error)
+		}
 	}
 
 	// Сохраняем все собранные ссылки в один файл
@@ -40,9 +44,9 @@ function fnChunk(arr) {
 	const r = []
 	const rr = []
 	arr.forEach((el, i) => {
-		// Порция из 10 или последний э=т массива
+		// Порция из 3 или последний э=т массива
 		rr.push(el)
-		if (rr.length >= 5 || i >= arr.length - 1) {
+		if (rr.length >= 3 || i >= arr.length - 1) {
 			r.push([...rr])
 			rr.length = 0
 		}

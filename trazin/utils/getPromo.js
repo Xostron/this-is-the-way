@@ -3,7 +3,7 @@ const fnConfig = require('../scrapper/config')
 const save = require('../scrapper/save')
 const { delay } = require('../tool/index')
 const { fnPromo } = require('../scrapper')
-const data = require('../temp_cards/ears_2.json')
+const data = require('../temp_cards/bag_3.json')
 // ссылки на товары
 
 main()

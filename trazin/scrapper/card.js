@@ -27,20 +27,22 @@ async function fnCards(page, config) {
 
 
 async function autoScroll2(page) {
-	const duration = 60 * 60 * 1000 // 5 минут
-	const startTime = Date.now()
+	const duration = 30 * 60 * 1000 // 5 минут
+	const startTime = new Date()
 	const distance = 300
-	const interval = 900 // 0.5 секунды
-
-	while (Date.now() - startTime < duration) {
+	const interval = 2000 // 0.5 секунды
+	console.log('Начало', startTime.toLocaleString())
+	while (new Date() - startTime < duration) {
 		// Выполняем быстрый скролл в браузере
 		await page.evaluate(async (dist) => {
 			window.scrollBy(0, dist)
-
 		}, distance)
-		
 		// Ждем в основном потоке Node.js, не блокируя протокол
-		await delay(interval)
+		await delay(interval/2)
+		 // 3. Проверяем, изменилась ли высота страницы
+        const newHeight = await page.evaluate(() => document.body.scrollHeight)
+		console.log('Прошло', (new Date()-startTime)/60000, 'Высота = ', )
+		await delay(interval/4)
 	}
 }
 

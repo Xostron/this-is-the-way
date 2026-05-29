@@ -3,7 +3,7 @@ const fnConfig = require('../scrapper/config')
 const save = require('../scrapper/save')
 const { delay } = require('../tool/index')
 const { fnPromo } = require('../scrapper')
-const data = require('../temp_cards/autoclean.json')
+const data = require('../temp_cards/home_tech.json')
 // ссылки на товары
 
 main()

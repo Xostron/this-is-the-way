@@ -41,7 +41,7 @@ async function autoScroll2(page) {
 		await delay(interval/2)
 		 // 3. Проверяем, изменилась ли высота страницы
         const newHeight = await page.evaluate(() => document.body.scrollHeight)
-		console.log('Прошло', (new Date()-startTime)/60000, 'Высота = ', )
+		console.log('Прошло', (new Date()-startTime)/60000, 'мин. scroll = ',newHeight )
 		await delay(interval/4)
 	}
 }

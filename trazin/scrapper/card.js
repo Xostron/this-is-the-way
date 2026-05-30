@@ -27,7 +27,7 @@ async function fnCards(page, config) {
 
 
 async function autoScroll2(page) {
-	const duration = 15 * 60 * 1000 
+	const duration = 7 * 60 * 1000 
 	const startTime = new Date()
 	const step = 1000
 	const interval = 1000 

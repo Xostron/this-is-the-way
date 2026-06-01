@@ -1,5 +1,5 @@
 const { delay } = require('../../tool/time')
-const save = require('../../tool/save/save')
+const save = require('../../tool/save')
 
 /**
  * Поиск ссылок в каталоге и сохранение в cards.json

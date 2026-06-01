@@ -2,8 +2,8 @@ const puppeteer = require('puppeteer')
 const fs = require('fs')
 const fsp = require('fs').promises
 const path = require('path')
-const dsHtmlPromo = require('./ds_html')
-const fnCards = require('./card')
+const dsHtmlPromo = require('./promo')
+const fnCards = require('./card/index')
 
 /**
  * Поиск в html карточки товара ссылок на промокоды

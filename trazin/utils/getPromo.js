@@ -1,9 +1,9 @@
 // const data = require('./data')
 const fnConfig = require('../scrapper/config')
 const { fnPromo } = require('../scrapper')
-const data = require('../temp_cards/steam.json')
 const save = require('../tool/save')
 const { delay } = require('../tool/time')
+const data = require('../temp_cards/vacuum.json')
 // ссылки на товары
 
 main()

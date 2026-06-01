@@ -4,7 +4,7 @@ const fs = require('fs')
 const fsp = require('fs').promises
 const path = require('path')
 // const puppeteer = require('puppeteer')
-const save = require('../../tool/save/save')
+const save = require('../../tool/save')
 const { delay } = require('../../tool/time')
 
 puppeteer.use(StealthPlugin())

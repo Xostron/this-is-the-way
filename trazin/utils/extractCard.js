@@ -2,13 +2,13 @@ const fnConfig = require('../scrapper/config')
 const { fnUrlCards } = require('../scrapper')
 // Ссылка на каталог
 const data = [
-	'https://market.yandex.ru/catalog--tovary-dlia-stroitelstva-i-remonta-v-volzhskom/54503/list?generalContext=&hid=91597&rs=eJwzsv3EaMXBILDwEKsEg8LZ06waN4F44xlWjR1APO9FksZiIL7z9AOrxtEFd9k1Fh1i1Vh1hFXjM1D2WTcPAAqLGk8%2C',
+	'https://market.yandex.ru/search?text=%D0%BF%D1%8B%D0%BB%D0%B5%D1%81%D0%BE%D1%81&hid=16302537&hid=16302536&hid=16302535&hid=71672081&rs=eJwzCqpi5TjZ_Jj9E6MBB4PAwkOsEgwKIL7CCRBxHERMPDRNSQPE0gBJaIC5INm_jHYOT_f1Mu3L4befysQSzG2_ggmkAgB0mSGv&rt=9',
 ]
 
 main()
 
 async function main() {
-	const arr = fnConfig(data, true)
+	const arr = fnConfig(data,null, true)
 	for (const el of arr) {
 		await fnUrlCards(el)
 	}

@@ -75,4 +75,6 @@ async function fnUrlCards(config) {
 	}
 }
 
+
+
 module.exports = { fnPromo, fnUrlCards }

@@ -61,7 +61,8 @@ async function fnUrlCards(config) {
 		// Открытие страницы
 		const page = await browser.newPage()
 		await page.setUserAgent(config.userAgent)
-
+		// Устанавливаем размер экрана (несовпадение размеров часто выдает бота)
+		await page.setViewport({ width: 1920, height: 1080 })
 		// Ожидание загрузки страницы
 		await page.goto(config.url, { waitUntil: 'domcontentloaded', timeout: 60000 })
 
@@ -74,7 +75,5 @@ async function fnUrlCards(config) {
 		await browser.close()
 	}
 }
-
-
 
 module.exports = { fnPromo, fnUrlCards }

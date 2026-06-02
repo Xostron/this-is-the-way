@@ -3,13 +3,13 @@ const fnConfig = require('../scrapper/config')
 const { fnPromo } = require('../scrapper')
 const save = require('../tool/save')
 const { delay } = require('../tool/time')
-const data = require('../temp_cards/chemistry.json')
+const data = require('../temp_cards/cards_3.json')
 // ссылки на товары
 
-main()
+main(data)
 
 // Выполнение скачивание html
-async function main() {
+async function main(data) {
 	// Ссылки карточки товаров
 	let arrCfg = fnConfig(data)
 

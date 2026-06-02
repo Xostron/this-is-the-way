@@ -20,7 +20,7 @@ async function fnHtml(config, idx) {
 	// })
 	// 1. Усиленные аргументы для сокрытия автоматизации
 	const browser = await puppeteer.launch({
-		headless: false, // Для OZON строго false (headful режим)
+		headless: false, // Показывать страницу
 		args: [
 			'--no-sandbox',
 			'--disable-setuid-sandbox',
@@ -30,6 +30,9 @@ async function fnHtml(config, idx) {
 			'--disable-blink-features=AutomationControlled',
 			'--window-size=1920,1080',
 		],
+		// Путь к папке, где Puppeteer сохранит куки и сессию профиля.
+		// При втором запуске Ozon посчитает вас доверенным пользователем.
+		userDataDir: path.join(__dirname, '../../oson_user_data'),
 		// Игнорируем ошибки сертификатов, которые могут вызывать прокси
 		ignoreHTTPSErrors: true,
 	})
@@ -67,21 +70,22 @@ async function fnHtml(config, idx) {
 		await page.goto(config.url, { waitUntil: 'domcontentloaded', timeout: 60000 })
 
 		// 2. Имитируем поведение человека (ждем прохождения проверки Cloudflare)
-		await delay(5000)
+		await delay(10000)
 
 		// Скроллим страницу немного вниз, чтобы триггернуть ленивую загрузку данных
-		await page.evaluate(() => window.scrollBy(0, 300))
-		await delay(3000)
+		// await page.evaluate(() => window.scrollBy(0, 300))
+		// await delay(10000)
 
 		// Получение html товара
 		const html = await page.content()
 
 		await save(html, config.ph(`index${idx}.html`))
+
 		console.log('✅ Сайт скачан', idx)
 	} catch (err) {
 		console.error('Ошибка в основном процессе:', err.message, err)
 	} finally {
-		await browser.close()
+		// await browser.close()
 	}
 }
 

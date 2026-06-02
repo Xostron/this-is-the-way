@@ -3,7 +3,7 @@ const fnHtml = require('../scrapper/html')
 
 
 // Ссылка
-const data = ['https://www.wildberries.ru/lk/basket']
+const data = ['https://www.ozon.ru/product/kazan-aprel-3-5l-s-antiprigarnym-pokrytiem-s-kryshkoy-mozhno-myt-v-posudomoechnoy-mashine-1416642575/?at=NOtw8rXxWc3VwP1gs8lvyR1cXyJ4GyS04OykWC2qrnmo']
 
 
 main()

@@ -3,7 +3,7 @@ const fnConfig = require('../scrapper/config')
 const { fnPromo } = require('../scrapper')
 const save = require('../tool/save')
 const { delay } = require('../tool/time')
-const data = require('../temp_cards/vacuum.json')
+const data = require('../temp_cards/chemistry.json')
 // ссылки на товары
 
 main()

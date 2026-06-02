@@ -21,13 +21,13 @@ async function fnCards(page, config) {
 	})
 	// 3. сохранение в cards.json
 	console.log(`Найдено уникальных карточек: ${cards.length}`)
-	await save(JSON.stringify(cards, null, ' '), config.ph('cards.json'))
+	await save(JSON.stringify(cards, null, ' '), config.ph(`cards_${config.id}.json`))
 }
 
 
 
 async function autoScroll2(page) {
-	const duration = 12 * 60 * 1000 
+	const duration =  15 * 30 * 1000
 	const startTime = new Date()
 	const step = 1000
 	const interval = 1000 

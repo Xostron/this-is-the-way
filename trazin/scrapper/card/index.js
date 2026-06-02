@@ -50,40 +50,40 @@ async function autoScroll2(page) {
 	}
 }
 
-// автоскрол с проверкой окончания ленты товаров
-async function autoScroll3(page) {
-    const maxDuration = 5 * 60 * 1000; // Максимум 5 минут
-    const startTime = Date.now();
-    const distance = 400; // Чуть увеличили шаг для уверенного триггера загрузки
-    const interval = 600; // Даем сайту 0.6 секунды на подгрузку карточек
+// // автоскрол с проверкой окончания ленты товаров
+// async function autoScroll3(page) {
+//     const maxDuration = 5 * 60 * 1000; // Максимум 5 минут
+//     const startTime = Date.now();
+//     const distance = 400; // Чуть увеличили шаг для уверенного триггера загрузки
+//     const interval = 600; // Даем сайту 0.6 секунды на подгрузку карточек
 
-    let lastHeight = await page.evaluate(() => document.body.scrollHeight);
+//     let lastHeight = await page.evaluate(() => document.body.scrollHeight);
 
-    while (Date.now() - startTime < maxDuration) {
-        // 1. Скроллим вниз
-        await page.evaluate((dist) => {
-            window.scrollBy(0, dist);
-        }, distance);
+//     while (Date.now() - startTime < maxDuration) {
+//         // 1. Скроллим вниз
+//         await page.evaluate((dist) => {
+//             window.scrollBy(0, dist);
+//         }, distance);
 
-        // 2. Ждем подгрузки новых товаров (Lazy Loading / Infinite Scroll)
-        await new Promise(resolve => setTimeout(resolve, interval));
+//         // 2. Ждем подгрузки новых товаров (Lazy Loading / Infinite Scroll)
+//         await new Promise(resolve => setTimeout(resolve, interval));
 
-        // 3. Проверяем, изменилась ли высота страницы
-        const newHeight = await page.evaluate(() => document.body.scrollHeight);
+//         // 3. Проверяем, изменилась ли высота страницы
+//         const newHeight = await page.evaluate(() => document.body.scrollHeight);
         
-        // 4. На всякий случай проверяем, дошли ли до самого низа окна
-        const isBottom = await page.evaluate(() => {
-            return (window.innerHeight + window.scrollY) >= document.body.offsetHeight;
-        });
+//         // 4. На всякий случай проверяем, дошли ли до самого низа окна
+//         const isBottom = await page.evaluate(() => {
+//             return (window.innerHeight + window.scrollY) >= document.body.offsetHeight;
+//         });
 
-        // Если высота не изменилась и мы в самом низу — товары закончились, выходим
-        if (newHeight === lastHeight && isBottom) {
-            console.log('Лента полностью загружена. Товары закончились.');
-            break;
-        }
+//         // Если высота не изменилась и мы в самом низу — товары закончились, выходим
+//         if (newHeight === lastHeight && isBottom) {
+//             console.log('Лента полностью загружена. Товары закончились.');
+//             break;
+//         }
 
-        lastHeight = newHeight;
-    }
-}
+//         lastHeight = newHeight;
+//     }
+// }
 
 module.exports = fnCards

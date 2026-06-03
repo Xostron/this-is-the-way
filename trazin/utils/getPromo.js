@@ -4,13 +4,16 @@ const { fnPromo } = require('../scrapper')
 const save = require('../tool/save')
 const { delay } = require('../tool/time')
 const data = [
-  require('../temp_cards/2.json'),
-  require('../temp_cards/3.json'),
-  require('../temp_cards/4.json'),
-  require('../temp_cards/5.json'),
-  require('../temp_cards/6.json'),
-  require('../temp_cards/7.json'),
-  require('../temp_cards/8.json'),
+  // require('../temp_cards/2.json'),
+  // require('../temp_cards/3.json'),
+  // require('../temp_cards/4.json'),
+  // require('../temp_cards/5.json'),
+  // require('../temp_cards/6.json'),
+  // require('../temp_cards/7.json'),
+  // require('../temp_cards/8.json'),
+  require('../temp_cards/cards_0.json'),
+    require('../temp_cards/cards_1.json'),
+      require('../temp_cards/cards_2.json'),
 ]
 // ссылки на товары
 ;(async function main() {

@@ -5,10 +5,10 @@ const save = require('../../tool/save')
  * Поиск ссылок в каталоге и сохранение в cards.json
  * @param {*} page
  */
-async function fnCards(page, config) {
+async function fnCards(page, config, tt) {
 	// 1. скроллинг
 	console.log('Запуск скроллинга каталога...')
-	await autoScroll2(page)
+	await autoScroll2(page,tt)
 	// 2. поиск карточек товара
 	console.log('Скроллинг завершен. Сбор ссылок...')
 	const cards = await page.evaluate(() => {
@@ -26,8 +26,8 @@ async function fnCards(page, config) {
 
 
 
-async function autoScroll2(page) {
-	const duration =  1 * 60 * 1000
+async function autoScroll2(page,tt=1) {
+	const duration =  tt * 60 * 1000
 	const startTime = new Date()
 	const step = 1000
 	const interval = 1000 

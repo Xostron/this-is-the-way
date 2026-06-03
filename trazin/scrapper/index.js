@@ -44,7 +44,7 @@ async function fnPromo(config) {
  * Извлечь из html ссылки на карточки товаров
  * @param {object[]} config Массив конфигов ссылки
  */
-async function fnUrlCards(config) {
+async function fnUrlCards(config,tt) {
 	const browser = await puppeteer.launch({
 		headless: true,
 		args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage'],
@@ -67,7 +67,7 @@ async function fnUrlCards(config) {
 		await page.goto(config.url, { waitUntil: 'domcontentloaded', timeout: 60000 })
 
 		// Поиск и сохранение ссылок на товары
-		await fnCards(page, config)
+		await fnCards(page, config, tt)
 		console.log('✅ Извлечение карточек товаров завершено')
 	} catch (err) {
 		console.error('Ошибка в основном процессе:', err.message)

@@ -2,22 +2,15 @@ const fnConfig = require('../scrapper/config')
 const { fnUrlCards } = require('../scrapper')
 // Ссылка на каталог
 const data = [
-	'https://market.yandex.ru/catalog--bytovaia-khimiia/21448850/list?hid=90685&how=dprice&rs=eJwz0v7EqMHBILDwEKsEg8LeI6waB4G4--gZdo2zS8-za_x7uZZN4xBQaMertWwAa8ISFg%2C%2C',
-	'https://market.yandex.ru/catalog--podguzniki-gigiena-i-ukhod-v-volzhskom/16411289/list?how=dprice&rs=eJwzsvzEaMbBKLDwEKsEg8aTdTYaHxt6WDXmL53AqnH97Vo2jb3X1rBpvAGKzwAJLTvBqjF3VSuLxqYTrACZ3heN',
-	'https://market.yandex.ru/catalog--zhenskie-tolstovki-i-svitshoty-v-volzhskom/72077671/list?rs=eJwzMnzByPiJUZuDUWDhIVYJBo1TZ5Ypaqz8t0JRY_KpVYoaf6euUdT49BtIPH-4VlHjzvF1igD1thYz',
-'https://market.yandex.ru/catalog--sredstva-po-ukhodu-za-litsom-v-volzhskom/17437151/list?hid=8475933&rs=eJwzsvjEaMrBILDwEKsEg8LcVa0sGsdu32DXOL4ayDoMIg6CiEMg4vc6IHEUxDoGJABygxbd',
-'https://market.yandex.ru/catalog--sredstva-po-ukhodu-za-telom-v-volzhskom/17437172/list?hid=91186&rs=eJwzCv7EGMDBILDwEKsEg8KmE6wax750MWvsXNXKovH65AV2jflAoVdX17BprAAyWq4BGZtBcnemXWbXuPJpErvGvRmT2TW6PwNZy2asYNJYCiQAvkEj0w%2C%2C',
-'https://market.yandex.ru/catalog--aksessuary-dlia-poliva-v-volzhskom/18033951/list?hid=13793399&rs=eJwzMv7EaMDBILDwEKsEg8L3DyfZNCau3cCu0fcRyJoJIv6BxLpBrCYQ8RPIBQA24Bet',
-'https://market.yandex.ru/catalog--sadovaia-mebel-v-volzhskom/66298/list?hid=13771160&rs=eJwzCvzE6MfBILDwEKsEg8KMwyfYNJ5sO8SucevMBnaNWceA3J-zXrFrXAaxOk8AiU_7T7FpbAJxrx8HEruOAomXIKL7AFBiM1AMANcMJgU%2C',
-'https://market.yandex.ru/catalog--otdelochnye-materialy-v-volzhskom/18060933/list?hid=91633&how=dprice&rs=eJwzivrEGM7BILDwEKsEg8LH06waLTfmsGl8BjJmvH7ArDFtHpC3dLaGxiegyMOr39g1DnyZyabxE8j7tOglu8YvIGPVs_PsGhNnz2LTOPgVKPf94lJ2jZlALgAEBijj',
-'https://market.yandex.ru/catalog--stroitelnye-materialy-v-volzhskom/18060645/list?hid=12333652&how=dprice&rs=eJwzsvrEaM7BILDwEKsEg8KVJx9YNSbdXsauMfn-LDaNzntAYvoZVo2dk-eya_x5AORdewIklgKFrpxhBQDBmxjg',
-'https://market.yandex.ru/catalog--avtokhimiia-i-avtokosmetika-v-volzhskom/54449/list?hid=90428&how=dprice&rs=eJwzMvvEaMzBILDwEKsEg8KeQ6war4G4se0tm8ZpEDH9_xs2jZtNQNbuZiDxsAVInABKAABYaxea',
-'https://market.yandex.ru/catalog--vitaminy-bad-i-dobavki/25600170/list?how=dprice&rs=eJwzUvzEKMfBKLDwEKsEg8bMw6waG08fZNfo_meosXirrcau_1fZAcmxDU8%2C',
-'https://market.yandex.ru/catalog--melkaia-tekhnika-dlia-kukhni-v-volzhskom/54472/list?hid=90579&how=dprice&rs=eJwzUvrEKM_BILDwEKsEg8Llw6wai7Z-YNXYCSI6QMTrw6wA3o8N7g%2C%2C'
-
-
-
-
+'https://market.yandex.ru/catalog--aksessuary-i-oborudovanie-dlia-avtomobilia-v-volzhskom/54454/list?hid=90461&rs=eJwzsv_EaMPBILDwEKsEg8LdQ6waLZs-sGr8eyitcWHyMjaNQ6vXMWksBgkdvLKUTWM_SOzbRiD36602Vo1nh1gBTdocCQ%2C%2C',
+'https://market.yandex.ru/catalog--elektroinstrumenty-v-volzhskom/55184/list?hid=91649&rs=eJwzSvrEGM_BILDwEKsEg0LjGVaNEx0L2TUeg4inIKIdKHTgpJ7G1t9f2TUW3prNrtEPFGkG4h4g_vJXUGPqoQ9sGsdm97Fr9AJF-oC4DYibgLgLiDvOsAIAxqkoUg%2C%2C',
+'https://market.yandex.ru/catalog--elektroinstrumenty/55184/list?hid=15133985&rs=eJwzSv7EmMDBILDw1mx2CQ6FxjOsGic6FrJrPAYRT0FEO1DowEk9ja2_v7JrgJRp9ANFmoG4B4i__BXUmHroA5vGsdl97Bq9QJE-IG4D4iYg7gLijjOsAA4MKRE%2C',
+'https://market.yandex.ru/catalog--elektroinstrumenty/55184/list?hid=294644&rs=eJwzSvrEGM_BIPDlr6AEh0LjGVaNEx0L2TUeg4inIKIdKHTgpJ7G1t9f2TUW3prNrtEPFGkG4h4gBmrTmHroA5vGsdl97Bq9QJE-IG4D4iYg7gLijjOsAAB9KPQ%2C',
+'https://market.yandex.ru/catalog--akkumuliatornyi-instrument-v-volzhskom/52649964/list?rs=eJwzMvnEaMjBKLDwEKsEg8aJjoXsGvdOfWDS-LdiArtG-xlWjQMn9TQW3prNrjH10Ac2jT6gSNMZVgAo-xWG',
+'https://market.yandex.ru/catalog--unitazy-pissuary-bide-v-volzhskom/18060330/list?rs=eJwzEvnEKMjBKLDwEKsEg8aKJx9YNe6cZgUARxMHYQ%2C%2C',
+'https://market.yandex.ru/search?text=%D0%B8%D0%B3%D1%80%D1%83%D1%88%D0%BA%D0%B8%20%D0%B4%D0%BB%D1%8F%20%D0%B4%D0%B5%D0%B2%D0%BE%D1%87%D0%B5%D0%BA&hid=13480619&hid=10683227&hid=10682610&hid=10682550&hid=10682526&hid=10682676&hid=10683225&hid=15525081&rs=eJwz6mKsYuVY_XQb2ydGPw4GgYWHWCUYFEB8hdttPawKnxqBxDYQMQ9EbGkCEjdBEjdPbmbXWAUU0wCp0wCp0_jYACQergFKgJT8Zdxx496-JiYujufX29kFNjRf4IVzDn1q5-llErAWtp_KZP6G134FE8hKAGWdOJ8%2C&rt=9',
+'https://market.yandex.ru/search?text=%D0%BC%D0%B8%D0%BA%D1%80%D0%BE%D1%84%D0%B8%D0%B1%D1%80%D0%B0%20%D0%B4%D0%BB%D1%8F%20%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%BE%D0%B1%D0%B8%D0%BB%D1%8F&hid=14368679&hid=90468&hid=12943705&hid=14369113&rs=eJwzCqxi5Vj-_w3bJ0Z9DgaBhYdYJRgUQHyFJ4dYFW42TWMDEm_ZNKYDhTQWb_rAqnENKKYBEvvLeOL_yX29TPPDZO2nMs1YKWG_ggmkEwCyxyS2&rt=9',
+'https://market.yandex.ru/search?text=%D0%B4%D0%B0%D1%87%D0%BD%D1%8B%D0%B5%20%D0%B4%D0%BE%D1%80%D0%BE%D0%B6%D0%BA%D0%B8&hid=13777172&hid=13007553&rs=eJwzsq1i5Zjy6QTbJ0ZpDgaBhYdYJRgUQHyFg19nsmmAWBofT7P-ZbxU-39fL5MIJ5v9VCbjT1_sVjCB5AAMzxom&rt=9'
 ]
 
 main()

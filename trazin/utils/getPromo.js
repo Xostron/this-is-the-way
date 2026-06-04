@@ -12,8 +12,8 @@ const data = [
   // require('../temp_cards/7.json'),
   // require('../temp_cards/8.json'),
   require('../temp_cards/cards_0.json'),
-    require('../temp_cards/cards_1.json'),
-      require('../temp_cards/cards_2.json'),
+    // require('../temp_cards/cards_1.json'),
+      // require('../temp_cards/cards_2.json'),
 ]
 // ссылки на товары
 ;(async function main() {

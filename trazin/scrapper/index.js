@@ -31,6 +31,7 @@ async function fnPromo(config) {
 		await page.goto(config.url, { waitUntil: 'domcontentloaded', timeout: 60000 })
 
 		const r = await dsHtmlPromo(config, page)
+		// page.close()
 		console.log('✅ Карточка пройдена, извлечено ссылок', r.length)
 		return r
 	} catch (err) {

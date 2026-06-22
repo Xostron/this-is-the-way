@@ -3,47 +3,44 @@ const fnHtml = require("../scrapper/html");
 
 // Ссылка
 const data = [
-// 	{
-//     url: "https://platform.21-school.ru/project/69046/task",
-//     name: "GO_bootcamp_02",
-//   },
-//   {
-//     url: "https://platform.21-school.ru/project/69045/task",
-//     name: "GO_bootcamp_01",
-//   },
-//   {
-//     url: "https://platform.21-school.ru/project/69047/task",
-//     name: "GO_bootcamp_P01",
-//   },
-//   {
-//     url: "https://platform.21-school.ru/project/69048/task",
-//     name: "GO_bootcamp_03",
-//   },
-//   {
-//     url: "https://platform.21-school.ru/project/69049/task",
-//     name: "GO_bootcamp_04",
-//   },
-//   {
-//     url: "https://platform.21-school.ru/project/69051/task",
-//     name: "GO_bootcamp_05",
-//   },
-//   {
-//     url: "https://platform.21-school.ru/project/69115/task?studentId=423afb55-531e-4798-b247-b993e1d32303",
-//     name: "GO_bootcamp_06",
-//   },
+	{
+    url: "https://platform.21-school.ru/project/73297/task?studentId=423afb55-531e-4798-b247-b993e1d32303",
+    name: "UIX_1",
+  },
+  {
+    url: "https://platform.21-school.ru/project/73243/task?studentId=423afb55-531e-4798-b247-b993e1d32303",
+    name: "UIX2",
+  },
+  {
+    url: "https://platform.21-school.ru/project/73244/task?studentId=423afb55-531e-4798-b247-b993e1d32303",
+    name: "UIX3",
+  },
+  {
+    url: "https://platform.21-school.ru/project/73245/task?studentId=423afb55-531e-4798-b247-b993e1d32303",
+    name: "UIX4",
+  },
+  {
+    url: "https://platform.21-school.ru/project/73246/task?studentId=423afb55-531e-4798-b247-b993e1d32303",
+    name: "UIX5",
+  },
+  {
+    url: "https://platform.21-school.ru/project/73247/task?studentId=423afb55-531e-4798-b247-b993e1d32303",
+    name: "UIX6",
+  },
 
-//   {
-//     url: "https://platform.21-school.ru/project/69123/task?studentId=423afb55-531e-4798-b247-b993e1d32303",
-//     name: "GO_bootcamp_07",
-//   },
-//   {
-//     url: "https://platform.21-school.ru/project/69548/task?studentId=423afb55-531e-4798-b247-b993e1d32303",
-//     name: "BSA8",
-//   },
-//   {
-//     url: "https://platform.21-school.ru/project/69549/task?studentId=423afb55-531e-4798-b247-b993e1d32303",
-//     name: "BSA9",
-//   },
+  {
+    url: "https://platform.21-school.ru/project/73366/task?studentId=423afb55-531e-4798-b247-b993e1d32303",
+    name: "UIX7",
+  },
+  {
+    url: "https://platform.21-school.ru/project/73367/task?studentId=423afb55-531e-4798-b247-b993e1d32303",
+    name: "UIX8",
+  },
+  {
+    url: "https://platform.21-school.ru/project/73368/task?studentId=423afb55-531e-4798-b247-b993e1d32303",
+    name: "UIX9",
+  },
+
 //   {
 //     url: "https://platform.21-school.ru/project/69550/task?studentId=423afb55-531e-4798-b247-b993e1d32303",
 //     name: "BSA10",

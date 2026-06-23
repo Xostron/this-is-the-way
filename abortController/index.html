@@ -1,29 +1,14 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 	<head>
 		<meta charset="utf-8" />
 		<title>Тест</title>
-
-		<!--
-<script src="https://code.jquery.com/jquery-latest.min.js"></script>
--->
-		<style></style>
-		<script>
-			/*
-$(_ => {
-})
-
-document.addEventListener('DOMContentLoaded', _ => {
-})
-*/
-			//
-		</script>
-	</head>
-	<body>
-		<style></style>
-
-		<button id="stp">Stop</button>
-
+		<style>
+			button {
+				background-color: rgb(96, 161, 226);
+			}
+		</style>
+		<script src="./index.js"></script>
 		<script>
 			const data = {
 				controller: new AbortController(),
@@ -44,10 +29,7 @@ document.addEventListener('DOMContentLoaded', _ => {
 					if (this.check) this.controller = new AbortController()
 				},
 			}
-			stp.addEventListener('click', (_) => {
-				console.log('stop')
-				data.abort()
-			})
+
 			loop()
 			//
 			async function loop() {
@@ -78,8 +60,26 @@ document.addEventListener('DOMContentLoaded', _ => {
 				})
 			}
 			function hms() {
-				return new Date().toLocaleString('ru', { hour: 'numeric', minute: 'numeric', second: 'numeric' })
+				return new Date().toLocaleString('ru', {
+					hour: 'numeric',
+					minute: 'numeric',
+					second: 'numeric',
+				})
 			}
+		</script>
+	</head>
+	<body>
+		<style>
+			#stp {
+				border: none;
+			}
+		</style>
+		<button id="stp">Stop</button>
+		<script>
+			stp.addEventListener('click', (_) => {
+				console.log('stop')
+				data.abort()
+			})
 		</script>
 	</body>
 </html>

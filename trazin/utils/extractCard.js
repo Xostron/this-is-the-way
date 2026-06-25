@@ -1,16 +1,16 @@
-const fnConfig = require("../scrapper/config");
-const { fnUrlCards } = require("../scrapper");
+const fnConfig = require('../scrapper/config')
+const { fnUrlCards } = require('../scrapper')
 
 // Ссылка на каталог
 const data = [
-  "https://market.yandex.ru/search?generalContext=t%3DcprPage%3Bfltr%3D1%3Bcpk%3Dweekly%3B&page-key=weekly&text=%D0%B4%D0%B5%D1%82%D1%81%D0%BA%D0%B8%D0%B9%20%D0%BC%D0%B8%D1%80&hid=90783&hid=15797254&hid=7692671&hid=90795&hid=989939&hid=90787&hid=13488366&hid=52710834&hid=90707&hid=91307&rs=eJwzUq1i5ZjX2MP6iZGFg0GC4S8jAxD0MoHIqWByBdP8o6wApgcH3Q%2C%2C&rt=9&general-context-filter=1",
-];
+	'https://market.yandex.ru/search?text=%D1%84%D1%83%D1%82%D0%B1%D0%BE%D0%BB%D0%BA%D0%B8%20%D0%BC%D1%83%D0%B6%D1%81%D0%BA%D0%B8%D0%B5&hid=53546007&hid=53546173&how=rating&rs=eJwzOsyoVMAlf7HlYvPFpgsbL-y7sPvCrgs7FC7sudh8YdvFRhDnwlaB59fb2ZVYODgFBIAkgwADhNRgyCKks4rD0MTCwNTS0qiBcX37EckuRiYOhipWjukzjkhuYGR4wcj4iVEGaNbCQ6wSDAogUYW9M49IaoBYGiDWX0YGIGhi4uIAuUHgBZDoZQIJTQWTK5hAKgEww1EN&glfilter=14805991%3A14805992',
+]
 
-main();
+main()
 
 async function main() {
-  const arr = fnConfig(data, null, true);
-  for (const el of arr) {
-    await fnUrlCards(el, 3);
-  }
+	const arr = fnConfig(data, null, true)
+	for (const el of arr) {
+		await fnUrlCards(el, 5)
+	}
 }

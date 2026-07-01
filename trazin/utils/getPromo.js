@@ -6,7 +6,7 @@ const { delay } = require('../tool/time')
 const data = [
 //   require('../temp_cards/0.json'),
 require('../temp_cards/cards_0.json'),
-// require('../temp_cards/cards_1.json'),
+require('../temp_cards/cards_1.json'),
     //   require('../temp_cards/cards_2.json'),
     //   require('../temp_cards/cards_3.json'),
     //   require('../temp_cards/cards_4.json'),

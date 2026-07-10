@@ -3,7 +3,7 @@ const { fnUrlCards } = require("../scrapper");
 
 // Ссылка на каталог
 const data = [
-    "https://market.yandex.ru/catalog--naushniki-i-bluetooth-garnitury-v-volzhskom/26992150/list?hid=90555&how=rating&rs=eJwz4v7EyMHBIMGgsPswKwAS3wL8&glfilter=27142571%3A41820890%2C41820886&crossborder=internal",
+    "https://market.yandex.ru/catalog--avtomobilnaia-elektronika-v-volzhskom/58922/list?hid=10613523&rs=eJwBRwC4_zJF8gFCCAAQocIFGAAgk-aHBSiKvq4CKLCX8wcou9P-Aii8orAGKLzDjAMo5cIFKN7CBSjRtfYDKP3cswYot9CACCifwYcC9koeZQ%2C%2C",
 ];
 
 main();

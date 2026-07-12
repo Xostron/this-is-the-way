@@ -3,7 +3,7 @@ const { fnUrlCards } = require("../scrapper");
 
 // Ссылка на каталог
 const data = [
-    "https://market.yandex.ru/search?text=%D0%BC%D0%B5%D0%B4%D0%B8%D1%86%D0%B8%D0%BD%D1%81%D0%BA%D0%B8%D0%B5%20%D0%BF%D1%80%D0%B8%D0%B1%D0%BE%D1%80%D1%8B&hid=90537&hid=38844470&hid=1001393&rs=eJwzcg1grGLleNx_n_sToxIHg8DCQ6wSDAorD7MqbPtwSEhhY7-tBpCjsXO5hcaaj-2sfxkZgKCXCUROBZMrmIDyAFPvFgo%2C&rt=9&crossborder=internal"
+    "https://market.yandex.ru/catalog--avtomobilnaia-elektronika-v-volzhskom/58922/list?hid=10613523&rs=eJwBRwC4_zJF8gFCCAAQocIFGAAgk-aHBSiKvq4CKLCX8wcou9P-Aii8orAGKLzDjAMo5cIFKN7CBSjRtfYDKP3cswYot9CACCifwYcC9koeZQ%2C%2C",
 ];
 
 main();

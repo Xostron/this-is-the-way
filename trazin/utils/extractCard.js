@@ -3,7 +3,7 @@ const { fnUrlCards } = require("../scrapper");
 
 // Ссылка на каталог
 const data = [
-    "https://market.yandex.ru/search?text=warhammer%2040000&hid=10682647&hid=10683227&hid=278335&hid=10683226&hid=10470548&hid=278342&hid=14960839&hid=18540110&hid=12494574&hid=53546007&rs=eJwzqqhi5Zje1MP6iTGMg0Fg4SFWCQYFEF_hdhuQ2P9PQOEWiDGl8z-LwjEg7_jEiewK58685lB4d_YXq8L0GUckNS5OjteYf5RV49YRVo0_QHwEiEFKNNa3H5H8y8gABL1MIHIqmFzBBLIAAHecLd8%2C&rt=9",
+    "https://market.yandex.ru/search?text=%D0%BC%D0%B5%D0%B4%D0%B8%D1%86%D0%B8%D0%BD%D1%81%D0%BA%D0%B8%D0%B5%20%D0%BF%D1%80%D0%B8%D0%B1%D0%BE%D1%80%D1%8B&hid=90537&hid=38844470&hid=1001393&rs=eJwzcg1grGLleNx_n_sToxIHg8DCQ6wSDAorD7MqbPtwSEhhY7-tBpCjsXO5hcaaj-2sfxkZgKCXCUROBZMrmIDyAFPvFgo%2C&rt=9&crossborder=internal"
 ];
 
 main();
@@ -11,6 +11,6 @@ main();
 async function main() {
     const arr = fnConfig(data, null, true);
     for (const el of arr) {
-        await fnUrlCards(el, 3);
+        await fnUrlCards(el, 5);
     }
 }

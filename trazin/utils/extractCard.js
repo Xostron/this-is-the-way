@@ -3,7 +3,10 @@ const { fnUrlCards } = require("../scrapper");
 
 // Ссылка на каталог
 const data = [
-    "https://market.yandex.ru/catalog--avtomobilnaia-elektronika-v-volzhskom/58922/list?hid=10613523&rs=eJwBRwC4_zJF8gFCCAAQocIFGAAgk-aHBSiKvq4CKLCX8wcou9P-Aii8orAGKLzDjAMo5cIFKN7CBSjRtfYDKP3cswYot9CACCifwYcC9koeZQ%2C%2C",
+    "https://market.yandex.ru/catalog--detskie-igrushki-i-igry-v-volzhskom/59692/list?hid=90783&rs=eJwzcvzEaMfBILDwEKsEg8L8o6waqxp7WDU-NgCJLVumsWrcbgOyruyawK7x8vNxNo0pnf9ZND6BlHzfMJFV4yZQFgBNOxso&crossborder=internal",
+	"https://market.yandex.ru/catalog--robototekhnika-i-3d-konstruirovanie-v-volzhskom/27022210/list?rs=eJwBNQDK_zIz8gEwCAEQocIFGAAo8s62BCi0tJYFKJSJ_wQohJjEByi3wbMHKM71rwMo27ilByjKxp0PGWoWCA%2C%2C&crossborder=internal",
+	"https://market.yandex.ru/catalog--avtomobilnaia-elektronika/27021650/list?rs=eJwzkvjEKMrBKLDwEKsEg8bJxzYaiw-xakx-1s4KAGZFCLs%2C&crossborder=internal"
+
 ];
 
 main();

@@ -1,15 +1,11 @@
 #!/usr/bin/env node
-
-/**
- * Module dependencies.
- */
 require('module-alias/register')
 const path = require('path')
 const debug = require('debug')('back-n1:server')
 const { server, io } = require('@tool/server')
 const onConnection = require('@root/socket/on')
 require('dotenv').config({ path: path.join(__dirname, '..', '..', '.env') })
-
+const loop = require('@root/control')
 /**
  * Listen on provided port, on all network interfaces.
  */
@@ -18,6 +14,9 @@ var port = normalizePort(process.env.PORT || '5100')
 server.listen(port)
 server.on('error', onError)
 server.on('listening', onListening)
+
+
+loop().then().catch(console.error)
 
 /**
  * Listen websocket
@@ -79,28 +78,3 @@ function onListening() {
 	debug('Listening on ' + bind)
 }
 
-const a = new Array(10000000).fill(0)
-const b = []
-const c = []
-console.time('1')
-console.log(1, b, new Date())
-setTimeout(() => console.log(22, new Date()), 300)
-setTimeout(() => console.log(23, new Date()), 100)
-setTimeout(() => {
-	console.time('2')
-	a.forEach((el, i) => {
-		let r = el + i
-		r = r + 'asjdjja;ksda;lsd;lasd'
-		c.push(r)
-	})
-	console.log(21, new Date(), b[0], b[b.length - 1])
-	console.timeEnd('2')
-}, 200)
-a.forEach((el, i) => {
-	let r = el + i
-	r = r + 'asjdjja;ksda;lsd;lasd'
-	b.push(r)
-})
-console.log(2, new Date(), b[0], b[b.length - 1])
-
-console.timeEnd('1')

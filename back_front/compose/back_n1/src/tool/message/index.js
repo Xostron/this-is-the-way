@@ -1,5 +1,4 @@
 const { v4: uuidv4 } = require('uuid')
-// import { v4 as uuidv4 } from 'uuid'
 
 const mes = { 110: { count: true, code: 'module', typeSignal: 'critical', msg: 'Нет связи' } }
 

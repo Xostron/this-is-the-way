@@ -6,21 +6,26 @@ const collect = require('@tool/module/collect')
 const { fnThreadPool } = require('../worker')
 const extralrm = require('./extralrm')
 const { writeOut } = require('@tool/module/get_output')
+const { initAI } = require('@root/util/tensor/init_ai')
+const { getClimateAI } = require('@root/util/tensor/use')
+const mock = require('@root/util/tensor/mock_ai')
 
 // Опрос модулей
 async function main() {
 	try {
 		// store.mdls - module+equipment Массив у никальных модулей,
 		// store.parts - подмассивы распределенные на потоки
-		collect(store.max)
+		// collect(store.max)
 		// Потоковое чтение модулей и сохранение в аккумулятор
-		store.v = await fnThreadPool(store.max)
+		// store.v = await fnThreadPool(store.max)
 		// Обработка авари
-		await extralrm()
+		// await extralrm()
 		//
-		await writeOut(store.mdls)
+		// await writeOut(store.mdls)
 		// Задержка 10 сек
-		Object.keys(store.v ?? {}).length ? await delay(10000) : await delay(5000)
+		// Object.keys(store.v ?? {}).length ? await delay(10000) : await delay(5000)
+		await getClimateAI(mock)
+		await delay(5000)
 	} catch (error) {
 		console.error(99, error)
 		await delay(3000)
@@ -29,6 +34,8 @@ async function main() {
 
 // Главный цикл микросервеса
 async function loop() {
+	await initAI()
+
 	while (true) {
 		const bgn = hrtime()
 		// Всего ядер

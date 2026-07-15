@@ -1,3 +1,5 @@
+const path = require('path')
+
 const store = {
 	// Данные от ангара:
 	// 1) Рама модулей
@@ -53,13 +55,19 @@ const store = {
 	reset: false,
 	// Кол-во потоков
 	max: 2,
-	preMax:null,
+	preMax: null,
 	/**
 	 * Обновление флага последнего соединения с ангаром
 	 */
 	live() {
 		this.timestamp = new Date()
 	},
-}
 
-module.exports = { store }
+	tCheckAi: new Date(),
+	climateAI: null,
+}
+const retainDir = null
+const factoryDir = null
+const dataDir = null
+const aiDir = path.join(__dirname, '..', 'my-climate-model')
+module.exports = { store, retainDir, factoryDir, dataDir, aiDir }

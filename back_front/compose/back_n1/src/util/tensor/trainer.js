@@ -3,7 +3,7 @@ const { store, aiDir } = require('@store/index')
 const tf = require('@tensorflow/tfjs')
 const fs = require('fs')
 const path = require('path')
-const { encodeAm } = require('./fn')
+const { parseNdjsonLog, saveModelManually } = require('./fn')
 
 // 1. ОПРЕДЕЛЯЕМ АРХИТЕКТУРУ ИИ (Конструктор)
 function createModel() {
@@ -26,28 +26,23 @@ function createModel() {
 // 2. ГЛАВНАЯ ФУНКЦИЯ ОБУЧЕНИЯ (Точка входа)
 async function startTraining() {
 	console.log('=== Старт подготовки ИИ ===')
+	// Путь к вашему файлу логов в корне проекта
+	const logPath = path.join(__dirname, 'sensLog.log')
 
-	// ИИ не понимает текст и градусы. Ей нужны матрицы чисел (Тензоры).
-	// Все числа делим на 100, чтобы они были в диапазоне от 0 до 1 (Нормализация).
+	if (!fs.existsSync(logPath)) {
+		console.error(`❌ Ошибка: Файл логов не найден по пути: ${logPath}`)
+		return
+	}
 
-	// Пример сборки векторов для обучения в trainer.js
-	const rawInputs = [
-		// Строка из лога в 12:00 -> [Сушка, Хран, Охл, Т_прод, Вл_прод, Т_ул, Вл_ул]
-		[...encodeAm('сушка'), 14 / 100, 75 / 100, 20 / 100, 60 / 100],
-	]
+	console.log('Читаем и размечаем лог-файл NDJSON...')
+	const { rawInputs, rawOutputs } = await parseNdjsonLog(logPath)
 
-	const rawOutputs = [
-		[
-			// Первые 3 числа — Температура продукта через +20, +40, +60 мин
-			14.2 / 100,
-			14.5 / 100,
-			14.8 / 100,
-			// Следующие 3 числа — Влажность продукта через +20, +40, +60 мин
-			74.5 / 100,
-			74.0 / 100,
-			73.5 / 100,
-		],
-	]
+	if (rawInputs.length === 0) {
+		console.error('❌ Ошибка: Не удалось собрать ни одной валидной пары данных для обучения.')
+		return
+	}
+
+	console.log(`Разметка завершена! Найдено полноценных окон для обучения: ${rawInputs.length}`)
 
 	// Переводим обычные массивы JS в Тензоры TensorFlow
 	const xs = tf.tensor2d(rawInputs)
@@ -80,40 +75,8 @@ async function startTraining() {
 	// Чистим память за TensorFlow
 	xs.dispose()
 	ys.dispose()
+	console.log('=== Процесс полностью завершен! ===')
 }
 
 // Запуск скрипта
 startTraining().catch((err) => console.error('Ошибка:', err))
-
-// 3. СОХРАНЯЕМ ИИ НА ДИСК (Вариант для чистой JS версии)
-async function saveModelManually(model, folderPath) {
-	// Создаем папку, если её нет
-	if (!fs.existsSync(folderPath)) {
-		fs.mkdirSync(folderPath, { recursive: true })
-	}
-
-	// Просим TensorFlow выдать нам структуру модели и веса в виде обычных объектов JS
-	const saveResult = await model.save(
-		tf.io.withSaveHandler(async (modelArtifacts) => {
-			return modelArtifacts
-		}),
-	)
-
-	// 1. Сохраняем файл конфигурации (model.json)
-	const modelJson = {
-		modelTopology: saveResult.modelTopology,
-		weightsManifest: [
-			{
-				paths: ['./weights.bin'], // имя файла с весами
-				weights: saveResult.weightSpecs,
-			},
-		],
-	}
-	fs.writeFileSync(`${folderPath}/model.json`, JSON.stringify(modelJson, null, 2))
-
-	// 2. Сохраняем файл весов (weights.bin) в бинарном виде
-	const weightsBuffer = Buffer.from(saveResult.weightData)
-	fs.writeFileSync(`${folderPath}/weights.bin`, weightsBuffer)
-
-	console.log(`💾 Модель успешно сохранена вручную в папку "${folderPath}"!`)
-}

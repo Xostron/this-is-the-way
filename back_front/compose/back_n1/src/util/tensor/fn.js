@@ -4,6 +4,7 @@ const readline = require('readline')
 const path = require('path')
 const fs = require('fs')
 const { store, aiDir } = require('@store/index')
+const { fmtTimeV2, roundedTime } = require('@root/tool/time')
 
 function encodeAm(mode) {
 	switch (mode?.toLowerCase()) {
@@ -18,14 +19,14 @@ function encodeAm(mode) {
 	}
 }
 
-const logsPath = [
-	path.join(__dirname, 'log', 's1.log'),
-	path.join(__dirname, 'log', 's2.log'),
-	path.join(__dirname, 'log', 's3.log'),
-	path.join(__dirname, 'log', 's4.log'),
-	path.join(__dirname, 'log', 's5.log'),
-]
-parseNdjsonLog(logsPath)
+// const logsPath = [
+// 	path.join(__dirname, 'log', 's1.log'),
+// 	path.join(__dirname, 'log', 's2.log'),
+// 	// path.join(__dirname, 'log', 's3.log'),
+// 	// path.join(__dirname, 'log', 's4.log'),
+// 	// path.join(__dirname, 'log', 's5.log'),
+// ]
+// parseNdjsonLog(logsPath)
 
 // 3. ПОСТРОЧНОЕ ЧТЕНИЕ И СБОРКА ИЗ NDJSON
 async function parseNdjsonLog(filenames = []) {
@@ -44,7 +45,9 @@ async function parseNdjsonLog(filenames = []) {
 					allRecords.push({
 						type: row.message.type,
 						value: row.message.value,
-						timestamp: new Date(row.timestamp),
+						time:row.timestamp,
+						timestamp: roundedTime(row.timestamp),
+						mode: 'хранение',
 					})
 				}
 			} catch (err) {
@@ -52,8 +55,8 @@ async function parseNdjsonLog(filenames = []) {
 			}
 		}
 	}
-	console.log(11, allRecords)
-	// return prepareDataset(allRecords)
+	// console.log(11, allRecords)
+	return prepareDataset(allRecords)
 }
 
 // 2. ФУНКЦИЯ РАЗМЕТКИ ВРЕМЕННЫХ ОКОН (Sliding Window)
@@ -64,25 +67,56 @@ function prepareDataset(logs) {
 	// Группируем сырые логи по таймстампу
 	const timeMap = new Map()
 	logs.forEach((record) => {
-		const time = record.timestamp
-		if (!timeMap.has(time)) {
-			timeMap.set(time, { tprd: null, hin: null, tout: null, hout: null, mode: record.mode })
+		if (!timeMap.has(record.timestamp)) {
+			timeMap.set(record.timestamp, {
+				tprd: null,
+				hin: null,
+				tout: null,
+				hout: null,
+				mode: record.mode,
+				time: record.time,
+			})
 		}
-		const current = timeMap.get(time)
+		const current = timeMap.get(record.timestamp)
 		if (record.type in current) {
 			current[record.type] = record.value
 		}
 	})
-	const sortedTimestamps = Array.from(timeMap.keys()).sort((a, b) => a - b)
+
+	const toSortableString = (str) => {
+		const [date, time] = str.split(', ')
+		const [day, month, year] = date.split('.')
+		return `${year}${month}${day}${time}`
+	}
+
+	Array.from(timeMap.keys()).sort((a, b) => a - b)
+	const sortedTimestamps = [...timeMap.keys()]
+	sortedTimestamps.sort((a, b) => toSortableString(a).localeCompare(toSortableString(b)))
+	// console.log(13, sortedTimestamps)
 
 	// Поиск данных в будущем со смещением в минутах
 	function getDataAtOffset(currentIdx, minutesOffset) {
-		const currentMs = sortedTimestamps[currentIdx]
-		const targetMs = currentMs + minutesOffset * 60 * 1000
-
+		const ref = new Date(sortedTimestamps[currentIdx])
+		const target = [
+			new Date(ref.getTime() + (minutesOffset - 10) * 60 * 1000),
+			new Date(ref.getTime() + (minutesOffset + 10) * 60 * 1000),
+		]
+		// console.log(123, '\n*******')
 		for (let i = currentIdx; i < sortedTimestamps.length; i++) {
-			if (sortedTimestamps[i] === targetMs) return timeMap.get(sortedTimestamps[i])
-			if (sortedTimestamps[i] > targetMs) break
+			// console.log(
+			// 	124,
+			// 	new Date(sortedTimestamps[i]),
+			// 	target[0],
+			// 	target[1],
+			// 	new Date(sortedTimestamps[i]) > target[0],
+			// 	new Date(sortedTimestamps[i]) <= target[1]
+			// )
+			if (
+				new Date(sortedTimestamps[i]) >= target[0] &&
+				new Date(sortedTimestamps[i]) <= target[1]
+			)
+				return timeMap.get(sortedTimestamps[i])
+			if (sortedTimestamps[i] > target[1]) break
 		}
 		return null
 	}
@@ -90,7 +124,6 @@ function prepareDataset(logs) {
 	// Собираем скользящее окно
 	for (let i = 0; i < sortedTimestamps.length; i++) {
 		const current = timeMap.get(sortedTimestamps[i])
-
 		// Если в текущей точке нет базовых датчиков — пропускаем
 		if (
 			current.tprd === null ||
@@ -104,7 +137,8 @@ function prepareDataset(logs) {
 		const out20 = getDataAtOffset(i, 20)
 		const out40 = getDataAtOffset(i, 40)
 		const out60 = getDataAtOffset(i, 60)
-
+		
+		// console.log(55, current.time, out20?.time,out40?.time,out60?.time)
 		if (!out20 || !out40 || !out60) continue
 		if (out20.tprd === null || out40.tprd === null || out60.tprd === null) continue
 		if (out20.hin === null || out40.hin === null || out60.hin === null) continue
@@ -131,7 +165,8 @@ function prepareDataset(logs) {
 		rawInputs.push(inputRow)
 		rawOutputs.push(outputRow)
 	}
-
+	console.log(33, rawInputs)
+	console.log(44, rawOutputs)
 	return { rawInputs, rawOutputs }
 }
 

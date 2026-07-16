@@ -27,13 +27,13 @@ function createModel() {
 async function startTraining() {
 	console.log('=== Старт подготовки ИИ ===')
 	// Путь к вашему файлу логов в корне проекта
-	const logPath = path.join(__dirname, 'sensLog.log')
+	// const logPath = path.join(__dirname, 'sensLog.log')
 
-	if (!fs.existsSync(logPath)) {
-		console.error(`❌ Ошибка: Файл логов не найден по пути: ${logPath}`)
-		return
-	}
-
+	// if (!fs.existsSync(logPath)) {
+	// 	console.error(`❌ Ошибка: Файл логов не найден по пути: ${logPath}`)
+	// 	return
+	// }
+	const logPath = [path.join(__dirname, 'log', 's1.log'), path.join(__dirname, 'log', 's2.log')]
 	console.log('Читаем и размечаем лог-файл NDJSON...')
 	const { rawInputs, rawOutputs } = await parseNdjsonLog(logPath)
 

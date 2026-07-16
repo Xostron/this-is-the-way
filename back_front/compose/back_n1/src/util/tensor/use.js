@@ -29,8 +29,8 @@ async function getClimateAI(inData) {
 		// Возвращаем денормализованные (умноженные обратно на 100) данные
 		return {
 			// Режем массив пополам и денормализуем
-			tprd: Array.from(raw6Numbers.slice(0, 3)).map((v) => Math.round(v * 100)), // [+20, +40, +60 мин]
-			hin: Array.from(raw6Numbers.slice(3, 6)).map((v) => Math.round(v * 100)), // [+20, +40, +60 мин]
+			tprd: Array.from(result.slice(0, 3)).map((v) => Math.round(v * 100)), // [+20, +40, +60 мин]
+			hin: Array.from(result.slice(3, 6)).map((v) => Math.round(v * 100)), // [+20, +40, +60 мин]
 		}
 	})
 
@@ -38,7 +38,7 @@ async function getClimateAI(inData) {
 	store.tCheckAi = new Date()
 
 	console.log(
-		`🔮 Прогноз ИИ через 3 часа в ангаре: Т = ${aiResult.tprd}°C, Вл = ${aiResult.hin}%`,
+		`🔮 Прогноз ИИ на 1 час за 20б40б60 минут в ангаре: Т = ${aiResult.tprd}°C, Вл = ${aiResult.hin}%`,
 	)
 	return aiResult
 }

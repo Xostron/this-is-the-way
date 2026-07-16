@@ -1,8 +1,8 @@
 const mock = {
-	tprd: 1,
-	hin: 70,
-	tout: 25,
-	hout: 50,
+	tprd: 10,
+	hin: 50,
+	tout: 5,
+	hout: 30,
 	automode: 'хранение',
 }
 module.exports = mock

@@ -195,6 +195,38 @@ function onTime(code, acc) {
 	// console.log('\t' + code, runTime(acc.state[code]))
 }
 
+/**
+ * Форматировать секунды в 00:00:00 или 00:00
+ * @param {string | object} doc время
+ * @param {number} 0 - вывод дата и время, 1 - вывод дата-время-мс
+ * @returns {string} 00:00:00 или 00:00
+ */
+function fmtTimeV2(doc, type = 0) {
+	try {
+		if (typeof doc === 'string') doc = new Date(doc)
+
+		doc =
+			type === 0
+				? doc.toLocaleString('ru-RU')
+				: `${doc.toLocaleString('ru-RU')}.${String(doc.getMilliseconds()).padStart(3, '0')}`
+
+		return doc
+	} catch (error) {
+		console.log(11, error)
+		return ''
+	}
+}
+
+function roundedTime(doc) {
+	try {
+		if (typeof doc === 'string') doc = new Date(doc)
+		doc.setMilliseconds(0)
+		return doc.toISOString()
+	} catch (error) {
+		return ''
+	}
+}
+
 module.exports = {
 	ms,
 	delay,
@@ -207,4 +239,6 @@ module.exports = {
 	elapsedTime,
 	onTime,
 	remTime,
+	fmtTimeV2,
+	roundedTime,
 }

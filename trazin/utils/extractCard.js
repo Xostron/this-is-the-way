@@ -11,6 +11,6 @@ main();
 async function main() {
     const arr = fnConfig(data, null, true);
     for (const el of arr) {
-        await fnUrlCards(el, .2);
+        await fnUrlCards(el, 3);
     }
 }

@@ -28,6 +28,7 @@ function encodeAm(mode) {
 // ]
 // parseNdjsonLog(logsPath)
 
+
 // 3. ПОСТРОЧНОЕ ЧТЕНИЕ И СБОРКА ИЗ NDJSON
 async function parseNdjsonLog(filenames = []) {
 	if (!filenames.length) return []
@@ -45,7 +46,7 @@ async function parseNdjsonLog(filenames = []) {
 					allRecords.push({
 						type: row.message.type,
 						value: row.message.value,
-						time:row.timestamp,
+						time: row.timestamp,
 						timestamp: roundedTime(row.timestamp),
 						mode: 'хранение',
 					})
@@ -137,7 +138,7 @@ function prepareDataset(logs) {
 		const out20 = getDataAtOffset(i, 20)
 		const out40 = getDataAtOffset(i, 40)
 		const out60 = getDataAtOffset(i, 60)
-		
+
 		// console.log(55, current.time, out20?.time,out40?.time,out60?.time)
 		if (!out20 || !out40 || !out60) continue
 		if (out20.tprd === null || out40.tprd === null || out60.tprd === null) continue

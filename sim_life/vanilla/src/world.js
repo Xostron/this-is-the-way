@@ -121,12 +121,14 @@ export class World {
 
 		// 3. Создаем элиту (точные копии)
 		survivors.forEach((survivor, i) => {
+			survivor.win++
 			newAgents.push(
 				new Agent(
 					Math.random() * this.width,
 					Math.random() * this.height,
-					i,
 					survivor.brain.mutate(0, `elite_${i}`),
+					true,
+					survivor.win,
 				),
 			)
 		})
@@ -145,8 +147,9 @@ export class World {
 				new Agent(
 					Math.random() * this.width,
 					Math.random() * this.height,
-					null,
 					childBrain,
+					null,
+					0,
 				),
 			)
 		}

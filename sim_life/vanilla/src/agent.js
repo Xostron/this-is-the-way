@@ -1,10 +1,13 @@
 import { Brain } from './Brain'
 
 export class Agent {
-	constructor(x, y, elite, brain = null) {
+	constructor(x, y, brain = null, elite, win) {
 		this.x = x
 		this.y = y
+		// Флаг победитель прошлых голодных игр
 		this.elite = elite
+		// Кратность победы
+		this.win = win ?? 0
 		this.radius = 8
 		this.angle = Math.random() * Math.PI * 2 // Направление взгляда в радианах
 		this.speed = 0
@@ -16,9 +19,9 @@ export class Agent {
 		this.isDead = false
 
 		// Инициализация мозга: 2 входа (дистанция и угол до еды), 2 выхода (скорость и поворот)
-		this.inputSize = 2
+		this.inputSize = 3
 		this.outputSize = 2
-		this.brain = brain || new Brain(this.inputSize, 4, this.outputSize)
+		this.brain = brain || new Brain(this.inputSize, 6, this.outputSize)
 	}
 
 	/**
@@ -27,6 +30,7 @@ export class Agent {
 	update(worldWidth, worldHeight, closestFood) {
 		if (this.isDead) return
 
+		// Метод getInputs теперь возвращает массив из 3 элементов
 		const inputs = this.getInputs(closestFood)
 		const outputs = this.brain.predict(inputs)
 
@@ -68,8 +72,13 @@ export class Agent {
 	 * Формирует массив датчиков для передачи в Brain
 	 */
 	getInputs(closestFood) {
+		// 1. Датчик энергии: переводим текущую энергию [0, 1] в диапазон [-1, 1] для tanh
+		// Полная энергия (1.0) -> 1.0. Половина (0.5) -> 0.0. Смертельный голод (0.0) -> -1.0
+		const energySignal = this.energy * 2 - 1
+
+		// Если еды вообще нет: дистанция "супер-далеко" (-1), угол прямо (0)
 		if (!closestFood) {
-			return [-1, 0] // Если еды вообще нет: дистанция "супер-далеко" (-1), угол прямо (0)
+			return [-1, 0, energySignal]
 		}
 
 		const dx = closestFood.x - this.x
@@ -79,21 +88,17 @@ export class Agent {
 		// 1. Нормализация дистанции от -1 (далеко) до 1 (в упор)
 		// Сначала переводим в диапазон, где 0 - близко, 1 - далеко (до 600px)
 		let normDist = Math.min(1, distance / 600)
-		// А теперь инвертируем и масштабируем в диапазон [-1, 1]
-		// В упор (dist=0) -> 1.0. На расстоянии 600px и дальше -> -1.0
 		const finalDistanceSignal = 1 - normDist * 2
 
 		// 2. Расчет угла
 		const angleToFood = Math.atan2(dy, dx)
 		let relativeAngle = angleToFood - this.angle
-
 		while (relativeAngle < -Math.PI) relativeAngle += Math.PI * 2
 		while (relativeAngle > Math.PI) relativeAngle -= Math.PI * 2
-
 		// Угол уже в диапазоне [-PI, PI], делим на PI и получаем идеальные [-1, 1]
 		const finalAngleSignal = relativeAngle / Math.PI
 
-		return [finalDistanceSignal, finalAngleSignal]
+		return [finalDistanceSignal, finalAngleSignal, energySignal]
 	}
 
 	/**
@@ -112,9 +117,9 @@ export class Agent {
 			ctx.font = 'bold 14px sans-serif'
 			ctx.textAlign = 'center'
 			// Выводим цифру чуть выше агента (на 15 пикселей вверх)
-			ctx.fillText(this.elite, 0, -this.radius - 5)
+			ctx.fillText(this.win, 0, -this.radius - 5)
 		}
-		
+
 		ctx.rotate(this.angle)
 
 		// Рисуем тело (цвет зависит от энергии: зеленый — сытый, красный — голодный)

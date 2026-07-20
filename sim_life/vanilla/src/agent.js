@@ -6,7 +6,7 @@ export class Agent {
 		this.y = y
 		// Флаг победитель прошлых голодных игр
 		this.elite = elite
-		// Кратность победы
+		// Счет побед
 		this.win = win ?? 0
 		this.radius = 8
 		this.angle = Math.random() * Math.PI * 2 // Направление взгляда в радианах
@@ -50,7 +50,7 @@ export class Agent {
 
 		// Расход энергии (метаболизм)
 		this.energy -= 0.001 + (this.speed / this.maxSpeed) * 0.002
-
+		// this.energy = 1
 		// Начисление фитнеса (поощряем за близость к еде)
 		if (closestFood) {
 			const dx = closestFood.x - this.x

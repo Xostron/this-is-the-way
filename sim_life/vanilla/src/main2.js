@@ -26,6 +26,10 @@ window.addEventListener('DOMContentLoaded', () => {
 			console.log('Скорость: Максимальная (100х)')
 		}
 		if (e.key === '5') {
+			simSpeed = 1000
+			console.log('Пауза')
+		}
+		if (e.key === '6') {
 			simSpeed = 0
 			console.log('Пауза')
 		}
@@ -46,7 +50,7 @@ window.addEventListener('DOMContentLoaded', () => {
 			const ctx = canvas.getContext('2d')
 			ctx.fillStyle = '#ffcc00'
 			ctx.font = '16px sans-serif'
-			ctx.fillText(`Скорость расчетов: ${simSpeed}x (Кнопки 1-4)`, 20, 80)
+			ctx.fillText(`Скорость расчетов: ${simSpeed}x (Кнопки 1-4)`, 20, 105)
 
 			requestAnimationFrame(gameLoop)
 		}

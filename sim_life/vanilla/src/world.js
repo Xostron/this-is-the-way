@@ -1,4 +1,5 @@
 import { Agent } from './Agent'
+import { Predator } from './predator'
 
 export class World {
 	constructor(canvas) {
@@ -9,15 +10,14 @@ export class World {
 
 		// Настройки популяции
 		this.totalAgents = 20
+		this.totalPredator = 4
 		this.totalFood = 40
 		this.generation = 1
 
 		// Списки объектов
 		this.agents = []
 		this.food = []
-
-		// Лучшие мозги из предыдущего поколения для эволюции
-		this.bestBrains = []
+		this.predators = []
 
 		this.init()
 	}
@@ -28,16 +28,19 @@ export class World {
 	init() {
 		this.food = []
 		this.agents = []
-
+		this.predators = []
 		// Создаем еду
-		for (let i = 0; i < this.totalFood; i++) {
-			this.spawnFood()
-		}
+		for (let i = 0; i < this.totalFood; i++) this.spawnFood()
 
 		// Создаем агентов
-		for (let i = 0; i < this.totalAgents; i++) {
+		for (let i = 0; i < this.totalAgents; i++)
 			this.agents.push(new Agent(Math.random() * this.width, Math.random() * this.height))
-		}
+
+		// Создаем хищников
+		for (let i = 0; i < this.totalPredator; i++)
+			this.predators.push(
+				new Predator(Math.random() * this.width, Math.random() * this.height),
+			)
 	}
 
 	/**
@@ -57,16 +60,19 @@ export class World {
 	update() {
 		// 1. Фильтруем живых агентов
 		const aliveAgents = this.agents.filter((a) => !a.isDead)
+		const alivePredators = this.predators.filter((p) => !p.isDead)
 
 		// Если все умерли — запускаем новое поколение
-		if (aliveAgents.length === 0) {
+		if (aliveAgents.length === 0 && alivePredators.length === 0) {
 			this.nextGeneration()
 			return
 		}
 
 		// 2. Обновляем каждого агента
 		for (const agent of aliveAgents) {
+			// Координаты ближайшей травы
 			const closestFood = this.getClosestFood(agent)
+			// Передаем животному координаты травы
 			agent.update(this.width, this.height, closestFood)
 
 			// Проверяем, съел ли агент эту еду
@@ -84,6 +90,38 @@ export class World {
 				}
 			}
 		}
+
+		// 2. Обновляем Хищников (они ищут живых жертв)
+		for (const pred of alivePredators) {
+			const closestPrey = this.getClosestPrey(pred, aliveAgents)
+			pred.update(this.width, this.height, closestPrey)
+
+			// Проверяем, поймал ли хищник жертву
+			if (closestPrey) {
+				const dist = Math.sqrt(
+					(closestPrey.x - pred.x) ** 2 + (closestPrey.y - pred.y) ** 2,
+				)
+				if (dist < pred.radius + closestPrey.radius) {
+					pred.eat() // Восстанавливает энергию хищнику
+					closestPrey.die() // Жертва мгновенно умирает
+				}
+			}
+		}
+	}
+
+	getClosestPrey(pred, aliveAgents) {
+		if (this.agents.length === 0) return null
+		// Находим ближайшую ЖИВУЮ жертву
+		let closestPrey = null
+		let minDist = Infinity
+		for (const prey of aliveAgents) {
+			const dist = Math.sqrt((prey.x - pred.x) ** 2 + (prey.y - pred.y) ** 2)
+			if (dist < minDist) {
+				minDist = dist
+				closestPrey = prey
+			}
+		}
+		return closestPrey
 	}
 
 	/**
@@ -112,88 +150,106 @@ export class World {
 	 * Генетический алгоритм: создание следующего поколения
 	 */
 	nextGeneration() {
-		// 1. Сортируем ВСЕХ агентов по их fitness (кто больше съел)
-		this.agents.sort((a, b) => b.fitness - a.fitness)
+		console.log('--- СМЕНА ПОКОЛЕНИЙ ---')
 
-		// 2. Выбираем топ-10 выживших лидеров (их мозги гарантированно целы)
+		// --- ЭВОЛЮЦИЯ ЖЕРТВ ---
+		this.agents.sort((a, b) => b.fitness - a.fitness)
 		const survivors = this.agents.slice(0, 2)
 		const newAgents = []
-
-		// 3. Создаем элиту (точные копии)
-		survivors.forEach((survivor, i) => {
-			survivor.win++
+		survivors.forEach((s, i) =>
 			newAgents.push(
 				new Agent(
 					Math.random() * this.width,
 					Math.random() * this.height,
-					survivor.brain.mutate(0, `elite_${i}`),
+					s.brain.mutate(0, `elite_prey_${i}`),
 					true,
-					survivor.win,
+					s.win,
 				),
-			)
-		})
-
-		// 4. Создаем мутантов-потомков
-		let childIndex = 0
-		// Рассчитываем динамическую мутацию: стартуем с 0.2, но не опускаемся ниже 0.02
-		const currentMutationRate = Math.max(0.02, 0.2 / Math.sqrt(this.generation))
-
-		console.log(`Текущая сила мутации: ${currentMutationRate.toFixed(3)}`)
+			),
+		)
+		let childIdx = 0
 		while (newAgents.length < this.totalAgents) {
 			const parent = survivors[Math.floor(Math.random() * survivors.length)]
-			const childBrain = parent.brain.mutate(currentMutationRate, `child_${childIndex++}`)
-
 			newAgents.push(
 				new Agent(
 					Math.random() * this.width,
 					Math.random() * this.height,
-					childBrain,
-					null,
-					0,
+					parent.brain.mutate(0.1, `child_prey_${childIdx++}`),
 				),
 			)
 		}
-
-		// 5. ТОТАЛЬНАЯ ОЧИСТКА СТАРЫХ ТЕНЗОРОВ
-		// Теперь это безопасно делать для ВСЕХ старых агентов без исключения
 		this.agents.forEach((a) => a.brain.dispose())
-
-		// 6. Перезапускаем списки мира
 		this.agents = newAgents
-		this.food = []
-		for (let i = 0; i < this.totalFood; i++) {
-			this.spawnFood()
-		}
 
+		// --- ЭВОЛЮЦИЯ ХИЩНИКОВ ---
+		this.predators.sort((a, b) => b.fitness - a.fitness)
+		const predSurvivors = this.predators.slice(0, 1) // Оставляем 1 лучшего волка
+		const newPredators = []
+		predSurvivors.forEach((s, i) =>
+			newPredators.push(
+				new Predator(
+					Math.random() * this.width,
+					Math.random() * this.height,
+					s.brain.mutate(0, `elite_pred_${i}`),
+					true,
+					s.win,
+				),
+			),
+		)
+		let predChildIdx = 0
+		while (newPredators.length < this.totalPredator) {
+			const parent = predSurvivors[0]
+			newPredators.push(
+				new Predator(
+					Math.random() * this.width,
+					Math.random() * this.height,
+					parent.brain.mutate(0.1, `child_pred_${predChildIdx++}`),
+				),
+			)
+		}
+		this.predators.forEach((p) => p.brain.dispose())
+		this.predators = newPredators
+
+		// Сброс еды
+		this.food = []
+		for (let i = 0; i < this.totalFood; i++) this.spawnFood()
 		this.generation++
-		console.log(`--- Поколение ${this.generation} запущено успешно! ---`)
 	}
 
 	/**
 	 * Отрисовка всех объектов на холсте
 	 */
 	draw() {
-		// Очищаем Canvas
-		this.ctx.fillStyle = '#222' // Темный фон
+		this.ctx.fillStyle = '#222'
 		this.ctx.fillRect(0, 0, this.width, this.height)
 
-		// Рисуем еду (красные кружочки)
-		this.ctx.fillStyle = '#ff5555'
+		// Рисуем еду (трава)
+		this.ctx.fillStyle = '#55ff55' // Сделаем траву зеленой!
 		for (const f of this.food) {
 			this.ctx.beginPath()
 			this.ctx.arc(f.x, f.y, f.radius, 0, Math.PI * 2)
 			this.ctx.fill()
 		}
 
-		// Рисуем живых агентов
-		for (const agent of this.agents) {
-			agent.draw(this.ctx)
-		}
+		// Маркируем лидеров среди жертв
+		const aliveSorted = this.agents
+			.filter((a) => !a.isDead)
+			.sort((a, b) => b.fitness - a.fitness)
+		this.agents.forEach((a) => (a.leaderRank = null))
+		if (aliveSorted[0]) aliveSorted[0].leaderRank = 1
+		if (aliveSorted[1]) aliveSorted[1].leaderRank = 2
 
-		// Выводим текст с номером поколения
+		// Рисуем жертв
+		for (const agent of this.agents) agent.draw(this.ctx)
+
+		// Рисуем хищников
+		for (const pred of this.predators) pred.draw(this.ctx)
+
+		// Интерфейс
 		this.ctx.fillStyle = '#fff'
 		this.ctx.font = '16px sans-serif'
 		this.ctx.fillText(`Поколение: ${this.generation}`, 20, 30)
-		this.ctx.fillText(`Живых агентов: ${this.agents.filter((a) => !a.isDead).length}`, 20, 55)
+		this.ctx.fillText(`Жертв: ${aliveSorted.length}`, 20, 55)
+		this.ctx.fillText(`Хищников: ${this.predators.filter((p) => !p.isDead).length}`, 20, 80)
 	}
 }

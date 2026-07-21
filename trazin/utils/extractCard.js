@@ -3,7 +3,7 @@ const { fnUrlCards } = require("../scrapper");
 
 // Ссылка на каталог
 const data = [
-    "https://market.yandex.ru/catalog--elektronika/54440/list?generalContext=&hid=198119&rs=eJwBSwC0_zJJ8gFGCAAQocIFGAAg54sMKO_DBSjFygUo7M85KMnjPCjRk18o4N6vAijB-4YFKKLCBSiqxAUojMUFKLHFBSiBxwUozcsFKOaLDGhQHs8%2C"
+    "https://market.yandex.ru/search?promo-type-name=favourite_categories&utm_medium=sharing&generalContext=t%3Dpromo%3Bi%3D1%3Bspi%3Dlinear_by_price_shown_diy%3B&rs=eJwzEv7EKMDBKLDwEKsEg8bZ06waq46wAgA8fwZC&shopPromoId=linear_by_price_shown_diy"
 ];
 
 main();

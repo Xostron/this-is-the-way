@@ -3,7 +3,7 @@ const { fnUrlCards } = require("../scrapper");
 
 // Ссылка на каталог
 const data = [
-    "https://market.yandex.ru/search?promo-type-name=favourite_categories&utm_medium=sharing&generalContext=t%3Dpromo%3Bi%3D1%3Bspi%3Dlinear_by_price_shown_diy%3B&rs=eJwzEv7EKMDBKLDwEKsEg8bZ06waq46wAgA8fwZC&shopPromoId=linear_by_price_shown_diy"
+    "https://market.yandex.ru/catalog--bytovaia-khimiia-v-volzhskom/21448850/list?hid=90685&how=rating&rs=eJwz0v7EqMHBILDwEKsEg8LeI6waB4G4--gZdo2zS8-za_x7uZZN4xBQaMertWwAa8ISFg%2C%2C"
 ];
 
 main();

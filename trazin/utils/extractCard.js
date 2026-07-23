@@ -3,7 +3,7 @@ const { fnUrlCards } = require("../scrapper");
 
 // Ссылка на каталог
 const data = [
-    "https://business.market.yandex.ru/catalog--tovary-dlia-doma/54422/list?generalContext=&hid=90667&rs=eJwzsv_EaMPBILD6CKsEk8KqI6wac1ZNYdXo2PuVSeNlw3VWjQP_J7Fp3NsD5O4HsdYCVRz8B2SsAzLeARUAAEGPG5Y%2C"
+    "https://market.yandex.ru/catalog--muzhskie-rubashki/54404711/list?hid=65993786&rs=eJwz4n_ByPiJkZODQYJBYdeP3fIAJrgE9A%2C%2C&crossborder=internal"
 ];
 
 main();

@@ -3,6 +3,7 @@ const fnConfig = require('../scrapper/config')
 const { fnPromo } = require('../scrapper')
 const save = require('../tool/save')
 const { delay } = require('../tool/time')
+
 const data = [
 	//   require('../temp_cards/0.json'),
 	require('../temp_cards/cards_0.json'),

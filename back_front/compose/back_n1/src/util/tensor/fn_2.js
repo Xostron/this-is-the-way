@@ -3,10 +3,12 @@ const readline = require('readline')
 const path = require('path')
 const fs = require('fs')
 
+// Читаем лог и преобразуем каждую строчку в объект и записываем в json
 convertLogToObjectsFile(
 	path.join(__dirname, 'log', 's1.log'),
-	path.join(__dirname, 'log', 'sss1.json'),
+	path.join(__dirname, 'log', 'sqs1.json'),
 )
+
 // Стриминговое чтение лога и пстриминговая перезапись в json
 async function convertLogToObjectsFile(inputFilename, outputFilename) {
 	// 1. Открываем поток чтения сырого лога

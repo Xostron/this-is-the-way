@@ -1,0 +1,1435 @@
+<!DOCTYPE html><html lang="en"><head><script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-0000000&amp;gtm_auth=&amp;gtm_preview=&amp;gtm_cookies_win=x"></script><script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];
+        w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js', "clickNotifications":"click_notifications"});
+        var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+        j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl+'&gtm_auth=&gtm_preview=&gtm_cookies_win=x';
+        f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-0000000');</script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="mui-emotion" content=""><style data-emotion="mui" data-s=""></style>
+        <meta name="tss-emotion" content=""><style data-emotion="tss" data-s=""></style>
+        <link rel="icon" type="image/x-icon" href="/favicon-26dcd8a7.png">
+        <title>School 21 - Task</title>
+        <style>
+            .spinner {
+                animation: rotate 2s linear infinite;
+                z-index: 2;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                margin: -25px 0 0 -25px;
+                width: 50px;
+                height: 50px;
+            }
+
+            .spinner .path {
+                stroke: #861be3;
+                stroke-linecap: round;
+                animation: dash 1.5s ease-in-out infinite;
+            }
+
+            @keyframes rotate {
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+
+            @keyframes dash {
+                0% {
+                    stroke-dasharray: 1, 150;
+                    stroke-dashoffset: 0;
+                }
+                50% {
+                    stroke-dasharray: 90, 150;
+                    stroke-dashoffset: -35;
+                }
+                100% {
+                    stroke-dasharray: 90, 150;
+                    stroke-dashoffset: -124;
+                }
+            }
+        </style>
+      <script type="module" crossorigin="" src="/index-1b000cf4.js"></script>
+      <script type="module">import.meta.url;import("_").catch(()=>1);(async function*(){})().next();if(location.protocol!="file:"){window.__vite_is_modern_browser=true}</script>
+      <script type="module">!function(){if(window.__vite_is_modern_browser)return;console.warn("vite: loading legacy chunks, syntax error above and the same error below should be ignored");var e=document.getElementById("vite-legacy-polyfill"),n=document.createElement("script");n.src=e.src,n.onload=function(){System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))},document.body.appendChild(n)}();</script>
+    <link rel="stylesheet" type="text/css" media="screen" href="https://platform.21-school.ru/services/21-school/api/swagger-ui/swagger-ui.css"><style id="_goober"> .go1475592160{height:0;}.go1671063245{height:auto;}.go1888806478{display:flex;flex-wrap:wrap;flex-grow:1;}@media (min-width:600px){.go1888806478{flex-grow:initial;min-width:288px;}}.go167266335{background-color:#313131;font-size:0.875rem;line-height:1.43;letter-spacing:0.01071em;color:#fff;align-items:center;padding:6px 16px;border-radius:4px;box-shadow:0px 3px 5px -1px rgba(0,0,0,0.2),0px 6px 10px 0px rgba(0,0,0,0.14),0px 1px 18px 0px rgba(0,0,0,0.12);}.go3162094071{padding-left:20px;}.go3844575157{background-color:#313131;}.go1725278324{background-color:#43a047;}.go3651055292{background-color:#d32f2f;}.go4215275574{background-color:#ff9800;}.go1930647212{background-color:#2196f3;}.go946087465{display:flex;align-items:center;padding:8px 0;}.go703367398{display:flex;align-items:center;margin-left:auto;padding-left:16px;margin-right:-8px;}.go3963613292{width:100%;position:relative;transform:translateX(0);top:0;right:0;bottom:0;left:0;min-width:288px;}.go1141946668{box-sizing:border-box;display:flex;max-height:100%;position:fixed;z-index:1400;height:auto;width:auto;transition:top 300ms ease 0ms,right 300ms ease 0ms,bottom 300ms ease 0ms,left 300ms ease 0ms,max-width 300ms ease 0ms;pointer-events:none;max-width:calc(100% - 40px);}.go1141946668 .notistack-CollapseWrapper{padding:6px 0px;transition:padding 300ms ease 0ms;}@media (max-width:599.95px){.go1141946668{width:100%;max-width:calc(100% - 32px);}}.go3868796639 .notistack-CollapseWrapper{padding:2px 0px;}.go3118922589{top:14px;flex-direction:column;}.go1453831412{bottom:14px;flex-direction:column-reverse;}.go4027089540{left:20px;}@media (min-width:600px){.go4027089540{align-items:flex-start;}}@media (max-width:599.95px){.go4027089540{left:16px;}}.go2989568495{right:20px;}@media (min-width:600px){.go2989568495{align-items:flex-end;}}@media (max-width:599.95px){.go2989568495{right:16px;}}.go4034260886{left:50%;transform:translateX(-50%);}@media (min-width:600px){.go4034260886{align-items:center;}}</style><style data-jss="" data-meta="makeStyles">
+.jss6 {
+  gap: 24px;
+  right: 32px;
+  bottom: 32px;
+  height: fit-content;
+  display: flex;
+  z-index: 1200;
+  position: fixed;
+  flex-direction: column;
+  justify-content: end;
+}
+@media (max-width:959.95px) {
+  .jss6 {
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+</style><style data-jss="" data-meta="makeStyles">
+.jss7 {
+  background-color: #861BE3;
+}
+.jss8 {
+  margin-top: -16px;
+  margin-bottom: 24px;
+}
+</style><style data-jss="" data-meta="makeStyles">
+.jss9 {
+  z-index: 1250;
+}
+.jss10 {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+</style><style data-jss="" data-meta="makeStyles">
+.jss46 {
+  color: #ffffff;
+  width: 32px;
+  cursor: pointer;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  margin-right: 16px;
+  justify-content: center;
+}
+.jss47 {
+  cursor: pointer;
+  padding: 2px;
+  transform: rotate(180deg);
+}
+</style><style data-jss="" data-meta="makeStyles">
+.jss14 {
+  width: 100%;
+  flex-grow: 1;
+  max-width: 1216px;
+  margin-top: 32px;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width:1279.95px) {
+  .jss14 {
+    max-width: 892px;
+  }
+}
+@media (max-width:959.95px) {
+  .jss14 {
+    min-height: auto;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+@media (max-width:599.95px) {
+  .jss14 {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+.jss15 {
+  color: #ffffff;
+  width: 100%;
+  flex-grow: 1;
+  margin-top: 32px;
+}
+.jss16 {
+  display: flex;
+  flex-direction: column;
+}
+</style><style data-jss="" data-meta="makeStyles">
+</style><style data-jss="" data-meta="makeStyles">
+.jss108 {
+  display: flex;
+  padding: 30px 0;
+  justify-content: center;
+}
+.jss109 {
+  transition: color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  text-decoration: none;
+}
+.jss109 + .jss109 {
+  margin-left: 32px;
+}
+.jss109:hover {
+  color: #A24FEA;
+}
+</style><style data-jss="" data-meta="makeStyles">
+.jss55 {
+  margin-top: 8px;
+}
+.jss56 {
+  margin-top: 8px;
+}
+.jss57 {
+  color: #212121;
+  margin-top: 24px;
+}
+.jss58 {
+  margin-top: 24px;
+}
+.jss59 {
+  margin: 24px 0px;
+  display: flex;
+  justify-content: center;
+}
+.jss60 {
+  height: 80px;
+}
+.jss61 {
+  margin-top: 16px;
+}
+@media (max-width:959.95px) {
+  .jss62 {
+    height: calc(100% - 80px);
+  }
+}
+</style><style data-jss="" data-meta="makeStyles">
+.jss63 {
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  height: 32px;
+  padding: 4px;
+  background: transparent;
+  transition: backgroundColor 250ms cubic-bezier(0.4, 0, 1, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 1, 1) 0ms;
+  border-radius: 8px;
+}
+@media (hover: hover) {
+  .jss63:hover {
+    background-color: #323842;
+  }
+}
+.jss63:active {
+  color: #44EB99;
+  outline: none;
+  background-color: #323842;
+}
+</style><style data-jss="" data-meta="makeStyles">
+.jss42 {
+  z-index: 1096;
+  transform-origin: 0 0;
+}
+.jss43 {
+  height: -webkit-fill-available;
+  display: inline-flex;
+  pointer-events: none;
+}
+</style><style data-jss="" data-meta="makeStyles">
+</style><style data-jss="" data-meta="makeStyles">
+.jss74 {
+  position: relative;
+}
+.jss75 {
+  margin-bottom: 2rem;
+}
+.jss76 {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+@media (max-width:959.95px) {
+  .jss76 {
+    position: static;
+  }
+}
+.jss77 {
+  color: #8191A2;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.jss78 {
+  margin: 0 0 2rem 0;
+  padding: 0;
+  list-style-type: none;
+}
+.jss78:last-child {
+  margin-bottom: 0;
+}
+.jss79 {
+  display: flex;
+  position: relative;
+  margin-top: 1rem;
+  justify-content: center;
+}
+@media (max-width:599.95px) {
+  .jss79 {
+    justify-content: start;
+  }
+}
+.jss80 {
+  color: #8191A2;
+  right: 0;
+  position: absolute;
+  line-height: 40px;
+}
+.jss81 .MuiBadge-badge {
+  cursor: default;
+  height: 26px;
+  padding: 0 8px;
+  font-size: 12px;
+  min-width: 26px;
+  text-align: center;
+  line-height: 26;
+  user-select: none;
+  border-radius: 16px;
+  pointer-events: none;
+}
+.jss82 {
+  list-style-type: none;
+}
+</style><style data-jss="" data-meta="makeStyles">
+.jss48 {
+  height: 32px;
+  display: flex;
+  z-index: 1099;
+  position: relative;
+  margin-top: 4px;
+  align-items: center;
+  justify-content: space-between;
+}
+.jss49 {
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 14px;
+  font-style: normal;
+  font-family: SB Sans Text;
+  font-weight: normal;
+  line-height: 20px;
+  padding-bottom: 2px;
+}
+.jss49:hover {
+  color: #44EB99;
+}
+.jss49 a {
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 14px;
+  font-style: normal;
+  font-family: SB Sans Text;
+  font-weight: normal;
+  line-height: 20px;
+  padding-bottom: 2px;
+  text-decoration: none;
+}
+.jss49 a:hover {
+  color: #44EB99;
+}
+.jss50 {
+  color: #44EB99;
+  border-bottom: 2px solid #44EB99;
+}
+.jss50 a {
+  color: #44EB99;
+}
+.jss51 {
+  left: 0;
+  right: 0;
+  height: 364px;
+  z-index: 1098;
+  position: absolute;
+  padding-top: 32px;
+  background-color: #1D2633;
+}
+.jss52 {
+  color: #ffffff;
+  margin: 32px auto 40px auto;
+  padding: 34px 24px 24px;
+  max-width: 640px;
+}
+@media (max-width:1279.95px) {
+  .jss52 {
+    gap: 10px;
+    max-width: 500px;
+  }
+}
+.jss53 {
+  height: 100vh;
+  opacity: 0.5;
+  z-index: 1097;
+  background: #1D2633;
+}
+</style><style data-jss="" data-meta="makeStyles">
+</style><style data-jss="" data-meta="makeStyles">
+.jss64 {
+  color: #ffffff;
+  cursor: pointer;
+  height: 56px;
+  display: flex;
+  padding: 8px;
+  align-items: center;
+  border-radius: 16px;
+}
+.jss64:hover {
+  background-color: #861BE3;
+}
+.jss65 {
+  width: 40px;
+  border: 1px solid #ffffff;
+  height: 40px;
+}
+.jss66 {
+  height: 1px;
+  margin: 8px 0;
+  background-color: #C6CFDA;
+}
+.jss67 {
+  color: #A24FEA;
+}
+.jss68 {
+  padding: 16px;
+  min-width: 336px;
+  box-shadow: 0px 19px 38px rgba(29, 38, 51, 0.15), 0px 15px 12px rgba(29, 38, 51, 0.1);
+  border-radius: 8px;
+}
+.jss69 {
+  padding: 0;
+}
+.jss70 {
+  display: flex;
+  padding: 10px 12px;
+  align-items: center;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+.jss70:last-of-type {
+  margin-bottom: 0;
+}
+.jss70:hover {
+  color: #ffffff;
+  background: #A24FEA !important;
+}
+.jss70:focus {
+  background-color: transparent;
+}
+.jss71 {
+  display: flex;
+  padding: 8px 12px;
+  align-items: center;
+  margin-bottom: 8px;
+  justify-content: space-between;
+}
+.jss71:last-of-type {
+  margin-bottom: 0;
+}
+.jss71:hover {
+  background-color: transparent;
+}
+.jss71:focus {
+  background-color: transparent;
+}
+.jss72 {
+  display: block;
+  margin-right: 11px;
+}
+</style><style data-jss="" data-meta="makeStyles">
+</style><style data-jss="" data-meta="makeStyles">
+.jss18 {
+  z-index: 2;
+  position: relative;
+}
+.jss18 *:before {
+  border-bottom: none !important;
+}
+.jss18::before {
+  border-bottom: none !important;
+}
+.jss19 {
+  background-color: #323842;
+}
+.jss19 svg {
+  fill: #44EB99;
+}
+.jss20 {
+  color: #ffffff;
+}
+@media (max-width:1279.95px) {
+  .jss21 {
+    max-width: 100%;
+  }
+}
+.jss22 {
+  left: 0;
+  right: 0;
+  position: relative;
+  background-color: #1D2633;
+}
+.jss23 {
+  height: 84px;
+  display: flex;
+  justify-content: space-between;
+}
+.jss24 {
+  display: flex;
+  box-shadow: 0px 2px 3px rgba(81, 96, 119, 0.2);
+  margin-top: -1px;
+  min-height: 128px;
+  padding-top: 9px;
+  justify-content: space-between;
+  background-color: #1D2633;
+}
+.jss24:before {
+  top: -95px;
+  width: 100%;
+  height: 100px;
+  content: "";
+  position: absolute;
+  background-color: #1D2633;
+}
+@media (max-width:959.95px) {
+  .jss24 {
+    min-height: auto;
+    justify-content: center;
+  }
+}
+@media (max-width:1279.95px) {
+  .jss24 > .jss28 {
+    width: 156px;
+  }
+}
+.jss25 {
+  min-width: 1440px;
+}
+.jss26 {
+  width: 634px;
+  display: flex;
+  padding: 16px 0;
+  align-items: center;
+}
+@media (max-width:1279.95px) {
+  .jss26 {
+    width: 465px;
+  }
+}
+.jss27 {
+  width: 267px;
+  position: relative;
+  flex-shrink: 0;
+}
+@media (max-width:1279.95px) {
+  .jss27 {
+    width: 156px;
+  }
+}
+@media (min-width:1280px) {
+  .jss27 {
+    padding-left: 24px;
+  }
+}
+.jss28 {
+  width: 260px;
+  display: flex;
+  z-index: 1100;
+  position: relative;
+  align-items: center;
+  flex-shrink: 0;
+  justify-content: flex-end;
+}
+.jss29 {
+  width: 260px;
+}
+@media (max-width:1279.95px) {
+  .jss29 {
+    width: 156px;
+  }
+}
+.jss30 {
+  display: flex;
+  column-gap: 16px;
+  align-items: center;
+  padding-right: 32px;
+}
+.jss31 {
+  display: flex;
+  column-gap: 10px;
+}
+.jss32 {
+  width: 100%;
+}
+.jss33 {
+  display: flex;
+  z-index: 1;
+  max-width: 50%;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+@media (max-width:1279.95px) {
+  .jss33 {
+    max-width: 100%;
+  }
+}
+.jss34 {
+  width: 100%;
+}
+.jss35 {
+  color: #ffffff;
+  width: 56px;
+  height: 56px;
+  background: #323842;
+  border-radius: 12px;
+}
+.jss35:hover {
+  color: #fff;
+  background-color: #861BE3;
+}
+.jss36 {
+  background: #861BE3;
+}
+.jss37:hover {
+  background: none;
+}
+.jss38 .MuiBadge-badge {
+  color: #212121;
+  cursor: default;
+  height: 16px;
+  padding: 0 4px;
+  font-size: 12px;
+  min-width: 16px;
+  line-height: 16;
+}
+.jss39 {
+  display: flex;
+  min-height: 72px;
+  justify-content: space-between;
+}
+@media (max-width:1279.95px) {
+  .jss39 {
+    max-width: 100%;
+  }
+  .jss39 .MuiTabs-scroller .MuiTabs-flexContainer {
+    display: block;
+  }
+  .jss39 .MuiTabs-scroller .MuiTabs-flexContainer .MuiTab-root {
+    min-width: auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+@media (max-width:959.95px) {
+  .jss39 .MuiTabs-scroller .MuiTabs-flexContainer .MuiButtonBase-root:first-child {
+    margin-left: 16px;
+  }
+  .jss39 .MuiTabs-scroller .MuiTabs-flexContainer .MuiButtonBase-root:nth-last-child(1) {
+    margin-right: 16px;
+  }
+}
+.jss40 {
+  cursor: pointer;
+}
+</style><style data-jss="" data-meta="makeStyles">
+</style><style data-jss="" data-meta="makeStyles">
+.jss110 {
+  display: flex;
+  word-break: break-word;
+  align-items: center;
+  margin-bottom: 18px;
+}
+@media (max-width:599.95px) {
+  .jss110 {
+    padding: 0 32px;
+    text-align: center;
+  }
+}
+.jss111 {
+  color: #ffffff;
+  label: Head-h2;
+  margin: 0;
+  font-size: 24px;
+  font-style: normal;
+  font-family: "SB Sans Display", Helvetica, sans-serif;
+  font-weight: 800;
+  line-height: 30px;
+}
+@media (max-width:599.95px) {
+  .jss111 {
+    label: Head-h4;
+    font-size: 18px;
+    font-style: normal;
+    font-family: "SB Sans Display", Helvetica, sans-serif;
+    font-weight: 800;
+    line-height: 24px;
+  }
+}
+.jss112 {
+  color: #8191A2;
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  margin-right: 16px;
+}
+.jss113 {
+  padding: 2px;
+  transform: rotate(180deg);
+}
+</style><style data-jss="" data-meta="makeStyles">
+.jss4 {
+  top: 0;
+  z-index: 1101;
+  position: sticky;
+  transform: translateY(0%);
+  transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+.jss5 {
+  transform: translateY(-100%);
+}
+</style><style data-jss="" data-meta="makeStyles">
+.jss2 {
+  color: #516077;
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.jss3 {
+  color: #212121;
+  margin-right: 36px;
+}
+</style><style data-jss="" data-meta="makeStyles">
+.jss92 {
+  width: 100%;
+  padding: 24px;
+  max-width: 380px;
+  border-radius: 16px;
+  background-color: #F4F4F9;
+}
+.jss93 {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+.jss93 li:not(:last-child) {
+  margin-bottom: 8px;
+}
+.jss94 {
+  color: #212121;
+  label: Text-Regular3;
+  cursor: pointer;
+  height: 40px;
+  display: -webkit-box;
+  overflow: hidden;
+  font-size: 14px;
+  min-width: 0;
+  font-style: normal;
+  transition: background 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  word-break: break-all;
+  font-family: "SB Sans Text", Helvetica, sans-serif;
+  font-weight: 400;
+  line-height: 20px;
+  padding-left: 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  -webkit-box-align: center;
+}
+.jss94 > span {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.jss94:hover {
+  color: #ffffff;
+  background: #A24FEA;
+}
+.jss95 {
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.jss96 {
+  label: Head-h5;
+  font-size: 16px;
+  font-style: normal;
+  font-family: "SB Sans Display", Helvetica, sans-serif;
+  font-weight: 600;
+  line-height: 20px;
+  pointer-events: none;
+}
+.jss97 {
+  top: 24px;
+  left: 24px;
+  width: 4px;
+  height: 40px;
+  z-index: 2;
+  position: absolute;
+  transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  border-radius: 4px;
+  background-color: #A24FEA;
+}
+</style><style data-jss="" data-meta="makeStyles">
+@media (min-width:600px) {
+  .jss98 {
+    max-width: 667px;
+    box-sizing: content-box;
+  }
+}
+@media (min-width:600px) {
+  .jss99 {
+    max-width: 900px;
+    box-sizing: content-box;
+  }
+}
+.jss100 {
+  margin-bottom: 0;
+}
+.jss101 {
+  margin-bottom: 8px;
+}
+.jss102 {
+  color: #516077;
+}
+.jss103 {
+  margin-top: 16px;
+  margin-bottom: 0px;
+}
+.jss104 {
+  margin-bottom: 24px;
+}
+.jss105 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.jss106 {
+  margin-top: 24px;
+}
+.jss107 {
+  margin-bottom: 0;
+}
+</style><style data-jss="" data-meta="makeStyles">
+.jss114 {
+  z-index: 2;
+  position: relative;
+}
+.jss114 >:not(:last-child) {
+  margin-bottom: 24px;
+}
+.jss115 {
+  width: 100%;
+}
+@media (max-width:599.95px) {
+  .jss116 {
+    width: 100%;
+  }
+}
+.jss117 {
+  word-break: break-word;
+}
+.jss118 {
+  gap: 8px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+@media (max-width:1279.95px) {
+  .jss118 {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}
+@media (max-width:959.95px) {
+  .jss118 {
+    flex-direction: row;
+  }
+}
+@media (max-width:599.95px) {
+  .jss118 {
+    flex-direction: column;
+  }
+}
+</style><style data-jss="" data-meta="makeStyles">
+.jss88 {
+  z-index: 2;
+  position: relative;
+  margin-bottom: 24px;
+}
+@media (max-width:959.95px) {
+  .jss88 {
+    margin-bottom: 16px;
+  }
+}
+.jss89 {
+  top: 128px;
+  position: sticky;
+}
+.jss90 {
+  margin-top: 24px;
+}
+</style><style data-jss="" data-meta="makeStyles">
+.jss126 {
+  color: #212121 !important;
+  margin: 4px;
+  padding: 0;
+}
+.jss126 :first-child {
+  margin-top: 0;
+}
+.jss126 *:not([style]):not(code) {
+  color: #212121;
+}
+.jss126 *:not([style]):not(code) * span:not([style]) {
+  color: #212121 !important;
+}
+.jss126 th {
+  color: #516071 !important;
+  background-color: #DDE3E9 !important;
+}
+.jss126 *:not(pre) > code:not([style]) {
+  color: #212121 !important;
+}
+.jss126 a {
+  color: #008BFF !important;
+}
+</style><style data-jss="" data-meta="makeStyles">
+.jss11 {
+  display: grid;
+  grid-column-gap: 32px;
+  grid-template-columns: repeat(12, 1fr);
+}
+@media (max-width:599.95px) {
+  .jss11 {
+    grid-column-gap: 24px;
+  }
+}
+@media (max-width:959.95px) {
+  .jss11 {
+    align-content: start;
+  }
+}
+.jss12 {
+  grid-column: span 8;
+}
+@media (max-width:959.95px) {
+  .jss12 {
+    margin-top: 32px;
+    grid-column: span 12;
+  }
+}
+.jss13 {
+  grid-column: span 4;
+}
+@media (max-width:959.95px) {
+  .jss13 {
+    order: -1;
+    grid-column: span 12;
+  }
+}
+</style><style data-jss="" data-meta="makeStyles">
+.jss84 {
+  display: grid;
+  margin-bottom: 16px;
+  grid-template-columns: 1fr auto;
+}
+</style><style data-jss="" data-meta="makeStyles">
+.jss83 {
+  gap: 24px;
+  display: flex;
+  box-shadow: none;
+  flex-direction: column;
+}
+</style><style data-emotion="mui-global" data-s=""></style><link rel="modulepreload" as="script" crossorigin="" href="/index-370c8e87.js"><link rel="modulepreload" as="script" crossorigin="" href="/index-1b000cf4.js"><link rel="modulepreload" as="script" crossorigin="" href="/index-e73713a3.js"><link rel="modulepreload" as="script" crossorigin="" href="/index.style-a1029371.js"><link rel="modulepreload" as="script" crossorigin="" href="/index-bb7b4452.js"><link rel="modulepreload" as="script" crossorigin="" href="/index-11bbf609.js"><link rel="modulepreload" as="script" crossorigin="" href="/ProjectStatistics.generated-f0071960.js"><link rel="modulepreload" as="script" crossorigin="" href="/index-6bd3ed0f.js"><link rel="modulepreload" as="script" crossorigin="" href="/useCdnUrl-c37ac8c9.js"><link rel="modulepreload" as="script" crossorigin="" href="/constants-fbcca7ac.js"><link rel="modulepreload" as="script" crossorigin="" href="/index-ed1ae667.js"><link rel="modulepreload" as="script" crossorigin="" href="/index-bb1e4f3f.js"><link rel="modulepreload" as="script" crossorigin="" href="/index.style-b27fbda7.js"><link rel="modulepreload" as="script" crossorigin="" href="/index.esm-055f2ce8.js"><link rel="modulepreload" as="script" crossorigin="" href="/ProjectReviewsInfo.generated-7a51d208.js"><link rel="modulepreload" as="script" crossorigin="" href="/yup-e879e2d9.js"><link rel="modulepreload" as="script" crossorigin="" href="/index-6dfbfb1b.js"><link rel="modulepreload" as="script" crossorigin="" href="/index.styles-a9bd7be1.js"><link rel="modulepreload" as="script" crossorigin="" href="/index-4b58d9e7.js"><link rel="modulepreload" as="script" crossorigin="" href="/index-140a9207.js"><link rel="modulepreload" as="script" crossorigin="" href="/index-27b7a694.js"><link rel="stylesheet" href="/index-4997df95.css"><link rel="modulepreload" as="script" crossorigin="" href="/index-b8ee6343.js"><link rel="modulepreload" as="script" crossorigin="" href="/index-382dfa50.js"><link rel="modulepreload" as="script" crossorigin="" href="/index-2801b8d5.js"><link rel="modulepreload" as="script" crossorigin="" href="/index-3368ef29.js"><link rel="modulepreload" as="script" crossorigin="" href="/index-d67d607c.js"><link rel="modulepreload" as="script" crossorigin="" href="/index-03d3eb54.js"><link rel="modulepreload" as="script" crossorigin="" href="/index.style-0797792d.js"><link rel="modulepreload" as="script" crossorigin="" href="/index.style-b20f991d.js"><link rel="modulepreload" as="script" crossorigin="" href="/index-0155b10d.js"><link rel="modulepreload" as="script" crossorigin="" href="/index-a7eda13a.js"><link rel="modulepreload" as="script" crossorigin="" href="/index-8f785e8f.js"><link rel="modulepreload" as="script" crossorigin="" href="/utils-dcd3e43e.js"><link rel="modulepreload" as="script" crossorigin="" href="/jazz-8237954f.js"><link rel="modulepreload" as="script" crossorigin="" href="/index-42fa1a51.js"><link rel="modulepreload" as="script" crossorigin="" href="/index-a1deb4a1.js"><link rel="modulepreload" as="script" crossorigin="" href="/resolveIcon-fcb88666.js"><link rel="modulepreload" as="script" crossorigin="" href="/index-cea54f5a.js"><link rel="modulepreload" as="script" crossorigin="" href="/index-b7a335fb.js"><link rel="modulepreload" as="script" crossorigin="" href="/index-4e24e050.js"><link rel="modulepreload" as="script" crossorigin="" href="/muteGqlErrorHandler-fe261d56.js"><link rel="modulepreload" as="script" crossorigin="" href="/index-6d0a408c.js"><link rel="modulepreload" as="script" crossorigin="" href="/downloadFile-a59035d7.js"><link rel="modulepreload" as="script" crossorigin="" href="/utils-9d89e7f8.js"><link rel="modulepreload" as="script" crossorigin="" href="/index-cc9c868c.js"><link rel="modulepreload" as="script" crossorigin="" href="/index-fe917535.js"><script type="text/javascript" charset="utf8" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style><style type="text/css">.mjx-chtml {display: inline-block; line-height: 0; text-indent: 0; text-align: left; text-transform: none; font-style: normal; font-weight: normal; font-size: 100%; font-size-adjust: none; letter-spacing: normal; word-wrap: normal; word-spacing: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0; min-height: 0; border: 0; margin: 0; padding: 1px 0}
+.MJXc-display {display: block; text-align: center; margin: 1em 0; padding: 0}
+.mjx-chtml[tabindex]:focus, body :focus .mjx-chtml[tabindex] {display: inline-table}
+.mjx-full-width {text-align: center; display: table-cell!important; width: 10000em}
+.mjx-math {display: inline-block; border-collapse: separate; border-spacing: 0}
+.mjx-math * {display: inline-block; -webkit-box-sizing: content-box!important; -moz-box-sizing: content-box!important; box-sizing: content-box!important; text-align: left}
+.mjx-numerator {display: block; text-align: center}
+.mjx-denominator {display: block; text-align: center}
+.MJXc-stacked {height: 0; position: relative}
+.MJXc-stacked > * {position: absolute}
+.MJXc-bevelled > * {display: inline-block}
+.mjx-stack {display: inline-block}
+.mjx-op {display: block}
+.mjx-under {display: table-cell}
+.mjx-over {display: block}
+.mjx-over > * {padding-left: 0px!important; padding-right: 0px!important}
+.mjx-under > * {padding-left: 0px!important; padding-right: 0px!important}
+.mjx-stack > .mjx-sup {display: block}
+.mjx-stack > .mjx-sub {display: block}
+.mjx-prestack > .mjx-presup {display: block}
+.mjx-prestack > .mjx-presub {display: block}
+.mjx-delim-h > .mjx-char {display: inline-block}
+.mjx-surd {vertical-align: top}
+.mjx-mphantom * {visibility: hidden}
+.mjx-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 2px 3px; font-style: normal; font-size: 90%}
+.mjx-annotation-xml {line-height: normal}
+.mjx-menclose > svg {fill: none; stroke: currentColor}
+.mjx-mtr {display: table-row}
+.mjx-mlabeledtr {display: table-row}
+.mjx-mtd {display: table-cell; text-align: center}
+.mjx-label {display: table-row}
+.mjx-box {display: inline-block}
+.mjx-block {display: block}
+.mjx-span {display: inline}
+.mjx-char {display: block; white-space: pre}
+.mjx-itable {display: inline-table; width: auto}
+.mjx-row {display: table-row}
+.mjx-cell {display: table-cell}
+.mjx-table {display: table; width: 100%}
+.mjx-line {display: block; height: 0}
+.mjx-strut {width: 0; padding-top: 1em}
+.mjx-vsize {width: 0}
+.MJXc-space1 {margin-left: .167em}
+.MJXc-space2 {margin-left: .222em}
+.MJXc-space3 {margin-left: .278em}
+.mjx-chartest {display: block; visibility: hidden; position: absolute; top: 0; line-height: normal; font-size: 500%}
+.mjx-chartest .mjx-char {display: inline}
+.mjx-chartest .mjx-box {padding-top: 1000px}
+.MJXc-processing {visibility: hidden; position: fixed; width: 0; height: 0; overflow: hidden}
+.MJXc-processed {display: none}
+.mjx-test {display: block; font-style: normal; font-weight: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow: hidden; height: 1px}
+.mjx-ex-box-test {position: absolute; overflow: hidden; width: 1px; height: 60ex}
+.mjx-line-box-test {display: table!important}
+.mjx-line-box-test span {display: table-cell!important; width: 10000em!important; min-width: 0; max-width: none; padding: 0; border: 0; margin: 0}
+#MathJax_CHTML_Tooltip {background-color: InfoBackground; color: InfoText; border: 1px solid black; box-shadow: 2px 2px 5px #AAAAAA; -webkit-box-shadow: 2px 2px 5px #AAAAAA; -moz-box-shadow: 2px 2px 5px #AAAAAA; -khtml-box-shadow: 2px 2px 5px #AAAAAA; padding: 3px 4px; z-index: 401; position: absolute; left: 0; top: 0; width: auto; height: auto; display: none}
+.mjx-chtml .mjx-noError {line-height: 1.2; vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+.MJXc-TeX-unknown-R {font-family: STIXGeneral,'Cambria Math','Arial Unicode MS',serif; font-style: normal; font-weight: normal}
+.MJXc-TeX-unknown-I {font-family: STIXGeneral,'Cambria Math','Arial Unicode MS',serif; font-style: italic; font-weight: normal}
+.MJXc-TeX-unknown-B {font-family: STIXGeneral,'Cambria Math','Arial Unicode MS',serif; font-style: normal; font-weight: bold}
+.MJXc-TeX-unknown-BI {font-family: STIXGeneral,'Cambria Math','Arial Unicode MS',serif; font-style: italic; font-weight: bold}
+.MJXc-TeX-ams-R {font-family: MJXc-TeX-ams-R,MJXc-TeX-ams-Rw}
+.MJXc-TeX-cal-B {font-family: MJXc-TeX-cal-B,MJXc-TeX-cal-Bx,MJXc-TeX-cal-Bw}
+.MJXc-TeX-frak-R {font-family: MJXc-TeX-frak-R,MJXc-TeX-frak-Rw}
+.MJXc-TeX-frak-B {font-family: MJXc-TeX-frak-B,MJXc-TeX-frak-Bx,MJXc-TeX-frak-Bw}
+.MJXc-TeX-math-BI {font-family: MJXc-TeX-math-BI,MJXc-TeX-math-BIx,MJXc-TeX-math-BIw}
+.MJXc-TeX-sans-R {font-family: MJXc-TeX-sans-R,MJXc-TeX-sans-Rw}
+.MJXc-TeX-sans-B {font-family: MJXc-TeX-sans-B,MJXc-TeX-sans-Bx,MJXc-TeX-sans-Bw}
+.MJXc-TeX-sans-I {font-family: MJXc-TeX-sans-I,MJXc-TeX-sans-Ix,MJXc-TeX-sans-Iw}
+.MJXc-TeX-script-R {font-family: MJXc-TeX-script-R,MJXc-TeX-script-Rw}
+.MJXc-TeX-type-R {font-family: MJXc-TeX-type-R,MJXc-TeX-type-Rw}
+.MJXc-TeX-cal-R {font-family: MJXc-TeX-cal-R,MJXc-TeX-cal-Rw}
+.MJXc-TeX-main-B {font-family: MJXc-TeX-main-B,MJXc-TeX-main-Bx,MJXc-TeX-main-Bw}
+.MJXc-TeX-main-I {font-family: MJXc-TeX-main-I,MJXc-TeX-main-Ix,MJXc-TeX-main-Iw}
+.MJXc-TeX-main-R {font-family: MJXc-TeX-main-R,MJXc-TeX-main-Rw}
+.MJXc-TeX-math-I {font-family: MJXc-TeX-math-I,MJXc-TeX-math-Ix,MJXc-TeX-math-Iw}
+.MJXc-TeX-size1-R {font-family: MJXc-TeX-size1-R,MJXc-TeX-size1-Rw}
+.MJXc-TeX-size2-R {font-family: MJXc-TeX-size2-R,MJXc-TeX-size2-Rw}
+.MJXc-TeX-size3-R {font-family: MJXc-TeX-size3-R,MJXc-TeX-size3-Rw}
+.MJXc-TeX-size4-R {font-family: MJXc-TeX-size4-R,MJXc-TeX-size4-Rw}
+.MJXc-TeX-vec-R {font-family: MJXc-TeX-vec-R,MJXc-TeX-vec-Rw}
+.MJXc-TeX-vec-B {font-family: MJXc-TeX-vec-B,MJXc-TeX-vec-Bx,MJXc-TeX-vec-Bw}
+@font-face {font-family: MJXc-TeX-ams-R; src: local('MathJax_AMS'), local('MathJax_AMS-Regular')}
+@font-face {font-family: MJXc-TeX-ams-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/eot/MathJax_AMS-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/woff/MathJax_AMS-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/otf/MathJax_AMS-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-cal-B; src: local('MathJax_Caligraphic Bold'), local('MathJax_Caligraphic-Bold')}
+@font-face {font-family: MJXc-TeX-cal-Bx; src: local('MathJax_Caligraphic'); font-weight: bold}
+@font-face {font-family: MJXc-TeX-cal-Bw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/eot/MathJax_Caligraphic-Bold.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/woff/MathJax_Caligraphic-Bold.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/otf/MathJax_Caligraphic-Bold.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-frak-R; src: local('MathJax_Fraktur'), local('MathJax_Fraktur-Regular')}
+@font-face {font-family: MJXc-TeX-frak-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/eot/MathJax_Fraktur-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/woff/MathJax_Fraktur-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/otf/MathJax_Fraktur-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-frak-B; src: local('MathJax_Fraktur Bold'), local('MathJax_Fraktur-Bold')}
+@font-face {font-family: MJXc-TeX-frak-Bx; src: local('MathJax_Fraktur'); font-weight: bold}
+@font-face {font-family: MJXc-TeX-frak-Bw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/eot/MathJax_Fraktur-Bold.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/woff/MathJax_Fraktur-Bold.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/otf/MathJax_Fraktur-Bold.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-math-BI; src: local('MathJax_Math BoldItalic'), local('MathJax_Math-BoldItalic')}
+@font-face {font-family: MJXc-TeX-math-BIx; src: local('MathJax_Math'); font-weight: bold; font-style: italic}
+@font-face {font-family: MJXc-TeX-math-BIw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/eot/MathJax_Math-BoldItalic.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/woff/MathJax_Math-BoldItalic.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/otf/MathJax_Math-BoldItalic.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-sans-R; src: local('MathJax_SansSerif'), local('MathJax_SansSerif-Regular')}
+@font-face {font-family: MJXc-TeX-sans-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/eot/MathJax_SansSerif-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/woff/MathJax_SansSerif-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/otf/MathJax_SansSerif-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-sans-B; src: local('MathJax_SansSerif Bold'), local('MathJax_SansSerif-Bold')}
+@font-face {font-family: MJXc-TeX-sans-Bx; src: local('MathJax_SansSerif'); font-weight: bold}
+@font-face {font-family: MJXc-TeX-sans-Bw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/eot/MathJax_SansSerif-Bold.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/woff/MathJax_SansSerif-Bold.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/otf/MathJax_SansSerif-Bold.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-sans-I; src: local('MathJax_SansSerif Italic'), local('MathJax_SansSerif-Italic')}
+@font-face {font-family: MJXc-TeX-sans-Ix; src: local('MathJax_SansSerif'); font-style: italic}
+@font-face {font-family: MJXc-TeX-sans-Iw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/eot/MathJax_SansSerif-Italic.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/woff/MathJax_SansSerif-Italic.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/otf/MathJax_SansSerif-Italic.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-script-R; src: local('MathJax_Script'), local('MathJax_Script-Regular')}
+@font-face {font-family: MJXc-TeX-script-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/eot/MathJax_Script-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/woff/MathJax_Script-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/otf/MathJax_Script-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-type-R; src: local('MathJax_Typewriter'), local('MathJax_Typewriter-Regular')}
+@font-face {font-family: MJXc-TeX-type-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/eot/MathJax_Typewriter-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/woff/MathJax_Typewriter-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/otf/MathJax_Typewriter-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-cal-R; src: local('MathJax_Caligraphic'), local('MathJax_Caligraphic-Regular')}
+@font-face {font-family: MJXc-TeX-cal-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/eot/MathJax_Caligraphic-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/woff/MathJax_Caligraphic-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/otf/MathJax_Caligraphic-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-main-B; src: local('MathJax_Main Bold'), local('MathJax_Main-Bold')}
+@font-face {font-family: MJXc-TeX-main-Bx; src: local('MathJax_Main'); font-weight: bold}
+@font-face {font-family: MJXc-TeX-main-Bw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/eot/MathJax_Main-Bold.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/woff/MathJax_Main-Bold.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/otf/MathJax_Main-Bold.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-main-I; src: local('MathJax_Main Italic'), local('MathJax_Main-Italic')}
+@font-face {font-family: MJXc-TeX-main-Ix; src: local('MathJax_Main'); font-style: italic}
+@font-face {font-family: MJXc-TeX-main-Iw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/eot/MathJax_Main-Italic.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/woff/MathJax_Main-Italic.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/otf/MathJax_Main-Italic.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-main-R; src: local('MathJax_Main'), local('MathJax_Main-Regular')}
+@font-face {font-family: MJXc-TeX-main-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/eot/MathJax_Main-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/woff/MathJax_Main-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/otf/MathJax_Main-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-math-I; src: local('MathJax_Math Italic'), local('MathJax_Math-Italic')}
+@font-face {font-family: MJXc-TeX-math-Ix; src: local('MathJax_Math'); font-style: italic}
+@font-face {font-family: MJXc-TeX-math-Iw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/eot/MathJax_Math-Italic.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/woff/MathJax_Math-Italic.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/otf/MathJax_Math-Italic.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-size1-R; src: local('MathJax_Size1'), local('MathJax_Size1-Regular')}
+@font-face {font-family: MJXc-TeX-size1-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/eot/MathJax_Size1-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/woff/MathJax_Size1-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/otf/MathJax_Size1-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-size2-R; src: local('MathJax_Size2'), local('MathJax_Size2-Regular')}
+@font-face {font-family: MJXc-TeX-size2-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/eot/MathJax_Size2-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/woff/MathJax_Size2-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/otf/MathJax_Size2-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-size3-R; src: local('MathJax_Size3'), local('MathJax_Size3-Regular')}
+@font-face {font-family: MJXc-TeX-size3-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/eot/MathJax_Size3-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/woff/MathJax_Size3-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/otf/MathJax_Size3-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-size4-R; src: local('MathJax_Size4'), local('MathJax_Size4-Regular')}
+@font-face {font-family: MJXc-TeX-size4-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/eot/MathJax_Size4-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/woff/MathJax_Size4-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/otf/MathJax_Size4-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-vec-R; src: local('MathJax_Vector'), local('MathJax_Vector-Regular')}
+@font-face {font-family: MJXc-TeX-vec-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/eot/MathJax_Vector-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/woff/MathJax_Vector-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/otf/MathJax_Vector-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-vec-B; src: local('MathJax_Vector Bold'), local('MathJax_Vector-Bold')}
+@font-face {font-family: MJXc-TeX-vec-Bx; src: local('MathJax_Vector'); font-weight: bold}
+@font-face {font-family: MJXc-TeX-vec-Bw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/eot/MathJax_Vector-Bold.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/woff/MathJax_Vector-Bold.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/fonts/HTML-CSS/TeX/otf/MathJax_Vector-Bold.otf') format('opentype')}
+</style><script type="text/javascript" charset="utf8" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script></head>
+    <body style=""><div id="MathJax_Message" style="display: none;"></div><noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-0000000&gtm_auth=&gtm_preview=&gtm_cookies_win=x"
+        height="0" width="0" style="display:none;visibility:hidden" id="tag-manager"></iframe></noscript>
+        <script type="text/javascript" src="/static.js"></script>
+        <div id="root"><div class="jss4" id="sticky-target"><div class="jss22 jss41"><div class="jss23"><section class="jss27"><a aria-current="page" class="tss-14vqrh4-root tss-n1vquc-Text-Regular3 tss-vhfxsd-root tss-1oj59b5-enabled jss43 jss45 active" href="/"><div><svg width="1em" height="1em" viewBox="0 0 235 192" fill="none" xmlns="http://www.w3.org/2000/svg" class="jss42 jss44"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 0V13.915C0 21.7049 6.37708 28.0207 14.2424 28.0207H55.1894C77.3061 28.0207 97.9167 57.4932 97.9167 78.2724V174.368C97.9167 184.106 105.887 192 115.72 192H217.197C227.03 192 235 184.106 235 174.368V72.1012C235 62.3629 227.03 54.469 217.197 54.469H121.061C89.9 54.469 69.4318 25.3759 69.4318 13.0333V0H0Z" fill="url(#paint0_linear_header_logo)"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M180.7 167.49C179.779 167.263 178.985 167.068 178.985 166.398C178.985 165.501 180.044 165.404 180.499 165.404C181.13 165.404 181.489 165.495 181.959 165.717C182.187 165.542 183.228 164.742 183.228 164.742C182.542 164.286 181.511 163.93 180.51 163.93C178.123 163.93 177.272 165.254 177.272 166.493C177.272 168.278 178.76 168.65 180.072 168.978C180.995 169.208 181.791 169.407 181.791 170.087C181.791 170.436 181.591 171.022 180.255 171.022C179.367 171.022 178.395 170.697 177.705 170.172L177.125 171.556C177.828 172.128 179.048 172.496 180.244 172.496C182.224 172.496 183.504 171.494 183.504 169.944C183.504 168.179 182.014 167.813 180.7 167.49Z" fill="#1D2633"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M188.95 170.976H186.814V168.857H188.95C189.925 168.857 190.42 169.209 190.42 169.916C190.42 170.626 189.939 170.976 188.95 170.976ZM186.814 167.478H188.639H186.814ZM186.814 165.454H188.639C189.79 165.454 190.031 166.007 190.031 166.466C190.031 167.132 189.55 167.478 188.639 167.478H186.814V165.454ZM190.759 168.085L190.677 168.057L190.753 168.014C191.406 167.644 191.766 167.003 191.766 166.209C191.766 164.873 190.68 164.075 188.861 164.075H185.102V172.355H189.083C191.064 172.355 192.155 171.559 192.155 170.113C192.155 169.13 191.646 168.391 190.759 168.085Z" fill="#1D2633"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M197.952 165.45L199.746 164.072H193.744V172.351H199.746V170.973H195.457V168.853H199.115V167.475H195.457V165.45H197.952Z" fill="#1D2633"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M203.055 165.454H204.574C205.671 165.454 206.275 166.018 206.275 167.042C206.275 168.067 205.671 168.631 204.574 168.631H203.055V165.454ZM208.113 172.354L206.369 169.665C207.398 169.197 207.991 168.274 207.991 167.038C207.991 165.21 206.696 164.075 204.61 164.075H201.343V172.354H203.055V170.009H204.61C204.659 170.009 204.707 170.008 204.755 170.007L206.277 172.354H208.113Z" fill="#1D2633"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M173.306 168.213C173.306 167.793 173.269 167.381 173.2 166.981L171.781 168.072C171.782 168.119 171.782 168.166 171.782 168.213C171.782 171.131 169.507 173.504 166.71 173.504C163.913 173.504 161.638 171.131 161.638 168.213C161.638 165.296 163.913 162.923 166.71 162.923C167.77 162.923 168.755 163.264 169.569 163.846L170.853 162.86C169.72 161.906 168.279 161.334 166.71 161.334C163.067 161.334 160.114 164.414 160.114 168.213C160.114 172.013 163.067 175.093 166.71 175.093C170.353 175.093 173.306 172.013 173.306 168.213Z" fill="#1D2633"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M171.926 164.008C172.237 164.428 172.504 164.886 172.716 165.375L166.707 169.995L164.195 168.353V166.378L166.707 168.02L171.926 164.008Z" fill="#1D2633"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M195.01 96.1741C194.505 95.6475 194.222 94.9336 194.222 94.1889V85.0653C194.222 83.6522 193.124 82.5066 191.769 82.5066H183.799C182.444 82.5066 181.346 83.6522 181.346 85.0653V93.3783C181.346 94.7911 182.444 95.937 183.799 95.937H192.542C193.256 95.937 193.941 96.2325 194.445 96.7591L194.448 96.7615C194.952 97.2877 195.236 98.0017 195.236 98.7463V151.325C195.236 152.738 196.334 153.884 197.689 153.884H205.659C207.014 153.884 208.112 152.738 208.112 151.325V99.5552C208.112 98.1417 207.014 96.9961 205.659 96.9961H196.914C196.2 96.9961 195.515 96.7006 195.01 96.1741Z" fill="#1D2633"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M135.13 125.744L135.14 125.734C135.645 125.21 136.327 124.916 137.039 124.916H158.671C160.019 124.916 161.112 123.776 161.112 122.369V113.221C161.112 112.483 161.395 111.775 161.897 111.254L161.906 111.244C162.411 110.721 163.093 110.427 163.805 110.427H172.561C173.909 110.427 175.003 109.286 175.003 107.879V99.5434C175.003 98.1369 173.909 96.9961 172.561 96.9961H163.804C163.09 96.9961 162.406 96.7003 161.901 96.1741C161.396 95.6475 161.112 94.9336 161.112 94.1889V85.0539C161.112 83.6471 160.019 82.5066 158.671 82.5066H123.952C122.581 82.5066 121.47 83.6658 121.47 85.0963V93.3472C121.47 94.7775 122.581 95.937 123.952 95.937H159.432C160.146 95.937 160.832 96.2331 161.337 96.7603C161.843 97.2874 162.127 98.0023 162.127 98.7478V108.684C162.127 109.426 161.843 110.138 161.339 110.662L161.332 110.668C160.828 111.192 160.145 111.486 159.434 111.486H137.802C136.453 111.486 135.36 112.626 135.36 114.033V123.174C135.36 123.914 135.078 124.624 134.576 125.148L134.567 125.157C134.065 125.681 133.385 125.975 132.675 125.975H123.912C122.563 125.975 121.47 127.115 121.47 128.522V136.858C121.47 138.265 122.563 139.405 123.912 139.405H132.684C133.393 139.405 134.074 139.699 134.576 140.223H134.576C135.078 140.746 135.36 141.456 135.36 142.196V151.336C135.36 152.743 136.453 153.883 137.802 153.884L172.52 153.884C173.891 153.884 175.003 152.725 175.003 151.294V143.043C175.003 141.613 173.891 140.454 172.52 140.454L137.038 140.453C136.327 140.453 135.644 140.159 135.14 139.636L135.13 139.626C134.628 139.106 134.346 138.398 134.346 137.66V127.711C134.346 126.973 134.628 126.265 135.13 125.744Z" fill="#1D2633"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M202.991 121.67L202.959 121.636C202.911 121.587 202.884 121.52 202.884 121.45V120.478C202.884 120.332 202.771 120.213 202.631 120.213H200.351C200.284 120.213 200.219 120.186 200.171 120.136L200.155 120.119C200.107 120.069 200.08 120.002 200.08 119.931V117.546C200.08 117.4 199.967 117.281 199.827 117.281H198.985C198.845 117.281 198.731 117.4 198.731 117.546V124.495C198.731 124.64 198.845 124.759 198.985 124.759H199.827C199.967 124.759 200.08 124.64 200.08 124.495V120.164L200.112 120.197C200.16 120.247 200.186 120.314 200.186 120.384V121.356C200.186 121.502 200.3 121.621 200.44 121.621H202.72C202.788 121.621 202.852 121.649 202.9 121.698L202.916 121.715C202.964 121.765 202.991 121.832 202.991 121.902V124.495C202.991 124.64 203.104 124.759 203.244 124.759H204.086C204.226 124.759 204.34 124.64 204.34 124.495V117.546C204.34 117.4 204.226 117.281 204.086 117.281H203.244C203.104 117.281 202.991 117.4 202.991 117.546V121.67Z" fill="white"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M202.914 114.373L202.902 114.386C202.853 114.437 202.787 114.465 202.718 114.465H201.536H200.353C200.284 114.465 200.218 114.437 200.169 114.386L200.156 114.373C200.108 114.322 200.08 114.253 200.08 114.181V110.087C200.08 110.015 200.108 109.946 200.156 109.895L200.169 109.881C200.218 109.83 200.285 109.802 200.353 109.802H202.717C202.786 109.802 202.852 109.83 202.901 109.881L202.914 109.895C202.963 109.946 202.991 110.015 202.991 110.087V111.048C202.991 111.198 203.107 111.319 203.251 111.319H204.079C204.223 111.319 204.339 111.198 204.339 111.048V110.184C204.339 110.034 204.223 109.913 204.079 109.913H203.157C203.088 109.913 203.022 109.884 202.973 109.833L202.961 109.82C202.912 109.769 202.884 109.7 202.884 109.628V108.666C202.884 108.516 202.768 108.395 202.624 108.395H200.447C200.303 108.395 200.186 108.516 200.186 108.666V109.628C200.186 109.7 200.159 109.769 200.11 109.82L200.098 109.833C200.049 109.884 199.983 109.913 199.914 109.913H198.991C198.848 109.913 198.731 110.034 198.731 110.184V114.083C198.731 114.233 198.848 114.354 198.991 114.354H199.913C199.983 114.354 200.048 114.383 200.097 114.434L200.11 114.447C200.159 114.498 200.186 114.567 200.186 114.639V115.601C200.186 115.751 200.303 115.872 200.447 115.872H201.93H202.624C202.768 115.872 202.884 115.751 202.884 115.601V114.639C202.884 114.567 202.912 114.498 202.961 114.447L202.972 114.435C203.021 114.384 203.087 114.355 203.156 114.355H204.079C204.223 114.355 204.34 114.234 204.34 114.084V113.22C204.34 113.07 204.223 112.948 204.079 112.948H203.251C203.107 112.948 202.991 113.07 202.991 113.22V114.18C202.991 114.253 202.963 114.322 202.914 114.373Z" fill="white"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M202.901 127.651L202.914 127.665C202.963 127.716 202.991 127.785 202.991 127.857V131.951C202.991 132.023 202.963 132.092 202.914 132.143L202.902 132.156C202.853 132.207 202.787 132.235 202.718 132.236H200.353C200.284 132.236 200.218 132.207 200.169 132.156L200.157 132.143C200.108 132.092 200.08 132.023 200.08 131.951V127.857C200.08 127.785 200.108 127.716 200.157 127.665L200.17 127.651C200.219 127.6 200.285 127.572 200.354 127.572H202.717C202.787 127.572 202.853 127.6 202.901 127.651ZM202.884 127.398V126.436C202.884 126.286 202.768 126.165 202.624 126.165H200.447C200.303 126.165 200.187 126.286 200.187 126.436V127.398C200.187 127.47 200.159 127.539 200.111 127.59L200.098 127.603C200.049 127.654 199.983 127.683 199.914 127.683H198.992C198.848 127.683 198.731 127.804 198.731 127.954V131.853C198.731 132.003 198.848 132.125 198.992 132.125H199.914C199.983 132.125 200.049 132.153 200.098 132.204L200.111 132.218C200.159 132.268 200.187 132.337 200.187 132.409V133.371C200.187 133.521 200.303 133.642 200.447 133.642H202.624C202.768 133.642 202.884 133.521 202.884 133.371V132.409C202.884 132.337 202.912 132.268 202.961 132.218L202.973 132.205C203.021 132.154 203.088 132.126 203.157 132.126H204.079C204.223 132.126 204.339 132.004 204.339 131.854V127.954C204.339 127.804 204.223 127.683 204.079 127.683H203.157C203.088 127.683 203.022 127.654 202.973 127.603L202.961 127.59C202.912 127.539 202.884 127.47 202.884 127.398Z" fill="white"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M202.901 136.538L202.914 136.552C202.963 136.603 202.991 136.671 202.991 136.744V140.837C202.991 140.909 202.963 140.978 202.914 141.029L202.902 141.043C202.853 141.093 202.787 141.122 202.718 141.122H200.353C200.284 141.122 200.218 141.093 200.169 141.043L200.157 141.029C200.108 140.978 200.08 140.909 200.08 140.837V136.744C200.08 136.671 200.108 136.603 200.157 136.552L200.17 136.538C200.219 136.487 200.285 136.458 200.354 136.458H202.717C202.787 136.458 202.853 136.487 202.901 136.538ZM202.884 136.285V135.323C202.884 135.173 202.768 135.052 202.624 135.052H200.447C200.303 135.052 200.187 135.173 200.187 135.323V136.285C200.187 136.357 200.159 136.426 200.111 136.477L200.098 136.49C200.049 136.541 199.983 136.569 199.914 136.569H198.992C198.848 136.569 198.731 136.691 198.731 136.841V140.74C198.731 140.89 198.848 141.011 198.992 141.011H199.914C199.983 141.011 200.049 141.04 200.098 141.09L200.111 141.104C200.159 141.155 200.187 141.224 200.187 141.296V142.257C200.187 142.407 200.303 142.529 200.447 142.529L202.624 142.529C202.768 142.529 202.884 142.407 202.884 142.257V141.296C202.884 141.224 202.912 141.155 202.961 141.104L202.973 141.092C203.021 141.041 203.088 141.012 203.157 141.012H204.079C204.223 141.012 204.339 140.891 204.339 140.741V136.841C204.339 136.691 204.223 136.569 204.079 136.569H203.157C203.088 136.569 203.022 136.541 202.973 136.49L202.961 136.477C202.912 136.426 202.884 136.357 202.884 136.285Z" fill="white"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M200.186 99.7858V100.748C200.186 100.82 200.159 100.889 200.11 100.94L200.098 100.953C200.049 101.004 199.983 101.033 199.914 101.033H198.991C198.848 101.033 198.731 101.154 198.731 101.304V102.168C198.731 102.318 198.848 102.439 198.991 102.439H199.914C199.983 102.439 200.049 102.468 200.098 102.519L200.11 102.532C200.159 102.583 200.186 102.652 200.186 102.724V103.686C200.186 103.836 200.303 103.957 200.447 103.957H202.718C202.787 103.957 202.853 103.986 202.901 104.037L202.914 104.05C202.963 104.101 202.991 104.17 202.991 104.242V105.3C202.991 105.372 202.963 105.441 202.914 105.492L202.901 105.505C202.853 105.556 202.787 105.585 202.718 105.585H198.991C198.848 105.585 198.731 105.706 198.731 105.856V106.721C198.731 106.87 198.848 106.992 198.991 106.992H202.624C202.768 106.992 202.884 106.87 202.884 106.721V105.759C202.884 105.687 202.912 105.618 202.961 105.567L202.972 105.554C203.021 105.504 203.087 105.475 203.156 105.475H204.079C204.223 105.475 204.34 105.354 204.34 105.204V104.339C204.34 104.19 204.223 104.068 204.079 104.068H203.157C203.088 104.068 203.022 104.04 202.973 103.989L202.961 103.975C202.912 103.924 202.884 103.855 202.884 103.783V102.822C202.884 102.672 202.768 102.55 202.624 102.55H200.353C200.284 102.55 200.218 102.522 200.169 102.471L200.156 102.457C200.108 102.406 200.08 102.338 200.08 102.265V101.206C200.08 101.134 200.108 101.065 200.156 101.015L200.169 101.001C200.218 100.95 200.285 100.921 200.353 100.921H204.079C204.223 100.921 204.34 100.8 204.34 100.65V99.7858C204.34 99.636 204.223 99.5146 204.079 99.5146H200.447C200.303 99.5146 200.186 99.636 200.186 99.7858Z" fill="white"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M200.169 149.926L200.156 149.913C200.108 149.862 200.08 149.793 200.08 149.721V144.206C200.08 144.057 199.964 143.935 199.82 143.935H198.991C198.848 143.935 198.731 144.057 198.731 144.206V149.623C198.731 149.773 198.848 149.895 198.991 149.895H199.914C199.983 149.895 200.049 149.923 200.098 149.974L200.11 149.988C200.159 150.038 200.186 150.107 200.186 150.179V151.141C200.186 151.291 200.303 151.413 200.446 151.413H204.079C204.223 151.413 204.339 151.291 204.339 151.141V150.277C204.339 150.127 204.223 150.006 204.079 150.006H200.353C200.284 150.006 200.218 149.977 200.169 149.926Z" fill="white"></path><defs><linearGradient id="paint0_linear_header_logo" x1="-164.92" y1="-211.578" x2="231.363" y2="201.695" gradientUnits="userSpaceOnUse"><stop stop-color="#861BE3"></stop><stop offset="1" stop-color="#00FFC1"></stop></linearGradient></defs></svg></div></a></section><section class="jss26"><div class="jss32"><div><div class="jss48"><div class="jss49"><a aria-current="page" class="active" href="/">Dashboard</a></div><div class="jss49"><a href="/calendar">Calendar</a></div><div class="jss49">Progress</div><div class="jss49 jss50">Projects</div><div class="jss49">Activities</div><div class="jss49">More</div></div></div></div></section><section class="jss28"><div class="jss30"><div class="jss31"><a class="jss63" data-testid="Header.GraphButton" href="/project-map"><svg viewBox="-1 -2 21 24" xmlns="http://www.w3.org/2000/svg" class="tss-1iwxcj2-svgicon" width="24" height="24"><path fill-rule="evenodd" clip-rule="evenodd" d="M16.4823 3.37936C16.8959 3.37936 17.2797 3.03044 17.2797 2.53968C17.2797 2.04892 16.8959 1.7 16.4823 1.7C16.0687 1.7 15.6849 2.04892 15.6849 2.53968C15.6849 3.03044 16.0687 3.37936 16.4823 3.37936ZM16.4823 5.07936C17.8615 5.07936 18.9797 3.94231 18.9797 2.53968C18.9797 1.13705 17.8615 -6.97829e-09 16.4823 -6.43941e-09C15.103 -5.90053e-09 13.9849 1.13705 13.9849 2.53968C13.9849 3.04085 14.1276 3.50811 14.374 3.90171L12.5704 5.80675C11.8176 5.34426 10.9351 5.07812 9.99138 5.07812C8.94396 5.07812 7.97185 5.40598 7.16886 5.96629L5.76443 4.56186C5.91586 4.23956 6.00049 3.87966 6.00049 3.5C6.00049 2.11929 4.8812 1 3.50049 1C2.11978 1 1.00049 2.11929 1.00049 3.5C1.00049 4.88071 2.11978 6 3.50049 6C3.88015 6 4.24005 5.91537 4.56235 5.76394L5.95853 7.16012C5.35369 8.00027 4.99658 9.03647 4.99658 10.1575C4.99658 11.2458 5.33314 12.2541 5.90618 13.0808L4.38496 14.5683C3.97009 14.3475 3.49807 14.2227 2.99737 14.2227C1.34224 14.2227 0.000488275 15.5871 0.000488275 17.2703C0.000488274 18.9534 1.34224 20.3179 2.99737 20.3179C4.6525 20.3179 5.99425 18.9534 5.99425 17.2703C5.99425 16.7199 5.8508 16.2037 5.59985 15.758L7.09489 14.2961C7.91183 14.8884 8.91159 15.2369 9.99138 15.2369C11.2639 15.2369 12.4253 14.7529 13.3073 13.9561L14.3986 15.1458C14.1467 15.5361 14.0005 16.001 14.0005 16.5C14.0005 17.8807 15.1198 19 16.5005 19C17.8812 19 19.0005 17.8807 19.0005 16.5C19.0005 15.1193 17.8812 14 16.5005 14C16.2417 14 15.9922 14.0393 15.7575 14.1123L14.3712 12.6011C14.7632 11.8761 14.9862 11.0433 14.9862 10.1575C14.9862 8.9317 14.5592 7.80732 13.8482 6.92978L15.7155 4.95743C15.9571 5.0366 16.2148 5.07936 16.4823 5.07936ZM9.99138 13.2369C11.6138 13.2369 12.9862 11.89 12.9862 10.1575C12.9862 8.42501 11.6138 7.07812 9.99138 7.07812C8.36892 7.07812 6.99658 8.42501 6.99658 10.1575C6.99658 11.89 8.36892 13.2369 9.99138 13.2369ZM2.99737 18.6179C3.68682 18.6179 4.29425 18.0416 4.29425 17.2703C4.29425 16.499 3.68682 15.9227 2.99737 15.9227C2.30792 15.9227 1.70049 16.499 1.70049 17.2703C1.70049 18.0416 2.30792 18.6179 2.99737 18.6179ZM17.3005 16.5C17.3005 16.9418 16.9423 17.3 16.5005 17.3C16.0587 17.3 15.7005 16.9418 15.7005 16.5C15.7005 16.0582 16.0587 15.7 16.5005 15.7C16.9423 15.7 17.3005 16.0582 17.3005 16.5ZM4.30049 3.5C4.30049 3.94183 3.94232 4.3 3.50049 4.3C3.05866 4.3 2.70049 3.94183 2.70049 3.5C2.70049 3.05817 3.05866 2.7 3.50049 2.7C3.94232 2.7 4.30049 3.05817 4.30049 3.5Z"></path></svg></a><span data-testid="Header.NotificationsCount" class="MuiBadge-root tss-8418td-root jss38 mui-1rzb3uu"><button class="jss63" data-testid="Header.NotificationsButton"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="tss-1iwxcj2-svgicon" width="24" height="24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.0001 4.00183C11.7349 4.00183 11.4805 4.10719 11.293 4.29472C11.1091 4.47857 11.0043 4.72662 11.0002 4.98617C11.0032 5.18146 10.9485 5.37318 10.845 5.53692C10.7699 5.65581 10.669 5.75996 10.5457 5.83999C10.5023 5.86829 10.4566 5.89331 10.4089 5.9147C9.43263 6.38047 8.60026 7.10157 8.00009 8.00183C7.40028 8.90155 7.05483 9.94653 7.00009 11.0262L7.00009 14.0018C7.00009 14.042 6.99767 14.0821 6.99284 14.122C6.91259 14.785 6.70049 15.424 6.3703 16.0018L17.6299 16.0018C17.2997 15.424 17.0876 14.785 17.0073 14.122C17.0025 14.0821 17.0001 14.042 17.0001 14.0018L17.0001 11.0262C16.9453 9.94653 16.5999 8.90155 16.0001 8.00183C15.3961 7.09585 14.557 6.37131 13.5726 5.90586C13.223 5.74056 13.0001 5.38852 13.0001 5.00183C13.0001 4.73661 12.8947 4.48226 12.7072 4.29472C12.5197 4.10719 12.2653 4.00183 12.0001 4.00183ZM9.07008 4.35755C9.19216 3.80243 9.47057 3.28871 9.87877 2.88051C10.4414 2.3179 11.2044 2.00183 12.0001 2.00183C12.7957 2.00183 13.5588 2.3179 14.1214 2.88051C14.5296 3.28871 14.808 3.80243 14.9301 4.35755C16.0261 4.97407 16.9637 5.84174 17.6642 6.89243C18.4695 8.1004 18.9309 9.50474 18.999 10.9549C18.9997 10.9706 19.0001 10.9862 19.0001 11.0018L19.0001 13.9372C19.0626 14.3834 19.2248 14.81 19.475 15.1853C19.7355 15.5761 20.0841 15.9002 20.4928 16.1317C20.888 16.3554 21.0828 16.8174 20.9671 17.2566C20.8514 17.6958 20.4542 18.0018 20.0001 18.0018L4.00009 18.0018C3.54593 18.0018 3.14881 17.6958 3.03309 17.2566C2.91738 16.8174 3.11214 16.3554 3.50734 16.1317C3.91604 15.9002 4.2647 15.5761 4.52523 15.1853C4.7754 14.81 4.93762 14.3834 5.00009 13.9372L5.00009 11.0018C5.00009 10.9862 5.00046 10.9706 5.00119 10.9549C5.06926 9.50474 5.53068 8.1004 6.33599 6.89243C7.03645 5.84174 7.97412 4.97407 9.07008 4.35755Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M9 16C9.55228 16 10 16.4477 10 17L10 18C10 18.5304 10.2107 19.0391 10.5858 19.4142C10.9609 19.7893 11.4696 20 12 20C12.5304 20 13.0391 19.7893 13.4142 19.4142C13.7893 19.0391 14 18.5304 14 18L14 17C14 16.4477 14.4477 16 15 16C15.5523 16 16 16.4477 16 17L16 18C16 19.0609 15.5786 20.0783 14.8284 20.8284C14.0783 21.5786 13.0609 22 12 22C10.9391 22 9.92172 21.5786 9.17157 20.8284C8.42143 20.0783 8 19.0609 8 18L8 17C8 16.4477 8.44772 16 9 16Z"></path></svg></button><span class="MuiBadge-badge MuiBadge-standard MuiBadge-invisible MuiBadge-anchorOriginTopRight MuiBadge-anchorOriginTopRightRectangular MuiBadge-overlapRectangular MuiBadge-colorPrimary mui-1yz2e2c">0</span></span></div><button class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium tss-1h5nml3-root tss-306p5n-icon jss35 mui-5hq126" tabindex="0" type="button" data-testid="globalSearchButton"><span class="MuiButton-startIcon MuiButton-iconSizeMedium mui-6xugel"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="tss-1iwxcj2-svgicon"><path fill-rule="evenodd" clip-rule="evenodd" d="M15.1862 14.4713H15.9762L20.2162 18.7313C20.6262 19.1413 20.6262 19.8113 20.2162 20.2213C19.8062 20.6313 19.1362 20.6313 18.7262 20.2213L14.4762 15.9713V15.1813L14.2062 14.9013C12.8062 16.1013 10.8962 16.7213 8.86621 16.3813C6.08621 15.9113 3.86621 13.5913 3.52621 10.7913C3.00621 6.56133 6.56621 3.00133 10.7962 3.52133C13.5962 3.86133 15.9162 6.08133 16.3862 8.86133C16.7262 10.8913 16.1062 12.8013 14.9062 14.2013L15.1862 14.4713ZM5.47621 9.97133C5.47621 12.4613 7.48621 14.4713 9.97621 14.4713C12.4662 14.4713 14.4762 12.4613 14.4762 9.97133C14.4762 7.48133 12.4662 5.47133 9.97621 5.47133C7.48621 5.47133 5.47621 7.48133 5.47621 9.97133Z"></path></svg></span></button><div class="jss40"><div class="jss64 jss73" data-testid="UserMenuWidget.MoreInfoButton"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="tss-1iwxcj2-svgicon"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.0005 8C13.1005 8 14.0005 7.1 14.0005 6C14.0005 4.9 13.1005 4 12.0005 4C10.9005 4 10.0005 4.9 10.0005 6C10.0005 7.1 10.9005 8 12.0005 8ZM12.0005 10C10.9005 10 10.0005 10.9 10.0005 12C10.0005 13.1 10.9005 14 12.0005 14C13.1005 14 14.0005 13.1 14.0005 12C14.0005 10.9 13.1005 10 12.0005 10ZM10.0005 18C10.0005 16.9 10.9005 16 12.0005 16C13.1005 16 14.0005 16.9 14.0005 18C14.0005 19.1 13.1005 20 12.0005 20C10.9005 20 10.0005 19.1 10.0005 18Z"></path></svg><div class="MuiAvatar-root tss-j1o1up-root MuiAvatar-circular jss65 mui-1btayc3" aria-label="" lightness="light"><img src="/noavatar-b5c8481c.png" class="MuiAvatar-img mui-1hy9t21"></div></div></div></div></section></div></div></div><div class="jss16 jss17"><nav><div class="jss18"><div class="jss24"><section class="jss27"></section><section class="jss33"><div class="jss110"><span class="jss112"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="tss-1iwxcj2-svgicon jss47"><path d="M18.8572 18L24 13L18.8571 8L17.645 9.17851L20.7186 12.1667L0 12.1667V13.8334L20.7184 13.8334L17.645 16.8215L18.8572 18Z"></path></svg></span><h2 class="jss111">A2_SimpleNavigator_v1.0_Go</h2></div><div class="jss39"><div class="jss21"><div class="MuiTabs-root tss-1f73nhd-root mui-orq8zk"><div class="MuiTabs-scrollableX MuiTabs-hideScrollbar mui-oqr85h" style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"></div><div class="MuiTabs-scroller MuiTabs-hideScrollbar MuiTabs-scrollableX mui-12qnib" style="margin-bottom: 0px;"><div class="MuiTabs-flexContainer tss-4hwsqe-flexContainer mui-k008qs" role="tablist"><a class="MuiButtonBase-root MuiTab-root tss-yyxiby-Head-h5 MuiTab-textColorInherit tss-1v2cq8y-textColorInherit mui-1dr55a2" tabindex="-1" role="tab" href="/project/69123/about?studentId=423afb55-531e-4798-b247-b993e1d32303">About</a><button class="MuiButtonBase-root MuiTab-root tss-yyxiby-Head-h5 MuiTab-textColorInherit tss-1v2cq8y-textColorInherit tss-1o8fcq-selected mui-1dr55a2" tabindex="-1" type="button" role="tab">Task</button><a class="MuiButtonBase-root Mui-disabled MuiTab-root tss-yyxiby-Head-h5 MuiTab-textColorInherit tss-1v2cq8y-textColorInherit Mui-disabled tss-1xldrh9-disabled mui-1dr55a2" tabindex="-1" aria-disabled="true" role="tab" href="/project/69123/reviews?studentId=423afb55-531e-4798-b247-b993e1d32303">Reviews</a></div><span class="MuiTabs-indicator tss-lwm5cz-indicator mui-auwebr" style="left: 160px; width: 160px;"></span></div></div></div></div></section><section class="jss29"></section></div></div></nav><div class="jss14 jss11"><main class="jss12"><div class="jss83"><div class="tss-10tshb1-root"><div class="tss-1jr4v6r-header"><div class="tss-1sdmihv-headerInner"><h5 class="tss-14vqrh4-root tss-1o13v37-Head-h5 tss-u0s60c-title"></h5></div><div class="tss-1ddz97r-buttons"></div></div><div class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-entered mui-c4sutr" style="min-height: 0px;"><div class="MuiCollapse-wrapper MuiCollapse-vertical mui-hboir5"><div class="MuiCollapse-wrapperInner tss-1ould5j-content MuiCollapse-vertical mui-8atqhb"><div class="jss84"><h5 class="tss-14vqrh4-root tss-1o13v37-Head-h5">Task</h5><button class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium tss-8sdrw5-root tss-16ubhsh-main tss-4udwmy-buttonIcon tss-1wae068-button mui-5hq126" tabindex="0" type="button"><span class="tss-14vqrh4-root tss-18zurqi-Button-Medium tss-1rygpgm-content"><span class="tss-14vqrh4-root tss-18zurqi-Button-Medium">Russian</span></span><span class="MuiButton-endIcon MuiButton-iconSizeMedium mui-1n4a93h"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="tss-1iwxcj2-svgicon"><path d="M15.88 9.29L12 13.17L8.12 9.29C7.73 8.9 7.1 8.9 6.71 9.29C6.32 9.68 6.32 10.31 6.71 10.7L11.3 15.29C11.69 15.68 12.32 15.68 12.71 15.29L17.3 10.7C17.69 10.31 17.69 9.68 17.3 9.29C16.91 8.91 16.27 8.9 15.88 9.29Z"></path></svg></span></button></div><div class="MuiPaper-root tss-12pqxn4-default tss-1dwtr3a-unstatable MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 mui-jozxtr" type="default"><div class="_2wUrs jss126"><div><h1 class="_1aDvk" level="1"><span id="simplenavigator" class="_1Xdpx" style="margin-top: -100px; padding-bottom: 100px;"></span><a href="#simplenavigator" aria-hidden="true" class="_2LRH5"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="#333" fill-rule="evenodd" d="M9.683 6.676l-.047-.048C8.27 5.26 6.07 5.243 4.726 6.588l-2.29 2.29c-1.344 1.344-1.328 3.544.04 4.91 1.366 1.368 3.564 1.385 4.908.04l1.753-1.752c-.695.074-1.457-.078-2.176-.444L5.934 12.66c-.634.634-1.67.625-2.312-.017-.642-.643-.65-1.677-.017-2.312L6.035 7.9c.634-.634 1.67-.625 2.312.017.024.024.048.05.07.075l.003-.002c.36.36.943.366 1.3.01.355-.356.35-.938-.01-1.3l-.027-.024zM6.58 9.586l.048.05c1.367 1.366 3.565 1.384 4.91.04l2.29-2.292c1.344-1.343 1.328-3.542-.04-4.91-1.366-1.366-3.564-1.384-4.908-.04L7.127 4.187c.695-.074 1.457.078 2.176.444l1.028-1.027c.635-.634 1.67-.624 2.313.017.643.644.652 1.678.018 2.312l-2.43 2.432c-.635.634-1.67.624-2.313-.018-.024-.024-.048-.05-.07-.075l-.003.004c-.36-.362-.943-.367-1.3-.01-.355.355-.35.937.01 1.3.01.007.018.015.027.023z"></path></svg></a>SimpleNavigator</h1></div>
+<p>Реализация проекта Simple Navigator.</p>
+<p>💡 <a href="https://new.oprosso.net/p/4cb31ec3f47a4596bc758ea1861fb624">Нажми сюда</a>, <strong>чтобы поделиться с нами обратной связью на этот проект</strong>. Это анонимно и поможет нашей команде сделать обучение лучше. Рекомендуем заполнить опрос сразу после выполнения проекта.</p>
+<h2 class="_1aDvk" level="2"><span id="contents" class="_1Xdpx" style="margin-top: -100px; padding-bottom: 100px;"></span><a href="#contents" aria-hidden="true" class="_2LRH5"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="#333" fill-rule="evenodd" d="M9.683 6.676l-.047-.048C8.27 5.26 6.07 5.243 4.726 6.588l-2.29 2.29c-1.344 1.344-1.328 3.544.04 4.91 1.366 1.368 3.564 1.385 4.908.04l1.753-1.752c-.695.074-1.457-.078-2.176-.444L5.934 12.66c-.634.634-1.67.625-2.312-.017-.642-.643-.65-1.677-.017-2.312L6.035 7.9c.634-.634 1.67-.625 2.312.017.024.024.048.05.07.075l.003-.002c.36.36.943.366 1.3.01.355-.356.35-.938-.01-1.3l-.027-.024zM6.58 9.586l.048.05c1.367 1.366 3.565 1.384 4.91.04l2.29-2.292c1.344-1.343 1.328-3.542-.04-4.91-1.366-1.366-3.564-1.384-4.908-.04L7.127 4.187c.695-.074 1.457.078 2.176.444l1.028-1.027c.635-.634 1.67-.624 2.313.017.643.644.652 1.678.018 2.312l-2.43 2.432c-.635.634-1.67.624-2.313-.018-.024-.024-.048-.05-.07-.075l-.003.004c-.36-.362-.943-.367-1.3-.01-.355.355-.35.937.01 1.3.01.007.018.015.027.023z"></path></svg></a>Contents</h2>
+<ol>
+<li><a href="#chapter-i">Chapter I</a> <br>
+1.1. <a href="#introduction">Introduction</a></li>
+<li><a href="#chapter-ii">Chapter II</a> <br>
+2.1. <a href="#information">Information</a></li>
+<li><a href="#chapter-iii">Chapter III</a> <br>
+3.1. <a href="#part-1-%D0%BE%D0%B1%D1%85%D0%BE%D0%B4-%D0%B3%D1%80%D0%B0%D1%84%D0%B0-%D0%B2-%D0%B3%D0%BB%D1%83%D0%B1%D0%B8%D0%BD%D1%83-%D0%B8-%D0%B2-%D1%88%D0%B8%D1%80%D0%B8%D0%BD%D1%83">Part 1</a><br>
+3.2. <a href="#part-2-%D0%BF%D0%BE%D0%B8%D1%81%D0%BA-%D0%BA%D1%80%D0%B0%D1%82%D1%87%D0%B0%D0%B9%D1%88%D0%B8%D1%85-%D0%BF%D1%83%D1%82%D0%B5%D0%B9-%D0%B2-%D0%B3%D1%80%D0%B0%D1%84%D0%B5">Part 2</a><br>
+3.3. <a href="#part-3-%D0%BF%D0%BE%D0%B8%D1%81%D0%BA-%D0%BC%D0%B8%D0%BD%D0%B8%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B3%D0%BE-%D0%BE%D1%81%D1%82%D0%BE%D0%B2%D0%BD%D0%BE%D0%B3%D0%BE-%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%B0">Part 3</a><br>
+3.4. <a href="#part-4-%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D0%B0-%D0%BA%D0%BE%D0%BC%D0%BC%D0%B8%D0%B2%D0%BE%D1%8F%D0%B6%D0%B5%D1%80%D0%B0">Part 4</a><br>
+3.5. <a href="#part-5-%D0%BA%D0%BE%D0%BD%D1%81%D0%BE%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9-%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D1%84%D0%B5%D0%B9%D1%81">Part 5</a><br>
+3.6. <a href="#part-6-%D0%B4%D0%BE%D0%BF%D0%BE%D0%BB%D0%BD%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%BE-%D1%81%D1%80%D0%B0%D0%B2%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5-%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D0%BE%D0%B2-%D1%80%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D1%8F-%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D0%B8-%D0%BA%D0%BE%D0%BC%D0%BC%D0%B8%D0%B2%D0%BE%D1%8F%D0%B6%D0%B5%D1%80%D0%B0">Part 6</a></li>
+<li><a href="#chapter-iv">Chapter IV</a></li>
+</ol>
+<h2 class="_1aDvk" level="2"><span id="chapter-i" class="_1Xdpx" style="margin-top: -100px; padding-bottom: 100px;"></span><a href="#chapter-i" aria-hidden="true" class="_2LRH5"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="#333" fill-rule="evenodd" d="M9.683 6.676l-.047-.048C8.27 5.26 6.07 5.243 4.726 6.588l-2.29 2.29c-1.344 1.344-1.328 3.544.04 4.91 1.366 1.368 3.564 1.385 4.908.04l1.753-1.752c-.695.074-1.457-.078-2.176-.444L5.934 12.66c-.634.634-1.67.625-2.312-.017-.642-.643-.65-1.677-.017-2.312L6.035 7.9c.634-.634 1.67-.625 2.312.017.024.024.048.05.07.075l.003-.002c.36.36.943.366 1.3.01.355-.356.35-.938-.01-1.3l-.027-.024zM6.58 9.586l.048.05c1.367 1.366 3.565 1.384 4.91.04l2.29-2.292c1.344-1.343 1.328-3.542-.04-4.91-1.366-1.366-3.564-1.384-4.908-.04L7.127 4.187c.695-.074 1.457.078 2.176.444l1.028-1.027c.635-.634 1.67-.624 2.313.017.643.644.652 1.678.018 2.312l-2.43 2.432c-.635.634-1.67.624-2.313-.018-.024-.024-.048-.05-.07-.075l-.003.004c-.36-.362-.943-.367-1.3-.01-.355.355-.35.937.01 1.3.01.007.018.015.027.023z"></path></svg></a>Chapter I</h2>
+<p><img src="/services/storage/download/public_any/e09df235-0b5f-4a5a-a541-da43564a9bcb?path=gitlab/content_versions/1391893/0e6585f6-b441-4f7b-8cb3-27a3dd7c613e.JPG" alt="SimpleNavigator"></p>
+<p><code node="[object Object]">-</code> Мы переводим тебя на другой проект, — прозвучало как приговор из уст Роберта. Ева снова стояла в кабинете босса, абсолютно не понимая причину подобного решения. — Заканчивай с задачей по поиску пути, собери все наработки и передай их Алисе. Теперь ее отдел будет ответственным за это.</p>
+<p><code node="[object Object]">-</code> Но почему... — начала Ева, но Роберт М. решительно прервал ее:</p>
+<p><code node="[object Object]">-</code> Так надо, для тебя есть более важные задачи. Кстати говоря, вот и Алиса.</p>
+<p>В дверях появилась девушка, и Ева ее почти не узнала: у нее был уставший взгляд и огромные мешки под глазами. С прошлого визита к Бобу у Евы так и не вышло поговорить с ней или Чарли — она попросту не видела их в офисе.</p>
+<p><code node="[object Object]">-</code> Добрый день, босс. Привет, Ева, — на удивление бодро сказала Алиса.</p>
+<p><code node="[object Object]">-</code> Заходи, мы с Евой почти закончили. Она сейчас соберет свои наработки и передаст тебе. Ева, как закончишь — возвращайся, обговорим дальнейшие действия. А сейчас свободна, не забудь закрыть дверь.</p>
+<p>Ева растерянно кивнула и направилась к выходу. Она слегка задержалась в коридоре и задумалась, как несправедливо, что ее небольшой исследовательский проект отдают чужому отделу, оставляя ее саму не у дел. Из-за двери слышался приглушенный разговор Боба и Алисы:</p>
+<p><code node="[object Object]">-</code> Мы его окончательно упустили. Залег на дно или просто выжидает чего-то, уж не знаю. Но именно поэтому...</p>
+<p>«Надо будет поговорить с Алисой, когда она придет за наработками. Странно это все», — решила про себя Ева. Устало вздохнув, она пошла к себе, пока в голове у нее крутились мысли про семь мостов Кёнигсберга.</p>
+<h2 class="_1aDvk" level="2"><span id="introduction" class="_1Xdpx" style="margin-top: -100px; padding-bottom: 100px;"></span><a href="#introduction" aria-hidden="true" class="_2LRH5"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="#333" fill-rule="evenodd" d="M9.683 6.676l-.047-.048C8.27 5.26 6.07 5.243 4.726 6.588l-2.29 2.29c-1.344 1.344-1.328 3.544.04 4.91 1.366 1.368 3.564 1.385 4.908.04l1.753-1.752c-.695.074-1.457-.078-2.176-.444L5.934 12.66c-.634.634-1.67.625-2.312-.017-.642-.643-.65-1.677-.017-2.312L6.035 7.9c.634-.634 1.67-.625 2.312.017.024.024.048.05.07.075l.003-.002c.36.36.943.366 1.3.01.355-.356.35-.938-.01-1.3l-.027-.024zM6.58 9.586l.048.05c1.367 1.366 3.565 1.384 4.91.04l2.29-2.292c1.344-1.343 1.328-3.542-.04-4.91-1.366-1.366-3.564-1.384-4.908-.04L7.127 4.187c.695-.074 1.457.078 2.176.444l1.028-1.027c.635-.634 1.67-.624 2.313.017.643.644.652 1.678.018 2.312l-2.43 2.432c-.635.634-1.67.624-2.313-.018-.024-.024-.048-.05-.07-.075l-.003.004c-.36-.362-.943-.367-1.3-.01-.355.355-.35.937.01 1.3.01.007.018.015.027.023z"></path></svg></a>Introduction</h2>
+<p>В данном проекте тебе предстоит реализовать несколько основных алгоритмов на графах. Графы являются одной из базовых структур данных в программировании, которая используется повсеместно. В виде графов можно, например, интерпретировать схемы дорог, электрические цепи, географические карты, связи между людьми в социальных сетях и многое-многое другое.</p>
+<h2 class="_1aDvk" level="2"><span id="chapter-ii" class="_1Xdpx" style="margin-top: -100px; padding-bottom: 100px;"></span><a href="#chapter-ii" aria-hidden="true" class="_2LRH5"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="#333" fill-rule="evenodd" d="M9.683 6.676l-.047-.048C8.27 5.26 6.07 5.243 4.726 6.588l-2.29 2.29c-1.344 1.344-1.328 3.544.04 4.91 1.366 1.368 3.564 1.385 4.908.04l1.753-1.752c-.695.074-1.457-.078-2.176-.444L5.934 12.66c-.634.634-1.67.625-2.312-.017-.642-.643-.65-1.677-.017-2.312L6.035 7.9c.634-.634 1.67-.625 2.312.017.024.024.048.05.07.075l.003-.002c.36.36.943.366 1.3.01.355-.356.35-.938-.01-1.3l-.027-.024zM6.58 9.586l.048.05c1.367 1.366 3.565 1.384 4.91.04l2.29-2.292c1.344-1.343 1.328-3.542-.04-4.91-1.366-1.366-3.564-1.384-4.908-.04L7.127 4.187c.695-.074 1.457.078 2.176.444l1.028-1.027c.635-.634 1.67-.624 2.313.017.643.644.652 1.678.018 2.312l-2.43 2.432c-.635.634-1.67.624-2.313-.018-.024-.024-.048-.05-.07-.075l-.003.004c-.36-.362-.943-.367-1.3-.01-.355.355-.35.937.01 1.3.01.007.018.015.027.023z"></path></svg></a>Chapter II</h2>
+<h2 class="_1aDvk" level="2"><span id="information" class="_1Xdpx" style="margin-top: -100px; padding-bottom: 100px;"></span><a href="#information" aria-hidden="true" class="_2LRH5"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="#333" fill-rule="evenodd" d="M9.683 6.676l-.047-.048C8.27 5.26 6.07 5.243 4.726 6.588l-2.29 2.29c-1.344 1.344-1.328 3.544.04 4.91 1.366 1.368 3.564 1.385 4.908.04l1.753-1.752c-.695.074-1.457-.078-2.176-.444L5.934 12.66c-.634.634-1.67.625-2.312-.017-.642-.643-.65-1.677-.017-2.312L6.035 7.9c.634-.634 1.67-.625 2.312.017.024.024.048.05.07.075l.003-.002c.36.36.943.366 1.3.01.355-.356.35-.938-.01-1.3l-.027-.024zM6.58 9.586l.048.05c1.367 1.366 3.565 1.384 4.91.04l2.29-2.292c1.344-1.343 1.328-3.542-.04-4.91-1.366-1.366-3.564-1.384-4.908-.04L7.127 4.187c.695-.074 1.457.078 2.176.444l1.028-1.027c.635-.634 1.67-.624 2.313.017.643.644.652 1.678.018 2.312l-2.43 2.432c-.635.634-1.67.624-2.313-.018-.024-.024-.048-.05-.07-.075l-.003.004c-.36-.362-.943-.367-1.3-.01-.355.355-.35.937.01 1.3.01.007.018.015.027.023z"></path></svg></a>Information</h2>
+<h3 class="_1aDvk" level="3"><span id="историческая-справка" class="_1Xdpx" style="margin-top: -100px; padding-bottom: 100px;"></span><a href="#историческая-справка" aria-hidden="true" class="_2LRH5"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="#333" fill-rule="evenodd" d="M9.683 6.676l-.047-.048C8.27 5.26 6.07 5.243 4.726 6.588l-2.29 2.29c-1.344 1.344-1.328 3.544.04 4.91 1.366 1.368 3.564 1.385 4.908.04l1.753-1.752c-.695.074-1.457-.078-2.176-.444L5.934 12.66c-.634.634-1.67.625-2.312-.017-.642-.643-.65-1.677-.017-2.312L6.035 7.9c.634-.634 1.67-.625 2.312.017.024.024.048.05.07.075l.003-.002c.36.36.943.366 1.3.01.355-.356.35-.938-.01-1.3l-.027-.024zM6.58 9.586l.048.05c1.367 1.366 3.565 1.384 4.91.04l2.29-2.292c1.344-1.343 1.328-3.542-.04-4.91-1.366-1.366-3.564-1.384-4.908-.04L7.127 4.187c.695-.074 1.457.078 2.176.444l1.028-1.027c.635-.634 1.67-.624 2.313.017.643.644.652 1.678.018 2.312l-2.43 2.432c-.635.634-1.67.624-2.313-.018-.024-.024-.048-.05-.07-.075l-.003.004c-.36-.362-.943-.367-1.3-.01-.355.355-.35.937.01 1.3.01.007.018.015.027.023z"></path></svg></a>Историческая справка</h3>
+<p>Родоначальником теории графов принято считать математика Леонарда Эйлера (1707-1783). Историю возникновения этой теории можно проследить по переписке великого ученого. Вот перевод латинского текста, который взят из письма Эйлера к итальянскому математику и инженеру Маринони, отправленного из Петербурга 13 марта 1736 года:</p>
+<blockquote>
+<p>Недавно мне была предложена задача об острове, расположенном в городе Кёнигсберге и окруженном рекой, через которую перекинуто семь мостов.</p>
+</blockquote>
+<p>Возникший в XIII веке город Кёнигсберг (ныне Калининград) состоял из трёх формально независимых городских поселений и ещё нескольких «слобод» и «посёлков». Расположены они были на островах и берегах реки Прегель, делящей город на четыре главные части: А) Альтштадт, Б) Кнайпхоф, В) Ломзе, Г) Форштанд. Для связи между городскими частями уже в XIV веке стали строить мосты. В связи с постоянной военной опасностью мосты имели оборонные качества. Мосты были местом шествий, религиозных и праздничных процессий, по мостам проходили православные крестные ходы. Карта этой местности и её упрощённая схема представлены на рисунках ниже.</p>
+<p><img src="/services/storage/download/public_any/e09df235-0b5f-4a5a-a541-da43564a9bcb?path=gitlab/content_versions/1391893/447a818d-1161-47a0-b4d0-65322eb20af9.png" alt="konigsberg-map"></p>
+<p><img src="/services/storage/download/public_any/e09df235-0b5f-4a5a-a541-da43564a9bcb?path=gitlab/content_versions/1391893/9c2ee042-6945-4273-9ca7-97af2a970754.png" alt="simple-konigsberg-map"></p>
+<blockquote>
+<p>Спрашивается, может ли кто-нибудь непрерывно обойти их, проходя только единожды через каждый мост. И тут же мне было сообщено, что никто еще до сих пор не мог это проделать, но никто и не доказал, что это невозможно. Вопрос этот, хотя и банальный, показался мне, однако, достойным внимания тем, что для его решения недостаточны ни геометрия, ни алгебра, ни комбинаторное искусство. После долгих размышлений я нашел легкое правило, основанное на вполне убедительном доказательстве, с помощью которого можно во всех задачах такого рода тотчас же определить, может ли быть совершен такой обход через какое угодно число и как угодно расположенных мостов или не может. Кёнигсбергские же мосты расположены так, что их можно представить на следующем рисунке, где вершины графа соответствуют определённому району города, а ребра — мостам через реку, на котором A обозначает остров, а B, C и D — части континента, отделенные друг от друга рукавами реки.</p>
+</blockquote>
+<p><img src="/services/storage/download/public_any/e09df235-0b5f-4a5a-a541-da43564a9bcb?path=gitlab/content_versions/1391893/b3be0c5c-3e8b-4725-8e7a-3de5be299def.png" alt="konigsberg-graph"></p>
+<p>Так можно ли обойти Кёнигсбергские мосты, проходя только один раз через каждый из этих мостов? Чтобы найти ответ, продолжим письмо Эйлера к Маринони:</p>
+<blockquote>
+<p>Вопрос состоит в том, чтобы определить, можно ли обойти все эти семь мостов, проходя через каждый только единожды, или нельзя. Мое правило приводит к следующему решению этого вопроса. Прежде всего, нужно смотреть, сколько есть участков, разделенных водой, — таких, у которых нет другого перехода с одного на другой, кроме как через мост. В данном примере таких участков четыре — A, B, C, D. Далее нужно различать, является ли число мостов, ведущих к этим отдельным участкам, четным или нечетным. Так, в нашем случае к участку A ведут пять мостов, а к остальным — по три моста, т. е. число мостов, ведущих к отдельным участкам, нечетно, а этого одного уже достаточно для решения задачи. Когда это определено, применяем следующее правило: если бы число мостов, ведущих к каждому отдельному участку, было четным, то тогда обход, о котором идет речь, был бы возможен, и в то же время можно было бы начать этот обход с любого участка. Если же из этих чисел два были бы нечетные, ибо только одно быть нечетным не может, то и тогда мог бы совершиться переход, как это предписано, но только начало обхода непременно должно быть взято от одного из тех двух участков, к которым ведет нечетное число мостов. Если бы, наконец, было больше двух участков, к которым ведет нечетное число мостов, то тогда такое движение вообще невозможно… если можно было привести здесь другие, более серьезные задачи, этот метод мог бы принести еще большую пользу, и им не следовало бы пренебрегать.</p>
+</blockquote>
+<p>Перефразируя слова ученого, можно сформулировать следующие правила:</p>
+<ol>
+<li>Число нечётных вершин (вершин, к которым ведёт нечётное число рёбер) графа должно быть чётно. Не может существовать граф, который имел бы нечётное число нечётных вершин.</li>
+<li>Если все вершины графа чётные (вершины, к которым ведёт чётное число рёбер), то можно, не отрывая карандаша от бумаги, начертить граф, при этом можно начинать с любой вершины графа и завершить его в той же вершине.</li>
+<li>Граф с более чем двумя нечётными вершинами невозможно начертить одним росчерком.</li>
+</ol>
+<p>Граф Кёнигсбергских мостов имел четыре нечётные вершины, следовательно, невозможно пройти по всем мостам, не проходя ни по одному из них дважды.</p>
+<p>Далее, вплоть до начала 20-го века теория графов развивалась в основном в виде формулирования новых теорем, сформированных по результатам решения различных «задач-головоломок». Серьезное развитие теория графов получила в связи с возникновением массового крупносерийного производства, общим всплеском науки и технологий в первой половине 20-го века.</p>
+<h3 class="_1aDvk" level="3"><span id="основные-определения" class="_1Xdpx" style="margin-top: -100px; padding-bottom: 100px;"></span><a href="#основные-определения" aria-hidden="true" class="_2LRH5"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="#333" fill-rule="evenodd" d="M9.683 6.676l-.047-.048C8.27 5.26 6.07 5.243 4.726 6.588l-2.29 2.29c-1.344 1.344-1.328 3.544.04 4.91 1.366 1.368 3.564 1.385 4.908.04l1.753-1.752c-.695.074-1.457-.078-2.176-.444L5.934 12.66c-.634.634-1.67.625-2.312-.017-.642-.643-.65-1.677-.017-2.312L6.035 7.9c.634-.634 1.67-.625 2.312.017.024.024.048.05.07.075l.003-.002c.36.36.943.366 1.3.01.355-.356.35-.938-.01-1.3l-.027-.024zM6.58 9.586l.048.05c1.367 1.366 3.565 1.384 4.91.04l2.29-2.292c1.344-1.343 1.328-3.542-.04-4.91-1.366-1.366-3.564-1.384-4.908-.04L7.127 4.187c.695-.074 1.457.078 2.176.444l1.028-1.027c.635-.634 1.67-.624 2.313.017.643.644.652 1.678.018 2.312l-2.43 2.432c-.635.634-1.67.624-2.313-.018-.024-.024-.048-.05-.07-.075l-.003.004c-.36-.362-.943-.367-1.3-.01-.355.355-.35.937.01 1.3.01.007.018.015.027.023z"></path></svg></a>Основные определения</h3>
+<p><strong>Граф</strong> — это совокупность конечного множества вершин и множества ребер. Каждому ребру сопоставлены две точки из множества вершин графа, образующие граничные точки ребра.</p>
+<p><strong>Виды графов по типу рёбер:</strong></p>
+<ul>
+<li><em>Неориентированный</em> — граф, в котором перемещение между вершинами, соединёнными ребром, возможно в любом направлении.</li>
+</ul>
+<p><img src="/services/storage/download/public_any/e09df235-0b5f-4a5a-a541-da43564a9bcb?path=gitlab/content_versions/1391893/61a3a325-7575-47ce-871d-2bb02a93d6e5.png" alt="not-orient-graph"></p>
+<ul>
+<li><em>Ориентированный</em> — граф, рёбрам которого присвоено направление. Направленные рёбра именуются также дугами. Перемещение из одной вершины в другую возможно только по дугам соответствующего направления.</li>
+</ul>
+<p><img src="/services/storage/download/public_any/e09df235-0b5f-4a5a-a541-da43564a9bcb?path=gitlab/content_versions/1391893/e8671aa8-b3ca-4ac4-80f9-02b458a9aa67.png" alt="orient-graph"></p>
+<p>Если помимо наличия ребра между двумя вершинами, задан ещё и вес ребра, то такой граф называется <em><strong>взвешенным</strong></em>.</p>
+<p><img src="/services/storage/download/public_any/e09df235-0b5f-4a5a-a541-da43564a9bcb?path=gitlab/content_versions/1391893/e5e9e168-9055-41c9-8526-8446f85cda09.png" alt="weighted-orient-graph"></p>
+<p><strong>Виды графов по числу рёбер:</strong></p>
+<ul>
+<li><em>Нулевой</em> — в графе отсутствуют рёбра.</li>
+</ul>
+<p><img src="/services/storage/download/public_any/e09df235-0b5f-4a5a-a541-da43564a9bcb?path=gitlab/content_versions/1391893/fdf7fa88-8131-4288-a20e-81b36d0d0c87.png" alt="null-graph"></p>
+<ul>
+<li><em>Неполный</em> — в графе есть рёбра, но не из каждой вершины есть ребро в любую другую вершину.</li>
+</ul>
+<p><img src="/services/storage/download/public_any/e09df235-0b5f-4a5a-a541-da43564a9bcb?path=gitlab/content_versions/1391893/2ece4374-391d-4593-827e-c9d83e8baed0.png" alt="not-full-graph"></p>
+<ul>
+<li><em>Полный</em> — в графе из каждой вершины есть ребро в любую другую вершину.</li>
+</ul>
+<p><img src="/services/storage/download/public_any/e09df235-0b5f-4a5a-a541-da43564a9bcb?path=gitlab/content_versions/1391893/d17685e5-d772-4eff-a76f-bb70be8df968.png" alt="full-graph"></p>
+<p><strong>Виды графов по достижимости узлов:</strong></p>
+<ul>
+<li><em>Связный</em> — для любой вершины в графе есть хотя бы один путь до любой другой вершины в этом же графе.</li>
+</ul>
+<p><img src="/services/storage/download/public_any/e09df235-0b5f-4a5a-a541-da43564a9bcb?path=gitlab/content_versions/1391893/7cdc1711-c337-4576-b0d2-b45115dd732b.png" alt="linked-graph"></p>
+<ul>
+<li><em>Несвязный</em> — в графе отсутствует путь хотя бы между двумя его вершинами.</li>
+</ul>
+<p><img src="/services/storage/download/public_any/e09df235-0b5f-4a5a-a541-da43564a9bcb?path=gitlab/content_versions/1391893/61193efa-0fd4-42b8-80c6-194003f04422.png" alt="not-linked-graph"></p>
+<p>Для ориентированных графов дополнительно разделяют ещё два типа связности: <em>сильносвязный</em> и <em>слабосвязный</em>.</p>
+<ul>
+<li><em>Сильносвязный</em> — для любой вершины в ориентированном графе существует путь в любую другую вершину и обратно.</li>
+<li><em>Слабосвязный</em> — между двумя любыми вершинами в графе существует путь, но этот путь может быть односторонним. Т. е. из вершины А в вершину B путь может существовать, а обратно нет.</li>
+</ul>
+<p><strong>Деревья</strong></p>
+<p>Отдельным важным подтипом графов являются <em>деревья</em>. <br>
+<em><strong>Дерево</strong></em> — это связный ациклический граф, в котором любые две вершины соединены лишь одним маршрутом. Для любого дерева справедлива следующая формула: <em>q = n - 1</em>, где q — это число рёбер, n — число вершин графа (дерева). Деревья могут быть построены на базе как неориентированных графов, так и ориентированных, в зависимости от решаемой задачи.</p>
+<p><img src="/services/storage/download/public_any/e09df235-0b5f-4a5a-a541-da43564a9bcb?path=gitlab/content_versions/1391893/746a11ad-c5aa-448f-bd31-54e2a518b488.png" alt="tree"></p>
+<p><em><strong>Остовное дерево (остов)</strong></em> — это подграф данного графа, содержащий все его вершины и являющийся деревом. Рёбра графа, не входящие в остов, называются хордами графа относительно остова.</p>
+<p><img src="/services/storage/download/public_any/e09df235-0b5f-4a5a-a541-da43564a9bcb?path=gitlab/content_versions/1391893/b54e47a3-1399-4e84-ba62-eac6c06acf67.png" alt="spanning-tree"></p>
+<h3 class="_1aDvk" level="3"><span id="способы-задания-графа" class="_1Xdpx" style="margin-top: -100px; padding-bottom: 100px;"></span><a href="#способы-задания-графа" aria-hidden="true" class="_2LRH5"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="#333" fill-rule="evenodd" d="M9.683 6.676l-.047-.048C8.27 5.26 6.07 5.243 4.726 6.588l-2.29 2.29c-1.344 1.344-1.328 3.544.04 4.91 1.366 1.368 3.564 1.385 4.908.04l1.753-1.752c-.695.074-1.457-.078-2.176-.444L5.934 12.66c-.634.634-1.67.625-2.312-.017-.642-.643-.65-1.677-.017-2.312L6.035 7.9c.634-.634 1.67-.625 2.312.017.024.024.048.05.07.075l.003-.002c.36.36.943.366 1.3.01.355-.356.35-.938-.01-1.3l-.027-.024zM6.58 9.586l.048.05c1.367 1.366 3.565 1.384 4.91.04l2.29-2.292c1.344-1.343 1.328-3.542-.04-4.91-1.366-1.366-3.564-1.384-4.908-.04L7.127 4.187c.695-.074 1.457.078 2.176.444l1.028-1.027c.635-.634 1.67-.624 2.313.017.643.644.652 1.678.018 2.312l-2.43 2.432c-.635.634-1.67.624-2.313-.018-.024-.024-.048-.05-.07-.075l-.003.004c-.36-.362-.943-.367-1.3-.01-.355.355-.35.937.01 1.3.01.007.018.015.027.023z"></path></svg></a>Способы задания графа</h3>
+<p>Существуют следующие основные способы задания графов:</p>
+<ul>
+<li><em>Матрица смежности</em> — квадратная матрица, размерность которой равна числу вершин в графе, и в которой <span><span><span class="MathJax_Preview" style="color: inherit; display: none;"></span><span id="MathJax-Element-9-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 113%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mo&gt;&amp;#x2018;&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mi&gt;j&lt;/mi&gt;&lt;/mrow&gt;&lt;/msub&gt;&lt;mo&gt;&amp;#x2018;&lt;/mo&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-51" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-52" class="mjx-mrow"><span id="MJXc-Node-53" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.403em; padding-bottom: 0.288em;">‘</span></span><span id="MJXc-Node-54" class="mjx-msubsup"><span class="mjx-base"><span id="MJXc-Node-55" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.517em; padding-bottom: 0.288em;">A</span></span></span><span class="mjx-sub" style="font-size: 70.7%; vertical-align: -0.212em; padding-right: 0.071em;"><span id="MJXc-Node-56" class="mjx-texatom" style=""><span id="MJXc-Node-57" class="mjx-mrow"><span id="MJXc-Node-58" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.46em; padding-bottom: 0.288em;">i</span></span><span id="MJXc-Node-59" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.46em; padding-bottom: 0.46em;">j</span></span></span></span></span></span><span id="MJXc-Node-60" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.403em; padding-bottom: 0.288em;">‘</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>‘</mo><msub><mi>A</mi><mrow class="MJX-TeXAtom-ORD"><mi>i</mi><mi>j</mi></mrow></msub><mo>‘</mo></math></span></span><script type="math/tex; " id="MathJax-Element-9">`A_{ij}`</script></span></span> элемент матрицы содержит в себе информацию о ребре из вершины <span><span><span class="MathJax_Preview" style="color: inherit; display: none;"></span><span id="MathJax-Element-10-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 113%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mo&gt;&amp;#x2018;&lt;/mo&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mo&gt;&amp;#x2018;&lt;/mo&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-61" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-62" class="mjx-mrow"><span id="MJXc-Node-63" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.403em; padding-bottom: 0.288em;">‘</span></span><span id="MJXc-Node-64" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.46em; padding-bottom: 0.288em;">i</span></span><span id="MJXc-Node-65" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.403em; padding-bottom: 0.288em;">‘</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>‘</mo><mi>i</mi><mo>‘</mo></math></span></span><script type="math/tex; " id="MathJax-Element-10">`i`</script></span></span> в вершину <span><span><span class="MathJax_Preview" style="color: inherit; display: none;"></span><span id="MathJax-Element-11-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 113%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mo&gt;&amp;#x2018;&lt;/mo&gt;&lt;mi&gt;j&lt;/mi&gt;&lt;mo&gt;&amp;#x2018;&lt;/mo&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-66" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-67" class="mjx-mrow"><span id="MJXc-Node-68" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.403em; padding-bottom: 0.288em;">‘</span></span><span id="MJXc-Node-69" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.46em; padding-bottom: 0.46em;">j</span></span><span id="MJXc-Node-70" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.403em; padding-bottom: 0.288em;">‘</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>‘</mo><mi>j</mi><mo>‘</mo></math></span></span><script type="math/tex; " id="MathJax-Element-11">`j`</script></span></span>. Возможные значения, которые может принимать <span><span><span class="MathJax_Preview" style="color: inherit; display: none;"></span><span id="MathJax-Element-12-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 113%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mo&gt;&amp;#x2018;&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mi&gt;j&lt;/mi&gt;&lt;/mrow&gt;&lt;/msub&gt;&lt;mo&gt;&amp;#x2018;&lt;/mo&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-71" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-72" class="mjx-mrow"><span id="MJXc-Node-73" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.403em; padding-bottom: 0.288em;">‘</span></span><span id="MJXc-Node-74" class="mjx-msubsup"><span class="mjx-base"><span id="MJXc-Node-75" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.517em; padding-bottom: 0.288em;">A</span></span></span><span class="mjx-sub" style="font-size: 70.7%; vertical-align: -0.212em; padding-right: 0.071em;"><span id="MJXc-Node-76" class="mjx-texatom" style=""><span id="MJXc-Node-77" class="mjx-mrow"><span id="MJXc-Node-78" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.46em; padding-bottom: 0.288em;">i</span></span><span id="MJXc-Node-79" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.46em; padding-bottom: 0.46em;">j</span></span></span></span></span></span><span id="MJXc-Node-80" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.403em; padding-bottom: 0.288em;">‘</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>‘</mo><msub><mi>A</mi><mrow class="MJX-TeXAtom-ORD"><mi>i</mi><mi>j</mi></mrow></msub><mo>‘</mo></math></span></span><script type="math/tex; " id="MathJax-Element-12">`A_{ij}`</script></span></span>:
+<ul>
+<li>для невзвешенного неориентированного графа:
+<ul>
+<li>0 — ребра между вершинами нет</li>
+<li>1 — ребро между вершинами есть</li>
+</ul>
+</li>
+<li>для взвешенного неориентированного графа:
+<ul>
+<li>0 — ребра между вершинами нет</li>
+<li>N — ребро между вершинами есть, и его вес равен N</li>
+</ul>
+</li>
+<li>для невзвешенного ориентированного графа:
+<ul>
+<li>0 — дуги между вершинами нет</li>
+<li>1 — есть дуга (ориентированное ребро), которая направлена из вершины <span><span><span class="MathJax_Preview" style="color: inherit; display: none;"></span><span id="MathJax-Element-13-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 113%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mo&gt;&amp;#x2018;&lt;/mo&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mo&gt;&amp;#x2018;&lt;/mo&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-81" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-82" class="mjx-mrow"><span id="MJXc-Node-83" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.403em; padding-bottom: 0.288em;">‘</span></span><span id="MJXc-Node-84" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.46em; padding-bottom: 0.288em;">i</span></span><span id="MJXc-Node-85" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.403em; padding-bottom: 0.288em;">‘</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>‘</mo><mi>i</mi><mo>‘</mo></math></span></span><script type="math/tex; " id="MathJax-Element-13">`i`</script></span></span> в вершину <span><span><span class="MathJax_Preview" style="color: inherit; display: none;"></span><span id="MathJax-Element-14-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 113%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mo&gt;&amp;#x2018;&lt;/mo&gt;&lt;mi&gt;j&lt;/mi&gt;&lt;mo&gt;&amp;#x2018;&lt;/mo&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-86" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-87" class="mjx-mrow"><span id="MJXc-Node-88" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.403em; padding-bottom: 0.288em;">‘</span></span><span id="MJXc-Node-89" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.46em; padding-bottom: 0.46em;">j</span></span><span id="MJXc-Node-90" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.403em; padding-bottom: 0.288em;">‘</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>‘</mo><mi>j</mi><mo>‘</mo></math></span></span><script type="math/tex; " id="MathJax-Element-14">`j`</script></span></span></li>
+</ul>
+</li>
+<li>для взвешенного ориентированного графа:
+<ul>
+<li>0 — дуги между вершинами нет</li>
+<li>N — есть дуга (ориентированное ребро), которая направлена из вершины <span><span><span class="MathJax_Preview" style="color: inherit; display: none;"></span><span id="MathJax-Element-15-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 113%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mo&gt;&amp;#x2018;&lt;/mo&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mo&gt;&amp;#x2018;&lt;/mo&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-91" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-92" class="mjx-mrow"><span id="MJXc-Node-93" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.403em; padding-bottom: 0.288em;">‘</span></span><span id="MJXc-Node-94" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.46em; padding-bottom: 0.288em;">i</span></span><span id="MJXc-Node-95" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.403em; padding-bottom: 0.288em;">‘</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>‘</mo><mi>i</mi><mo>‘</mo></math></span></span><script type="math/tex; " id="MathJax-Element-15">`i`</script></span></span> в вершину <span><span><span class="MathJax_Preview" style="color: inherit; display: none;"></span><span id="MathJax-Element-16-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 113%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mo&gt;&amp;#x2018;&lt;/mo&gt;&lt;mi&gt;j&lt;/mi&gt;&lt;mo&gt;&amp;#x2018;&lt;/mo&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-96" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-97" class="mjx-mrow"><span id="MJXc-Node-98" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.403em; padding-bottom: 0.288em;">‘</span></span><span id="MJXc-Node-99" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.46em; padding-bottom: 0.46em;">j</span></span><span id="MJXc-Node-100" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.403em; padding-bottom: 0.288em;">‘</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>‘</mo><mi>j</mi><mo>‘</mo></math></span></span><script type="math/tex; " id="MathJax-Element-16">`j`</script></span></span>, и её вес равен N</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><em>Матрица инцидентности</em> — это матрица, количество строк в которой соответствует числу вершин, а количество столбцов — числу рёбер. В ней указываются связи между инцидентными элементами графа (ребро (дуга) и вершина). В неориентированном графе если вершина инцидентна ребру, то соответствующий элемент равен 1, в противном случае элемент равен 0. В ориентированном графе если ребро выходит из вершины, то соответствующий элемент равен 1; если ребро входит в вершину, то соответствующий элемент равен -1; если ребро отсутствует, то элемент равен 0.</li>
+</ul>
+<p>Пример задания графа с помощью матрицы смежности можно найти в материалах.</p>
+<p>Если количество ребер графа по сравнению с количеством вершин невелико, то значения большинства элементов матрицы смежности будут равны 0. При этом использование данного метода нецелесообразно. Для подобных графов имеются более оптимальные способы их представления:</p>
+<ul>
+<li><em>Список смежности</em> — один из способов представления графа в виде коллекции списков вершин. Каждой вершине графа соответствует список, состоящий из «соседей» (т. е. из вершин, которые непосредственно достижимы напрямую из текущей вершины) этой вершины с указанием весов рёбер.</li>
+<li><em>Список рёбер</em> — таблица (матрица размерностью Nx3), в каждой строке которой записаны две смежные вершины и вес, соединяющего их ребра.</li>
+</ul>
+<h2 class="_1aDvk" level="2"><span id="chapter-iii" class="_1Xdpx" style="margin-top: -100px; padding-bottom: 100px;"></span><a href="#chapter-iii" aria-hidden="true" class="_2LRH5"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="#333" fill-rule="evenodd" d="M9.683 6.676l-.047-.048C8.27 5.26 6.07 5.243 4.726 6.588l-2.29 2.29c-1.344 1.344-1.328 3.544.04 4.91 1.366 1.368 3.564 1.385 4.908.04l1.753-1.752c-.695.074-1.457-.078-2.176-.444L5.934 12.66c-.634.634-1.67.625-2.312-.017-.642-.643-.65-1.677-.017-2.312L6.035 7.9c.634-.634 1.67-.625 2.312.017.024.024.048.05.07.075l.003-.002c.36.36.943.366 1.3.01.355-.356.35-.938-.01-1.3l-.027-.024zM6.58 9.586l.048.05c1.367 1.366 3.565 1.384 4.91.04l2.29-2.292c1.344-1.343 1.328-3.542-.04-4.91-1.366-1.366-3.564-1.384-4.908-.04L7.127 4.187c.695-.074 1.457.078 2.176.444l1.028-1.027c.635-.634 1.67-.624 2.313.017.643.644.652 1.678.018 2.312l-2.43 2.432c-.635.634-1.67.624-2.313-.018-.024-.024-.048-.05-.07-.075l-.003.004c-.36-.362-.943-.367-1.3-.01-.355.355-.35.937.01 1.3.01.007.018.015.027.023z"></path></svg></a>Chapter III</h2>
+<p>В рамках данного задания все графы должны удовлетворять следующим требованиям:</p>
+<ul>
+<li>Веса ребер только натуральными числами.</li>
+<li>Могут быть петли.</li>
+<li>Веса могут отличаться на всех ребрах.</li>
+<li>Только ненулевой связный граф.</li>
+</ul>
+<h2 class="_1aDvk" level="2"><span id="part-1-обход-графа-в-глубину-и-в-ширину" class="_1Xdpx" style="margin-top: -100px; padding-bottom: 100px;"></span><a href="#part-1-обход-графа-в-глубину-и-в-ширину" aria-hidden="true" class="_2LRH5"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="#333" fill-rule="evenodd" d="M9.683 6.676l-.047-.048C8.27 5.26 6.07 5.243 4.726 6.588l-2.29 2.29c-1.344 1.344-1.328 3.544.04 4.91 1.366 1.368 3.564 1.385 4.908.04l1.753-1.752c-.695.074-1.457-.078-2.176-.444L5.934 12.66c-.634.634-1.67.625-2.312-.017-.642-.643-.65-1.677-.017-2.312L6.035 7.9c.634-.634 1.67-.625 2.312.017.024.024.048.05.07.075l.003-.002c.36.36.943.366 1.3.01.355-.356.35-.938-.01-1.3l-.027-.024zM6.58 9.586l.048.05c1.367 1.366 3.565 1.384 4.91.04l2.29-2.292c1.344-1.343 1.328-3.542-.04-4.91-1.366-1.366-3.564-1.384-4.908-.04L7.127 4.187c.695-.074 1.457.078 2.176.444l1.028-1.027c.635-.634 1.67-.624 2.313.017.643.644.652 1.678.018 2.312l-2.43 2.432c-.635.634-1.67.624-2.313-.018-.024-.024-.048-.05-.07-.075l-.003.004c-.36-.362-.943-.367-1.3-.01-.355.355-.35.937.01 1.3.01.007.018.015.027.023z"></path></svg></a>Part 1. Обход графа в глубину и в ширину</h2>
+<p>Реализуй библиотеку s21_graph:</p>
+<ul>
+<li>Библиотека должна быть разработана на языке Go.</li>
+<li>Код библиотеки должен находиться в папке src в ветке develop.</li>
+<li>При написании кода придерживайся Effective Go.</li>
+<li>Оформи решение как статическую библиотеку (s21_graph).</li>
+<li>Библиотека должна быть представлена в виде класса <code node="[object Object]">Graph</code>, который хранит в себе информацию о графе с помощью <strong>матрицы смежности</strong>. Размерность матрицы смежности должна задаваться динамически при инициализации графа (при его загрузке из файла).</li>
+<li>Сборка программы должна быть настроена с помощью Makefile со стандартным набором целей для GNU-программ: all, clean, test, s21_graph.</li>
+<li>Обеспечь полное покрытие unit-тестами методов класса <code node="[object Object]">Graph</code>.</li>
+<li>Класс <code node="[object Object]">Graph</code> должен содержать в себе, по крайней мере, следующие публичные методы:
+<ul>
+<li><code node="[object Object]">func LoadGraphFromFile(filename string)</code> — загрузка графа из файла в формате матрицы смежности.</li>
+<li><code node="[object Object]">func ExportGraphToDot(filename string)</code> — выгрузка графа в файл в формате dot (см. материалы).</li>
+</ul>
+</li>
+</ul>
+<p>Реализуй библиотеку s21_graph_algorithms:</p>
+<ul>
+<li>Библиотека должна быть разработана на языке Go.</li>
+<li>Код библиотеки должен находиться в папке src в ветке develop.</li>
+<li>Оформи решение как статическую библиотеку (s21_graph_algorithms).</li>
+<li>Библиотека должна быть представлена в виде класса <code node="[object Object]">GraphAlgorithms</code>, который будет содержать в себе реализацию алгоритмов на графах. При этом сам класс <code node="[object Object]">GraphAlgorithms</code> не должен ничего знать о внутреннем представлении графа из класса <code node="[object Object]">Graph</code>. Для взаимодействия с данными графа класс <code node="[object Object]">GraphAlgorithms</code> может использовать только публичные методы и свойства, предоставляемые классом <code node="[object Object]">Graph</code>.</li>
+<li>Добавь в Makefile цель s21_graph_algorithms.</li>
+<li>Обеспечь полное покрытие unit-тестами методов класса <code node="[object Object]">GraphAlgorithms</code>.</li>
+<li>Класс <code node="[object Object]">GraphAlgorithms</code> должен содержать в себе, по крайней мере, следующие публичные методы:
+<ul>
+<li><code node="[object Object]">func DepthFirstSearch(graph *Graph, start_vertex int)</code> — <em>нерекурентный</em> поиск в глубину в графе от заданной вершины. Функция должна возвращать массив, содержащий в себе обойдённые вершины в порядке их обхода. При реализации этой функции обязательно использовать <em>самописную</em> структуру данных <strong>стек</strong>, которую предварительно стоит оформить в виде отдельной статической библиотеки.</li>
+<li><code node="[object Object]">BreadthFirstSearch(graph *Graph, start_vertex int)</code> — поиск в ширину в графе от заданной вершины. Функция должна возвращать массив, содержащий в себе обойдённые вершины в порядке их обхода. При реализации этой функции обязательно использовать <em>самописную</em> структуру данных <strong>очередь</strong>, которую предварительно стоит оформить в виде отдельной статической библиотеки.</li>
+</ul>
+</li>
+<li>Необходимо адаптировать ранее созданные <em>самописные</em> вспомогательные классы <code node="[object Object]">Stack</code> и <code node="[object Object]">Queue</code> (для этого можно переиспользовать своё решение из проекта <em>CPP2</em>) и реализовать для них интерфейсы на Go. Эти классы должны содержать в себе следующие методы:
+<ul>
+<li><code node="[object Object]">Stack()</code> — создание пустого стека;</li>
+<li><code node="[object Object]">Queue()</code> — создание пустой очереди;</li>
+<li><code node="[object Object]">Push(value)</code> — добавление элемента в стек/очередь;</li>
+<li><code node="[object Object]">Pop()</code> — получение элемента из стека/очереди с его последующим удалением из стека/очереди;</li>
+<li><code node="[object Object]">Top()</code> — получение элемента из стека без его удаления из стека;</li>
+<li><code node="[object Object]">Front()</code> — получение первого элемента из очереди без его удаления из очереди;</li>
+<li><code node="[object Object]">Back()</code> — получение последнего элемента из очереди без его удаления из очереди.</li>
+</ul>
+</li>
+</ul>
+<p><em>В этом и последующих заданиях считай, что номера вершин начинаются с 1.</em></p>
+<h2 class="_1aDvk" level="2"><span id="part-2-поиск-кратчайших-путей-в-графе" class="_1Xdpx" style="margin-top: -100px; padding-bottom: 100px;"></span><a href="#part-2-поиск-кратчайших-путей-в-графе" aria-hidden="true" class="_2LRH5"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="#333" fill-rule="evenodd" d="M9.683 6.676l-.047-.048C8.27 5.26 6.07 5.243 4.726 6.588l-2.29 2.29c-1.344 1.344-1.328 3.544.04 4.91 1.366 1.368 3.564 1.385 4.908.04l1.753-1.752c-.695.074-1.457-.078-2.176-.444L5.934 12.66c-.634.634-1.67.625-2.312-.017-.642-.643-.65-1.677-.017-2.312L6.035 7.9c.634-.634 1.67-.625 2.312.017.024.024.048.05.07.075l.003-.002c.36.36.943.366 1.3.01.355-.356.35-.938-.01-1.3l-.027-.024zM6.58 9.586l.048.05c1.367 1.366 3.565 1.384 4.91.04l2.29-2.292c1.344-1.343 1.328-3.542-.04-4.91-1.366-1.366-3.564-1.384-4.908-.04L7.127 4.187c.695-.074 1.457.078 2.176.444l1.028-1.027c.635-.634 1.67-.624 2.313.017.643.644.652 1.678.018 2.312l-2.43 2.432c-.635.634-1.67.624-2.313-.018-.024-.024-.048-.05-.07-.075l-.003.004c-.36-.362-.943-.367-1.3-.01-.355.355-.35.937.01 1.3.01.007.018.015.027.023z"></path></svg></a>Part 2. Поиск кратчайших путей в графе</h2>
+<ul>
+<li>Добавь в класс <code node="[object Object]">GraphAlgorithms</code> два новых метода:
+<ul>
+<li><code node="[object Object]">func GetShortestPathBetweenVertices(graph *Graph, vertex1 int, vertex2 int)</code> — поиск кратчайшего пути между двумя вершинами в графе с использованием <em>алгоритма Дейкстры</em>. Функция принимает на вход номера двух вершин и возвращает численный результат, равный наименьшему расстоянию между ними.</li>
+<li><code node="[object Object]">func GetShortestPathsBetweenAllVertices(graph *Graph)</code> — поиск кратчайших путей между всеми парами вершин в графе с использованием <em>алгоритма Флойда-Уоршелла</em>. В качестве результата функция возвращает матрицу кратчайших путей между всеми вершинами графа.</li>
+</ul>
+</li>
+</ul>
+<h2 class="_1aDvk" level="2"><span id="part-3-поиск-минимального-остовного-дерева" class="_1Xdpx" style="margin-top: -100px; padding-bottom: 100px;"></span><a href="#part-3-поиск-минимального-остовного-дерева" aria-hidden="true" class="_2LRH5"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="#333" fill-rule="evenodd" d="M9.683 6.676l-.047-.048C8.27 5.26 6.07 5.243 4.726 6.588l-2.29 2.29c-1.344 1.344-1.328 3.544.04 4.91 1.366 1.368 3.564 1.385 4.908.04l1.753-1.752c-.695.074-1.457-.078-2.176-.444L5.934 12.66c-.634.634-1.67.625-2.312-.017-.642-.643-.65-1.677-.017-2.312L6.035 7.9c.634-.634 1.67-.625 2.312.017.024.024.048.05.07.075l.003-.002c.36.36.943.366 1.3.01.355-.356.35-.938-.01-1.3l-.027-.024zM6.58 9.586l.048.05c1.367 1.366 3.565 1.384 4.91.04l2.29-2.292c1.344-1.343 1.328-3.542-.04-4.91-1.366-1.366-3.564-1.384-4.908-.04L7.127 4.187c.695-.074 1.457.078 2.176.444l1.028-1.027c.635-.634 1.67-.624 2.313.017.643.644.652 1.678.018 2.312l-2.43 2.432c-.635.634-1.67.624-2.313-.018-.024-.024-.048-.05-.07-.075l-.003.004c-.36-.362-.943-.367-1.3-.01-.355.355-.35.937.01 1.3.01.007.018.015.027.023z"></path></svg></a>Part 3. Поиск минимального остовного дерева</h2>
+<ul>
+<li>Добавь в класс <code node="[object Object]">GraphAlgorithms</code> новый метод:
+<ul>
+<li><code node="[object Object]">func GetLeastSpanningTree(graph *Graph)</code> — поиск наименьшего остовного дерева в графе с помощью <em>алгоритма Прима</em>. В качестве результата функция должна возвращать матрицу смежности для минимального остовного дерева.</li>
+</ul>
+</li>
+</ul>
+<h2 class="_1aDvk" level="2"><span id="part-4-задача-коммивояжера" class="_1Xdpx" style="margin-top: -100px; padding-bottom: 100px;"></span><a href="#part-4-задача-коммивояжера" aria-hidden="true" class="_2LRH5"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="#333" fill-rule="evenodd" d="M9.683 6.676l-.047-.048C8.27 5.26 6.07 5.243 4.726 6.588l-2.29 2.29c-1.344 1.344-1.328 3.544.04 4.91 1.366 1.368 3.564 1.385 4.908.04l1.753-1.752c-.695.074-1.457-.078-2.176-.444L5.934 12.66c-.634.634-1.67.625-2.312-.017-.642-.643-.65-1.677-.017-2.312L6.035 7.9c.634-.634 1.67-.625 2.312.017.024.024.048.05.07.075l.003-.002c.36.36.943.366 1.3.01.355-.356.35-.938-.01-1.3l-.027-.024zM6.58 9.586l.048.05c1.367 1.366 3.565 1.384 4.91.04l2.29-2.292c1.344-1.343 1.328-3.542-.04-4.91-1.366-1.366-3.564-1.384-4.908-.04L7.127 4.187c.695-.074 1.457.078 2.176.444l1.028-1.027c.635-.634 1.67-.624 2.313.017.643.644.652 1.678.018 2.312l-2.43 2.432c-.635.634-1.67.624-2.313-.018-.024-.024-.048-.05-.07-.075l-.003.004c-.36-.362-.943-.367-1.3-.01-.355.355-.35.937.01 1.3.01.007.018.015.027.023z"></path></svg></a>Part 4. Задача коммивояжера</h2>
+<ul>
+<li>Добавь в класс <code node="[object Object]">GraphAlgorithms</code> новый метод:
+<ul>
+<li><code node="[object Object]">func SolveTravelingSalesmanProblem(graph *Graph)</code> — решение задачи коммивояжера с помощью <em>муравьиного алгоритма</em>. Необходимо найти самый выгодный (короткий) маршрут, проходящий через все вершины графа хотя бы по одному разу с последующим возвратом в исходную вершину. В качестве результата функция должна возвращать структуру <code node="[object Object]">TsmResult</code>, описанную ниже:</li>
+</ul>
+<pre><span><div style="color: black; background: rgb(255, 255, 255); text-shadow: white 0px 1px; font-family: Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace; font-size: 1.1em; text-align: left; white-space: pre; word-spacing: normal; word-break: normal; overflow-wrap: normal; line-height: 1.5; tab-size: 4; hyphens: none; padding: 0px; margin: 0px; overflow: auto;"><code class="language-go" style="color: black; background: none; text-shadow: white 0px 1px; font-family: Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace; font-size: 1em; text-align: left; white-space: pre; word-spacing: normal; word-break: normal; overflow-wrap: normal; line-height: 1.5; tab-size: 4; hyphens: none;"><span class="token" style="color: rgb(0, 119, 170);">type</span><span> TsmResult </span><span class="token" style="color: rgb(0, 119, 170);">struct</span><span class="token" style="color: rgb(153, 153, 153);">{</span><span>
+</span><span>    vertices </span><span class="token" style="color: rgb(154, 110, 58); background: rgba(255, 255, 255, 0.5);">*</span><span class="token" style="color: rgb(102, 153, 0);">int</span><span>  </span><span class="token" style="color: slategray;">// an array with the route you are looking for (with the vertex traverse order)</span><span>
+</span><span>    distance double </span><span class="token" style="color: slategray;">// the length of this route</span><span>
+</span><span></span><span class="token" style="color: rgb(153, 153, 153);">}</span></code></div></span></pre>
+</li>
+</ul>
+<p><em>Если при заданном графе решение задачи невозможно, выведи ошибку.</em></p>
+<h2 class="_1aDvk" level="2"><span id="part-5-консольный-интерфейс" class="_1Xdpx" style="margin-top: -100px; padding-bottom: 100px;"></span><a href="#part-5-консольный-интерфейс" aria-hidden="true" class="_2LRH5"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="#333" fill-rule="evenodd" d="M9.683 6.676l-.047-.048C8.27 5.26 6.07 5.243 4.726 6.588l-2.29 2.29c-1.344 1.344-1.328 3.544.04 4.91 1.366 1.368 3.564 1.385 4.908.04l1.753-1.752c-.695.074-1.457-.078-2.176-.444L5.934 12.66c-.634.634-1.67.625-2.312-.017-.642-.643-.65-1.677-.017-2.312L6.035 7.9c.634-.634 1.67-.625 2.312.017.024.024.048.05.07.075l.003-.002c.36.36.943.366 1.3.01.355-.356.35-.938-.01-1.3l-.027-.024zM6.58 9.586l.048.05c1.367 1.366 3.565 1.384 4.91.04l2.29-2.292c1.344-1.343 1.328-3.542-.04-4.91-1.366-1.366-3.564-1.384-4.908-.04L7.127 4.187c.695-.074 1.457.078 2.176.444l1.028-1.027c.635-.634 1.67-.624 2.313.017.643.644.652 1.678.018 2.312l-2.43 2.432c-.635.634-1.67.624-2.313-.018-.024-.024-.048-.05-.07-.075l-.003.004c-.36-.362-.943-.367-1.3-.01-.355.355-.35.937.01 1.3.01.007.018.015.027.023z"></path></svg></a>Part 5. Консольный интерфейс</h2>
+<ul>
+<li>Напиши основную программу, которая представляет из себя консольное приложение для проверки работоспособности реализованных библиотек s21_graph и s21_graph_algorithms.</li>
+<li>Консольный интерфейс обязательно должен покрывать следующий функционал:
+<ol>
+<li>Загрузка исходного графа из файла.</li>
+<li>Обход графа в ширину с выводом результата обхода в консоль.</li>
+<li>Обход графа в глубину с выводом результата обхода в консоль.</li>
+<li>Поиск кратчайшего пути между произвольными двумя вершинами с выводом результата в консоль.</li>
+<li>Поиск кратчайших путей между всеми парами вершин в графе с выводом результирующей матрицы в консоль.</li>
+<li>Поиск минимального остовного дерева в графе с выводом результирующей матрицы смежности в консоль.</li>
+<li>Решение задачи коммивояжера с выводом результирующего маршрута и его длины в консоль.</li>
+</ol>
+</li>
+</ul>
+<h2 class="_1aDvk" level="2"><span id="part-6-дополнительно-сравнение-методов-решения-задачи-коммивояжера" class="_1Xdpx" style="margin-top: -100px; padding-bottom: 100px;"></span><a href="#part-6-дополнительно-сравнение-методов-решения-задачи-коммивояжера" aria-hidden="true" class="_2LRH5"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="#333" fill-rule="evenodd" d="M9.683 6.676l-.047-.048C8.27 5.26 6.07 5.243 4.726 6.588l-2.29 2.29c-1.344 1.344-1.328 3.544.04 4.91 1.366 1.368 3.564 1.385 4.908.04l1.753-1.752c-.695.074-1.457-.078-2.176-.444L5.934 12.66c-.634.634-1.67.625-2.312-.017-.642-.643-.65-1.677-.017-2.312L6.035 7.9c.634-.634 1.67-.625 2.312.017.024.024.048.05.07.075l.003-.002c.36.36.943.366 1.3.01.355-.356.35-.938-.01-1.3l-.027-.024zM6.58 9.586l.048.05c1.367 1.366 3.565 1.384 4.91.04l2.29-2.292c1.344-1.343 1.328-3.542-.04-4.91-1.366-1.366-3.564-1.384-4.908-.04L7.127 4.187c.695-.074 1.457.078 2.176.444l1.028-1.027c.635-.634 1.67-.624 2.313.017.643.644.652 1.678.018 2.312l-2.43 2.432c-.635.634-1.67.624-2.313-.018-.024-.024-.048-.05-.07-.075l-.003.004c-.36-.362-.943-.367-1.3-.01-.355.355-.35.937.01 1.3.01.007.018.015.027.023z"></path></svg></a>Part 6. Дополнительно. Сравнение методов решения задачи коммивояжера</h2>
+<ul>
+<li>Выбери дополнительные два алгоритма для решения задачи коммивояжера и реализуй их в виде методов класса <code node="[object Object]">GraphAlgorithms</code>.</li>
+<li>Добавь в консольный интерфейс возможность проведения сравнительного исследования скорости работы трёх алгоритмов (муравьиного алгоритма и двух выбранных произвольно):
+<ul>
+<li>Исследование запускается для графа, который был предварительно загружен из файла.</li>
+<li>В рамках исследования требуется засечь время, потраченное на решение задачи коммивояжера <code node="[object Object]">N</code> раз подряд, каждым из алгоритмов. Где <code node="[object Object]">N</code> задаётся с клавиатуры.</li>
+<li>Необходимо вывести в консоль результаты замера времени.</li>
+</ul>
+</li>
+</ul>
+<p><em>Пример:</em> для <code node="[object Object]">N = 1000</code> будет измерено, сколько времени уйдёт на то, чтобы 1000 раз решить задачу коммивояжера для текущего заданного графа муравьиным алгоритмом и двумя произвольно выбранными алгоритмами.</p>
+<h2 class="_1aDvk" level="2"><span id="chapter-iv" class="_1Xdpx" style="margin-top: -100px; padding-bottom: 100px;"></span><a href="#chapter-iv" aria-hidden="true" class="_2LRH5"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="#333" fill-rule="evenodd" d="M9.683 6.676l-.047-.048C8.27 5.26 6.07 5.243 4.726 6.588l-2.29 2.29c-1.344 1.344-1.328 3.544.04 4.91 1.366 1.368 3.564 1.385 4.908.04l1.753-1.752c-.695.074-1.457-.078-2.176-.444L5.934 12.66c-.634.634-1.67.625-2.312-.017-.642-.643-.65-1.677-.017-2.312L6.035 7.9c.634-.634 1.67-.625 2.312.017.024.024.048.05.07.075l.003-.002c.36.36.943.366 1.3.01.355-.356.35-.938-.01-1.3l-.027-.024zM6.58 9.586l.048.05c1.367 1.366 3.565 1.384 4.91.04l2.29-2.292c1.344-1.343 1.328-3.542-.04-4.91-1.366-1.366-3.564-1.384-4.908-.04L7.127 4.187c.695-.074 1.457.078 2.176.444l1.028-1.027c.635-.634 1.67-.624 2.313.017.643.644.652 1.678.018 2.312l-2.43 2.432c-.635.634-1.67.624-2.313-.018-.024-.024-.048-.05-.07-.075l-.003.004c-.36-.362-.943-.367-1.3-.01-.355.355-.35.937.01 1.3.01.007.018.015.027.023z"></path></svg></a>Chapter IV</h2>
+<p><code node="[object Object]">-</code> Боб попросил заняться этим, вот мы и подхватили задачку. Я бы с радостью забрала тебя вместе с ней, но у Боба свои идеи, — ответила Алиса на вопрос Евы.</p>
+<p><code node="[object Object]">-</code> И все же не понимаю, как вы связаны с роботом-пылесосом, — посетовала Ева. — А где Чарли? Он раньше как минимум пару раз в неделю заскакивал.</p>
+<p><code node="[object Object]">-</code> Чарли... работает. У нас небольшая проблема, и твои наработки по поиску пути как раз нам с этим помогут. Не волнуйся, как все закончится, наши вечерние посиделки вернутся. Тогда все и обсудим, — успокаивающе, но грустно заверила Алиса. — Спасибо за уделенное время, я побежала. Еще увидимся!</p></div></div></div></div></div></div></div></main><aside class="jss13"><div class="jss88" data-testid="projectContainer.projectActionsWidget"><div class="MuiPaper-root tss-12pqxn4-default tss-1dwtr3a-unstatable MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 jss114 mui-jozxtr" type="default"><h4 class="tss-14vqrh4-root tss-85808k-Head-h4">Unfortunately, you can't participate in this project</h4><div class="jss115"><button class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium Mui-disabled MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium tss-1kithf-root tss-16ubhsh-main jss116 mui-5hq126" tabindex="-1" type="button" disabled=""><span class="MuiButton-startIcon MuiButton-iconSizeMedium mui-6xugel"><svg data-testid="uiKit-doneIcon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="tss-1iwxcj2-svgicon"><path d="M9 16.2L5.5 12.7C5.11 12.31 4.49 12.31 4.1 12.7C3.71 13.09 3.71 13.71 4.1 14.1L8.29 18.29C8.68 18.68 9.31 18.68 9.7 18.29L20.3 7.70001C20.69 7.31001 20.69 6.69001 20.3 6.30001C19.91 5.91001 19.29 5.91001 18.9 6.30001L9 16.2Z"></path></svg></span><span class="tss-14vqrh4-root tss-18zurqi-Button-Medium tss-1rygpgm-content">Subscribe</span></button></div></div></div><div class="jss89"><nav class="jss92"><div class="jss97" style="transform: translateY(0px);"></div><ul class="jss93"><li><a class="jss94 jss96" href="#simplenavigator" title="SimpleNavigator">SimpleNavigator</a></li><li><a class="jss94" href="#contents" title="Contents">Contents</a></li><li><a class="jss94" href="#chapter-i" title="Chapter I">Chapter I</a></li><li><a class="jss94" href="#introduction" title="Introduction">Introduction</a></li><li><a class="jss94" href="#chapter-ii" title="Chapter II">Chapter II</a></li><li><a class="jss94" href="#information" title="Information">Information</a></li><li><a class="jss94" href="#chapter-iii" title="Chapter III">Chapter III</a></li><li><a class="jss94" href="#part-1-обход-графа-в-глубину-и-в-ширину" title="Part 1. Обход графа в глубину и в ширину">Part 1. Обход графа в глубину и в ширину</a></li><li><a class="jss94" href="#part-2-поиск-кратчайших-путей-в-графе" title="Part 2. Поиск кратчайших путей в графе">Part 2. Поиск кратчайших путей в графе</a></li><li><a class="jss94 jss95" href="#part-3-поиск-минимального-остовного-дерева" title="Part 3. Поиск минимального остовного дерева">Part 3. Поиск минимального остовного дерева</a></li><li><a class="jss94" href="#part-4-задача-коммивояжера" title="Part 4. Задача коммивояжера">Part 4. Задача коммивояжера</a></li><li><a class="jss94" href="#part-5-консольный-интерфейс" title="Part 5. Консольный интерфейс">Part 5. Консольный интерфейс</a></li><li><a class="jss94 jss95" href="#part-6-дополнительно-сравнение-методов-решения-задачи-коммивояжера" title="Part 6. Дополнительно. Сравнение методов решения задачи коммивояжера">Part 6. Дополнительно. Сравнение методов решения задачи коммивояжера</a></li><li><a class="jss94" href="#chapter-iv" title="Chapter IV">Chapter IV</a></li></ul></nav><div class="jss90 jss88"></div></div></aside></div><footer><div class="jss108"></div></footer></div><div class="jss6"></div></div>
+        
+      <script nomodule="">!function(){var e=document,t=e.createElement("script");if(!("noModule"in t)&&"onbeforeload"in t){var n=!1;e.addEventListener("beforeload",(function(e){if(e.target===t)n=!0;else if(!e.target.hasAttribute("nomodule")||!n)return;e.preventDefault()}),!0),t.type="module",t.src=".",e.head.appendChild(t),t.remove()}}();</script>
+      <script nomodule="" crossorigin="" id="vite-legacy-polyfill" src="/polyfills-legacy-b2443470.js"></script>
+      <script nomodule="" crossorigin="" id="vite-legacy-entry" data-src="/index-legacy-85989ed3.js">System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))</script>
+    
+
+<div role="presentation" class="MuiDrawer-root tss-5qovnk-root jss9 MuiDrawer-modal tss-5uqpk4-modal MuiModal-root MuiModal-hidden mui-12snods" aria-hidden="true"><div aria-hidden="true" class="MuiBackdrop-root MuiModal-backdrop mui-919eu4" style="opacity: 0; visibility: hidden;"></div><div tabindex="-1" data-testid="sentinelStart"></div><div class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation16 MuiDrawer-paper tss-280e35-paper MuiDrawer-paperAnchorRight tss-1ndspoc-paperAnchorRight tss-280e35-paper mui-17jaisf" tabindex="-1" style="visibility: hidden; pointer-events: none; transform: translateX(592px);"><button class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium tss-e51mmw-root tss-1kpgimw-secondary tss-1hx3mvs-buttonCloseRound tss-36-buttonCloseRound-ref mui-5hq126" tabindex="0" type="button" data-testid="Drawer.CloseButton"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" id="uiKit-close" width="24" height="24" class="tss-1iwxcj2-svgicon"><path d="M18.2997 5.70971C18.1129 5.52246 17.8592 5.41723 17.5947 5.41723C17.3302 5.41723 17.0766 5.52246 16.8897 5.70971L11.9997 10.5897L7.10973 5.69971C6.9229 5.51246 6.66924 5.40723 6.40473 5.40723C6.14021 5.40723 5.88656 5.51246 5.69973 5.69971C5.30973 6.08971 5.30973 6.71971 5.69973 7.10971L10.5897 11.9997L5.69973 16.8897C5.30973 17.2797 5.30973 17.9097 5.69973 18.2997C6.08973 18.6897 6.71973 18.6897 7.10973 18.2997L11.9997 13.4097L16.8897 18.2997C17.2797 18.6897 17.9097 18.6897 18.2997 18.2997C18.6897 17.9097 18.6897 17.2797 18.2997 16.8897L13.4097 11.9997L18.2997 7.10971C18.6797 6.72971 18.6797 6.08971 18.2997 5.70971Z"></path></svg></button><div class="tss-ey1rss-wrapper"></div></div><div tabindex="-1" data-testid="sentinelEnd"></div></div><div role="presentation" class="MuiDrawer-root tss-5qovnk-root MuiDrawer-modal tss-5uqpk4-modal jss74 MuiModal-root MuiModal-hidden mui-12snods" aria-hidden="true"><div aria-hidden="true" class="MuiBackdrop-root MuiModal-backdrop mui-919eu4" style="opacity: 0; visibility: hidden;"></div><div tabindex="-1" data-testid="sentinelStart"></div><div class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation16 MuiDrawer-paper tss-280e35-paper MuiDrawer-paperAnchorRight tss-1ndspoc-paperAnchorRight tss-280e35-paper mui-17jaisf" tabindex="-1" style="visibility: hidden; pointer-events: none; transform: translateX(592px);"><button class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium tss-e51mmw-root tss-1kpgimw-secondary tss-1hx3mvs-buttonCloseRound tss-36-buttonCloseRound-ref mui-5hq126" tabindex="0" type="button" data-testid="Drawer.CloseButton"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" id="uiKit-close" width="24" height="24" class="tss-1iwxcj2-svgicon"><path d="M18.2997 5.70971C18.1129 5.52246 17.8592 5.41723 17.5947 5.41723C17.3302 5.41723 17.0766 5.52246 16.8897 5.70971L11.9997 10.5897L7.10973 5.69971C6.9229 5.51246 6.66924 5.40723 6.40473 5.40723C6.14021 5.40723 5.88656 5.51246 5.69973 5.69971C5.30973 6.08971 5.30973 6.71971 5.69973 7.10971L10.5897 11.9997L5.69973 16.8897C5.30973 17.2797 5.30973 17.9097 5.69973 18.2997C6.08973 18.6897 6.71973 18.6897 7.10973 18.2997L11.9997 13.4097L16.8897 18.2997C17.2797 18.6897 17.9097 18.6897 18.2997 18.2997C18.6897 17.9097 18.6897 17.2797 18.2997 16.8897L13.4097 11.9997L18.2997 7.10971C18.6797 6.72971 18.6797 6.08971 18.2997 5.70971Z"></path></svg></button><div class="tss-ey1rss-wrapper"><h3 data-testid="UserNotifications.Drawer.Title" class="tss-14vqrh4-root tss-nhb3o2-Head-h3 jss75">Notifications</h3><div class="jss76"><svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" width="100" height="100"><rect x="3.5" y="40.5" width="41" height="41" rx="5" transform="rotate(-45 3.5 40.5)" fill="url(#paint0_linear_no_invitations)"></rect><rect x="19" y="40" width="41" height="41" rx="5" transform="rotate(-45 19 40)" fill="url(#paint1_linear_no_invitations)"></rect><defs><linearGradient id="paint0_linear_no_invitations" x1="44.5" y1="81.5" x2="4.2" y2="31.2" gradientUnits="userSpaceOnUse"><stop stop-color="#008BFF"></stop><stop offset="1" stop-color="#36C5F0"></stop></linearGradient><linearGradient id="paint1_linear_no_invitations" x1="19" y1="53.7" x2="57.7" y2="65.1" gradientUnits="userSpaceOnUse"><stop stop-color="#36C5F0"></stop><stop offset="1" stop-color="#44EB99"></stop></linearGradient></defs></svg><span class="tss-14vqrh4-root">There are no notifications</span></div><div class="jss79"></div></div></div><div tabindex="-1" data-testid="sentinelEnd"></div></div></body></html>

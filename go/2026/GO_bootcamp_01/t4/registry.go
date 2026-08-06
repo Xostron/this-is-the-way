@@ -28,7 +28,11 @@ func (r *Registry) Save(name, spec, date string) {
 func (r *Registry) GetHistory(name string) ([]Visit, error) {
 	// ВАШЕ ЗАДАНИЕ: вернуть срез визитов.
 	// Если пациента нет в мапе — вернуть nil и ошибку PatientNotFoundError{Message: "patient not found"}
-
+	h, ok := r.data[name]
+	if !ok {
+		return nil, PatientNotFoundError{Message: "patient not found"}
+	}
+	return h, nil
 }
 
 // Метод получения последнего визита

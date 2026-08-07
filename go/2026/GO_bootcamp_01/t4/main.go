@@ -29,25 +29,52 @@ import (
 
 func main() {
 	// Ключом будет ФИО пациента (string), а значением — срез визитов ([]Visit).
-	var db = make(map[string][]Visit)
+	var db = NewRegistry()
 
-	//  Бесконечный интерактивный режим (REPL)
-	// (Read-Eval-Print Loop — «считай-вычисли-выведи-повтори»)
-	// — это интерактивная консоль, в которую ты вводишь строку кода,
-	// она тут же выполняется, результат выводится на экран, и консоль снова ждет ввода.
+	// //  Бесконечный интерактивный режим (REPL)
+	// // (Read-Eval-Print Loop — «считай-вычисли-выведи-повтори»)
+	// // — это интерактивная консоль, в которую ты вводишь строку кода,
+	// // она тут же выполняется, результат выводится на экран, и консоль снова ждет ввода.
 	scanner := bufio.NewScanner(os.Stdin)
+
 	for {
 		if !scanner.Scan() {
 			break
 		}
 		command := scanner.Text()
-
 		switch command {
 		case "Save":
+			scanner.Scan()
+			name := scanner.Text()
+			scanner.Scan()
+			spec := scanner.Text()
+			scanner.Scan()
+			date := scanner.Text()
+			db.Save(name, spec, date)
 		case "GetHistory":
+			scanner.Scan()
+			name := scanner.Text()
+			arr, err := db.GetHistory(name)
+			if err != nil {
+				fmt.Println(err.Error())
+				continue
+			}
+			for _, el := range arr {
+				fmt.Printf("%s %s\n", el.Specialization, el.Date)
+			}
 		case "GetLastVisit":
+			scanner.Scan()
+			name := scanner.Text()
+			scanner.Scan()
+			spec := scanner.Text()
+			date, err := db.GetLastVisit(name, spec)
+			if err != nil {
+				fmt.Println(err.Error())
+				continue
+			}
+			fmt.Println(date)
 		default:
-			fmt.Println("Unknown command")
+			fmt.Println("Неизвестная команда")
 		}
 	}
 

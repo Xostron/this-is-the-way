@@ -3,7 +3,7 @@ const { fnUrlCards } = require('../scrapper')
 
 // Ссылка на каталог
 const data = [
-	'https://market.yandex.ru/',
+	'https://market.yandex.ru/catalog--produkty-v-volzhskom/54434/list?hid=91307&rs=eJwzsv_EaMPBILDwEKsEg8Lqk6wae4F418Mv7BpXgYwPu_azayw4xapxEsh5B8RHbh5k11gDZNx9_ppVo-cUKwBBIxtu',
 ]
 
 main()

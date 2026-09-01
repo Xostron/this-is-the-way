@@ -3,7 +3,7 @@ const { fnUrlCards } = require('../scrapper')
 
 // Ссылка на каталог
 const data = [
-	'https://market.yandex.ru/catalog--sredstva-po-ukhodu-za-telom-v-volzhskom/17437172/list?hid=91186&rs=eJwz8vvE6M3BILDwEKsEg8KmE6wax750MWvsXNXKojEfyHt1dQ2bxgogo-UakLEZJHxn2mV2jSufJrFr3JsxmV2j-zOQtWzGCiaNpUACAPQXIRY%2C',
+	'https://market.yandex.ru/search?text=%D1%84%D1%83%D1%82%D0%B1%D0%BE%D0%BB%D0%BA%D0%B8&hid=53546007&hid=52710834&rs=eJwzcqxi5Zg-44jkC0bGT4wyHAwCCw-xSjAogIQUNs2eKKkBYmmAWH8ZGYCglwlETgWTK5hAkgDUURQI&rt=9',
 ]
 
 main()

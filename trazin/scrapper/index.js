@@ -1,7 +1,5 @@
 const puppeteer = require('puppeteer')
 const fs = require('fs')
-const fsp = require('fs').promises
-const path = require('path')
 const dsHtmlPromo = require('./promo')
 const fnCards = require('./card/index')
 
@@ -45,7 +43,7 @@ async function fnPromo(config) {
  * Извлечь из html ссылки на карточки товаров
  * @param {object[]} config Массив конфигов ссылки
  */
-async function fnUrlCards(config,tt) {
+async function fnUrlCards(config, tt) {
 	const browser = await puppeteer.launch({
 		headless: true,
 		args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage'],
@@ -61,7 +59,7 @@ async function fnUrlCards(config,tt) {
 
 		// Открытие страницы
 		const page = await browser.newPage()
-		await page.setUserAgent(config.userAgent)
+		await page.setUserAgent({ userAgent: config.userAgent })
 		// Устанавливаем размер экрана (несовпадение размеров часто выдает бота)
 		await page.setViewport({ width: 1920, height: 1080 })
 		// Ожидание загрузки страницы

@@ -3,8 +3,7 @@ const { fnUrlCards } = require('../scrapper')
 
 // Ссылка на каталог
 const data = [
-	'https://market.yandex.ru/catalog--tovary-dlia-sporta-i-otdykha/54436/list?generalContext=&hid=91512&rs=eJwzyv3EmMLBILDwEKsEg8KPU6wav4D4HxB3nGbV2A7EZ_4JaEz-J6gxfb2txuKtthr7_rWzapwGETdAxCMQse_dPDaNq3PmsGuc6D3DobHqCKtGz1FWjY1A_LybR-P9qwfMe5l02tPtAT3GMC0%2C',
-	'https://market.yandex.ru/category/aksessuary-dlya-turizma',
+	'https://market.yandex.ru/search?text=%D0%B2%D0%B8%D1%82%D0%B0%D0%BC%D0%B8%D0%BD%D1%8B%20%D0%B4%D0%BB%D1%8F%20%D0%B4%D0%B5%D1%82%D0%B5%D0%B9&hid=90521&hid=16089018&how=aprice&rs=eJwz0qti4Zh5mPUToxQHg8DCQ6wSDApArsKu_1fZNYAMDRBjBROQtZdp0pnXdgCMkhK6',
 ]
 
 main()

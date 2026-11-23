@@ -23,7 +23,7 @@ async function fnPromo(config) {
 
 		// Открытие страницы
 		const page = await browser.newPage()
-		await page.setUserAgent(config.userAgent)
+		await page.setUserAgent({ userAgent: config.userAgent })
 
 		// Ожидание загрузки страницы
 		await page.goto(config.url, { waitUntil: 'domcontentloaded', timeout: 60000 })
